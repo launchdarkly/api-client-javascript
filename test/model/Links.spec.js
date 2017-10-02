@@ -57,12 +57,6 @@
       //expect(instance).to.be.a(LaunchDarklyRestApi.Links);
     });
 
-    it('should have the property parent (base name: "parent")', function() {
-      // uncomment below and update the code to test the property parent
-      //var instane = new LaunchDarklyRestApi.Links();
-      //expect(instance).to.be();
-    });
-
     it('should have the property self (base name: "self")', function() {
       // uncomment below and update the code to test the property self
       //var instane = new LaunchDarklyRestApi.Links();
