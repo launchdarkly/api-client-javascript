@@ -1,8 +1,9 @@
-# LaunchDarklyRestApi.Links
+# LaunchDarklyRestApi.ProjectBody
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**self** | [**Link**](Link.md) |  | [optional] 
+**name** | **String** |  | 
+**key** | **String** |  | 
 
 

@@ -17,62 +17,70 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Link'], factory);
+    define(['ApiClient', 'model/Links'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Link'));
+    module.exports = factory(require('../ApiClient'), require('./Links'));
   } else {
     // Browser globals (root is window)
     if (!root.LaunchDarklyRestApi) {
       root.LaunchDarklyRestApi = {};
     }
-    root.LaunchDarklyRestApi.Links = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.Link);
+    root.LaunchDarklyRestApi.UserFlagSettings = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.Links);
   }
-}(this, function(ApiClient, Link) {
+}(this, function(ApiClient, Links) {
   'use strict';
 
 
 
 
   /**
-   * The Links model module.
-   * @module model/Links
+   * The UserFlagSettings model module.
+   * @module model/UserFlagSettings
    * @version 2.0.0
    */
 
   /**
-   * Constructs a new <code>Links</code>.
-   * @alias module:model/Links
+   * Constructs a new <code>UserFlagSettings</code>.
+   * @alias module:model/UserFlagSettings
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
+
   };
 
   /**
-   * Constructs a <code>Links</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>UserFlagSettings</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Links} obj Optional instance to populate.
-   * @return {module:model/Links} The populated <code>Links</code> instance.
+   * @param {module:model/UserFlagSettings} obj Optional instance to populate.
+   * @return {module:model/UserFlagSettings} The populated <code>UserFlagSettings</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('self')) {
-        obj['self'] = Link.constructFromObject(data['self']);
+      if (data.hasOwnProperty('_links')) {
+        obj['_links'] = Links.constructFromObject(data['_links']);
+      }
+      if (data.hasOwnProperty('items')) {
+        obj['items'] = ApiClient.convertToType(data['items'], Object);
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/Link} self
+   * @member {module:model/Links} _links
    */
-  exports.prototype['self'] = undefined;
+  exports.prototype['_links'] = undefined;
+  /**
+   * @member {Object} items
+   */
+  exports.prototype['items'] = undefined;
 
 
 

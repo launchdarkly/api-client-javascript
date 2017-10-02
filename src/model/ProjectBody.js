@@ -17,62 +17,72 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Link'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Link'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.LaunchDarklyRestApi) {
       root.LaunchDarklyRestApi = {};
     }
-    root.LaunchDarklyRestApi.Links = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.Link);
+    root.LaunchDarklyRestApi.ProjectBody = factory(root.LaunchDarklyRestApi.ApiClient);
   }
-}(this, function(ApiClient, Link) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The Links model module.
-   * @module model/Links
+   * The ProjectBody model module.
+   * @module model/ProjectBody
    * @version 2.0.0
    */
 
   /**
-   * Constructs a new <code>Links</code>.
-   * @alias module:model/Links
+   * Constructs a new <code>ProjectBody</code>.
+   * @alias module:model/ProjectBody
    * @class
+   * @param name {String} 
+   * @param key {String} 
    */
-  var exports = function() {
+  var exports = function(name, key) {
     var _this = this;
 
-
+    _this['name'] = name;
+    _this['key'] = key;
   };
 
   /**
-   * Constructs a <code>Links</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ProjectBody</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Links} obj Optional instance to populate.
-   * @return {module:model/Links} The populated <code>Links</code> instance.
+   * @param {module:model/ProjectBody} obj Optional instance to populate.
+   * @return {module:model/ProjectBody} The populated <code>ProjectBody</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('self')) {
-        obj['self'] = Link.constructFromObject(data['self']);
+      if (data.hasOwnProperty('name')) {
+        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      }
+      if (data.hasOwnProperty('key')) {
+        obj['key'] = ApiClient.convertToType(data['key'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/Link} self
+   * @member {String} name
    */
-  exports.prototype['self'] = undefined;
+  exports.prototype['name'] = undefined;
+  /**
+   * @member {String} key
+   */
+  exports.prototype['key'] = undefined;
 
 
 

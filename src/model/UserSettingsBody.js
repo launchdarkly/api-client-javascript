@@ -17,32 +17,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Link'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Link'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.LaunchDarklyRestApi) {
       root.LaunchDarklyRestApi = {};
     }
-    root.LaunchDarklyRestApi.Links = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.Link);
+    root.LaunchDarklyRestApi.UserSettingsBody = factory(root.LaunchDarklyRestApi.ApiClient);
   }
-}(this, function(ApiClient, Link) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The Links model module.
-   * @module model/Links
+   * The UserSettingsBody model module.
+   * @module model/UserSettingsBody
    * @version 2.0.0
    */
 
   /**
-   * Constructs a new <code>Links</code>.
-   * @alias module:model/Links
+   * Constructs a new <code>UserSettingsBody</code>.
+   * @alias module:model/UserSettingsBody
    * @class
    */
   var exports = function() {
@@ -52,27 +52,28 @@
   };
 
   /**
-   * Constructs a <code>Links</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>UserSettingsBody</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Links} obj Optional instance to populate.
-   * @return {module:model/Links} The populated <code>Links</code> instance.
+   * @param {module:model/UserSettingsBody} obj Optional instance to populate.
+   * @return {module:model/UserSettingsBody} The populated <code>UserSettingsBody</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('self')) {
-        obj['self'] = Link.constructFromObject(data['self']);
+      if (data.hasOwnProperty('setting')) {
+        obj['setting'] = ApiClient.convertToType(data['setting'], 'Boolean');
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/Link} self
+   * The variation value to set for the user. Must match the variation type of the flag.
+   * @member {Boolean} setting
    */
-  exports.prototype['self'] = undefined;
+  exports.prototype['setting'] = undefined;
 
 
 

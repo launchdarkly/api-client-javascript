@@ -1,21 +1,21 @@
-# LaunchDarklyRestApi.WebhooksApi
+# LaunchDarklyRestApi.ProjectsApi
 
 All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteWebhook**](WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{resourceId} | Delete a webhook by ID
-[**getWebhook**](WebhooksApi.md#getWebhook) | **GET** /webhooks/{resourceId} | Get a webhook by ID
-[**getWebhooks**](WebhooksApi.md#getWebhooks) | **GET** /webhooks | Fetch a list of all webhooks
-[**patchWebhook**](WebhooksApi.md#patchWebhook) | **PATCH** /webhooks/{resourceId} | Modify a webhook by ID
-[**postWebhook**](WebhooksApi.md#postWebhook) | **POST** /webhooks | Create a webhook
+[**deleteProject**](ProjectsApi.md#deleteProject) | **DELETE** /projects/{projectKey} | Delete a project by ID
+[**getProject**](ProjectsApi.md#getProject) | **GET** /projects/{projectKey} | Get a project by key.
+[**getProjects**](ProjectsApi.md#getProjects) | **GET** /projects | Returns a list of all projects in the account.
+[**patchProject**](ProjectsApi.md#patchProject) | **PATCH** /projects/{projectKey} | Modify a project by ID
+[**postProject**](ProjectsApi.md#postProject) | **POST** /projects | Create a project
 
 
-<a name="deleteWebhook"></a>
-# **deleteWebhook**
-> deleteWebhook(resourceId, )
+<a name="deleteProject"></a>
+# **deleteProject**
+> deleteProject(projectKey, )
 
-Delete a webhook by ID
+Delete a project by ID
 
 ### Example
 ```javascript
@@ -28,9 +28,9 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
+var apiInstance = new LaunchDarklyRestApi.ProjectsApi();
 
-var resourceId = "resourceId_example"; // String | The resource ID
+var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
 
 var callback = function(error, data, response) {
@@ -40,14 +40,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.deleteWebhook(resourceId, , callback);
+apiInstance.deleteProject(projectKey, , callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceId** | **String**| The resource ID | 
+ **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
 
 ### Return type
 
@@ -62,11 +62,11 @@ null (empty response body)
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="getWebhook"></a>
-# **getWebhook**
-> Webhook getWebhook(resourceId, )
+<a name="getProject"></a>
+# **getProject**
+> Project getProject(projectKey, )
 
-Get a webhook by ID
+Get a project by key.
 
 ### Example
 ```javascript
@@ -79,9 +79,9 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
+var apiInstance = new LaunchDarklyRestApi.ProjectsApi();
 
-var resourceId = "resourceId_example"; // String | The resource ID
+var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
 
 var callback = function(error, data, response) {
@@ -91,18 +91,18 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getWebhook(resourceId, , callback);
+apiInstance.getProject(projectKey, , callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceId** | **String**| The resource ID | 
+ **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
 
 ### Return type
 
-[**Webhook**](Webhook.md)
+[**Project**](Project.md)
 
 ### Authorization
 
@@ -113,11 +113,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="getWebhooks"></a>
-# **getWebhooks**
-> Webhooks getWebhooks()
+<a name="getProjects"></a>
+# **getProjects**
+> Projects getProjects()
 
-Fetch a list of all webhooks
+Returns a list of all projects in the account.
 
 ### Example
 ```javascript
@@ -130,7 +130,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
+var apiInstance = new LaunchDarklyRestApi.ProjectsApi();
 
 var callback = function(error, data, response) {
   if (error) {
@@ -139,7 +139,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getWebhooks(callback);
+apiInstance.getProjects(callback);
 ```
 
 ### Parameters
@@ -147,7 +147,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Webhooks**](Webhooks.md)
+[**Projects**](Projects.md)
 
 ### Authorization
 
@@ -158,11 +158,11 @@ This endpoint does not need any parameter.
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="patchWebhook"></a>
-# **patchWebhook**
-> Webhook patchWebhook(resourceId, patchDelta)
+<a name="patchProject"></a>
+# **patchProject**
+> patchProject(projectKey, patchDelta)
 
-Modify a webhook by ID
+Modify a project by ID
 
 ### Example
 ```javascript
@@ -175,63 +175,11 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
+var apiInstance = new LaunchDarklyRestApi.ProjectsApi();
 
-var resourceId = "resourceId_example"; // String | The resource ID
+var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
 var patchDelta = [new LaunchDarklyRestApi.PatchDelta()]; // [PatchDelta] | http://jsonpatch.com/
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.patchWebhook(resourceId, patchDelta, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **resourceId** | **String**| The resource ID | 
- **patchDelta** | [**[PatchDelta]**](PatchDelta.md)| http://jsonpatch.com/ | 
-
-### Return type
-
-[**Webhook**](Webhook.md)
-
-### Authorization
-
-[Token](../README.md#Token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="postWebhook"></a>
-# **postWebhook**
-> postWebhook(webhookBody)
-
-Create a webhook
-
-### Example
-```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
-
-var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
-
-var webhookBody = new LaunchDarklyRestApi.WebhookBody(); // WebhookBody | New webhook
 
 
 var callback = function(error, data, response) {
@@ -241,14 +189,66 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.postWebhook(webhookBody, callback);
+apiInstance.patchProject(projectKey, patchDelta, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhookBody** | [**WebhookBody**](WebhookBody.md)| New webhook | 
+ **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
+ **patchDelta** | [**[PatchDelta]**](PatchDelta.md)| http://jsonpatch.com/ | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="postProject"></a>
+# **postProject**
+> postProject(projectBody)
+
+Create a project
+
+### Example
+```javascript
+var LaunchDarklyRestApi = require('launch_darkly_rest_api');
+var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+
+// Configure API key authorization: Token
+var Token = defaultClient.authentications['Token'];
+Token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Token.apiKeyPrefix = 'Token';
+
+var apiInstance = new LaunchDarklyRestApi.ProjectsApi();
+
+var projectBody = new LaunchDarklyRestApi.ProjectBody(); // ProjectBody | New project
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+apiInstance.postProject(projectBody, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectBody** | [**ProjectBody**](ProjectBody.md)| New project | 
 
 ### Return type
 

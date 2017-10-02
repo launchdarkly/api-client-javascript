@@ -17,12 +17,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Link', 'model/Links', 'model/PatchDelta', 'model/Webhook', 'model/WebhookPost', 'model/Webhooks', 'api/RootApi', 'api/WebhooksApi'], factory);
+    define(['ApiClient', 'model/AuditLogEntries', 'model/AuditLogEntry', 'model/AuditLogEntryTarget', 'model/Clause', 'model/Environment', 'model/EnvironmentBody', 'model/FeatureFlag', 'model/FeatureFlagBody', 'model/FeatureFlagConfig', 'model/FeatureFlagConfigFallthrough', 'model/FeatureFlagStatus', 'model/FeatureFlagStatuses', 'model/FeatureFlags', 'model/Link', 'model/Links', 'model/Member', 'model/PatchDelta', 'model/Project', 'model/ProjectBody', 'model/Projects', 'model/Rollout', 'model/Rule', 'model/Target', 'model/User', 'model/UserFlagSetting', 'model/UserFlagSettings', 'model/UserSettingsBody', 'model/Users', 'model/Variation', 'model/Webhook', 'model/WebhookBody', 'model/Webhooks', 'model/WeightedVariation', 'api/AuditLogApi', 'api/EnvironmentsApi', 'api/FlagsApi', 'api/ProjectsApi', 'api/RootApi', 'api/UserSettingsApi', 'api/UsersApi', 'api/WebhooksApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/Link'), require('./model/Links'), require('./model/PatchDelta'), require('./model/Webhook'), require('./model/WebhookPost'), require('./model/Webhooks'), require('./api/RootApi'), require('./api/WebhooksApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/AuditLogEntries'), require('./model/AuditLogEntry'), require('./model/AuditLogEntryTarget'), require('./model/Clause'), require('./model/Environment'), require('./model/EnvironmentBody'), require('./model/FeatureFlag'), require('./model/FeatureFlagBody'), require('./model/FeatureFlagConfig'), require('./model/FeatureFlagConfigFallthrough'), require('./model/FeatureFlagStatus'), require('./model/FeatureFlagStatuses'), require('./model/FeatureFlags'), require('./model/Link'), require('./model/Links'), require('./model/Member'), require('./model/PatchDelta'), require('./model/Project'), require('./model/ProjectBody'), require('./model/Projects'), require('./model/Rollout'), require('./model/Rule'), require('./model/Target'), require('./model/User'), require('./model/UserFlagSetting'), require('./model/UserFlagSettings'), require('./model/UserSettingsBody'), require('./model/Users'), require('./model/Variation'), require('./model/Webhook'), require('./model/WebhookBody'), require('./model/Webhooks'), require('./model/WeightedVariation'), require('./api/AuditLogApi'), require('./api/EnvironmentsApi'), require('./api/FlagsApi'), require('./api/ProjectsApi'), require('./api/RootApi'), require('./api/UserSettingsApi'), require('./api/UsersApi'), require('./api/WebhooksApi'));
   }
-}(function(ApiClient, Link, Links, PatchDelta, Webhook, WebhookPost, Webhooks, RootApi, WebhooksApi) {
+}(function(ApiClient, AuditLogEntries, AuditLogEntry, AuditLogEntryTarget, Clause, Environment, EnvironmentBody, FeatureFlag, FeatureFlagBody, FeatureFlagConfig, FeatureFlagConfigFallthrough, FeatureFlagStatus, FeatureFlagStatuses, FeatureFlags, Link, Links, Member, PatchDelta, Project, ProjectBody, Projects, Rollout, Rule, Target, User, UserFlagSetting, UserFlagSettings, UserSettingsBody, Users, Variation, Webhook, WebhookBody, Webhooks, WeightedVariation, AuditLogApi, EnvironmentsApi, FlagsApi, ProjectsApi, RootApi, UserSettingsApi, UsersApi, WebhooksApi) {
   'use strict';
 
   /**
@@ -63,6 +63,71 @@
      */
     ApiClient: ApiClient,
     /**
+     * The AuditLogEntries model constructor.
+     * @property {module:model/AuditLogEntries}
+     */
+    AuditLogEntries: AuditLogEntries,
+    /**
+     * The AuditLogEntry model constructor.
+     * @property {module:model/AuditLogEntry}
+     */
+    AuditLogEntry: AuditLogEntry,
+    /**
+     * The AuditLogEntryTarget model constructor.
+     * @property {module:model/AuditLogEntryTarget}
+     */
+    AuditLogEntryTarget: AuditLogEntryTarget,
+    /**
+     * The Clause model constructor.
+     * @property {module:model/Clause}
+     */
+    Clause: Clause,
+    /**
+     * The Environment model constructor.
+     * @property {module:model/Environment}
+     */
+    Environment: Environment,
+    /**
+     * The EnvironmentBody model constructor.
+     * @property {module:model/EnvironmentBody}
+     */
+    EnvironmentBody: EnvironmentBody,
+    /**
+     * The FeatureFlag model constructor.
+     * @property {module:model/FeatureFlag}
+     */
+    FeatureFlag: FeatureFlag,
+    /**
+     * The FeatureFlagBody model constructor.
+     * @property {module:model/FeatureFlagBody}
+     */
+    FeatureFlagBody: FeatureFlagBody,
+    /**
+     * The FeatureFlagConfig model constructor.
+     * @property {module:model/FeatureFlagConfig}
+     */
+    FeatureFlagConfig: FeatureFlagConfig,
+    /**
+     * The FeatureFlagConfigFallthrough model constructor.
+     * @property {module:model/FeatureFlagConfigFallthrough}
+     */
+    FeatureFlagConfigFallthrough: FeatureFlagConfigFallthrough,
+    /**
+     * The FeatureFlagStatus model constructor.
+     * @property {module:model/FeatureFlagStatus}
+     */
+    FeatureFlagStatus: FeatureFlagStatus,
+    /**
+     * The FeatureFlagStatuses model constructor.
+     * @property {module:model/FeatureFlagStatuses}
+     */
+    FeatureFlagStatuses: FeatureFlagStatuses,
+    /**
+     * The FeatureFlags model constructor.
+     * @property {module:model/FeatureFlags}
+     */
+    FeatureFlags: FeatureFlags,
+    /**
      * The Link model constructor.
      * @property {module:model/Link}
      */
@@ -73,30 +138,130 @@
      */
     Links: Links,
     /**
+     * The Member model constructor.
+     * @property {module:model/Member}
+     */
+    Member: Member,
+    /**
      * The PatchDelta model constructor.
      * @property {module:model/PatchDelta}
      */
     PatchDelta: PatchDelta,
+    /**
+     * The Project model constructor.
+     * @property {module:model/Project}
+     */
+    Project: Project,
+    /**
+     * The ProjectBody model constructor.
+     * @property {module:model/ProjectBody}
+     */
+    ProjectBody: ProjectBody,
+    /**
+     * The Projects model constructor.
+     * @property {module:model/Projects}
+     */
+    Projects: Projects,
+    /**
+     * The Rollout model constructor.
+     * @property {module:model/Rollout}
+     */
+    Rollout: Rollout,
+    /**
+     * The Rule model constructor.
+     * @property {module:model/Rule}
+     */
+    Rule: Rule,
+    /**
+     * The Target model constructor.
+     * @property {module:model/Target}
+     */
+    Target: Target,
+    /**
+     * The User model constructor.
+     * @property {module:model/User}
+     */
+    User: User,
+    /**
+     * The UserFlagSetting model constructor.
+     * @property {module:model/UserFlagSetting}
+     */
+    UserFlagSetting: UserFlagSetting,
+    /**
+     * The UserFlagSettings model constructor.
+     * @property {module:model/UserFlagSettings}
+     */
+    UserFlagSettings: UserFlagSettings,
+    /**
+     * The UserSettingsBody model constructor.
+     * @property {module:model/UserSettingsBody}
+     */
+    UserSettingsBody: UserSettingsBody,
+    /**
+     * The Users model constructor.
+     * @property {module:model/Users}
+     */
+    Users: Users,
+    /**
+     * The Variation model constructor.
+     * @property {module:model/Variation}
+     */
+    Variation: Variation,
     /**
      * The Webhook model constructor.
      * @property {module:model/Webhook}
      */
     Webhook: Webhook,
     /**
-     * The WebhookPost model constructor.
-     * @property {module:model/WebhookPost}
+     * The WebhookBody model constructor.
+     * @property {module:model/WebhookBody}
      */
-    WebhookPost: WebhookPost,
+    WebhookBody: WebhookBody,
     /**
      * The Webhooks model constructor.
      * @property {module:model/Webhooks}
      */
     Webhooks: Webhooks,
     /**
+     * The WeightedVariation model constructor.
+     * @property {module:model/WeightedVariation}
+     */
+    WeightedVariation: WeightedVariation,
+    /**
+     * The AuditLogApi service constructor.
+     * @property {module:api/AuditLogApi}
+     */
+    AuditLogApi: AuditLogApi,
+    /**
+     * The EnvironmentsApi service constructor.
+     * @property {module:api/EnvironmentsApi}
+     */
+    EnvironmentsApi: EnvironmentsApi,
+    /**
+     * The FlagsApi service constructor.
+     * @property {module:api/FlagsApi}
+     */
+    FlagsApi: FlagsApi,
+    /**
+     * The ProjectsApi service constructor.
+     * @property {module:api/ProjectsApi}
+     */
+    ProjectsApi: ProjectsApi,
+    /**
      * The RootApi service constructor.
      * @property {module:api/RootApi}
      */
     RootApi: RootApi,
+    /**
+     * The UserSettingsApi service constructor.
+     * @property {module:api/UserSettingsApi}
+     */
+    UserSettingsApi: UserSettingsApi,
+    /**
+     * The UsersApi service constructor.
+     * @property {module:api/UsersApi}
+     */
+    UsersApi: UsersApi,
     /**
      * The WebhooksApi service constructor.
      * @property {module:api/WebhooksApi}

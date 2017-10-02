@@ -104,7 +104,7 @@ Token.apiKey = "YOUR API KEY"
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix['Authorization'] = "Token"
 
-var api = new LaunchDarklyRestApi.RootApi()
+var api = new LaunchDarklyRestApi.AuditLogApi()
 
 var callback = function(error, data, response) {
   if (error) {
@@ -113,7 +113,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getRoot(callback);
+api.getAuditLogEntries(callback);
 
 ```
 
@@ -123,22 +123,74 @@ All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*LaunchDarklyRestApi.AuditLogApi* | [**getAuditLogEntries**](docs/AuditLogApi.md#getAuditLogEntries) | **GET** /auditlog | Fetch a list of all webhooks
+*LaunchDarklyRestApi.AuditLogApi* | [**getAuditLogEntry**](docs/AuditLogApi.md#getAuditLogEntry) | **GET** /auditlog/{resourceId} | Get a webhook by ID
+*LaunchDarklyRestApi.EnvironmentsApi* | [**deleteEnvironment**](docs/EnvironmentsApi.md#deleteEnvironment) | **DELETE** /environments/{projectKey}/{environmentKey} | Delete an environment by ID
+*LaunchDarklyRestApi.EnvironmentsApi* | [**getEnvironment**](docs/EnvironmentsApi.md#getEnvironment) | **GET** /environments/{projectKey}/{environmentKey} | Get an environment by key.
+*LaunchDarklyRestApi.EnvironmentsApi* | [**patchEnvironment**](docs/EnvironmentsApi.md#patchEnvironment) | **PATCH** /environments/{projectKey}/{environmentKey} | Modify an environment by ID
+*LaunchDarklyRestApi.EnvironmentsApi* | [**postEnvironment**](docs/EnvironmentsApi.md#postEnvironment) | **POST** /environments/{projectKey} | Create an environment
+*LaunchDarklyRestApi.FlagsApi* | [**deleteFeatureFlag**](docs/FlagsApi.md#deleteFeatureFlag) | **DELETE** /flags/{projectKey}/{featureFlagKey} | Delete a feature flag by ID
+*LaunchDarklyRestApi.FlagsApi* | [**getFeatureFlag**](docs/FlagsApi.md#getFeatureFlag) | **GET** /flags/{projectKey}/{featureFlagKey} | Get a single feature flag by key.
+*LaunchDarklyRestApi.FlagsApi* | [**getFeatureFlagStatus**](docs/FlagsApi.md#getFeatureFlagStatus) | **GET** /flag-statuses/{projectKey}/{environmentKey} | Get a list of statuses for all feature flags
+*LaunchDarklyRestApi.FlagsApi* | [**getFeatureFlagStatuses**](docs/FlagsApi.md#getFeatureFlagStatuses) | **GET** /flag-statuses/{projectKey}/{environmentKey}/{featureFlagKey} | Get a list of statuses for all feature flags
+*LaunchDarklyRestApi.FlagsApi* | [**getFeatureFlags**](docs/FlagsApi.md#getFeatureFlags) | **GET** /flags/{projectKey} | Get a list of all features in the given project.
+*LaunchDarklyRestApi.FlagsApi* | [**patchFeatureFlag**](docs/FlagsApi.md#patchFeatureFlag) | **PATCH** /flags/{projectKey}/{featureFlagKey} | Modify a feature flag by ID
+*LaunchDarklyRestApi.FlagsApi* | [**postFeatureFlag**](docs/FlagsApi.md#postFeatureFlag) | **POST** /flags/{projectKey} | Create a feature flag
+*LaunchDarklyRestApi.ProjectsApi* | [**deleteProject**](docs/ProjectsApi.md#deleteProject) | **DELETE** /projects/{projectKey} | Delete a project by ID
+*LaunchDarklyRestApi.ProjectsApi* | [**getProject**](docs/ProjectsApi.md#getProject) | **GET** /projects/{projectKey} | Get a project by key.
+*LaunchDarklyRestApi.ProjectsApi* | [**getProjects**](docs/ProjectsApi.md#getProjects) | **GET** /projects | Returns a list of all projects in the account.
+*LaunchDarklyRestApi.ProjectsApi* | [**patchProject**](docs/ProjectsApi.md#patchProject) | **PATCH** /projects/{projectKey} | Modify a project by ID
+*LaunchDarklyRestApi.ProjectsApi* | [**postProject**](docs/ProjectsApi.md#postProject) | **POST** /projects | Create a project
 *LaunchDarklyRestApi.RootApi* | [**getRoot**](docs/RootApi.md#getRoot) | **GET** / | Get the root resource
-*LaunchDarklyRestApi.WebhooksApi* | [**deleteWebhook**](docs/WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{webhookId} | Delete a webhook by ID
-*LaunchDarklyRestApi.WebhooksApi* | [**getWebhook**](docs/WebhooksApi.md#getWebhook) | **GET** /webhooks/{webhookId} | Get a webhook by ID
+*LaunchDarklyRestApi.UserSettingsApi* | [**getUserFlagSetting**](docs/UserSettingsApi.md#getUserFlagSetting) | **GET** /users/{projectKey}/{environmentKey}/{userKey}/flags/{featureFlagKey} | Get a user by key.
+*LaunchDarklyRestApi.UserSettingsApi* | [**getUserFlagSettings**](docs/UserSettingsApi.md#getUserFlagSettings) | **GET** /users/{projectKey}/{environmentKey}/{userKey}/flags | Lists the current flag settings for a given user.
+*LaunchDarklyRestApi.UserSettingsApi* | [**putFlagSetting**](docs/UserSettingsApi.md#putFlagSetting) | **PUT** /users/{projectKey}/{environmentKey}/{userKey}/flags/{featureFlagKey} | Specifically enable or disable a feature flag for a user based on their key.
+*LaunchDarklyRestApi.UsersApi* | [**deleteUser**](docs/UsersApi.md#deleteUser) | **DELETE** /users/{projectKey}/{environmentKey}/{userKey} | Delete a user by ID
+*LaunchDarklyRestApi.UsersApi* | [**getSearchUsers**](docs/UsersApi.md#getSearchUsers) | **GET** /user-search/{projectKey}/{environmentKey} | Search users in LaunchDarkly based on their last active date, or a search query.
+*LaunchDarklyRestApi.UsersApi* | [**getUser**](docs/UsersApi.md#getUser) | **GET** /users/{projectKey}/{environmentKey}/{userKey} | Get a user by key.
+*LaunchDarklyRestApi.UsersApi* | [**getUsers**](docs/UsersApi.md#getUsers) | **GET** /users/{projectKey}/{environmentKey} | List all users in the environment.
+*LaunchDarklyRestApi.WebhooksApi* | [**deleteWebhook**](docs/WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{resourceId} | Delete a webhook by ID
+*LaunchDarklyRestApi.WebhooksApi* | [**getWebhook**](docs/WebhooksApi.md#getWebhook) | **GET** /webhooks/{resourceId} | Get a webhook by ID
 *LaunchDarklyRestApi.WebhooksApi* | [**getWebhooks**](docs/WebhooksApi.md#getWebhooks) | **GET** /webhooks | Fetch a list of all webhooks
-*LaunchDarklyRestApi.WebhooksApi* | [**patchWebhook**](docs/WebhooksApi.md#patchWebhook) | **PATCH** /webhooks/{webhookId} | Modify a webhook by ID
+*LaunchDarklyRestApi.WebhooksApi* | [**patchWebhook**](docs/WebhooksApi.md#patchWebhook) | **PATCH** /webhooks/{resourceId} | Modify a webhook by ID
 *LaunchDarklyRestApi.WebhooksApi* | [**postWebhook**](docs/WebhooksApi.md#postWebhook) | **POST** /webhooks | Create a webhook
 
 
 ## Documentation for Models
 
+ - [LaunchDarklyRestApi.AuditLogEntries](docs/AuditLogEntries.md)
+ - [LaunchDarklyRestApi.AuditLogEntry](docs/AuditLogEntry.md)
+ - [LaunchDarklyRestApi.AuditLogEntryTarget](docs/AuditLogEntryTarget.md)
+ - [LaunchDarklyRestApi.Clause](docs/Clause.md)
+ - [LaunchDarklyRestApi.Environment](docs/Environment.md)
+ - [LaunchDarklyRestApi.EnvironmentBody](docs/EnvironmentBody.md)
+ - [LaunchDarklyRestApi.FeatureFlag](docs/FeatureFlag.md)
+ - [LaunchDarklyRestApi.FeatureFlagBody](docs/FeatureFlagBody.md)
+ - [LaunchDarklyRestApi.FeatureFlagConfig](docs/FeatureFlagConfig.md)
+ - [LaunchDarklyRestApi.FeatureFlagConfigFallthrough](docs/FeatureFlagConfigFallthrough.md)
+ - [LaunchDarklyRestApi.FeatureFlagStatus](docs/FeatureFlagStatus.md)
+ - [LaunchDarklyRestApi.FeatureFlagStatuses](docs/FeatureFlagStatuses.md)
+ - [LaunchDarklyRestApi.FeatureFlags](docs/FeatureFlags.md)
  - [LaunchDarklyRestApi.Link](docs/Link.md)
  - [LaunchDarklyRestApi.Links](docs/Links.md)
+ - [LaunchDarklyRestApi.Member](docs/Member.md)
  - [LaunchDarklyRestApi.PatchDelta](docs/PatchDelta.md)
+ - [LaunchDarklyRestApi.Project](docs/Project.md)
+ - [LaunchDarklyRestApi.ProjectBody](docs/ProjectBody.md)
+ - [LaunchDarklyRestApi.Projects](docs/Projects.md)
+ - [LaunchDarklyRestApi.Rollout](docs/Rollout.md)
+ - [LaunchDarklyRestApi.Rule](docs/Rule.md)
+ - [LaunchDarklyRestApi.Target](docs/Target.md)
+ - [LaunchDarklyRestApi.User](docs/User.md)
+ - [LaunchDarklyRestApi.UserFlagSetting](docs/UserFlagSetting.md)
+ - [LaunchDarklyRestApi.UserFlagSettings](docs/UserFlagSettings.md)
+ - [LaunchDarklyRestApi.UserSettingsBody](docs/UserSettingsBody.md)
+ - [LaunchDarklyRestApi.Users](docs/Users.md)
+ - [LaunchDarklyRestApi.Variation](docs/Variation.md)
  - [LaunchDarklyRestApi.Webhook](docs/Webhook.md)
- - [LaunchDarklyRestApi.WebhookPost](docs/WebhookPost.md)
+ - [LaunchDarklyRestApi.WebhookBody](docs/WebhookBody.md)
  - [LaunchDarklyRestApi.Webhooks](docs/Webhooks.md)
+ - [LaunchDarklyRestApi.WeightedVariation](docs/WeightedVariation.md)
 
 
 ## Documentation for Authorization

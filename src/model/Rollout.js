@@ -17,32 +17,32 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Link'], factory);
+    define(['ApiClient', 'model/WeightedVariation'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Link'));
+    module.exports = factory(require('../ApiClient'), require('./WeightedVariation'));
   } else {
     // Browser globals (root is window)
     if (!root.LaunchDarklyRestApi) {
       root.LaunchDarklyRestApi = {};
     }
-    root.LaunchDarklyRestApi.Links = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.Link);
+    root.LaunchDarklyRestApi.Rollout = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.WeightedVariation);
   }
-}(this, function(ApiClient, Link) {
+}(this, function(ApiClient, WeightedVariation) {
   'use strict';
 
 
 
 
   /**
-   * The Links model module.
-   * @module model/Links
+   * The Rollout model module.
+   * @module model/Rollout
    * @version 2.0.0
    */
 
   /**
-   * Constructs a new <code>Links</code>.
-   * @alias module:model/Links
+   * Constructs a new <code>Rollout</code>.
+   * @alias module:model/Rollout
    * @class
    */
   var exports = function() {
@@ -52,27 +52,27 @@
   };
 
   /**
-   * Constructs a <code>Links</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Rollout</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Links} obj Optional instance to populate.
-   * @return {module:model/Links} The populated <code>Links</code> instance.
+   * @param {module:model/Rollout} obj Optional instance to populate.
+   * @return {module:model/Rollout} The populated <code>Rollout</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('self')) {
-        obj['self'] = Link.constructFromObject(data['self']);
+      if (data.hasOwnProperty('variations')) {
+        obj['variations'] = ApiClient.convertToType(data['variations'], [WeightedVariation]);
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/Link} self
+   * @member {Array.<module:model/WeightedVariation>} variations
    */
-  exports.prototype['self'] = undefined;
+  exports.prototype['variations'] = undefined;
 
 
 

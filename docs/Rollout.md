@@ -1,8 +1,8 @@
-# LaunchDarklyRestApi.Links
+# LaunchDarklyRestApi.Rollout
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**self** | [**Link**](Link.md) |  | [optional] 
+**variations** | [**[WeightedVariation]**](WeightedVariation.md) |  | [optional] 
 
 

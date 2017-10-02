@@ -17,62 +17,70 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Link'], factory);
+    define(['ApiClient', 'model/Rollout'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Link'));
+    module.exports = factory(require('../ApiClient'), require('./Rollout'));
   } else {
     // Browser globals (root is window)
     if (!root.LaunchDarklyRestApi) {
       root.LaunchDarklyRestApi = {};
     }
-    root.LaunchDarklyRestApi.Links = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.Link);
+    root.LaunchDarklyRestApi.FeatureFlagConfigFallthrough = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.Rollout);
   }
-}(this, function(ApiClient, Link) {
+}(this, function(ApiClient, Rollout) {
   'use strict';
 
 
 
 
   /**
-   * The Links model module.
-   * @module model/Links
+   * The FeatureFlagConfigFallthrough model module.
+   * @module model/FeatureFlagConfigFallthrough
    * @version 2.0.0
    */
 
   /**
-   * Constructs a new <code>Links</code>.
-   * @alias module:model/Links
+   * Constructs a new <code>FeatureFlagConfigFallthrough</code>.
+   * @alias module:model/FeatureFlagConfigFallthrough
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
+
   };
 
   /**
-   * Constructs a <code>Links</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>FeatureFlagConfigFallthrough</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Links} obj Optional instance to populate.
-   * @return {module:model/Links} The populated <code>Links</code> instance.
+   * @param {module:model/FeatureFlagConfigFallthrough} obj Optional instance to populate.
+   * @return {module:model/FeatureFlagConfigFallthrough} The populated <code>FeatureFlagConfigFallthrough</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('self')) {
-        obj['self'] = Link.constructFromObject(data['self']);
+      if (data.hasOwnProperty('variation')) {
+        obj['variation'] = ApiClient.convertToType(data['variation'], 'Number');
+      }
+      if (data.hasOwnProperty('rollout')) {
+        obj['rollout'] = Rollout.constructFromObject(data['rollout']);
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/Link} self
+   * @member {Number} variation
    */
-  exports.prototype['self'] = undefined;
+  exports.prototype['variation'] = undefined;
+  /**
+   * @member {module:model/Rollout} rollout
+   */
+  exports.prototype['rollout'] = undefined;
 
 
 

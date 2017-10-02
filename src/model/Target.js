@@ -17,62 +17,70 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Link'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./Link'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.LaunchDarklyRestApi) {
       root.LaunchDarklyRestApi = {};
     }
-    root.LaunchDarklyRestApi.Links = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.Link);
+    root.LaunchDarklyRestApi.Target = factory(root.LaunchDarklyRestApi.ApiClient);
   }
-}(this, function(ApiClient, Link) {
+}(this, function(ApiClient) {
   'use strict';
 
 
 
 
   /**
-   * The Links model module.
-   * @module model/Links
+   * The Target model module.
+   * @module model/Target
    * @version 2.0.0
    */
 
   /**
-   * Constructs a new <code>Links</code>.
-   * @alias module:model/Links
+   * Constructs a new <code>Target</code>.
+   * @alias module:model/Target
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
+
   };
 
   /**
-   * Constructs a <code>Links</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>Target</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/Links} obj Optional instance to populate.
-   * @return {module:model/Links} The populated <code>Links</code> instance.
+   * @param {module:model/Target} obj Optional instance to populate.
+   * @return {module:model/Target} The populated <code>Target</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('self')) {
-        obj['self'] = Link.constructFromObject(data['self']);
+      if (data.hasOwnProperty('values')) {
+        obj['values'] = ApiClient.convertToType(data['values'], ['String']);
+      }
+      if (data.hasOwnProperty('variation')) {
+        obj['variation'] = ApiClient.convertToType(data['variation'], 'Number');
       }
     }
     return obj;
   }
 
   /**
-   * @member {module:model/Link} self
+   * @member {Array.<String>} values
    */
-  exports.prototype['self'] = undefined;
+  exports.prototype['values'] = undefined;
+  /**
+   * @member {Number} variation
+   */
+  exports.prototype['variation'] = undefined;
 
 
 

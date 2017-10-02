@@ -17,18 +17,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/PatchDelta', 'model/Webhook', 'model/WebhookPost', 'model/Webhooks'], factory);
+    define(['ApiClient', 'model/PatchDelta', 'model/Webhook', 'model/WebhookBody', 'model/Webhooks'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/PatchDelta'), require('../model/Webhook'), require('../model/WebhookPost'), require('../model/Webhooks'));
+    module.exports = factory(require('../ApiClient'), require('../model/PatchDelta'), require('../model/Webhook'), require('../model/WebhookBody'), require('../model/Webhooks'));
   } else {
     // Browser globals (root is window)
     if (!root.LaunchDarklyRestApi) {
       root.LaunchDarklyRestApi = {};
     }
-    root.LaunchDarklyRestApi.WebhooksApi = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.PatchDelta, root.LaunchDarklyRestApi.Webhook, root.LaunchDarklyRestApi.WebhookPost, root.LaunchDarklyRestApi.Webhooks);
+    root.LaunchDarklyRestApi.WebhooksApi = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.PatchDelta, root.LaunchDarklyRestApi.Webhook, root.LaunchDarklyRestApi.WebhookBody, root.LaunchDarklyRestApi.Webhooks);
   }
-}(this, function(ApiClient, PatchDelta, Webhook, WebhookPost, Webhooks) {
+}(this, function(ApiClient, PatchDelta, Webhook, WebhookBody, Webhooks) {
   'use strict';
 
   /**
@@ -58,20 +58,20 @@
 
     /**
      * Delete a webhook by ID
-     * @param {String} webhookId The webhook ID
+     * @param {String} resourceId The resource ID
      * @param {module:api/WebhooksApi~deleteWebhookCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.deleteWebhook = function(webhookId, callback) {
+    this.deleteWebhook = function(resourceId, callback) {
       var postBody = null;
 
-      // verify the required parameter 'webhookId' is set
-      if (webhookId === undefined || webhookId === null) {
-        throw new Error("Missing the required parameter 'webhookId' when calling deleteWebhook");
+      // verify the required parameter 'resourceId' is set
+      if (resourceId === undefined || resourceId === null) {
+        throw new Error("Missing the required parameter 'resourceId' when calling deleteWebhook");
       }
 
 
       var pathParams = {
-        'webhookId': webhookId
+        'resourceId': resourceId
       };
       var queryParams = {
       };
@@ -86,7 +86,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/webhooks/{webhookId}', 'DELETE',
+        '/webhooks/{resourceId}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -102,21 +102,21 @@
 
     /**
      * Get a webhook by ID
-     * @param {String} webhookId The webhook ID
+     * @param {String} resourceId The resource ID
      * @param {module:api/WebhooksApi~getWebhookCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Webhook}
      */
-    this.getWebhook = function(webhookId, callback) {
+    this.getWebhook = function(resourceId, callback) {
       var postBody = null;
 
-      // verify the required parameter 'webhookId' is set
-      if (webhookId === undefined || webhookId === null) {
-        throw new Error("Missing the required parameter 'webhookId' when calling getWebhook");
+      // verify the required parameter 'resourceId' is set
+      if (resourceId === undefined || resourceId === null) {
+        throw new Error("Missing the required parameter 'resourceId' when calling getWebhook");
       }
 
 
       var pathParams = {
-        'webhookId': webhookId
+        'resourceId': resourceId
       };
       var queryParams = {
       };
@@ -131,7 +131,7 @@
       var returnType = Webhook;
 
       return this.apiClient.callApi(
-        '/webhooks/{webhookId}', 'GET',
+        '/webhooks/{resourceId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -179,22 +179,23 @@
      * Callback function to receive the result of the patchWebhook operation.
      * @callback module:api/WebhooksApi~patchWebhookCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/Webhook} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
      * Modify a webhook by ID
-     * @param {String} webhookId The webhook ID
+     * @param {String} resourceId The resource ID
      * @param {Array.<module:model/PatchDelta>} patchDelta http://jsonpatch.com/
      * @param {module:api/WebhooksApi~patchWebhookCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Webhook}
      */
-    this.patchWebhook = function(webhookId, patchDelta, callback) {
+    this.patchWebhook = function(resourceId, patchDelta, callback) {
       var postBody = patchDelta;
 
-      // verify the required parameter 'webhookId' is set
-      if (webhookId === undefined || webhookId === null) {
-        throw new Error("Missing the required parameter 'webhookId' when calling patchWebhook");
+      // verify the required parameter 'resourceId' is set
+      if (resourceId === undefined || resourceId === null) {
+        throw new Error("Missing the required parameter 'resourceId' when calling patchWebhook");
       }
 
       // verify the required parameter 'patchDelta' is set
@@ -204,7 +205,7 @@
 
 
       var pathParams = {
-        'webhookId': webhookId
+        'resourceId': resourceId
       };
       var queryParams = {
       };
@@ -216,10 +217,10 @@
       var authNames = ['Token'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = null;
+      var returnType = Webhook;
 
       return this.apiClient.callApi(
-        '/webhooks/{webhookId}', 'PATCH',
+        '/webhooks/{resourceId}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -235,15 +236,15 @@
 
     /**
      * Create a webhook
-     * @param {module:model/WebhookPost} webhookPost New webhook
+     * @param {module:model/WebhookBody} webhookBody New webhook
      * @param {module:api/WebhooksApi~postWebhookCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.postWebhook = function(webhookPost, callback) {
-      var postBody = webhookPost;
+    this.postWebhook = function(webhookBody, callback) {
+      var postBody = webhookBody;
 
-      // verify the required parameter 'webhookPost' is set
-      if (webhookPost === undefined || webhookPost === null) {
-        throw new Error("Missing the required parameter 'webhookPost' when calling postWebhook");
+      // verify the required parameter 'webhookBody' is set
+      if (webhookBody === undefined || webhookBody === null) {
+        throw new Error("Missing the required parameter 'webhookBody' when calling postWebhook");
       }
 
 
