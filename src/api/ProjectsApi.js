@@ -101,7 +101,7 @@
      */
 
     /**
-     * Get a project by key.
+     * Fetch a single project by key.
      * @param {String} projectKey The project key, used to tie the flags together under one project so they can be managed together.
      * @param {module:api/ProjectsApi~getProjectCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Project}

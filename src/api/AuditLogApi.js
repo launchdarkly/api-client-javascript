@@ -57,7 +57,7 @@
      */
 
     /**
-     * Fetch a list of all webhooks
+     * Fetch a list of all audit log entries
      * @param {module:api/AuditLogApi~getAuditLogEntriesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AuditLogEntries}
      */
@@ -95,7 +95,7 @@
      */
 
     /**
-     * Get a webhook by ID
+     * Get an audit log entry by ID
      * @param {String} resourceId The resource ID
      * @param {module:api/AuditLogApi~getAuditLogEntryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AuditLogEntry}

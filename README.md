@@ -1,3 +1,8 @@
+This repository contains a client library for LaunchDarkly's REST API. This client was automatically
+generated from our [OpenAPI specification](https://github.com/launchdarkly/ld-openapi).
+
+This REST API is for custom integrations, data export, or automating your feature flag workflows. *DO NOT* use this client library to add feature flags to your web or mobile application. To integrate feature flags with your application, please see the [SDK documentation](https://docs.launchdarkly.com/v2.0/docs)
+
 # launch_darkly_rest_api
 
 LaunchDarklyRestApi - JavaScript client for launch_darkly_rest_api
@@ -123,8 +128,8 @@ All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*LaunchDarklyRestApi.AuditLogApi* | [**getAuditLogEntries**](docs/AuditLogApi.md#getAuditLogEntries) | **GET** /auditlog | Fetch a list of all webhooks
-*LaunchDarklyRestApi.AuditLogApi* | [**getAuditLogEntry**](docs/AuditLogApi.md#getAuditLogEntry) | **GET** /auditlog/{resourceId} | Get a webhook by ID
+*LaunchDarklyRestApi.AuditLogApi* | [**getAuditLogEntries**](docs/AuditLogApi.md#getAuditLogEntries) | **GET** /auditlog | Fetch a list of all audit log entries
+*LaunchDarklyRestApi.AuditLogApi* | [**getAuditLogEntry**](docs/AuditLogApi.md#getAuditLogEntry) | **GET** /auditlog/{resourceId} | Get an audit log entry by ID
 *LaunchDarklyRestApi.EnvironmentsApi* | [**deleteEnvironment**](docs/EnvironmentsApi.md#deleteEnvironment) | **DELETE** /environments/{projectKey}/{environmentKey} | Delete an environment by ID
 *LaunchDarklyRestApi.EnvironmentsApi* | [**getEnvironment**](docs/EnvironmentsApi.md#getEnvironment) | **GET** /environments/{projectKey}/{environmentKey} | Get an environment by key.
 *LaunchDarklyRestApi.EnvironmentsApi* | [**patchEnvironment**](docs/EnvironmentsApi.md#patchEnvironment) | **PATCH** /environments/{projectKey}/{environmentKey} | Modify an environment by ID
@@ -135,9 +140,9 @@ Class | Method | HTTP request | Description
 *LaunchDarklyRestApi.FlagsApi* | [**getFeatureFlagStatuses**](docs/FlagsApi.md#getFeatureFlagStatuses) | **GET** /flag-statuses/{projectKey}/{environmentKey}/{featureFlagKey} | Get a list of statuses for all feature flags
 *LaunchDarklyRestApi.FlagsApi* | [**getFeatureFlags**](docs/FlagsApi.md#getFeatureFlags) | **GET** /flags/{projectKey} | Get a list of all features in the given project.
 *LaunchDarklyRestApi.FlagsApi* | [**patchFeatureFlag**](docs/FlagsApi.md#patchFeatureFlag) | **PATCH** /flags/{projectKey}/{featureFlagKey} | Modify a feature flag by ID
-*LaunchDarklyRestApi.FlagsApi* | [**postFeatureFlag**](docs/FlagsApi.md#postFeatureFlag) | **POST** /flags/{projectKey} | Create a feature flag
+*LaunchDarklyRestApi.FlagsApi* | [**postFeatureFlag**](docs/FlagsApi.md#postFeatureFlag) | **POST** /flags/{projectKey} | Creates a new feature flag.
 *LaunchDarklyRestApi.ProjectsApi* | [**deleteProject**](docs/ProjectsApi.md#deleteProject) | **DELETE** /projects/{projectKey} | Delete a project by ID
-*LaunchDarklyRestApi.ProjectsApi* | [**getProject**](docs/ProjectsApi.md#getProject) | **GET** /projects/{projectKey} | Get a project by key.
+*LaunchDarklyRestApi.ProjectsApi* | [**getProject**](docs/ProjectsApi.md#getProject) | **GET** /projects/{projectKey} | Fetch a single project by key.
 *LaunchDarklyRestApi.ProjectsApi* | [**getProjects**](docs/ProjectsApi.md#getProjects) | **GET** /projects | Returns a list of all projects in the account.
 *LaunchDarklyRestApi.ProjectsApi* | [**patchProject**](docs/ProjectsApi.md#patchProject) | **PATCH** /projects/{projectKey} | Modify a project by ID
 *LaunchDarklyRestApi.ProjectsApi* | [**postProject**](docs/ProjectsApi.md#postProject) | **POST** /projects | Create a project

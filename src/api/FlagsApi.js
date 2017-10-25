@@ -384,7 +384,7 @@
      */
 
     /**
-     * Create a feature flag
+     * Creates a new feature flag.
      * @param {String} projectKey The project key, used to tie the flags together under one project so they can be managed together.
      * @param {module:model/FeatureFlagBody} featureFlagBody Create a new feature flag
      * @param {module:api/FlagsApi~postFeatureFlagCallback} callback The callback function, accepting three arguments: error, data, response
