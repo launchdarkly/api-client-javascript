@@ -123,7 +123,7 @@
      */
 
     /**
-     * Lists the current flag settings for a given user.
+     * Fetch a single flag setting for a user by key.
      * @param {String} projectKey The project key, used to tie the flags together under one project so they can be managed together.
      * @param {String} environmentKey The environment key
      * @param {String} userKey The user&#39;s key

@@ -326,7 +326,7 @@
      */
 
     /**
-     * Modify a feature flag by ID
+     * Perform a partial update to a feature.
      * @param {String} projectKey The project key, used to tie the flags together under one project so they can be managed together.
      * @param {String} featureFlagKey The feature flag&#39;s key. The key identifies the flag in your code.
      * @param {Array.<module:model/PatchDelta>} patchDelta http://jsonpatch.com/

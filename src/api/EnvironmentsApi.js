@@ -108,7 +108,7 @@
      */
 
     /**
-     * Get an environment by key.
+     * Get an environment given a project and key.
      * @param {String} projectKey The project key, used to tie the flags together under one project so they can be managed together.
      * @param {String} environmentKey The environment key
      * @param {module:api/EnvironmentsApi~getEnvironmentCallback} callback The callback function, accepting three arguments: error, data, response
@@ -217,7 +217,7 @@
      */
 
     /**
-     * Create an environment
+     * Create a new environment in a specified project with a given name, key, and swatch color.
      * @param {String} projectKey The project key, used to tie the flags together under one project so they can be managed together.
      * @param {module:model/EnvironmentBody} environmentBody New environment
      * @param {module:api/EnvironmentsApi~postEnvironmentCallback} callback The callback function, accepting three arguments: error, data, response

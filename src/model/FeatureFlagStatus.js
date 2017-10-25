@@ -72,7 +72,7 @@
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
       }
       if (data.hasOwnProperty('lastRequested')) {
-        obj['lastRequested'] = ApiClient.convertToType(data['lastRequested'], 'String');
+        obj['lastRequested'] = ApiClient.convertToType(data['lastRequested'], 'Number');
       }
       if (data.hasOwnProperty('default')) {
         obj['default'] = ApiClient.convertToType(data['default'], 'Boolean');
@@ -90,7 +90,7 @@
    */
   exports.prototype['name'] = undefined;
   /**
-   * @member {String} lastRequested
+   * @member {Number} lastRequested
    */
   exports.prototype['lastRequested'] = undefined;
   /**

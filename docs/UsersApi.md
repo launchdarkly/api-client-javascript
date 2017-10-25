@@ -5,9 +5,9 @@ All URIs are relative to *https://app.launchdarkly.com/api/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /users/{projectKey}/{environmentKey}/{userKey} | Delete a user by ID
-[**getSearchUsers**](UsersApi.md#getSearchUsers) | **GET** /user-search/{projectKey}/{environmentKey} | Search users in LaunchDarkly based on their last active date, or a search query.
+[**getSearchUsers**](UsersApi.md#getSearchUsers) | **GET** /user-search/{projectKey}/{environmentKey} | Search users in LaunchDarkly based on their last active date, or a search query. It should not be used to enumerate all users in LaunchDarkly-- use the List users API resource.
 [**getUser**](UsersApi.md#getUser) | **GET** /users/{projectKey}/{environmentKey}/{userKey} | Get a user by key.
-[**getUsers**](UsersApi.md#getUsers) | **GET** /users/{projectKey}/{environmentKey} | List all users in the environment.
+[**getUsers**](UsersApi.md#getUsers) | **GET** /users/{projectKey}/{environmentKey} | List all users in the environment. Includes the total count of users. In each page, there will be up to &#39;limit&#39; users returned (default 20). This is useful for exporting all users in the system for further analysis. Paginated collections will include a next link containing a URL with the next set of elements in the collection.
 
 
 <a name="deleteUser"></a>
@@ -71,7 +71,7 @@ null (empty response body)
 # **getSearchUsers**
 > Users getSearchUsers(projectKey, environmentKey, , opts)
 
-Search users in LaunchDarkly based on their last active date, or a search query.
+Search users in LaunchDarkly based on their last active date, or a search query. It should not be used to enumerate all users in LaunchDarkly-- use the List users API resource.
 
 ### Example
 ```javascript
@@ -94,7 +94,7 @@ var opts = {
   'q': "q_example", // String | Search query
   'limit': 3.4, // Number | Pagination limit
   'offset': 3.4, // Number | Specifies the first item to return in the collection
-  'after': 3.4 // Number | A unix epoch time in milliseconds specifying the maximum last time a user requested a feature flag
+  'after': 789 // Number | A unix epoch time in milliseconds specifying the maximum last time a user requested a feature flag
 };
 
 var callback = function(error, data, response) {
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 # **getUsers**
 > Users getUsers(projectKey, environmentKey, , opts)
 
-List all users in the environment.
+List all users in the environment. Includes the total count of users. In each page, there will be up to &#39;limit&#39; users returned (default 20). This is useful for exporting all users in the system for further analysis. Paginated collections will include a next link containing a URL with the next set of elements in the collection.
 
 ### Example
 ```javascript

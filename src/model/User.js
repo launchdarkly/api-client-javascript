@@ -67,7 +67,7 @@
       obj = obj || new exports();
 
       if (data.hasOwnProperty('lastPing')) {
-        obj['lastPing'] = ApiClient.convertToType(data['lastPing'], 'String');
+        obj['lastPing'] = ApiClient.convertToType(data['lastPing'], 'Number');
       }
       if (data.hasOwnProperty('environmentId')) {
         obj['environmentId'] = ApiClient.convertToType(data['environmentId'], 'String');
@@ -86,7 +86,7 @@
   }
 
   /**
-   * @member {String} lastPing
+   * @member {Number} lastPing
    */
   exports.prototype['lastPing'] = undefined;
   /**

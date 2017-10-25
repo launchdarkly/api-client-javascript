@@ -44,8 +44,8 @@
    * Constructs a new <code>EnvironmentBody</code>.
    * @alias module:model/EnvironmentBody
    * @class
-   * @param name {String} 
-   * @param key {String} 
+   * @param name {String} The name of the new environment
+   * @param key {String} A project-unique key for the new environment
    * @param color {String} A color swatch (as an RGB hex value with no leading '#', e.g. C8C8C8)
    */
   var exports = function(name, key, color) {
@@ -85,10 +85,12 @@
   }
 
   /**
+   * The name of the new environment
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
+   * A project-unique key for the new environment
    * @member {String} key
    */
   exports.prototype['key'] = undefined;
@@ -98,6 +100,7 @@
    */
   exports.prototype['color'] = undefined;
   /**
+   * The default TTL for the new environment
    * @member {Number} defaultTtl
    */
   exports.prototype['defaultTtl'] = undefined;

@@ -106,34 +106,42 @@
    */
   exports.prototype['_links'] = undefined;
   /**
+   * The unique id for the environment
    * @member {String} _id
    */
   exports.prototype['_id'] = undefined;
   /**
+   * The key for the environment
    * @member {String} key
    */
   exports.prototype['key'] = undefined;
   /**
+   * The name of the environment
    * @member {String} name
    */
   exports.prototype['name'] = undefined;
   /**
+   * The SDK key for backend LaunchDarkly SDKs
    * @member {String} apiKey
    */
   exports.prototype['apiKey'] = undefined;
   /**
+   * The SDK key for mobile LaunchDarkly SDKs
    * @member {String} mobileKey
    */
   exports.prototype['mobileKey'] = undefined;
   /**
+   * The swatch color for the environment
    * @member {String} color
    */
   exports.prototype['color'] = undefined;
   /**
+   * The default TTL
    * @member {Number} defaultTtl
    */
   exports.prototype['defaultTtl'] = undefined;
   /**
+   * Determines if this environment is in safe mode
    * @member {Boolean} secureMode
    */
   exports.prototype['secureMode'] = undefined;

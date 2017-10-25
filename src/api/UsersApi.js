@@ -115,7 +115,7 @@
      */
 
     /**
-     * Search users in LaunchDarkly based on their last active date, or a search query.
+     * Search users in LaunchDarkly based on their last active date, or a search query. It should not be used to enumerate all users in LaunchDarkly-- use the List users API resource.
      * @param {String} projectKey The project key, used to tie the flags together under one project so they can be managed together.
      * @param {String} environmentKey The environment key
      * @param {Object} opts Optional parameters
@@ -236,7 +236,7 @@
      */
 
     /**
-     * List all users in the environment.
+     * List all users in the environment. Includes the total count of users. In each page, there will be up to &#39;limit&#39; users returned (default 20). This is useful for exporting all users in the system for further analysis. Paginated collections will include a next link containing a URL with the next set of elements in the collection.
      * @param {String} projectKey The project key, used to tie the flags together under one project so they can be managed together.
      * @param {String} environmentKey The environment key
      * @param {Object} opts Optional parameters
