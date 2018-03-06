@@ -1,23 +1,23 @@
-# LaunchDarklyRestApi.FlagsApi
+# LaunchDarklyRestApi.FeatureFlagsApi
 
 All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteFeatureFlag**](FlagsApi.md#deleteFeatureFlag) | **DELETE** /flags/{projectKey}/{featureFlagKey} | Delete a feature flag by ID
-[**getFeatureFlag**](FlagsApi.md#getFeatureFlag) | **GET** /flags/{projectKey}/{featureFlagKey} | Get a single feature flag by key.
-[**getFeatureFlagStatus**](FlagsApi.md#getFeatureFlagStatus) | **GET** /flag-statuses/{projectKey}/{environmentKey} | Get a list of statuses for all feature flags
-[**getFeatureFlagStatuses**](FlagsApi.md#getFeatureFlagStatuses) | **GET** /flag-statuses/{projectKey}/{environmentKey}/{featureFlagKey} | Get a list of statuses for all feature flags
-[**getFeatureFlags**](FlagsApi.md#getFeatureFlags) | **GET** /flags/{projectKey} | Get a list of all features in the given project.
-[**patchFeatureFlag**](FlagsApi.md#patchFeatureFlag) | **PATCH** /flags/{projectKey}/{featureFlagKey} | Perform a partial update to a feature.
-[**postFeatureFlag**](FlagsApi.md#postFeatureFlag) | **POST** /flags/{projectKey} | Creates a new feature flag.
+[**deleteFeatureFlag**](FeatureFlagsApi.md#deleteFeatureFlag) | **DELETE** /flags/{projectKey}/{featureFlagKey} | Delete a feature flag in all environments. Be careful-- only delete feature flags that are no longer being used by your application.
+[**getFeatureFlag**](FeatureFlagsApi.md#getFeatureFlag) | **GET** /flags/{projectKey}/{featureFlagKey} | Get a single feature flag by key.
+[**getFeatureFlagStatus**](FeatureFlagsApi.md#getFeatureFlagStatus) | **GET** /flag-statuses/{projectKey}/{environmentKey} | Get a list of statuses for all feature flags. The status includes the last time the feature flag was requested, as well as the state of the flag.
+[**getFeatureFlagStatuses**](FeatureFlagsApi.md#getFeatureFlagStatuses) | **GET** /flag-statuses/{projectKey}/{environmentKey}/{featureFlagKey} | Get the status for a particular feature flag.
+[**getFeatureFlags**](FeatureFlagsApi.md#getFeatureFlags) | **GET** /flags/{projectKey} | Get a list of all features in the given project.
+[**patchFeatureFlag**](FeatureFlagsApi.md#patchFeatureFlag) | **PATCH** /flags/{projectKey}/{featureFlagKey} | Perform a partial update to a feature.
+[**postFeatureFlag**](FeatureFlagsApi.md#postFeatureFlag) | **POST** /flags/{projectKey} | Creates a new feature flag.
 
 
 <a name="deleteFeatureFlag"></a>
 # **deleteFeatureFlag**
 > deleteFeatureFlag(projectKey, featureFlagKey, )
 
-Delete a feature flag by ID
+Delete a feature flag in all environments. Be careful-- only delete feature flags that are no longer being used by your application.
 
 ### Example
 ```javascript
@@ -30,7 +30,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FlagsApi();
+var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
@@ -84,14 +84,14 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FlagsApi();
+var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
 var featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key. The key identifies the flag in your code.
 
 var opts = { 
-  'environmentKeyQuery': "environmentKeyQuery_example" // String | The environment key
+  'env': "env_example" // String | By default, each feature will include configurations for each environment. You can filter environments with the env query parameter. For example, setting env=production will restrict the returned configurations to just your production environment.
 };
 
 var callback = function(error, data, response) {
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
- **environmentKeyQuery** | **String**| The environment key | [optional] 
+ **env** | **String**| By default, each feature will include configurations for each environment. You can filter environments with the env query parameter. For example, setting env&#x3D;production will restrict the returned configurations to just your production environment. | [optional] 
 
 ### Return type
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 # **getFeatureFlagStatus**
 > FeatureFlagStatuses getFeatureFlagStatus(projectKey, environmentKey, )
 
-Get a list of statuses for all feature flags
+Get a list of statuses for all feature flags. The status includes the last time the feature flag was requested, as well as the state of the flag.
 
 ### Example
 ```javascript
@@ -142,11 +142,11 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FlagsApi();
+var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentKey = "environmentKey_example"; // String | The environment key
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
 
 var callback = function(error, data, response) {
@@ -164,7 +164,7 @@ apiInstance.getFeatureFlagStatus(projectKey, environmentKey, , callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
 
 ### Return type
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 # **getFeatureFlagStatuses**
 > FeatureFlagStatus getFeatureFlagStatuses(projectKey, environmentKey, featureFlagKey, )
 
-Get a list of statuses for all feature flags
+Get the status for a particular feature flag.
 
 ### Example
 ```javascript
@@ -196,11 +196,11 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FlagsApi();
+var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentKey = "environmentKey_example"; // String | The environment key
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
 var featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key. The key identifies the flag in your code.
 
@@ -220,7 +220,7 @@ apiInstance.getFeatureFlagStatuses(projectKey, environmentKey, featureFlagKey, ,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
 
 ### Return type
@@ -253,12 +253,12 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FlagsApi();
+var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
 var opts = { 
-  'environmentKeyQuery': "environmentKeyQuery_example" // String | The environment key
+  'env': "env_example" // String | By default, each feature will include configurations for each environment. You can filter environments with the env query parameter. For example, setting env=production will restrict the returned configurations to just your production environment.
   'tag': "tag_example" // String | Filter by tag. A tag can be used to group flags across projects.
 };
 
@@ -277,7 +277,7 @@ apiInstance.getFeatureFlags(projectKey, , opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKeyQuery** | **String**| The environment key | [optional] 
+ **env** | **String**| By default, each feature will include configurations for each environment. You can filter environments with the env query parameter. For example, setting env&#x3D;production will restrict the returned configurations to just your production environment. | [optional] 
  **tag** | **String**| Filter by tag. A tag can be used to group flags across projects. | [optional] 
 
 ### Return type
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 <a name="patchFeatureFlag"></a>
 # **patchFeatureFlag**
-> FeatureFlag patchFeatureFlag(projectKey, featureFlagKey, patchDelta)
+> FeatureFlag patchFeatureFlag(projectKey, featureFlagKey, patchComment)
 
 Perform a partial update to a feature.
 
@@ -310,13 +310,13 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FlagsApi();
+var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
 var featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key. The key identifies the flag in your code.
 
-var patchDelta = [new LaunchDarklyRestApi.PatchDelta()]; // [PatchDelta] | http://jsonpatch.com/
+var patchComment = new LaunchDarklyRestApi.PatchComment(); // PatchComment | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' Feature flag patches also support JSON Merge Patch format. 'https://tools.ietf.org/html/rfc7386' The addition of comments is also supported.
 
 
 var callback = function(error, data, response) {
@@ -326,7 +326,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.patchFeatureFlag(projectKey, featureFlagKey, patchDelta, callback);
+apiInstance.patchFeatureFlag(projectKey, featureFlagKey, patchComment, callback);
 ```
 
 ### Parameters
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
- **patchDelta** | [**[PatchDelta]**](PatchDelta.md)| http://jsonpatch.com/ | 
+ **patchComment** | [**PatchComment**](PatchComment.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; Feature flag patches also support JSON Merge Patch format. &#39;https://tools.ietf.org/html/rfc7386&#39; The addition of comments is also supported. | 
 
 ### Return type
 
@@ -367,11 +367,11 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FlagsApi();
+var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var featureFlagBody = new LaunchDarklyRestApi.FeatureFlagBody(); // FeatureFlagBody | Create a new feature flag
+var featureFlagBody = new LaunchDarklyRestApi.FeatureFlagBody(); // FeatureFlagBody | Create a new feature flag.
 
 
 var callback = function(error, data, response) {
@@ -389,7 +389,7 @@ apiInstance.postFeatureFlag(projectKey, featureFlagBody, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagBody** | [**FeatureFlagBody**](FeatureFlagBody.md)| Create a new feature flag | 
+ **featureFlagBody** | [**FeatureFlagBody**](FeatureFlagBody.md)| Create a new feature flag. | 
 
 ### Return type
 

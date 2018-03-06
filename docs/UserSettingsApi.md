@@ -4,7 +4,7 @@ All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getUserFlagSetting**](UserSettingsApi.md#getUserFlagSetting) | **GET** /users/{projectKey}/{environmentKey}/{userKey}/flags/{featureFlagKey} | Get a user by key.
+[**getUserFlagSetting**](UserSettingsApi.md#getUserFlagSetting) | **GET** /users/{projectKey}/{environmentKey}/{userKey}/flags/{featureFlagKey} | Fetch a single flag setting for a user by key.
 [**getUserFlagSettings**](UserSettingsApi.md#getUserFlagSettings) | **GET** /users/{projectKey}/{environmentKey}/{userKey}/flags | Fetch a single flag setting for a user by key.
 [**putFlagSetting**](UserSettingsApi.md#putFlagSetting) | **PUT** /users/{projectKey}/{environmentKey}/{userKey}/flags/{featureFlagKey} | Specifically enable or disable a feature flag for a user based on their key.
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 # **getUserFlagSetting**
 > UserFlagSetting getUserFlagSetting(projectKey, environmentKey, userKey, featureFlagKey, )
 
-Get a user by key.
+Fetch a single flag setting for a user by key.
 
 ### Example
 ```javascript
@@ -30,9 +30,9 @@ var apiInstance = new LaunchDarklyRestApi.UserSettingsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentKey = "environmentKey_example"; // String | The environment key
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
-var userKey = "userKey_example"; // String | The user's key
+var userKey = "userKey_example"; // String | The user's key.
 
 var featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key. The key identifies the flag in your code.
 
@@ -52,8 +52,8 @@ apiInstance.getUserFlagSetting(projectKey, environmentKey, userKey, featureFlagK
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key | 
- **userKey** | **String**| The user&#39;s key | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+ **userKey** | **String**| The user&#39;s key. | 
  **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
 
 ### Return type
@@ -90,9 +90,9 @@ var apiInstance = new LaunchDarklyRestApi.UserSettingsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentKey = "environmentKey_example"; // String | The environment key
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
-var userKey = "userKey_example"; // String | The user's key
+var userKey = "userKey_example"; // String | The user's key.
 
 
 var callback = function(error, data, response) {
@@ -110,8 +110,8 @@ apiInstance.getUserFlagSettings(projectKey, environmentKey, userKey, , callback)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key | 
- **userKey** | **String**| The user&#39;s key | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+ **userKey** | **String**| The user&#39;s key. | 
 
 ### Return type
 
@@ -147,9 +147,9 @@ var apiInstance = new LaunchDarklyRestApi.UserSettingsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentKey = "environmentKey_example"; // String | The environment key
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
-var userKey = "userKey_example"; // String | The user's key
+var userKey = "userKey_example"; // String | The user's key.
 
 var featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key. The key identifies the flag in your code.
 
@@ -171,8 +171,8 @@ apiInstance.putFlagSetting(projectKey, environmentKey, userKey, featureFlagKey, 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key | 
- **userKey** | **String**| The user&#39;s key | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+ **userKey** | **String**| The user&#39;s key. | 
  **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
  **userSettingsBody** | [**UserSettingsBody**](UserSettingsBody.md)|  | 
 

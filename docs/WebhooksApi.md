@@ -4,18 +4,18 @@ All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteWebhook**](WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{resourceId} | Delete a webhook by ID
-[**getWebhook**](WebhooksApi.md#getWebhook) | **GET** /webhooks/{resourceId} | Get a webhook by ID
-[**getWebhooks**](WebhooksApi.md#getWebhooks) | **GET** /webhooks | Fetch a list of all webhooks
-[**patchWebhook**](WebhooksApi.md#patchWebhook) | **PATCH** /webhooks/{resourceId} | Modify a webhook by ID
-[**postWebhook**](WebhooksApi.md#postWebhook) | **POST** /webhooks | Create a webhook
+[**deleteWebhook**](WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{resourceId} | Delete a webhook by ID.
+[**getWebhook**](WebhooksApi.md#getWebhook) | **GET** /webhooks/{resourceId} | Get a webhook by ID.
+[**getWebhooks**](WebhooksApi.md#getWebhooks) | **GET** /webhooks | Fetch a list of all webhooks.
+[**patchWebhook**](WebhooksApi.md#patchWebhook) | **PATCH** /webhooks/{resourceId} | Modify a webhook by ID.
+[**postWebhook**](WebhooksApi.md#postWebhook) | **POST** /webhooks | Create a webhook.
 
 
 <a name="deleteWebhook"></a>
 # **deleteWebhook**
 > deleteWebhook(resourceId, )
 
-Delete a webhook by ID
+Delete a webhook by ID.
 
 ### Example
 ```javascript
@@ -30,7 +30,7 @@ Token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
 
-var resourceId = "resourceId_example"; // String | The resource ID
+var resourceId = "resourceId_example"; // String | The resource ID.
 
 
 var callback = function(error, data, response) {
@@ -47,7 +47,7 @@ apiInstance.deleteWebhook(resourceId, , callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceId** | **String**| The resource ID | 
+ **resourceId** | **String**| The resource ID. | 
 
 ### Return type
 
@@ -66,7 +66,7 @@ null (empty response body)
 # **getWebhook**
 > Webhook getWebhook(resourceId, )
 
-Get a webhook by ID
+Get a webhook by ID.
 
 ### Example
 ```javascript
@@ -81,7 +81,7 @@ Token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
 
-var resourceId = "resourceId_example"; // String | The resource ID
+var resourceId = "resourceId_example"; // String | The resource ID.
 
 
 var callback = function(error, data, response) {
@@ -98,7 +98,7 @@ apiInstance.getWebhook(resourceId, , callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceId** | **String**| The resource ID | 
+ **resourceId** | **String**| The resource ID. | 
 
 ### Return type
 
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 # **getWebhooks**
 > Webhooks getWebhooks()
 
-Fetch a list of all webhooks
+Fetch a list of all webhooks.
 
 ### Example
 ```javascript
@@ -162,7 +162,7 @@ This endpoint does not need any parameter.
 # **patchWebhook**
 > Webhook patchWebhook(resourceId, patchDelta)
 
-Modify a webhook by ID
+Modify a webhook by ID.
 
 ### Example
 ```javascript
@@ -177,9 +177,9 @@ Token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
 
-var resourceId = "resourceId_example"; // String | The resource ID
+var resourceId = "resourceId_example"; // String | The resource ID.
 
-var patchDelta = [new LaunchDarklyRestApi.PatchDelta()]; // [PatchDelta] | http://jsonpatch.com/
+var patchDelta = [new LaunchDarklyRestApi.PatchDelta()]; // [PatchDelta] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
 
 
 var callback = function(error, data, response) {
@@ -196,8 +196,8 @@ apiInstance.patchWebhook(resourceId, patchDelta, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceId** | **String**| The resource ID | 
- **patchDelta** | [**[PatchDelta]**](PatchDelta.md)| http://jsonpatch.com/ | 
+ **resourceId** | **String**| The resource ID. | 
+ **patchDelta** | [**[PatchDelta]**](PatchDelta.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; | 
 
 ### Return type
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 # **postWebhook**
 > postWebhook(webhookBody)
 
-Create a webhook
+Create a webhook.
 
 ### Example
 ```javascript
@@ -231,7 +231,7 @@ Token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
 
-var webhookBody = new LaunchDarklyRestApi.WebhookBody(); // WebhookBody | New webhook
+var webhookBody = new LaunchDarklyRestApi.WebhookBody(); // WebhookBody | New webhook.
 
 
 var callback = function(error, data, response) {
@@ -248,7 +248,7 @@ apiInstance.postWebhook(webhookBody, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhookBody** | [**WebhookBody**](WebhookBody.md)| New webhook | 
+ **webhookBody** | [**WebhookBody**](WebhookBody.md)| New webhook. | 
 
 ### Return type
 

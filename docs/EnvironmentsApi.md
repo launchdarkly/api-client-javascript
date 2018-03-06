@@ -4,17 +4,17 @@ All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteEnvironment**](EnvironmentsApi.md#deleteEnvironment) | **DELETE** /environments/{projectKey}/{environmentKey} | Delete an environment by ID
-[**getEnvironment**](EnvironmentsApi.md#getEnvironment) | **GET** /environments/{projectKey}/{environmentKey} | Get an environment given a project and key.
-[**patchEnvironment**](EnvironmentsApi.md#patchEnvironment) | **PATCH** /environments/{projectKey}/{environmentKey} | Modify an environment by ID
-[**postEnvironment**](EnvironmentsApi.md#postEnvironment) | **POST** /environments/{projectKey} | Create a new environment in a specified project with a given name, key, and swatch color.
+[**deleteEnvironment**](EnvironmentsApi.md#deleteEnvironment) | **DELETE** /projects/{projectKey}/environments/{environmentKey} | Delete an environment in a specific project.
+[**getEnvironment**](EnvironmentsApi.md#getEnvironment) | **GET** /projects/{projectKey}/environments/{environmentKey} | Get an environment given a project and key.
+[**patchEnvironment**](EnvironmentsApi.md#patchEnvironment) | **PATCH** /projects/{projectKey}/environments/{environmentKey} | Modify an environment by ID.
+[**postEnvironment**](EnvironmentsApi.md#postEnvironment) | **POST** /projects/{projectKey}/environments | Create a new environment in a specified project with a given name, key, and swatch color.
 
 
 <a name="deleteEnvironment"></a>
 # **deleteEnvironment**
 > deleteEnvironment(projectKey, environmentKey, )
 
-Delete an environment by ID
+Delete an environment in a specific project.
 
 ### Example
 ```javascript
@@ -31,7 +31,7 @@ var apiInstance = new LaunchDarklyRestApi.EnvironmentsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentKey = "environmentKey_example"; // String | The environment key
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
 
 var callback = function(error, data, response) {
@@ -49,7 +49,7 @@ apiInstance.deleteEnvironment(projectKey, environmentKey, , callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
 
 ### Return type
 
@@ -85,7 +85,7 @@ var apiInstance = new LaunchDarklyRestApi.EnvironmentsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentKey = "environmentKey_example"; // String | The environment key
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
 
 var callback = function(error, data, response) {
@@ -103,7 +103,7 @@ apiInstance.getEnvironment(projectKey, environmentKey, , callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
 
 ### Return type
 
@@ -120,9 +120,9 @@ Name | Type | Description  | Notes
 
 <a name="patchEnvironment"></a>
 # **patchEnvironment**
-> patchEnvironment(projectKey, environmentKey, patchDelta)
+> Environment patchEnvironment(projectKey, environmentKey, patchDelta)
 
-Modify an environment by ID
+Modify an environment by ID.
 
 ### Example
 ```javascript
@@ -139,16 +139,16 @@ var apiInstance = new LaunchDarklyRestApi.EnvironmentsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentKey = "environmentKey_example"; // String | The environment key
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
-var patchDelta = [new LaunchDarklyRestApi.PatchDelta()]; // [PatchDelta] | http://jsonpatch.com/
+var patchDelta = [new LaunchDarklyRestApi.PatchDelta()]; // [PatchDelta] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
 
 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.patchEnvironment(projectKey, environmentKey, patchDelta, callback);
@@ -159,12 +159,12 @@ apiInstance.patchEnvironment(projectKey, environmentKey, patchDelta, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key | 
- **patchDelta** | [**[PatchDelta]**](PatchDelta.md)| http://jsonpatch.com/ | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+ **patchDelta** | [**[PatchDelta]**](PatchDelta.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; | 
 
 ### Return type
 
-null (empty response body)
+[**Environment**](Environment.md)
 
 ### Authorization
 
@@ -196,7 +196,7 @@ var apiInstance = new LaunchDarklyRestApi.EnvironmentsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentBody = new LaunchDarklyRestApi.EnvironmentBody(); // EnvironmentBody | New environment
+var environmentBody = new LaunchDarklyRestApi.EnvironmentBody(); // EnvironmentBody | New environment.
 
 
 var callback = function(error, data, response) {
@@ -214,7 +214,7 @@ apiInstance.postEnvironment(projectKey, environmentBody, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentBody** | [**EnvironmentBody**](EnvironmentBody.md)| New environment | 
+ **environmentBody** | [**EnvironmentBody**](EnvironmentBody.md)| New environment. | 
 
 ### Return type
 

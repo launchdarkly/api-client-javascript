@@ -4,18 +4,18 @@ All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteProject**](ProjectsApi.md#deleteProject) | **DELETE** /projects/{projectKey} | Delete a project by ID
+[**deleteProject**](ProjectsApi.md#deleteProject) | **DELETE** /projects/{projectKey} | Delete a project by key. Caution-- deleting a project will delete all associated environments and feature flags. You cannot delete the last project in an account.
 [**getProject**](ProjectsApi.md#getProject) | **GET** /projects/{projectKey} | Fetch a single project by key.
 [**getProjects**](ProjectsApi.md#getProjects) | **GET** /projects | Returns a list of all projects in the account.
-[**patchProject**](ProjectsApi.md#patchProject) | **PATCH** /projects/{projectKey} | Modify a project by ID
-[**postProject**](ProjectsApi.md#postProject) | **POST** /projects | Create a project
+[**patchProject**](ProjectsApi.md#patchProject) | **PATCH** /projects/{projectKey} | Modify a project by ID.
+[**postProject**](ProjectsApi.md#postProject) | **POST** /projects | Create a new project with the given key and name.
 
 
 <a name="deleteProject"></a>
 # **deleteProject**
 > deleteProject(projectKey, )
 
-Delete a project by ID
+Delete a project by key. Caution-- deleting a project will delete all associated environments and feature flags. You cannot delete the last project in an account.
 
 ### Example
 ```javascript
@@ -160,9 +160,9 @@ This endpoint does not need any parameter.
 
 <a name="patchProject"></a>
 # **patchProject**
-> patchProject(projectKey, patchDelta)
+> Project patchProject(projectKey, patchDelta)
 
-Modify a project by ID
+Modify a project by ID.
 
 ### Example
 ```javascript
@@ -179,14 +179,14 @@ var apiInstance = new LaunchDarklyRestApi.ProjectsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var patchDelta = [new LaunchDarklyRestApi.PatchDelta()]; // [PatchDelta] | http://jsonpatch.com/
+var patchDelta = [new LaunchDarklyRestApi.PatchDelta()]; // [PatchDelta] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
 
 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.patchProject(projectKey, patchDelta, callback);
@@ -197,11 +197,11 @@ apiInstance.patchProject(projectKey, patchDelta, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **patchDelta** | [**[PatchDelta]**](PatchDelta.md)| http://jsonpatch.com/ | 
+ **patchDelta** | [**[PatchDelta]**](PatchDelta.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; | 
 
 ### Return type
 
-null (empty response body)
+[**Project**](Project.md)
 
 ### Authorization
 
@@ -216,7 +216,7 @@ null (empty response body)
 # **postProject**
 > postProject(projectBody)
 
-Create a project
+Create a new project with the given key and name.
 
 ### Example
 ```javascript
@@ -231,7 +231,7 @@ Token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new LaunchDarklyRestApi.ProjectsApi();
 
-var projectBody = new LaunchDarklyRestApi.ProjectBody(); // ProjectBody | New project
+var projectBody = new LaunchDarklyRestApi.ProjectBody(); // ProjectBody | Project keys must be unique within an account.
 
 
 var callback = function(error, data, response) {
@@ -248,7 +248,7 @@ apiInstance.postProject(projectBody, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectBody** | [**ProjectBody**](ProjectBody.md)| New project | 
+ **projectBody** | [**ProjectBody**](ProjectBody.md)| Project keys must be unique within an account. | 
 
 ### Return type
 

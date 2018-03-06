@@ -4,7 +4,7 @@ All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /users/{projectKey}/{environmentKey}/{userKey} | Delete a user by ID
+[**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /users/{projectKey}/{environmentKey}/{userKey} | Delete a user by ID.
 [**getSearchUsers**](UsersApi.md#getSearchUsers) | **GET** /user-search/{projectKey}/{environmentKey} | Search users in LaunchDarkly based on their last active date, or a search query. It should not be used to enumerate all users in LaunchDarkly-- use the List users API resource.
 [**getUser**](UsersApi.md#getUser) | **GET** /users/{projectKey}/{environmentKey}/{userKey} | Get a user by key.
 [**getUsers**](UsersApi.md#getUsers) | **GET** /users/{projectKey}/{environmentKey} | List all users in the environment. Includes the total count of users. In each page, there will be up to &#39;limit&#39; users returned (default 20). This is useful for exporting all users in the system for further analysis. Paginated collections will include a next link containing a URL with the next set of elements in the collection.
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 # **deleteUser**
 > deleteUser(projectKey, environmentKey, userKey, )
 
-Delete a user by ID
+Delete a user by ID.
 
 ### Example
 ```javascript
@@ -31,9 +31,9 @@ var apiInstance = new LaunchDarklyRestApi.UsersApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentKey = "environmentKey_example"; // String | The environment key
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
-var userKey = "userKey_example"; // String | The user's key
+var userKey = "userKey_example"; // String | The user's key.
 
 
 var callback = function(error, data, response) {
@@ -51,8 +51,8 @@ apiInstance.deleteUser(projectKey, environmentKey, userKey, , callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key | 
- **userKey** | **String**| The user&#39;s key | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+ **userKey** | **String**| The user&#39;s key. | 
 
 ### Return type
 
@@ -88,13 +88,13 @@ var apiInstance = new LaunchDarklyRestApi.UsersApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentKey = "environmentKey_example"; // String | The environment key
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
 var opts = { 
-  'q': "q_example", // String | Search query
-  'limit': 3.4, // Number | Pagination limit
-  'offset': 3.4, // Number | Specifies the first item to return in the collection
-  'after': 789 // Number | A unix epoch time in milliseconds specifying the maximum last time a user requested a feature flag
+  'q': "q_example", // String | Search query.
+  'limit': 8.14, // Number | Pagination limit.
+  'offset': 8.14, // Number | Specifies the first item to return in the collection.
+  'after': 8.14, // Number | A timestamp filter, expressed as a Unix epoch time in milliseconds. All entries returned will have occured after this timestamp.
 };
 
 var callback = function(error, data, response) {
@@ -112,11 +112,11 @@ apiInstance.getSearchUsers(projectKey, environmentKey, , opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key | 
- **q** | **String**| Search query | [optional] 
- **limit** | **Number**| Pagination limit | [optional] 
- **offset** | **Number**| Specifies the first item to return in the collection | [optional] 
- **after** | **Number**| A unix epoch time in milliseconds specifying the maximum last time a user requested a feature flag | [optional] 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+ **q** | **String**| Search query. | [optional] 
+ **limit** | **Number**| Pagination limit. | [optional] 
+ **offset** | **Number**| Specifies the first item to return in the collection. | [optional] 
+ **after** | **Number**| A timestamp filter, expressed as a Unix epoch time in milliseconds. All entries returned will have occured after this timestamp. | [optional] 
 
 ### Return type
 
@@ -152,9 +152,9 @@ var apiInstance = new LaunchDarklyRestApi.UsersApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentKey = "environmentKey_example"; // String | The environment key
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
-var userKey = "userKey_example"; // String | The user's key
+var userKey = "userKey_example"; // String | The user's key.
 
 
 var callback = function(error, data, response) {
@@ -172,8 +172,8 @@ apiInstance.getUser(projectKey, environmentKey, userKey, , callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key | 
- **userKey** | **String**| The user&#39;s key | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+ **userKey** | **String**| The user&#39;s key. | 
 
 ### Return type
 
@@ -209,10 +209,10 @@ var apiInstance = new LaunchDarklyRestApi.UsersApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentKey = "environmentKey_example"; // String | The environment key
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
 var opts = { 
-  'limit': 3.4, // Number | Pagination limit
+  'limit': 8.14, // Number | Pagination limit.
 };
 
 var callback = function(error, data, response) {
@@ -230,8 +230,8 @@ apiInstance.getUsers(projectKey, environmentKey, , opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key | 
- **limit** | **Number**| Pagination limit | [optional] 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+ **limit** | **Number**| Pagination limit. | [optional] 
 
 ### Return type
 
