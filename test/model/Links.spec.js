@@ -63,6 +63,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property next (base name: "next")', function() {
+      // uncomment below and update the code to test the property next
+      //var instane = new LaunchDarklyRestApi.Links();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -49,6 +49,7 @@
     var _this = this;
 
 
+
   };
 
   /**
@@ -65,6 +66,9 @@
       if (data.hasOwnProperty('self')) {
         obj['self'] = Link.constructFromObject(data['self']);
       }
+      if (data.hasOwnProperty('next')) {
+        obj['next'] = Link.constructFromObject(data['next']);
+      }
     }
     return obj;
   }
@@ -73,6 +77,10 @@
    * @member {module:model/Link} self
    */
   exports.prototype['self'] = undefined;
+  /**
+   * @member {module:model/Link} next
+   */
+  exports.prototype['next'] = undefined;
 
 
 

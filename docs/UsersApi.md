@@ -213,6 +213,8 @@ var environmentKey = "environmentKey_example"; // String | The environment key, 
 
 var opts = { 
   'limit': 8.14, // Number | Pagination limit.
+  'h': "h_example", // String | Next link query parameter.
+  'scrollId': "scrollId_example" // String | Next link query parameter.
 };
 
 var callback = function(error, data, response) {
@@ -232,6 +234,8 @@ Name | Type | Description  | Notes
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **limit** | **Number**| Pagination limit. | [optional] 
+ **h** | **String**| Next link query parameter. | [optional] 
+ **scrollId** | **String**| Next link query parameter. | [optional] 
 
 ### Return type
 

@@ -247,6 +247,8 @@
      * @param {String} environmentKey The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit Pagination limit.
+     * @param {String} opts.h Next link query parameter.
+     * @param {String} opts.scrollId Next link query parameter.
      * @param {module:api/UsersApi~getUsersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Users}
      */
@@ -271,6 +273,8 @@
       };
       var queryParams = {
         'limit': opts['limit'],
+        'h': opts['h'],
+        'scrollId': opts['scrollId'],
       };
       var collectionQueryParams = {
       };
