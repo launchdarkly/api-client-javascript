@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **version** | **Number** |  | [optional] 
 **targets** | [**[Target]**](Target.md) |  | [optional] 
 **rules** | [**[Rule]**](Rule.md) |  | [optional] 
-**fallthrough** | [**FeatureFlagConfigFallthrough**](FeatureFlagConfigFallthrough.md) |  | [optional] 
+**fallthrough** | [**Fallthrough**](Fallthrough.md) |  | [optional] 
+**offVariation** | **Number** |  | [optional] 
+**prerequisites** | [**[Prerequisite]**](Prerequisite.md) |  | [optional] 
 
 

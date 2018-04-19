@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.FeatureFlagConfigFallthrough
+# LaunchDarklyRestApi.Fallthrough
 
 ## Properties
 Name | Type | Description | Notes

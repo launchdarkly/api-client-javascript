@@ -179,7 +179,7 @@ var apiInstance = new LaunchDarklyRestApi.TeamMembersApi();
 
 var memberId = "memberId_example"; // String | The member ID.
 
-var patchDelta = [new LaunchDarklyRestApi.PatchDelta()]; // [PatchDelta] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
+var patchDelta = [new LaunchDarklyRestApi.PatchOperation()]; // [PatchOperation] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
 
 
 var callback = function(error, data, response) {
@@ -197,7 +197,7 @@ apiInstance.patchMember(memberId, patchDelta, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **memberId** | **String**| The member ID. | 
- **patchDelta** | [**[PatchDelta]**](PatchDelta.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; | 
+ **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; | 
 
 ### Return type
 

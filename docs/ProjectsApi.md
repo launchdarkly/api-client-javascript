@@ -179,7 +179,7 @@ var apiInstance = new LaunchDarklyRestApi.ProjectsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var patchDelta = [new LaunchDarklyRestApi.PatchDelta()]; // [PatchDelta] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
+var patchDelta = [new LaunchDarklyRestApi.PatchOperation()]; // [PatchOperation] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
 
 
 var callback = function(error, data, response) {
@@ -197,7 +197,7 @@ apiInstance.patchProject(projectKey, patchDelta, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **patchDelta** | [**[PatchDelta]**](PatchDelta.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; | 
+ **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; | 
 
 ### Return type
 

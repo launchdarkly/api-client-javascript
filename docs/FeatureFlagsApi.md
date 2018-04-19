@@ -6,8 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteFeatureFlag**](FeatureFlagsApi.md#deleteFeatureFlag) | **DELETE** /flags/{projectKey}/{featureFlagKey} | Delete a feature flag in all environments. Be careful-- only delete feature flags that are no longer being used by your application.
 [**getFeatureFlag**](FeatureFlagsApi.md#getFeatureFlag) | **GET** /flags/{projectKey}/{featureFlagKey} | Get a single feature flag by key.
-[**getFeatureFlagStatus**](FeatureFlagsApi.md#getFeatureFlagStatus) | **GET** /flag-statuses/{projectKey}/{environmentKey} | Get a list of statuses for all feature flags. The status includes the last time the feature flag was requested, as well as the state of the flag.
-[**getFeatureFlagStatuses**](FeatureFlagsApi.md#getFeatureFlagStatuses) | **GET** /flag-statuses/{projectKey}/{environmentKey}/{featureFlagKey} | Get the status for a particular feature flag.
+[**getFeatureFlagStatus**](FeatureFlagsApi.md#getFeatureFlagStatus) | **GET** /flag-statuses/{projectKey}/{environmentKey}/{featureFlagKey} | Get the status for a particular feature flag.
+[**getFeatureFlagStatuses**](FeatureFlagsApi.md#getFeatureFlagStatuses) | **GET** /flag-statuses/{projectKey}/{environmentKey} | Get a list of statuses for all feature flags. The status includes the last time the feature flag was requested, as well as the state of the flag.
 [**getFeatureFlags**](FeatureFlagsApi.md#getFeatureFlags) | **GET** /flags/{projectKey} | Get a list of all features in the given project.
 [**patchFeatureFlag**](FeatureFlagsApi.md#patchFeatureFlag) | **PATCH** /flags/{projectKey}/{featureFlagKey} | Perform a partial update to a feature.
 [**postFeatureFlag**](FeatureFlagsApi.md#postFeatureFlag) | **POST** /flags/{projectKey} | Creates a new feature flag.
@@ -127,61 +127,7 @@ Name | Type | Description  | Notes
 
 <a name="getFeatureFlagStatus"></a>
 # **getFeatureFlagStatus**
-> FeatureFlagStatuses getFeatureFlagStatus(projectKey, environmentKey, )
-
-Get a list of statuses for all feature flags. The status includes the last time the feature flag was requested, as well as the state of the flag.
-
-### Example
-```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
-
-var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
-
-var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
-
-var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.getFeatureFlagStatus(projectKey, environmentKey, , callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
-
-### Return type
-
-[**FeatureFlagStatuses**](FeatureFlagStatuses.md)
-
-### Authorization
-
-[Token](../README.md#Token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="getFeatureFlagStatuses"></a>
-# **getFeatureFlagStatuses**
-> FeatureFlagStatus getFeatureFlagStatuses(projectKey, environmentKey, featureFlagKey, )
+> FeatureFlagStatus getFeatureFlagStatus(projectKey, environmentKey, featureFlagKey, )
 
 Get the status for a particular feature flag.
 
@@ -212,7 +158,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getFeatureFlagStatuses(projectKey, environmentKey, featureFlagKey, , callback);
+apiInstance.getFeatureFlagStatus(projectKey, environmentKey, featureFlagKey, , callback);
 ```
 
 ### Parameters
@@ -226,6 +172,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FeatureFlagStatus**](FeatureFlagStatus.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getFeatureFlagStatuses"></a>
+# **getFeatureFlagStatuses**
+> FeatureFlagStatuses getFeatureFlagStatuses(projectKey, environmentKey, )
+
+Get a list of statuses for all feature flags. The status includes the last time the feature flag was requested, as well as the state of the flag.
+
+### Example
+```javascript
+var LaunchDarklyRestApi = require('launch_darkly_rest_api');
+var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+
+// Configure API key authorization: Token
+var Token = defaultClient.authentications['Token'];
+Token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Token.apiKeyPrefix = 'Token';
+
+var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
+
+var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
+
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getFeatureFlagStatuses(projectKey, environmentKey, , callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+
+### Return type
+
+[**FeatureFlagStatuses**](FeatureFlagStatuses.md)
 
 ### Authorization
 
@@ -316,7 +316,7 @@ var projectKey = "projectKey_example"; // String | The project key, used to tie 
 
 var featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key. The key identifies the flag in your code.
 
-var patchComment = new LaunchDarklyRestApi.PatchComment(); // PatchComment | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' Feature flag patches also support JSON Merge Patch format. 'https://tools.ietf.org/html/rfc7386' The addition of comments is also supported.
+var patchComment = new LaunchDarklyRestApi.PatchComment(); // PatchComment | Requires a JSON Patch representation of the desired changes to the project, and an optional comment. 'http://jsonpatch.com/' Feature flag patches also support JSON Merge Patch format. 'https://tools.ietf.org/html/rfc7386' The addition of comments is also supported.
 
 
 var callback = function(error, data, response) {
@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
- **patchComment** | [**PatchComment**](PatchComment.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; Feature flag patches also support JSON Merge Patch format. &#39;https://tools.ietf.org/html/rfc7386&#39; The addition of comments is also supported. | 
+ **patchComment** | [**PatchComment**](PatchComment.md)| Requires a JSON Patch representation of the desired changes to the project, and an optional comment. &#39;http://jsonpatch.com/&#39; Feature flag patches also support JSON Merge Patch format. &#39;https://tools.ietf.org/html/rfc7386&#39; The addition of comments is also supported. | 
 
 ### Return type
 

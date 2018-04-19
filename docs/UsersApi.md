@@ -92,8 +92,8 @@ var environmentKey = "environmentKey_example"; // String | The environment key, 
 
 var opts = { 
   'q': "q_example", // String | Search query.
-  'limit': 8.14, // Number | Pagination limit.
-  'offset': 8.14, // Number | Specifies the first item to return in the collection.
+  'limit': 56, // Number | Pagination limit.
+  'offset': 56, // Number | Specifies the first item to return in the collection.
   'after': 8.14, // Number | A timestamp filter, expressed as a Unix epoch time in milliseconds. All entries returned will have occured after this timestamp.
 };
 
@@ -212,9 +212,9 @@ var projectKey = "projectKey_example"; // String | The project key, used to tie 
 var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
 var opts = { 
-  'limit': 8.14, // Number | Pagination limit.
-  'h': "h_example", // String | Next link query parameter.
-  'scrollId': "scrollId_example" // String | Next link query parameter.
+  'limit': 56, // Number | Pagination limit.
+  'h': "h_example", // String | This parameter is required when following \"next\" links.
+  'scrollId': "scrollId_example" // String | This parameter is required when following \"next\" links.
 };
 
 var callback = function(error, data, response) {
@@ -234,8 +234,8 @@ Name | Type | Description  | Notes
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **limit** | **Number**| Pagination limit. | [optional] 
- **h** | **String**| Next link query parameter. | [optional] 
- **scrollId** | **String**| Next link query parameter. | [optional] 
+ **h** | **String**| This parameter is required when following \&quot;next\&quot; links. | [optional] 
+ **scrollId** | **String**| This parameter is required when following \&quot;next\&quot; links. | [optional] 
 
 ### Return type
 

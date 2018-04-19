@@ -4,6 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comment** | **String** |  | [optional] 
-**patch** | [**[FlagsprojectKeyfeatureFlagKeyPatch]**](FlagsprojectKeyfeatureFlagKeyPatch.md) |  | [optional] 
+**patch** | [**[PatchOperation]**](PatchOperation.md) |  | [optional] 
 
 

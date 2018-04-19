@@ -3,10 +3,16 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lastPing** | **String** |  | [optional] 
-**environmentId** | **String** |  | [optional] 
-**ownerId** | [**Id**](Id.md) |  | [optional] 
-**user** | **Object** |  | [optional] 
+**key** | **String** |  | [optional] 
+**secondary** | **String** |  | [optional] 
+**ip** | **String** |  | [optional] 
+**country** | **String** |  | [optional] 
+**email** | **String** |  | [optional] 
+**firstName** | **String** |  | [optional] 
+**lastName** | **String** |  | [optional] 
 **avatar** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
+**anonymous** | **Boolean** |  | [optional] 
+**custom** | **Object** |  | [optional] 
 
 
