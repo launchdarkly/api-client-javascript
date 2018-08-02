@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **defaultTtl** | **Number** | The default TTL. | [optional] 
 **secureMode** | **Boolean** | Determines if this environment is in safe mode. | [optional] 
 **defaultTrackEvents** | **Boolean** | Set to true to send detailed event information for new flags. | [optional] 
+**tags** | **[String]** | An array of tags for this environment. | [optional] 
 
 
