@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Rollout();
+    instance = new LaunchDarklyApi.Rollout();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,13 +53,13 @@
   describe('Rollout', function() {
     it('should create an instance of Rollout', function() {
       // uncomment below and update the code to test Rollout
-      //var instane = new LaunchDarklyRestApi.Rollout();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Rollout);
+      //var instane = new LaunchDarklyApi.Rollout();
+      //expect(instance).to.be.a(LaunchDarklyApi.Rollout);
     });
 
     it('should have the property variations (base name: "variations")', function() {
       // uncomment below and update the code to test the property variations
-      //var instane = new LaunchDarklyRestApi.Rollout();
+      //var instane = new LaunchDarklyApi.Rollout();
       //expect(instance).to.be();
     });
 

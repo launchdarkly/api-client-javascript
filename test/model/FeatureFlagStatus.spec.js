@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.FeatureFlagStatus();
+    instance = new LaunchDarklyApi.FeatureFlagStatus();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('FeatureFlagStatus', function() {
     it('should create an instance of FeatureFlagStatus', function() {
       // uncomment below and update the code to test FeatureFlagStatus
-      //var instane = new LaunchDarklyRestApi.FeatureFlagStatus();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.FeatureFlagStatus);
+      //var instane = new LaunchDarklyApi.FeatureFlagStatus();
+      //expect(instance).to.be.a(LaunchDarklyApi.FeatureFlagStatus);
     });
 
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
-      //var instane = new LaunchDarklyRestApi.FeatureFlagStatus();
+      //var instane = new LaunchDarklyApi.FeatureFlagStatus();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new LaunchDarklyRestApi.FeatureFlagStatus();
+      //var instane = new LaunchDarklyApi.FeatureFlagStatus();
       //expect(instance).to.be();
     });
 
     it('should have the property lastRequested (base name: "lastRequested")', function() {
       // uncomment below and update the code to test the property lastRequested
-      //var instane = new LaunchDarklyRestApi.FeatureFlagStatus();
+      //var instane = new LaunchDarklyApi.FeatureFlagStatus();
       //expect(instance).to.be();
     });
 
     it('should have the property _default (base name: "default")', function() {
       // uncomment below and update the code to test the property _default
-      //var instane = new LaunchDarklyRestApi.FeatureFlagStatus();
+      //var instane = new LaunchDarklyApi.FeatureFlagStatus();
       //expect(instance).to.be();
     });
 

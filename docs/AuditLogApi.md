@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.AuditLogApi
+# LaunchDarklyApi.AuditLogApi
 
 All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
@@ -16,8 +16,8 @@ Get a list of all audit log entries. The query parameters allow you to restrict 
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -25,7 +25,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.AuditLogApi();
+var apiInstance = new LaunchDarklyApi.AuditLogApi();
 
 var opts = { 
   'before': 8.14, // Number | A timestamp filter, expressed as a Unix epoch time in milliseconds. All entries returned will have before this timestamp.
@@ -76,8 +76,8 @@ Use this endpoint to fetch a single audit log entry by its resouce ID.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -85,7 +85,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.AuditLogApi();
+var apiInstance = new LaunchDarklyApi.AuditLogApi();
 
 var resourceId = "resourceId_example"; // String | The resource ID.
 

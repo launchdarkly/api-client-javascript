@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Variation();
+    instance = new LaunchDarklyApi.Variation();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,25 +53,25 @@
   describe('Variation', function() {
     it('should create an instance of Variation', function() {
       // uncomment below and update the code to test Variation
-      //var instane = new LaunchDarklyRestApi.Variation();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Variation);
+      //var instane = new LaunchDarklyApi.Variation();
+      //expect(instance).to.be.a(LaunchDarklyApi.Variation);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new LaunchDarklyRestApi.Variation();
+      //var instane = new LaunchDarklyApi.Variation();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new LaunchDarklyRestApi.Variation();
+      //var instane = new LaunchDarklyApi.Variation();
       //expect(instance).to.be();
     });
 
     it('should have the property value (base name: "value")', function() {
       // uncomment below and update the code to test the property value
-      //var instane = new LaunchDarklyRestApi.Variation();
+      //var instane = new LaunchDarklyApi.Variation();
       //expect(instance).to.be();
     });
 

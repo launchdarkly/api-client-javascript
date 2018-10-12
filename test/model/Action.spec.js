@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Action();
+    instance = new LaunchDarklyApi.Action();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,8 +53,8 @@
   describe('Action', function() {
     it('should create an instance of Action', function() {
       // uncomment below and update the code to test Action
-      //var instane = new LaunchDarklyRestApi.Action();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Action);
+      //var instane = new LaunchDarklyApi.Action();
+      //expect(instance).to.be.a(LaunchDarklyApi.Action);
     });
 
   });

@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.Link
+# LaunchDarklyApi.Link
 
 ## Properties
 Name | Type | Description | Notes

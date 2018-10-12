@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.FeatureFlag();
+    instance = new LaunchDarklyApi.FeatureFlag();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,91 +53,91 @@
   describe('FeatureFlag', function() {
     it('should create an instance of FeatureFlag', function() {
       // uncomment below and update the code to test FeatureFlag
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.FeatureFlag);
+      //var instane = new LaunchDarklyApi.FeatureFlag();
+      //expect(instance).to.be.a(LaunchDarklyApi.FeatureFlag);
     });
 
     it('should have the property key (base name: "key")', function() {
       // uncomment below and update the code to test the property key
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 
     it('should have the property kind (base name: "kind")', function() {
       // uncomment below and update the code to test the property kind
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 
     it('should have the property creationDate (base name: "creationDate")', function() {
       // uncomment below and update the code to test the property creationDate
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 
     it('should have the property includeInSnippet (base name: "includeInSnippet")', function() {
       // uncomment below and update the code to test the property includeInSnippet
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 
     it('should have the property temporary (base name: "temporary")', function() {
       // uncomment below and update the code to test the property temporary
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 
     it('should have the property maintainerId (base name: "maintainerId")', function() {
       // uncomment below and update the code to test the property maintainerId
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 
     it('should have the property variations (base name: "variations")', function() {
       // uncomment below and update the code to test the property variations
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 
     it('should have the property customProperties (base name: "customProperties")', function() {
       // uncomment below and update the code to test the property customProperties
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 
     it('should have the property maintainer (base name: "_maintainer")', function() {
       // uncomment below and update the code to test the property maintainer
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 
     it('should have the property environments (base name: "environments")', function() {
       // uncomment below and update the code to test the property environments
-      //var instane = new LaunchDarklyRestApi.FeatureFlag();
+      //var instane = new LaunchDarklyApi.FeatureFlag();
       //expect(instance).to.be();
     });
 

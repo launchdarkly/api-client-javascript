@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.UserSettingsBody();
+    instance = new LaunchDarklyApi.UserSettingsBody();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,13 +53,13 @@
   describe('UserSettingsBody', function() {
     it('should create an instance of UserSettingsBody', function() {
       // uncomment below and update the code to test UserSettingsBody
-      //var instane = new LaunchDarklyRestApi.UserSettingsBody();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.UserSettingsBody);
+      //var instane = new LaunchDarklyApi.UserSettingsBody();
+      //expect(instance).to.be.a(LaunchDarklyApi.UserSettingsBody);
     });
 
     it('should have the property setting (base name: "setting")', function() {
       // uncomment below and update the code to test the property setting
-      //var instane = new LaunchDarklyRestApi.UserSettingsBody();
+      //var instane = new LaunchDarklyApi.UserSettingsBody();
       //expect(instance).to.be();
     });
 

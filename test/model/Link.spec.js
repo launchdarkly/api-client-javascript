@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Link();
+    instance = new LaunchDarklyApi.Link();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('Link', function() {
     it('should create an instance of Link', function() {
       // uncomment below and update the code to test Link
-      //var instane = new LaunchDarklyRestApi.Link();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Link);
+      //var instane = new LaunchDarklyApi.Link();
+      //expect(instance).to.be.a(LaunchDarklyApi.Link);
     });
 
     it('should have the property href (base name: "href")', function() {
       // uncomment below and update the code to test the property href
-      //var instane = new LaunchDarklyRestApi.Link();
+      //var instane = new LaunchDarklyApi.Link();
       //expect(instance).to.be();
     });
 
     it('should have the property type (base name: "type")', function() {
       // uncomment below and update the code to test the property type
-      //var instane = new LaunchDarklyRestApi.Link();
+      //var instane = new LaunchDarklyApi.Link();
       //expect(instance).to.be();
     });
 

@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.Role
+# LaunchDarklyApi.Role
 
 ## Enum
 

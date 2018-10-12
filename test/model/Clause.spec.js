@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Clause();
+    instance = new LaunchDarklyApi.Clause();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('Clause', function() {
     it('should create an instance of Clause', function() {
       // uncomment below and update the code to test Clause
-      //var instane = new LaunchDarklyRestApi.Clause();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Clause);
+      //var instane = new LaunchDarklyApi.Clause();
+      //expect(instance).to.be.a(LaunchDarklyApi.Clause);
     });
 
     it('should have the property attribute (base name: "attribute")', function() {
       // uncomment below and update the code to test the property attribute
-      //var instane = new LaunchDarklyRestApi.Clause();
+      //var instane = new LaunchDarklyApi.Clause();
       //expect(instance).to.be();
     });
 
     it('should have the property op (base name: "op")', function() {
       // uncomment below and update the code to test the property op
-      //var instane = new LaunchDarklyRestApi.Clause();
+      //var instane = new LaunchDarklyApi.Clause();
       //expect(instance).to.be();
     });
 
     it('should have the property values (base name: "values")', function() {
       // uncomment below and update the code to test the property values
-      //var instane = new LaunchDarklyRestApi.Clause();
+      //var instane = new LaunchDarklyApi.Clause();
       //expect(instance).to.be();
     });
 
     it('should have the property negate (base name: "negate")', function() {
       // uncomment below and update the code to test the property negate
-      //var instane = new LaunchDarklyRestApi.Clause();
+      //var instane = new LaunchDarklyApi.Clause();
       //expect(instance).to.be();
     });
 

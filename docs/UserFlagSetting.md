@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.UserFlagSetting
+# LaunchDarklyApi.UserFlagSetting
 
 ## Properties
 Name | Type | Description | Notes

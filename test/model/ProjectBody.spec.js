@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.ProjectBody();
+    instance = new LaunchDarklyApi.ProjectBody();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('ProjectBody', function() {
     it('should create an instance of ProjectBody', function() {
       // uncomment below and update the code to test ProjectBody
-      //var instane = new LaunchDarklyRestApi.ProjectBody();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.ProjectBody);
+      //var instane = new LaunchDarklyApi.ProjectBody();
+      //expect(instance).to.be.a(LaunchDarklyApi.ProjectBody);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new LaunchDarklyRestApi.ProjectBody();
+      //var instane = new LaunchDarklyApi.ProjectBody();
       //expect(instance).to.be();
     });
 
     it('should have the property key (base name: "key")', function() {
       // uncomment below and update the code to test the property key
-      //var instane = new LaunchDarklyRestApi.ProjectBody();
+      //var instane = new LaunchDarklyApi.ProjectBody();
       //expect(instance).to.be();
     });
 

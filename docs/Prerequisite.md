@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.Prerequisite
+# LaunchDarklyApi.Prerequisite
 
 ## Properties
 Name | Type | Description | Notes

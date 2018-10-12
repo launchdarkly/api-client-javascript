@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/PatchOperation'), require('../model/Project'), require('../model/ProjectBody'), require('../model/Projects'));
   } else {
     // Browser globals (root is window)
-    if (!root.LaunchDarklyRestApi) {
-      root.LaunchDarklyRestApi = {};
+    if (!root.LaunchDarklyApi) {
+      root.LaunchDarklyApi = {};
     }
-    root.LaunchDarklyRestApi.ProjectsApi = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.PatchOperation, root.LaunchDarklyRestApi.Project, root.LaunchDarklyRestApi.ProjectBody, root.LaunchDarklyRestApi.Projects);
+    root.LaunchDarklyApi.ProjectsApi = factory(root.LaunchDarklyApi.ApiClient, root.LaunchDarklyApi.PatchOperation, root.LaunchDarklyApi.Project, root.LaunchDarklyApi.ProjectBody, root.LaunchDarklyApi.Projects);
   }
 }(this, function(ApiClient, PatchOperation, Project, ProjectBody, Projects) {
   'use strict';

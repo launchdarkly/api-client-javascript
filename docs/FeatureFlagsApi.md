@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.FeatureFlagsApi
+# LaunchDarklyApi.FeatureFlagsApi
 
 All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
@@ -21,8 +21,8 @@ Delete a feature flag in all environments. Be careful-- only delete feature flag
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -30,7 +30,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
+var apiInstance = new LaunchDarklyApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
@@ -75,8 +75,8 @@ Get a single feature flag by key.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -84,7 +84,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
+var apiInstance = new LaunchDarklyApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
@@ -133,8 +133,8 @@ Get the status for a particular feature flag.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -142,7 +142,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
+var apiInstance = new LaunchDarklyApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
@@ -190,8 +190,8 @@ Get a list of statuses for all feature flags. The status includes the last time 
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -199,7 +199,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
+var apiInstance = new LaunchDarklyApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
@@ -244,8 +244,8 @@ Get a list of all features in the given project.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -253,7 +253,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
+var apiInstance = new LaunchDarklyApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
@@ -301,8 +301,8 @@ Perform a partial update to a feature.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -310,13 +310,13 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
+var apiInstance = new LaunchDarklyApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
 var featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key. The key identifies the flag in your code.
 
-var patchComment = new LaunchDarklyRestApi.PatchComment(); // PatchComment | Requires a JSON Patch representation of the desired changes to the project, and an optional comment. 'http://jsonpatch.com/' Feature flag patches also support JSON Merge Patch format. 'https://tools.ietf.org/html/rfc7386' The addition of comments is also supported.
+var patchComment = new LaunchDarklyApi.PatchComment(); // PatchComment | Requires a JSON Patch representation of the desired changes to the project, and an optional comment. 'http://jsonpatch.com/' Feature flag patches also support JSON Merge Patch format. 'https://tools.ietf.org/html/rfc7386' The addition of comments is also supported.
 
 
 var callback = function(error, data, response) {
@@ -358,8 +358,8 @@ Creates a new feature flag.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -367,11 +367,11 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.FeatureFlagsApi();
+var apiInstance = new LaunchDarklyApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var featureFlagBody = new LaunchDarklyRestApi.FeatureFlagBody(); // FeatureFlagBody | Create a new feature flag.
+var featureFlagBody = new LaunchDarklyApi.FeatureFlagBody(); // FeatureFlagBody | Create a new feature flag.
 
 
 var callback = function(error, data, response) {

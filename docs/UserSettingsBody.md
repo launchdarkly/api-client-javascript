@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.UserSettingsBody
+# LaunchDarklyApi.UserSettingsBody
 
 ## Properties
 Name | Type | Description | Notes

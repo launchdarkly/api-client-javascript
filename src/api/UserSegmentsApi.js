@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/PatchOperation'), require('../model/UserSegment'), require('../model/UserSegmentBody'), require('../model/UserSegments'));
   } else {
     // Browser globals (root is window)
-    if (!root.LaunchDarklyRestApi) {
-      root.LaunchDarklyRestApi = {};
+    if (!root.LaunchDarklyApi) {
+      root.LaunchDarklyApi = {};
     }
-    root.LaunchDarklyRestApi.UserSegmentsApi = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.PatchOperation, root.LaunchDarklyRestApi.UserSegment, root.LaunchDarklyRestApi.UserSegmentBody, root.LaunchDarklyRestApi.UserSegments);
+    root.LaunchDarklyApi.UserSegmentsApi = factory(root.LaunchDarklyApi.ApiClient, root.LaunchDarklyApi.PatchOperation, root.LaunchDarklyApi.UserSegment, root.LaunchDarklyApi.UserSegmentBody, root.LaunchDarklyApi.UserSegments);
   }
 }(this, function(ApiClient, PatchOperation, UserSegment, UserSegmentBody, UserSegments) {
   'use strict';

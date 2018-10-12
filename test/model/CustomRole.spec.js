@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.CustomRole();
+    instance = new LaunchDarklyApi.CustomRole();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,43 +53,43 @@
   describe('CustomRole', function() {
     it('should create an instance of CustomRole', function() {
       // uncomment below and update the code to test CustomRole
-      //var instane = new LaunchDarklyRestApi.CustomRole();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.CustomRole);
+      //var instane = new LaunchDarklyApi.CustomRole();
+      //expect(instance).to.be.a(LaunchDarklyApi.CustomRole);
     });
 
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
-      //var instane = new LaunchDarklyRestApi.CustomRole();
+      //var instane = new LaunchDarklyApi.CustomRole();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new LaunchDarklyRestApi.CustomRole();
+      //var instane = new LaunchDarklyApi.CustomRole();
       //expect(instance).to.be();
     });
 
     it('should have the property key (base name: "key")', function() {
       // uncomment below and update the code to test the property key
-      //var instane = new LaunchDarklyRestApi.CustomRole();
+      //var instane = new LaunchDarklyApi.CustomRole();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new LaunchDarklyRestApi.CustomRole();
+      //var instane = new LaunchDarklyApi.CustomRole();
       //expect(instance).to.be();
     });
 
     it('should have the property id (base name: "_id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new LaunchDarklyRestApi.CustomRole();
+      //var instane = new LaunchDarklyApi.CustomRole();
       //expect(instance).to.be();
     });
 
     it('should have the property policy (base name: "policy")', function() {
       // uncomment below and update the code to test the property policy
-      //var instane = new LaunchDarklyRestApi.CustomRole();
+      //var instane = new LaunchDarklyApi.CustomRole();
       //expect(instance).to.be();
     });
 

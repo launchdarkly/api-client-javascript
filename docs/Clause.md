@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.Clause
+# LaunchDarklyApi.Clause
 
 ## Properties
 Name | Type | Description | Notes

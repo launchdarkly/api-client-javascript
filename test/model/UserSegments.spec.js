@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.UserSegments();
+    instance = new LaunchDarklyApi.UserSegments();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('UserSegments', function() {
     it('should create an instance of UserSegments', function() {
       // uncomment below and update the code to test UserSegments
-      //var instane = new LaunchDarklyRestApi.UserSegments();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.UserSegments);
+      //var instane = new LaunchDarklyApi.UserSegments();
+      //expect(instance).to.be.a(LaunchDarklyApi.UserSegments);
     });
 
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
-      //var instane = new LaunchDarklyRestApi.UserSegments();
+      //var instane = new LaunchDarklyApi.UserSegments();
       //expect(instance).to.be();
     });
 
     it('should have the property items (base name: "items")', function() {
       // uncomment below and update the code to test the property items
-      //var instane = new LaunchDarklyRestApi.UserSegments();
+      //var instane = new LaunchDarklyApi.UserSegments();
       //expect(instance).to.be();
     });
 

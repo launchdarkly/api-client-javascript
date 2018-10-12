@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Project();
+    instance = new LaunchDarklyApi.Project();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,43 +53,43 @@
   describe('Project', function() {
     it('should create an instance of Project', function() {
       // uncomment below and update the code to test Project
-      //var instane = new LaunchDarklyRestApi.Project();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Project);
+      //var instane = new LaunchDarklyApi.Project();
+      //expect(instance).to.be.a(LaunchDarklyApi.Project);
     });
 
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
-      //var instane = new LaunchDarklyRestApi.Project();
+      //var instane = new LaunchDarklyApi.Project();
       //expect(instance).to.be();
     });
 
     it('should have the property id (base name: "_id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new LaunchDarklyRestApi.Project();
+      //var instane = new LaunchDarklyApi.Project();
       //expect(instance).to.be();
     });
 
     it('should have the property key (base name: "key")', function() {
       // uncomment below and update the code to test the property key
-      //var instane = new LaunchDarklyRestApi.Project();
+      //var instane = new LaunchDarklyApi.Project();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new LaunchDarklyRestApi.Project();
+      //var instane = new LaunchDarklyApi.Project();
       //expect(instance).to.be();
     });
 
     it('should have the property environments (base name: "environments")', function() {
       // uncomment below and update the code to test the property environments
-      //var instane = new LaunchDarklyRestApi.Project();
+      //var instane = new LaunchDarklyApi.Project();
       //expect(instance).to.be();
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instane = new LaunchDarklyRestApi.Project();
+      //var instane = new LaunchDarklyApi.Project();
       //expect(instance).to.be();
     });
 

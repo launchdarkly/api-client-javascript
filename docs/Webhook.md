@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.Webhook
+# LaunchDarklyApi.Webhook
 
 ## Properties
 Name | Type | Description | Notes

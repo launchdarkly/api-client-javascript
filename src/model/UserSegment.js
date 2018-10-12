@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./Links'), require('./UserSegmentRule'));
   } else {
     // Browser globals (root is window)
-    if (!root.LaunchDarklyRestApi) {
-      root.LaunchDarklyRestApi = {};
+    if (!root.LaunchDarklyApi) {
+      root.LaunchDarklyApi = {};
     }
-    root.LaunchDarklyRestApi.UserSegment = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.Links, root.LaunchDarklyRestApi.UserSegmentRule);
+    root.LaunchDarklyApi.UserSegment = factory(root.LaunchDarklyApi.ApiClient, root.LaunchDarklyApi.Links, root.LaunchDarklyApi.UserSegmentRule);
   }
 }(this, function(ApiClient, Links, UserSegmentRule) {
   'use strict';

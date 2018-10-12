@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.PatchOperation();
+    instance = new LaunchDarklyApi.PatchOperation();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,25 +53,25 @@
   describe('PatchOperation', function() {
     it('should create an instance of PatchOperation', function() {
       // uncomment below and update the code to test PatchOperation
-      //var instane = new LaunchDarklyRestApi.PatchOperation();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.PatchOperation);
+      //var instane = new LaunchDarklyApi.PatchOperation();
+      //expect(instance).to.be.a(LaunchDarklyApi.PatchOperation);
     });
 
     it('should have the property op (base name: "op")', function() {
       // uncomment below and update the code to test the property op
-      //var instane = new LaunchDarklyRestApi.PatchOperation();
+      //var instane = new LaunchDarklyApi.PatchOperation();
       //expect(instance).to.be();
     });
 
     it('should have the property path (base name: "path")', function() {
       // uncomment below and update the code to test the property path
-      //var instane = new LaunchDarklyRestApi.PatchOperation();
+      //var instane = new LaunchDarklyApi.PatchOperation();
       //expect(instance).to.be();
     });
 
     it('should have the property value (base name: "value")', function() {
       // uncomment below and update the code to test the property value
-      //var instane = new LaunchDarklyRestApi.PatchOperation();
+      //var instane = new LaunchDarklyApi.PatchOperation();
       //expect(instance).to.be();
     });
 

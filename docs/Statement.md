@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.Statement
+# LaunchDarklyApi.Statement
 
 ## Properties
 Name | Type | Description | Notes

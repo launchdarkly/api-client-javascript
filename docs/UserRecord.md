@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.UserRecord
+# LaunchDarklyApi.UserRecord
 
 ## Properties
 Name | Type | Description | Notes

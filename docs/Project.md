@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.Project
+# LaunchDarklyApi.Project
 
 ## Properties
 Name | Type | Description | Notes

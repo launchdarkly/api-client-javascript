@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.FeatureFlagStatuses
+# LaunchDarklyApi.FeatureFlagStatuses
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.Rule
+# LaunchDarklyApi.Rule
 
 ## Properties
 Name | Type | Description | Notes

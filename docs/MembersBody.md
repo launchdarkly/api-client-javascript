@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.MembersBody
+# LaunchDarklyApi.MembersBody
 
 ## Properties
 Name | Type | Description | Notes

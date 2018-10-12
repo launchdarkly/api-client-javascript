@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.CustomProperty
+# LaunchDarklyApi.CustomProperty
 
 ## Properties
 Name | Type | Description | Notes

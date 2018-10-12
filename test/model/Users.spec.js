@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Users();
+    instance = new LaunchDarklyApi.Users();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,25 +53,25 @@
   describe('Users', function() {
     it('should create an instance of Users', function() {
       // uncomment below and update the code to test Users
-      //var instane = new LaunchDarklyRestApi.Users();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Users);
+      //var instane = new LaunchDarklyApi.Users();
+      //expect(instance).to.be.a(LaunchDarklyApi.Users);
     });
 
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
-      //var instane = new LaunchDarklyRestApi.Users();
+      //var instane = new LaunchDarklyApi.Users();
       //expect(instance).to.be();
     });
 
     it('should have the property totalCount (base name: "totalCount")', function() {
       // uncomment below and update the code to test the property totalCount
-      //var instane = new LaunchDarklyRestApi.Users();
+      //var instane = new LaunchDarklyApi.Users();
       //expect(instance).to.be();
     });
 
     it('should have the property items (base name: "items")', function() {
       // uncomment below and update the code to test the property items
-      //var instane = new LaunchDarklyRestApi.Users();
+      //var instane = new LaunchDarklyApi.Users();
       //expect(instance).to.be();
     });
 

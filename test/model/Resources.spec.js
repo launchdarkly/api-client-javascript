@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Resources();
+    instance = new LaunchDarklyApi.Resources();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,8 +53,8 @@
   describe('Resources', function() {
     it('should create an instance of Resources', function() {
       // uncomment below and update the code to test Resources
-      //var instane = new LaunchDarklyRestApi.Resources();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Resources);
+      //var instane = new LaunchDarklyApi.Resources();
+      //expect(instance).to.be.a(LaunchDarklyApi.Resources);
     });
 
   });

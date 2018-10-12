@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.PatchComment();
+    instance = new LaunchDarklyApi.PatchComment();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('PatchComment', function() {
     it('should create an instance of PatchComment', function() {
       // uncomment below and update the code to test PatchComment
-      //var instane = new LaunchDarklyRestApi.PatchComment();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.PatchComment);
+      //var instane = new LaunchDarklyApi.PatchComment();
+      //expect(instance).to.be.a(LaunchDarklyApi.PatchComment);
     });
 
     it('should have the property comment (base name: "comment")', function() {
       // uncomment below and update the code to test the property comment
-      //var instane = new LaunchDarklyRestApi.PatchComment();
+      //var instane = new LaunchDarklyApi.PatchComment();
       //expect(instance).to.be();
     });
 
     it('should have the property patch (base name: "patch")', function() {
       // uncomment below and update the code to test the property patch
-      //var instane = new LaunchDarklyRestApi.PatchComment();
+      //var instane = new LaunchDarklyApi.PatchComment();
       //expect(instance).to.be();
     });
 

@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Fallthrough();
+    instance = new LaunchDarklyApi.Fallthrough();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('Fallthrough', function() {
     it('should create an instance of Fallthrough', function() {
       // uncomment below and update the code to test Fallthrough
-      //var instane = new LaunchDarklyRestApi.Fallthrough();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Fallthrough);
+      //var instane = new LaunchDarklyApi.Fallthrough();
+      //expect(instance).to.be.a(LaunchDarklyApi.Fallthrough);
     });
 
     it('should have the property variation (base name: "variation")', function() {
       // uncomment below and update the code to test the property variation
-      //var instane = new LaunchDarklyRestApi.Fallthrough();
+      //var instane = new LaunchDarklyApi.Fallthrough();
       //expect(instance).to.be();
     });
 
     it('should have the property rollout (base name: "rollout")', function() {
       // uncomment below and update the code to test the property rollout
-      //var instane = new LaunchDarklyRestApi.Fallthrough();
+      //var instane = new LaunchDarklyApi.Fallthrough();
       //expect(instance).to.be();
     });
 

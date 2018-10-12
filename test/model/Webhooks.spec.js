@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Webhooks();
+    instance = new LaunchDarklyApi.Webhooks();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('Webhooks', function() {
     it('should create an instance of Webhooks', function() {
       // uncomment below and update the code to test Webhooks
-      //var instane = new LaunchDarklyRestApi.Webhooks();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Webhooks);
+      //var instane = new LaunchDarklyApi.Webhooks();
+      //expect(instance).to.be.a(LaunchDarklyApi.Webhooks);
     });
 
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
-      //var instane = new LaunchDarklyRestApi.Webhooks();
+      //var instane = new LaunchDarklyApi.Webhooks();
       //expect(instance).to.be();
     });
 
     it('should have the property items (base name: "items")', function() {
       // uncomment below and update the code to test the property items
-      //var instane = new LaunchDarklyRestApi.Webhooks();
+      //var instane = new LaunchDarklyApi.Webhooks();
       //expect(instance).to.be();
     });
 

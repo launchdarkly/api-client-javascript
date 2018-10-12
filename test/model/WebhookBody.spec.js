@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.WebhookBody();
+    instance = new LaunchDarklyApi.WebhookBody();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,37 +53,37 @@
   describe('WebhookBody', function() {
     it('should create an instance of WebhookBody', function() {
       // uncomment below and update the code to test WebhookBody
-      //var instane = new LaunchDarklyRestApi.WebhookBody();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.WebhookBody);
+      //var instane = new LaunchDarklyApi.WebhookBody();
+      //expect(instance).to.be.a(LaunchDarklyApi.WebhookBody);
     });
 
     it('should have the property url (base name: "url")', function() {
       // uncomment below and update the code to test the property url
-      //var instane = new LaunchDarklyRestApi.WebhookBody();
+      //var instane = new LaunchDarklyApi.WebhookBody();
       //expect(instance).to.be();
     });
 
     it('should have the property secret (base name: "secret")', function() {
       // uncomment below and update the code to test the property secret
-      //var instane = new LaunchDarklyRestApi.WebhookBody();
+      //var instane = new LaunchDarklyApi.WebhookBody();
       //expect(instance).to.be();
     });
 
     it('should have the property sign (base name: "sign")', function() {
       // uncomment below and update the code to test the property sign
-      //var instane = new LaunchDarklyRestApi.WebhookBody();
+      //var instane = new LaunchDarklyApi.WebhookBody();
       //expect(instance).to.be();
     });
 
     it('should have the property on (base name: "on")', function() {
       // uncomment below and update the code to test the property on
-      //var instane = new LaunchDarklyRestApi.WebhookBody();
+      //var instane = new LaunchDarklyApi.WebhookBody();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new LaunchDarklyRestApi.WebhookBody();
+      //var instane = new LaunchDarklyApi.WebhookBody();
       //expect(instance).to.be();
     });
 

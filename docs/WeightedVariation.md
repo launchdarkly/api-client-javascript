@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.WeightedVariation
+# LaunchDarklyApi.WeightedVariation
 
 ## Properties
 Name | Type | Description | Notes

@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/PatchOperation'), require('../model/Webhook'), require('../model/WebhookBody'), require('../model/Webhooks'));
   } else {
     // Browser globals (root is window)
-    if (!root.LaunchDarklyRestApi) {
-      root.LaunchDarklyRestApi = {};
+    if (!root.LaunchDarklyApi) {
+      root.LaunchDarklyApi = {};
     }
-    root.LaunchDarklyRestApi.WebhooksApi = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.PatchOperation, root.LaunchDarklyRestApi.Webhook, root.LaunchDarklyRestApi.WebhookBody, root.LaunchDarklyRestApi.Webhooks);
+    root.LaunchDarklyApi.WebhooksApi = factory(root.LaunchDarklyApi.ApiClient, root.LaunchDarklyApi.PatchOperation, root.LaunchDarklyApi.Webhook, root.LaunchDarklyApi.WebhookBody, root.LaunchDarklyApi.Webhooks);
   }
 }(this, function(ApiClient, PatchOperation, Webhook, WebhookBody, Webhooks) {
   'use strict';

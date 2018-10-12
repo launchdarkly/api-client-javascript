@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.CustomRoleKeyOrId();
+    instance = new LaunchDarklyApi.CustomRoleKeyOrId();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,8 +53,8 @@
   describe('CustomRoleKeyOrId', function() {
     it('should create an instance of CustomRoleKeyOrId', function() {
       // uncomment below and update the code to test CustomRoleKeyOrId
-      //var instane = new LaunchDarklyRestApi.CustomRoleKeyOrId();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.CustomRoleKeyOrId);
+      //var instane = new LaunchDarklyApi.CustomRoleKeyOrId();
+      //expect(instance).to.be.a(LaunchDarklyApi.CustomRoleKeyOrId);
     });
 
   });

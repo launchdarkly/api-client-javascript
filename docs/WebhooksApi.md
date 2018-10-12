@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.WebhooksApi
+# LaunchDarklyApi.WebhooksApi
 
 All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
@@ -19,8 +19,8 @@ Delete a webhook by ID.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -28,7 +28,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
+var apiInstance = new LaunchDarklyApi.WebhooksApi();
 
 var resourceId = "resourceId_example"; // String | The resource ID.
 
@@ -70,8 +70,8 @@ Get a webhook by ID.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -79,7 +79,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
+var apiInstance = new LaunchDarklyApi.WebhooksApi();
 
 var resourceId = "resourceId_example"; // String | The resource ID.
 
@@ -121,8 +121,8 @@ Fetch a list of all webhooks.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -130,7 +130,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
+var apiInstance = new LaunchDarklyApi.WebhooksApi();
 
 var callback = function(error, data, response) {
   if (error) {
@@ -166,8 +166,8 @@ Modify a webhook by ID.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -175,11 +175,11 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
+var apiInstance = new LaunchDarklyApi.WebhooksApi();
 
 var resourceId = "resourceId_example"; // String | The resource ID.
 
-var patchDelta = [new LaunchDarklyRestApi.PatchOperation()]; // [PatchOperation] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
+var patchDelta = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
 
 
 var callback = function(error, data, response) {
@@ -220,8 +220,8 @@ Create a webhook.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -229,9 +229,9 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.WebhooksApi();
+var apiInstance = new LaunchDarklyApi.WebhooksApi();
 
-var webhookBody = new LaunchDarklyRestApi.WebhookBody(); // WebhookBody | New webhook.
+var webhookBody = new LaunchDarklyApi.WebhookBody(); // WebhookBody | New webhook.
 
 
 var callback = function(error, data, response) {

@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.EnvironmentsApi
+# LaunchDarklyApi.EnvironmentsApi
 
 All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
@@ -18,8 +18,8 @@ Delete an environment in a specific project.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -27,7 +27,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.EnvironmentsApi();
+var apiInstance = new LaunchDarklyApi.EnvironmentsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
@@ -72,8 +72,8 @@ Get an environment given a project and key.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -81,7 +81,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.EnvironmentsApi();
+var apiInstance = new LaunchDarklyApi.EnvironmentsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
@@ -126,8 +126,8 @@ Modify an environment by ID.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -135,13 +135,13 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.EnvironmentsApi();
+var apiInstance = new LaunchDarklyApi.EnvironmentsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
 var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
 
-var patchDelta = [new LaunchDarklyRestApi.PatchOperation()]; // [PatchOperation] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
+var patchDelta = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
 
 
 var callback = function(error, data, response) {
@@ -183,8 +183,8 @@ Create a new environment in a specified project with a given name, key, and swat
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -192,11 +192,11 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.EnvironmentsApi();
+var apiInstance = new LaunchDarklyApi.EnvironmentsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentBody = new LaunchDarklyRestApi.EnvironmentBody(); // EnvironmentBody | New environment.
+var environmentBody = new LaunchDarklyApi.EnvironmentBody(); // EnvironmentBody | New environment.
 
 
 var callback = function(error, data, response) {

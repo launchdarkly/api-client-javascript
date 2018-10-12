@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.AuditLogEntry
+# LaunchDarklyApi.AuditLogEntry
 
 ## Properties
 Name | Type | Description | Notes

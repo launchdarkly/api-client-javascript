@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.CustomRoleBody();
+    instance = new LaunchDarklyApi.CustomRoleBody();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('CustomRoleBody', function() {
     it('should create an instance of CustomRoleBody', function() {
       // uncomment below and update the code to test CustomRoleBody
-      //var instane = new LaunchDarklyRestApi.CustomRoleBody();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.CustomRoleBody);
+      //var instane = new LaunchDarklyApi.CustomRoleBody();
+      //expect(instance).to.be.a(LaunchDarklyApi.CustomRoleBody);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new LaunchDarklyRestApi.CustomRoleBody();
+      //var instane = new LaunchDarklyApi.CustomRoleBody();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new LaunchDarklyRestApi.CustomRoleBody();
+      //var instane = new LaunchDarklyApi.CustomRoleBody();
       //expect(instance).to.be();
     });
 
     it('should have the property key (base name: "key")', function() {
       // uncomment below and update the code to test the property key
-      //var instane = new LaunchDarklyRestApi.CustomRoleBody();
+      //var instane = new LaunchDarklyApi.CustomRoleBody();
       //expect(instance).to.be();
     });
 
     it('should have the property policy (base name: "policy")', function() {
       // uncomment below and update the code to test the property policy
-      //var instane = new LaunchDarklyRestApi.CustomRoleBody();
+      //var instane = new LaunchDarklyApi.CustomRoleBody();
       //expect(instance).to.be();
     });
 

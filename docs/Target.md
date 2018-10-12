@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.Target
+# LaunchDarklyApi.Target
 
 ## Properties
 Name | Type | Description | Notes

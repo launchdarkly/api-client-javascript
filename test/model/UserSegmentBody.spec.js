@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.UserSegmentBody();
+    instance = new LaunchDarklyApi.UserSegmentBody();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('UserSegmentBody', function() {
     it('should create an instance of UserSegmentBody', function() {
       // uncomment below and update the code to test UserSegmentBody
-      //var instane = new LaunchDarklyRestApi.UserSegmentBody();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.UserSegmentBody);
+      //var instane = new LaunchDarklyApi.UserSegmentBody();
+      //expect(instance).to.be.a(LaunchDarklyApi.UserSegmentBody);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new LaunchDarklyRestApi.UserSegmentBody();
+      //var instane = new LaunchDarklyApi.UserSegmentBody();
       //expect(instance).to.be();
     });
 
     it('should have the property key (base name: "key")', function() {
       // uncomment below and update the code to test the property key
-      //var instane = new LaunchDarklyRestApi.UserSegmentBody();
+      //var instane = new LaunchDarklyApi.UserSegmentBody();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new LaunchDarklyRestApi.UserSegmentBody();
+      //var instane = new LaunchDarklyApi.UserSegmentBody();
       //expect(instance).to.be();
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instane = new LaunchDarklyRestApi.UserSegmentBody();
+      //var instane = new LaunchDarklyApi.UserSegmentBody();
       //expect(instance).to.be();
     });
 

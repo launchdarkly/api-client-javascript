@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./Action'));
   } else {
     // Browser globals (root is window)
-    if (!root.LaunchDarklyRestApi) {
-      root.LaunchDarklyRestApi = {};
+    if (!root.LaunchDarklyApi) {
+      root.LaunchDarklyApi = {};
     }
-    root.LaunchDarklyRestApi.Actions = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.Action);
+    root.LaunchDarklyApi.Actions = factory(root.LaunchDarklyApi.ApiClient, root.LaunchDarklyApi.Action);
   }
 }(this, function(ApiClient, Action) {
   'use strict';

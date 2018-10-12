@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.UserSettingsApi
+# LaunchDarklyApi.UserSettingsApi
 
 All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
@@ -17,8 +17,8 @@ Fetch a single flag setting for a user by key.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -26,7 +26,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.UserSettingsApi();
+var apiInstance = new LaunchDarklyApi.UserSettingsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
@@ -77,8 +77,8 @@ Fetch a single flag setting for a user by key.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -86,7 +86,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.UserSettingsApi();
+var apiInstance = new LaunchDarklyApi.UserSettingsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
@@ -134,8 +134,8 @@ Specifically enable or disable a feature flag for a user based on their key.
 
 ### Example
 ```javascript
-var LaunchDarklyRestApi = require('launch_darkly_rest_api');
-var defaultClient = LaunchDarklyRestApi.ApiClient.instance;
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
 
 // Configure API key authorization: Token
 var Token = defaultClient.authentications['Token'];
@@ -143,7 +143,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyRestApi.UserSettingsApi();
+var apiInstance = new LaunchDarklyApi.UserSettingsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
@@ -153,7 +153,7 @@ var userKey = "userKey_example"; // String | The user's key.
 
 var featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key. The key identifies the flag in your code.
 
-var userSettingsBody = new LaunchDarklyRestApi.UserSettingsBody(); // UserSettingsBody | 
+var userSettingsBody = new LaunchDarklyApi.UserSettingsBody(); // UserSettingsBody | 
 
 
 var callback = function(error, data, response) {

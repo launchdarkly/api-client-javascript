@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./Fallthrough'), require('./Prerequisite'), require('./Rule'), require('./Target'));
   } else {
     // Browser globals (root is window)
-    if (!root.LaunchDarklyRestApi) {
-      root.LaunchDarklyRestApi = {};
+    if (!root.LaunchDarklyApi) {
+      root.LaunchDarklyApi = {};
     }
-    root.LaunchDarklyRestApi.FeatureFlagConfig = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.Fallthrough, root.LaunchDarklyRestApi.Prerequisite, root.LaunchDarklyRestApi.Rule, root.LaunchDarklyRestApi.Target);
+    root.LaunchDarklyApi.FeatureFlagConfig = factory(root.LaunchDarklyApi.ApiClient, root.LaunchDarklyApi.Fallthrough, root.LaunchDarklyApi.Prerequisite, root.LaunchDarklyApi.Rule, root.LaunchDarklyApi.Target);
   }
 }(this, function(ApiClient, Fallthrough, Prerequisite, Rule, Target) {
   'use strict';

@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.CustomRole
+# LaunchDarklyApi.CustomRole
 
 ## Properties
 Name | Type | Description | Notes

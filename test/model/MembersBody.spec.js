@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.MembersBody();
+    instance = new LaunchDarklyApi.MembersBody();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,43 +53,43 @@
   describe('MembersBody', function() {
     it('should create an instance of MembersBody', function() {
       // uncomment below and update the code to test MembersBody
-      //var instane = new LaunchDarklyRestApi.MembersBody();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.MembersBody);
+      //var instane = new LaunchDarklyApi.MembersBody();
+      //expect(instance).to.be.a(LaunchDarklyApi.MembersBody);
     });
 
     it('should have the property email (base name: "email")', function() {
       // uncomment below and update the code to test the property email
-      //var instane = new LaunchDarklyRestApi.MembersBody();
+      //var instane = new LaunchDarklyApi.MembersBody();
       //expect(instance).to.be();
     });
 
     it('should have the property firstName (base name: "firstName")', function() {
       // uncomment below and update the code to test the property firstName
-      //var instane = new LaunchDarklyRestApi.MembersBody();
+      //var instane = new LaunchDarklyApi.MembersBody();
       //expect(instance).to.be();
     });
 
     it('should have the property lastName (base name: "lastName")', function() {
       // uncomment below and update the code to test the property lastName
-      //var instane = new LaunchDarklyRestApi.MembersBody();
+      //var instane = new LaunchDarklyApi.MembersBody();
       //expect(instance).to.be();
     });
 
     it('should have the property role (base name: "role")', function() {
       // uncomment below and update the code to test the property role
-      //var instane = new LaunchDarklyRestApi.MembersBody();
+      //var instane = new LaunchDarklyApi.MembersBody();
       //expect(instance).to.be();
     });
 
     it('should have the property customRoles (base name: "customRoles")', function() {
       // uncomment below and update the code to test the property customRoles
-      //var instane = new LaunchDarklyRestApi.MembersBody();
+      //var instane = new LaunchDarklyApi.MembersBody();
       //expect(instance).to.be();
     });
 
     it('should have the property inlineRole (base name: "inlineRole")', function() {
       // uncomment below and update the code to test the property inlineRole
-      //var instane = new LaunchDarklyRestApi.MembersBody();
+      //var instane = new LaunchDarklyApi.MembersBody();
       //expect(instance).to.be();
     });
 

@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.EnvironmentBody();
+    instance = new LaunchDarklyApi.EnvironmentBody();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('EnvironmentBody', function() {
     it('should create an instance of EnvironmentBody', function() {
       // uncomment below and update the code to test EnvironmentBody
-      //var instane = new LaunchDarklyRestApi.EnvironmentBody();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.EnvironmentBody);
+      //var instane = new LaunchDarklyApi.EnvironmentBody();
+      //expect(instance).to.be.a(LaunchDarklyApi.EnvironmentBody);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new LaunchDarklyRestApi.EnvironmentBody();
+      //var instane = new LaunchDarklyApi.EnvironmentBody();
       //expect(instance).to.be();
     });
 
     it('should have the property key (base name: "key")', function() {
       // uncomment below and update the code to test the property key
-      //var instane = new LaunchDarklyRestApi.EnvironmentBody();
+      //var instane = new LaunchDarklyApi.EnvironmentBody();
       //expect(instance).to.be();
     });
 
     it('should have the property color (base name: "color")', function() {
       // uncomment below and update the code to test the property color
-      //var instane = new LaunchDarklyRestApi.EnvironmentBody();
+      //var instane = new LaunchDarklyApi.EnvironmentBody();
       //expect(instance).to.be();
     });
 
     it('should have the property defaultTtl (base name: "defaultTtl")', function() {
       // uncomment below and update the code to test the property defaultTtl
-      //var instane = new LaunchDarklyRestApi.EnvironmentBody();
+      //var instane = new LaunchDarklyApi.EnvironmentBody();
       //expect(instance).to.be();
     });
 

@@ -23,9 +23,9 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
@@ -52,8 +52,8 @@
   describe('Role', function() {
     it('should create an instance of Role', function() {
       // uncomment below and update the code to test Role
-      //var instane = new LaunchDarklyRestApi.Role();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Role);
+      //var instane = new LaunchDarklyApi.Role();
+      //expect(instance).to.be.a(LaunchDarklyApi.Role);
     });
 
   });

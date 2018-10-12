@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/FeatureFlag'), require('../model/FeatureFlagBody'), require('../model/FeatureFlagStatus'), require('../model/FeatureFlagStatuses'), require('../model/FeatureFlags'), require('../model/PatchComment'));
   } else {
     // Browser globals (root is window)
-    if (!root.LaunchDarklyRestApi) {
-      root.LaunchDarklyRestApi = {};
+    if (!root.LaunchDarklyApi) {
+      root.LaunchDarklyApi = {};
     }
-    root.LaunchDarklyRestApi.FeatureFlagsApi = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.FeatureFlag, root.LaunchDarklyRestApi.FeatureFlagBody, root.LaunchDarklyRestApi.FeatureFlagStatus, root.LaunchDarklyRestApi.FeatureFlagStatuses, root.LaunchDarklyRestApi.FeatureFlags, root.LaunchDarklyRestApi.PatchComment);
+    root.LaunchDarklyApi.FeatureFlagsApi = factory(root.LaunchDarklyApi.ApiClient, root.LaunchDarklyApi.FeatureFlag, root.LaunchDarklyApi.FeatureFlagBody, root.LaunchDarklyApi.FeatureFlagStatus, root.LaunchDarklyApi.FeatureFlagStatuses, root.LaunchDarklyApi.FeatureFlags, root.LaunchDarklyApi.PatchComment);
   }
 }(this, function(ApiClient, FeatureFlag, FeatureFlagBody, FeatureFlagStatus, FeatureFlagStatuses, FeatureFlags, PatchComment) {
   'use strict';

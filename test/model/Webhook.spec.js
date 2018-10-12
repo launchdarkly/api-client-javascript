@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Webhook();
+    instance = new LaunchDarklyApi.Webhook();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,49 +53,49 @@
   describe('Webhook', function() {
     it('should create an instance of Webhook', function() {
       // uncomment below and update the code to test Webhook
-      //var instane = new LaunchDarklyRestApi.Webhook();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Webhook);
+      //var instane = new LaunchDarklyApi.Webhook();
+      //expect(instance).to.be.a(LaunchDarklyApi.Webhook);
     });
 
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
-      //var instane = new LaunchDarklyRestApi.Webhook();
+      //var instane = new LaunchDarklyApi.Webhook();
       //expect(instance).to.be();
     });
 
     it('should have the property id (base name: "_id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new LaunchDarklyRestApi.Webhook();
+      //var instane = new LaunchDarklyApi.Webhook();
       //expect(instance).to.be();
     });
 
     it('should have the property url (base name: "url")', function() {
       // uncomment below and update the code to test the property url
-      //var instane = new LaunchDarklyRestApi.Webhook();
+      //var instane = new LaunchDarklyApi.Webhook();
       //expect(instance).to.be();
     });
 
     it('should have the property secret (base name: "secret")', function() {
       // uncomment below and update the code to test the property secret
-      //var instane = new LaunchDarklyRestApi.Webhook();
+      //var instane = new LaunchDarklyApi.Webhook();
       //expect(instance).to.be();
     });
 
     it('should have the property on (base name: "on")', function() {
       // uncomment below and update the code to test the property on
-      //var instane = new LaunchDarklyRestApi.Webhook();
+      //var instane = new LaunchDarklyApi.Webhook();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new LaunchDarklyRestApi.Webhook();
+      //var instane = new LaunchDarklyApi.Webhook();
       //expect(instance).to.be();
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instane = new LaunchDarklyRestApi.Webhook();
+      //var instane = new LaunchDarklyApi.Webhook();
       //expect(instance).to.be();
     });
 

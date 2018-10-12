@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./Rollout'));
   } else {
     // Browser globals (root is window)
-    if (!root.LaunchDarklyRestApi) {
-      root.LaunchDarklyRestApi = {};
+    if (!root.LaunchDarklyApi) {
+      root.LaunchDarklyApi = {};
     }
-    root.LaunchDarklyRestApi.Fallthrough = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.Rollout);
+    root.LaunchDarklyApi.Fallthrough = factory(root.LaunchDarklyApi.ApiClient, root.LaunchDarklyApi.Rollout);
   }
 }(this, function(ApiClient, Rollout) {
   'use strict';

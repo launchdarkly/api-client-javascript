@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.UserSegmentRule();
+    instance = new LaunchDarklyApi.UserSegmentRule();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,25 +53,25 @@
   describe('UserSegmentRule', function() {
     it('should create an instance of UserSegmentRule', function() {
       // uncomment below and update the code to test UserSegmentRule
-      //var instane = new LaunchDarklyRestApi.UserSegmentRule();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.UserSegmentRule);
+      //var instane = new LaunchDarklyApi.UserSegmentRule();
+      //expect(instance).to.be.a(LaunchDarklyApi.UserSegmentRule);
     });
 
     it('should have the property clauses (base name: "clauses")', function() {
       // uncomment below and update the code to test the property clauses
-      //var instane = new LaunchDarklyRestApi.UserSegmentRule();
+      //var instane = new LaunchDarklyApi.UserSegmentRule();
       //expect(instance).to.be();
     });
 
     it('should have the property weight (base name: "weight")', function() {
       // uncomment below and update the code to test the property weight
-      //var instane = new LaunchDarklyRestApi.UserSegmentRule();
+      //var instane = new LaunchDarklyApi.UserSegmentRule();
       //expect(instance).to.be();
     });
 
     it('should have the property bucketBy (base name: "bucketBy")', function() {
       // uncomment below and update the code to test the property bucketBy
-      //var instane = new LaunchDarklyRestApi.UserSegmentRule();
+      //var instane = new LaunchDarklyApi.UserSegmentRule();
       //expect(instance).to.be();
     });
 

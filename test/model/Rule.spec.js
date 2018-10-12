@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Rule();
+    instance = new LaunchDarklyApi.Rule();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,31 +53,31 @@
   describe('Rule', function() {
     it('should create an instance of Rule', function() {
       // uncomment below and update the code to test Rule
-      //var instane = new LaunchDarklyRestApi.Rule();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Rule);
+      //var instane = new LaunchDarklyApi.Rule();
+      //expect(instance).to.be.a(LaunchDarklyApi.Rule);
     });
 
     it('should have the property id (base name: "_id")', function() {
       // uncomment below and update the code to test the property id
-      //var instane = new LaunchDarklyRestApi.Rule();
+      //var instane = new LaunchDarklyApi.Rule();
       //expect(instance).to.be();
     });
 
     it('should have the property variation (base name: "variation")', function() {
       // uncomment below and update the code to test the property variation
-      //var instane = new LaunchDarklyRestApi.Rule();
+      //var instane = new LaunchDarklyApi.Rule();
       //expect(instance).to.be();
     });
 
     it('should have the property rollout (base name: "rollout")', function() {
       // uncomment below and update the code to test the property rollout
-      //var instane = new LaunchDarklyRestApi.Rule();
+      //var instane = new LaunchDarklyApi.Rule();
       //expect(instance).to.be();
     });
 
     it('should have the property clauses (base name: "clauses")', function() {
       // uncomment below and update the code to test the property clauses
-      //var instane = new LaunchDarklyRestApi.Rule();
+      //var instane = new LaunchDarklyApi.Rule();
       //expect(instance).to.be();
     });
 

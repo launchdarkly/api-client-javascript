@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.UserSegment
+# LaunchDarklyApi.UserSegment
 
 ## Properties
 Name | Type | Description | Notes

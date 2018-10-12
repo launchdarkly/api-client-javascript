@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Statement();
+    instance = new LaunchDarklyApi.Statement();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,37 +53,37 @@
   describe('Statement', function() {
     it('should create an instance of Statement', function() {
       // uncomment below and update the code to test Statement
-      //var instane = new LaunchDarklyRestApi.Statement();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Statement);
+      //var instane = new LaunchDarklyApi.Statement();
+      //expect(instance).to.be.a(LaunchDarklyApi.Statement);
     });
 
     it('should have the property resources (base name: "resources")', function() {
       // uncomment below and update the code to test the property resources
-      //var instane = new LaunchDarklyRestApi.Statement();
+      //var instane = new LaunchDarklyApi.Statement();
       //expect(instance).to.be();
     });
 
     it('should have the property notresources (base name: "notresources")', function() {
       // uncomment below and update the code to test the property notresources
-      //var instane = new LaunchDarklyRestApi.Statement();
+      //var instane = new LaunchDarklyApi.Statement();
       //expect(instance).to.be();
     });
 
     it('should have the property actions (base name: "actions")', function() {
       // uncomment below and update the code to test the property actions
-      //var instane = new LaunchDarklyRestApi.Statement();
+      //var instane = new LaunchDarklyApi.Statement();
       //expect(instance).to.be();
     });
 
     it('should have the property notactions (base name: "notactions")', function() {
       // uncomment below and update the code to test the property notactions
-      //var instane = new LaunchDarklyRestApi.Statement();
+      //var instane = new LaunchDarklyApi.Statement();
       //expect(instance).to.be();
     });
 
     it('should have the property effect (base name: "effect")', function() {
       // uncomment below and update the code to test the property effect
-      //var instane = new LaunchDarklyRestApi.Statement();
+      //var instane = new LaunchDarklyApi.Statement();
       //expect(instance).to.be();
     });
 

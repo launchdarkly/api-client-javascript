@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.Policy
+# LaunchDarklyApi.Policy
 
 ## Properties
 Name | Type | Description | Notes

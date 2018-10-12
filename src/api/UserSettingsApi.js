@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/UserFlagSetting'), require('../model/UserFlagSettings'), require('../model/UserSettingsBody'));
   } else {
     // Browser globals (root is window)
-    if (!root.LaunchDarklyRestApi) {
-      root.LaunchDarklyRestApi = {};
+    if (!root.LaunchDarklyApi) {
+      root.LaunchDarklyApi = {};
     }
-    root.LaunchDarklyRestApi.UserSettingsApi = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.UserFlagSetting, root.LaunchDarklyRestApi.UserFlagSettings, root.LaunchDarklyRestApi.UserSettingsBody);
+    root.LaunchDarklyApi.UserSettingsApi = factory(root.LaunchDarklyApi.ApiClient, root.LaunchDarklyApi.UserFlagSetting, root.LaunchDarklyApi.UserFlagSettings, root.LaunchDarklyApi.UserSettingsBody);
   }
 }(this, function(ApiClient, UserFlagSetting, UserFlagSettings, UserSettingsBody) {
   'use strict';

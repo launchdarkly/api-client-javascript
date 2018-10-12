@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.UserSegment();
+    instance = new LaunchDarklyApi.UserSegment();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,67 +53,67 @@
   describe('UserSegment', function() {
     it('should create an instance of UserSegment', function() {
       // uncomment below and update the code to test UserSegment
-      //var instane = new LaunchDarklyRestApi.UserSegment();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.UserSegment);
+      //var instane = new LaunchDarklyApi.UserSegment();
+      //expect(instance).to.be.a(LaunchDarklyApi.UserSegment);
     });
 
     it('should have the property key (base name: "key")', function() {
       // uncomment below and update the code to test the property key
-      //var instane = new LaunchDarklyRestApi.UserSegment();
+      //var instane = new LaunchDarklyApi.UserSegment();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new LaunchDarklyRestApi.UserSegment();
+      //var instane = new LaunchDarklyApi.UserSegment();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instane = new LaunchDarklyRestApi.UserSegment();
+      //var instane = new LaunchDarklyApi.UserSegment();
       //expect(instance).to.be();
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instane = new LaunchDarklyRestApi.UserSegment();
+      //var instane = new LaunchDarklyApi.UserSegment();
       //expect(instance).to.be();
     });
 
     it('should have the property creationDate (base name: "creationDate")', function() {
       // uncomment below and update the code to test the property creationDate
-      //var instane = new LaunchDarklyRestApi.UserSegment();
+      //var instane = new LaunchDarklyApi.UserSegment();
       //expect(instance).to.be();
     });
 
     it('should have the property included (base name: "included")', function() {
       // uncomment below and update the code to test the property included
-      //var instane = new LaunchDarklyRestApi.UserSegment();
+      //var instane = new LaunchDarklyApi.UserSegment();
       //expect(instance).to.be();
     });
 
     it('should have the property excluded (base name: "excluded")', function() {
       // uncomment below and update the code to test the property excluded
-      //var instane = new LaunchDarklyRestApi.UserSegment();
+      //var instane = new LaunchDarklyApi.UserSegment();
       //expect(instance).to.be();
     });
 
     it('should have the property rules (base name: "rules")', function() {
       // uncomment below and update the code to test the property rules
-      //var instane = new LaunchDarklyRestApi.UserSegment();
+      //var instane = new LaunchDarklyApi.UserSegment();
       //expect(instance).to.be();
     });
 
     it('should have the property version (base name: "version")', function() {
       // uncomment below and update the code to test the property version
-      //var instane = new LaunchDarklyRestApi.UserSegment();
+      //var instane = new LaunchDarklyApi.UserSegment();
       //expect(instance).to.be();
     });
 
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
-      //var instane = new LaunchDarklyRestApi.UserSegment();
+      //var instane = new LaunchDarklyApi.UserSegment();
       //expect(instance).to.be();
     });
 

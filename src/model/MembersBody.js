@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('./CustomRoleKeyOrId'), require('./Role'), require('./Statements'));
   } else {
     // Browser globals (root is window)
-    if (!root.LaunchDarklyRestApi) {
-      root.LaunchDarklyRestApi = {};
+    if (!root.LaunchDarklyApi) {
+      root.LaunchDarklyApi = {};
     }
-    root.LaunchDarklyRestApi.MembersBody = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.CustomRoleKeyOrId, root.LaunchDarklyRestApi.Role, root.LaunchDarklyRestApi.Statements);
+    root.LaunchDarklyApi.MembersBody = factory(root.LaunchDarklyApi.ApiClient, root.LaunchDarklyApi.CustomRoleKeyOrId, root.LaunchDarklyApi.Role, root.LaunchDarklyApi.Statements);
   }
 }(this, function(ApiClient, CustomRoleKeyOrId, Role, Statements) {
   'use strict';

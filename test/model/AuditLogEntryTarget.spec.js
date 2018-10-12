@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.AuditLogEntryTarget();
+    instance = new LaunchDarklyApi.AuditLogEntryTarget();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,25 +53,25 @@
   describe('AuditLogEntryTarget', function() {
     it('should create an instance of AuditLogEntryTarget', function() {
       // uncomment below and update the code to test AuditLogEntryTarget
-      //var instane = new LaunchDarklyRestApi.AuditLogEntryTarget();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.AuditLogEntryTarget);
+      //var instane = new LaunchDarklyApi.AuditLogEntryTarget();
+      //expect(instance).to.be.a(LaunchDarklyApi.AuditLogEntryTarget);
     });
 
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
-      //var instane = new LaunchDarklyRestApi.AuditLogEntryTarget();
+      //var instane = new LaunchDarklyApi.AuditLogEntryTarget();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instane = new LaunchDarklyRestApi.AuditLogEntryTarget();
+      //var instane = new LaunchDarklyApi.AuditLogEntryTarget();
       //expect(instance).to.be();
     });
 
     it('should have the property resources (base name: "resources")', function() {
       // uncomment below and update the code to test the property resources
-      //var instane = new LaunchDarklyRestApi.AuditLogEntryTarget();
+      //var instane = new LaunchDarklyApi.AuditLogEntryTarget();
       //expect(instance).to.be();
     });
 

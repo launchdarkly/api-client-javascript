@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.CustomPropertyValues();
+    instance = new LaunchDarklyApi.CustomPropertyValues();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,8 +53,8 @@
   describe('CustomPropertyValues', function() {
     it('should create an instance of CustomPropertyValues', function() {
       // uncomment below and update the code to test CustomPropertyValues
-      //var instane = new LaunchDarklyRestApi.CustomPropertyValues();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.CustomPropertyValues);
+      //var instane = new LaunchDarklyApi.CustomPropertyValues();
+      //expect(instance).to.be.a(LaunchDarklyApi.CustomPropertyValues);
     });
 
   });

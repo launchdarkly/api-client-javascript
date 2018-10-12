@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.UserFlagSetting();
+    instance = new LaunchDarklyApi.UserFlagSetting();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,25 +53,25 @@
   describe('UserFlagSetting', function() {
     it('should create an instance of UserFlagSetting', function() {
       // uncomment below and update the code to test UserFlagSetting
-      //var instane = new LaunchDarklyRestApi.UserFlagSetting();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.UserFlagSetting);
+      //var instane = new LaunchDarklyApi.UserFlagSetting();
+      //expect(instance).to.be.a(LaunchDarklyApi.UserFlagSetting);
     });
 
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
-      //var instane = new LaunchDarklyRestApi.UserFlagSetting();
+      //var instane = new LaunchDarklyApi.UserFlagSetting();
       //expect(instance).to.be();
     });
 
     it('should have the property value (base name: "_value")', function() {
       // uncomment below and update the code to test the property value
-      //var instane = new LaunchDarklyRestApi.UserFlagSetting();
+      //var instane = new LaunchDarklyApi.UserFlagSetting();
       //expect(instance).to.be();
     });
 
     it('should have the property setting (base name: "setting")', function() {
       // uncomment below and update the code to test the property setting
-      //var instane = new LaunchDarklyRestApi.UserFlagSetting();
+      //var instane = new LaunchDarklyApi.UserFlagSetting();
       //expect(instance).to.be();
     });
 

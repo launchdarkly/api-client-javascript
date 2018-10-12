@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.Policy();
+    instance = new LaunchDarklyApi.Policy();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,25 +53,25 @@
   describe('Policy', function() {
     it('should create an instance of Policy', function() {
       // uncomment below and update the code to test Policy
-      //var instane = new LaunchDarklyRestApi.Policy();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.Policy);
+      //var instane = new LaunchDarklyApi.Policy();
+      //expect(instance).to.be.a(LaunchDarklyApi.Policy);
     });
 
     it('should have the property resources (base name: "resources")', function() {
       // uncomment below and update the code to test the property resources
-      //var instane = new LaunchDarklyRestApi.Policy();
+      //var instane = new LaunchDarklyApi.Policy();
       //expect(instance).to.be();
     });
 
     it('should have the property actions (base name: "actions")', function() {
       // uncomment below and update the code to test the property actions
-      //var instane = new LaunchDarklyRestApi.Policy();
+      //var instane = new LaunchDarklyApi.Policy();
       //expect(instance).to.be();
     });
 
     it('should have the property effect (base name: "effect")', function() {
       // uncomment below and update the code to test the property effect
-      //var instane = new LaunchDarklyRestApi.Policy();
+      //var instane = new LaunchDarklyApi.Policy();
       //expect(instance).to.be();
     });
 

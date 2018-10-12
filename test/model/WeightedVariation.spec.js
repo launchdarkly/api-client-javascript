@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.WeightedVariation();
+    instance = new LaunchDarklyApi.WeightedVariation();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('WeightedVariation', function() {
     it('should create an instance of WeightedVariation', function() {
       // uncomment below and update the code to test WeightedVariation
-      //var instane = new LaunchDarklyRestApi.WeightedVariation();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.WeightedVariation);
+      //var instane = new LaunchDarklyApi.WeightedVariation();
+      //expect(instance).to.be.a(LaunchDarklyApi.WeightedVariation);
     });
 
     it('should have the property variation (base name: "variation")', function() {
       // uncomment below and update the code to test the property variation
-      //var instane = new LaunchDarklyRestApi.WeightedVariation();
+      //var instane = new LaunchDarklyApi.WeightedVariation();
       //expect(instance).to.be();
     });
 
     it('should have the property weight (base name: "weight")', function() {
       // uncomment below and update the code to test the property weight
-      //var instane = new LaunchDarklyRestApi.WeightedVariation();
+      //var instane = new LaunchDarklyApi.WeightedVariation();
       //expect(instance).to.be();
     });
 

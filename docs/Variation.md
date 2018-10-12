@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.Variation
+# LaunchDarklyApi.Variation
 
 ## Properties
 Name | Type | Description | Notes

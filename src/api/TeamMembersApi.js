@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/Member'), require('../model/Members'), require('../model/MembersBody'), require('../model/PatchOperation'));
   } else {
     // Browser globals (root is window)
-    if (!root.LaunchDarklyRestApi) {
-      root.LaunchDarklyRestApi = {};
+    if (!root.LaunchDarklyApi) {
+      root.LaunchDarklyApi = {};
     }
-    root.LaunchDarklyRestApi.TeamMembersApi = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.Member, root.LaunchDarklyRestApi.Members, root.LaunchDarklyRestApi.MembersBody, root.LaunchDarklyRestApi.PatchOperation);
+    root.LaunchDarklyApi.TeamMembersApi = factory(root.LaunchDarklyApi.ApiClient, root.LaunchDarklyApi.Member, root.LaunchDarklyApi.Members, root.LaunchDarklyApi.MembersBody, root.LaunchDarklyApi.PatchOperation);
   }
 }(this, function(ApiClient, Member, Members, MembersBody, PatchOperation) {
   'use strict';

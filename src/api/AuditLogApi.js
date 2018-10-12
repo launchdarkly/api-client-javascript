@@ -23,10 +23,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/AuditLogEntries'), require('../model/AuditLogEntry'));
   } else {
     // Browser globals (root is window)
-    if (!root.LaunchDarklyRestApi) {
-      root.LaunchDarklyRestApi = {};
+    if (!root.LaunchDarklyApi) {
+      root.LaunchDarklyApi = {};
     }
-    root.LaunchDarklyRestApi.AuditLogApi = factory(root.LaunchDarklyRestApi.ApiClient, root.LaunchDarklyRestApi.AuditLogEntries, root.LaunchDarklyRestApi.AuditLogEntry);
+    root.LaunchDarklyApi.AuditLogApi = factory(root.LaunchDarklyApi.ApiClient, root.LaunchDarklyApi.AuditLogEntries, root.LaunchDarklyApi.AuditLogEntry);
   }
 }(this, function(ApiClient, AuditLogEntries, AuditLogEntry) {
   'use strict';

@@ -23,15 +23,15 @@
     factory(require('expect.js'), require('../../src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyRestApi);
+    factory(root.expect, root.LaunchDarklyApi);
   }
-}(this, function(expect, LaunchDarklyRestApi) {
+}(this, function(expect, LaunchDarklyApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyRestApi.FeatureFlagStatuses();
+    instance = new LaunchDarklyApi.FeatureFlagStatuses();
   });
 
   var getProperty = function(object, getter, property) {
@@ -53,19 +53,19 @@
   describe('FeatureFlagStatuses', function() {
     it('should create an instance of FeatureFlagStatuses', function() {
       // uncomment below and update the code to test FeatureFlagStatuses
-      //var instane = new LaunchDarklyRestApi.FeatureFlagStatuses();
-      //expect(instance).to.be.a(LaunchDarklyRestApi.FeatureFlagStatuses);
+      //var instane = new LaunchDarklyApi.FeatureFlagStatuses();
+      //expect(instance).to.be.a(LaunchDarklyApi.FeatureFlagStatuses);
     });
 
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
-      //var instane = new LaunchDarklyRestApi.FeatureFlagStatuses();
+      //var instane = new LaunchDarklyApi.FeatureFlagStatuses();
       //expect(instance).to.be();
     });
 
     it('should have the property items (base name: "items")', function() {
       // uncomment below and update the code to test the property items
-      //var instane = new LaunchDarklyRestApi.FeatureFlagStatuses();
+      //var instane = new LaunchDarklyApi.FeatureFlagStatuses();
       //expect(instance).to.be();
     });
 

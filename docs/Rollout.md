@@ -1,4 +1,4 @@
-# LaunchDarklyRestApi.Rollout
+# LaunchDarklyApi.Rollout
 
 ## Properties
 Name | Type | Description | Notes
