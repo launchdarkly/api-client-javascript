@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 
 <a name="postFeatureFlag"></a>
 # **postFeatureFlag**
-> postFeatureFlag(projectKey, featureFlagBody)
+> postFeatureFlag(projectKey, featureFlagBody, opts)
 
 Creates a new feature flag.
 
@@ -373,6 +373,9 @@ var projectKey = "projectKey_example"; // String | The project key, used to tie 
 
 var featureFlagBody = new LaunchDarklyApi.FeatureFlagBody(); // FeatureFlagBody | Create a new feature flag.
 
+var opts = { 
+  'clone': "clone_example" // String | The key of the feature flag to be cloned. The key identifies the flag in your code.  For example, setting clone=flagKey will copy the full targeting configuration for all environments (including on/off state) from the original flag to the new flag.
+};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -381,7 +384,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.postFeatureFlag(projectKey, featureFlagBody, callback);
+apiInstance.postFeatureFlag(projectKey, featureFlagBody, opts, callback);
 ```
 
 ### Parameters
@@ -390,6 +393,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **featureFlagBody** | [**FeatureFlagBody**](FeatureFlagBody.md)| Create a new feature flag. | 
+ **clone** | **String**| The key of the feature flag to be cloned. The key identifies the flag in your code.  For example, setting clone&#x3D;flagKey will copy the full targeting configuration for all environments (including on/off state) from the original flag to the new flag. | [optional] 
 
 ### Return type
 

@@ -1,4 +1,4 @@
-# LaunchDarklyApi.EnvironmentBody
+# LaunchDarklyApi.EnvironmentPost
 
 ## Properties
 Name | Type | Description | Notes

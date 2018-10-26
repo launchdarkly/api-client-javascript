@@ -196,7 +196,7 @@ var apiInstance = new LaunchDarklyApi.EnvironmentsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentBody = new LaunchDarklyApi.EnvironmentBody(); // EnvironmentBody | New environment.
+var environmentBody = new LaunchDarklyApi.EnvironmentPost(); // EnvironmentPost | New environment.
 
 
 var callback = function(error, data, response) {
@@ -214,7 +214,7 @@ apiInstance.postEnvironment(projectKey, environmentBody, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentBody** | [**EnvironmentBody**](EnvironmentBody.md)| New environment. | 
+ **environmentBody** | [**EnvironmentPost**](EnvironmentPost.md)| New environment. | 
 
 ### Return type
 
