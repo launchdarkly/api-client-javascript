@@ -117,6 +117,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property version (base name: "_version")', function() {
+      // uncomment below and update the code to test the property version
+      //var instane = new LaunchDarklyApi.FeatureFlag();
+      //expect(instance).to.be();
+    });
+
     it('should have the property customProperties (base name: "customProperties")', function() {
       // uncomment below and update the code to test the property customProperties
       //var instane = new LaunchDarklyApi.FeatureFlag();

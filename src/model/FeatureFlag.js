@@ -62,6 +62,7 @@
 
 
 
+
   };
 
   /**
@@ -104,6 +105,9 @@
       }
       if (data.hasOwnProperty('variations')) {
         obj['variations'] = ApiClient.convertToType(data['variations'], [Variation]);
+      }
+      if (data.hasOwnProperty('_version')) {
+        obj['_version'] = ApiClient.convertToType(data['_version'], 'Number');
       }
       if (data.hasOwnProperty('customProperties')) {
         obj['customProperties'] = CustomProperties.constructFromObject(data['customProperties']);
@@ -169,6 +173,10 @@
    * @member {Array.<module:model/Variation>} variations
    */
   exports.prototype['variations'] = undefined;
+  /**
+   * @member {Number} _version
+   */
+  exports.prototype['_version'] = undefined;
   /**
    * @member {module:model/CustomProperties} customProperties
    */

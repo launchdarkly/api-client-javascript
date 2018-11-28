@@ -352,7 +352,7 @@ Name | Type | Description  | Notes
 
 <a name="postFeatureFlag"></a>
 # **postFeatureFlag**
-> postFeatureFlag(projectKey, featureFlagBody, opts)
+> FeatureFlag postFeatureFlag(projectKey, featureFlagBody, opts)
 
 Creates a new feature flag.
 
@@ -381,7 +381,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.postFeatureFlag(projectKey, featureFlagBody, opts, callback);
@@ -397,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**FeatureFlag**](FeatureFlag.md)
 
 ### Authorization
 

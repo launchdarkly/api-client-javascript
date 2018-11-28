@@ -391,7 +391,7 @@
      * Callback function to receive the result of the postFeatureFlag operation.
      * @callback module:api/FeatureFlagsApi~postFeatureFlagCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/FeatureFlag} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -402,6 +402,7 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.clone The key of the feature flag to be cloned. The key identifies the flag in your code.  For example, setting clone&#x3D;flagKey will copy the full targeting configuration for all environments (including on/off state) from the original flag to the new flag.
      * @param {module:api/FeatureFlagsApi~postFeatureFlagCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/FeatureFlag}
      */
     this.postFeatureFlag = function(projectKey, featureFlagBody, opts, callback) {
       opts = opts || {};
@@ -434,7 +435,7 @@
       var authNames = ['Token'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = null;
+      var returnType = FeatureFlag;
 
       return this.apiClient.callApi(
         '/flags/{projectKey}', 'POST',

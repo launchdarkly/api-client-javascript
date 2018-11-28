@@ -1,7 +1,7 @@
 This repository contains a client library for LaunchDarkly's REST API. This client was automatically
 generated from our [OpenAPI specification](https://github.com/launchdarkly/ld-openapi).
 
-This REST API is for custom integrations, data export, or automating your feature flag workflows. *DO NOT* use this client library to add feature flags to your web or mobile application. To integrate feature flags with your application, please see the [SDK documentation](https://docs.launchdarkly.com/v2.0/docs)
+This REST API is for custom integrations, data export, or automating your feature flag workflows. *DO NOT* use this client library to include feature flags in your web or mobile application. To integrate feature flags with your application, please see the [SDK documentation](https://docs.launchdarkly.com/v2.0/docs)
 
 # launchdarkly-api
 
@@ -255,3 +255,37 @@ Class | Method | HTTP request | Description
 - **API key parameter name**: Authorization
 - **Location**: HTTP header
 
+## Sample Code
+
+```
+var LaunchDarklyApi = require('launchdarkly-api');
+
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
+
+var Token = defaultClient.authentications['Token'];
+Token.apiKey = process.env.LD_API_KEY;
+
+var apiInstance = new LaunchDarklyApi.FeatureFlagsApi();
+
+var callback = function(error, data) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + JSON.stringify(data));
+  }
+};
+
+const projectName = "openapi";
+const keyName = "test-javascript";
+
+apiInstance.postFeatureFlag(projectName,
+  {
+    name: "Test Flag Javascript",
+    key: keyName,
+    variations: [{value: [1, 2]}, {value: [3, 4]}, {value: [5]}]
+  }, {}, callback);
+
+// Clean up new flag (requires a new api instance)
+apiInstance = new LaunchDarklyApi.FeatureFlagsApi();
+apiInstance.deleteFeatureFlag(projectName, keyName, callback);
+```
