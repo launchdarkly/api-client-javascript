@@ -4,6 +4,7 @@ All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**copyFeatureFlag**](FeatureFlagsApi.md#copyFeatureFlag) | **POST** /flags/{projectKey}/{environmentKey}/{featureFlagKey}/copy | Copies the feature flag configuration from one environment to the same feature flag in another environment.
 [**deleteFeatureFlag**](FeatureFlagsApi.md#deleteFeatureFlag) | **DELETE** /flags/{projectKey}/{featureFlagKey} | Delete a feature flag in all environments. Be careful-- only delete feature flags that are no longer being used by your application.
 [**getFeatureFlag**](FeatureFlagsApi.md#getFeatureFlag) | **GET** /flags/{projectKey}/{featureFlagKey} | Get a single feature flag by key.
 [**getFeatureFlagStatus**](FeatureFlagsApi.md#getFeatureFlagStatus) | **GET** /flag-statuses/{projectKey}/{environmentKey}/{featureFlagKey} | Get the status for a particular feature flag.
@@ -12,6 +13,63 @@ Method | HTTP request | Description
 [**patchFeatureFlag**](FeatureFlagsApi.md#patchFeatureFlag) | **PATCH** /flags/{projectKey}/{featureFlagKey} | Perform a partial update to a feature.
 [**postFeatureFlag**](FeatureFlagsApi.md#postFeatureFlag) | **POST** /flags/{projectKey} | Creates a new feature flag.
 
+
+<a name="copyFeatureFlag"></a>
+# **copyFeatureFlag**
+> FeatureFlag copyFeatureFlag(projectKey, environmentKey, featureFlagKey, )
+
+Copies the feature flag configuration from one environment to the same feature flag in another environment.
+
+### Example
+```javascript
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
+
+// Configure API key authorization: Token
+var Token = defaultClient.authentications['Token'];
+Token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Token.apiKeyPrefix = 'Token';
+
+var apiInstance = new LaunchDarklyApi.FeatureFlagsApi();
+
+var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
+
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
+
+var featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key. The key identifies the flag in your code.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.copyFeatureFlag(projectKey, environmentKey, featureFlagKey, , callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+ **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+
+### Return type
+
+[**FeatureFlag**](FeatureFlag.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="deleteFeatureFlag"></a>
 # **deleteFeatureFlag**
