@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 <a name="postUserSegment"></a>
 # **postUserSegment**
-> postUserSegment(projectKey, environmentKey, userSegmentBody)
+> UserSegment postUserSegment(projectKey, environmentKey, userSegmentBody)
 
 Creates a new user segment.
 
@@ -273,7 +273,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.postUserSegment(projectKey, environmentKey, userSegmentBody, callback);
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**UserSegment**](UserSegment.md)
 
 ### Authorization
 

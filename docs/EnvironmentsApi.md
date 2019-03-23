@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 
 <a name="postEnvironment"></a>
 # **postEnvironment**
-> postEnvironment(projectKey, environmentBody)
+> Environment postEnvironment(projectKey, environmentBody)
 
 Create a new environment in a specified project with a given name, key, and swatch color.
 
@@ -203,7 +203,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.postEnvironment(projectKey, environmentBody, callback);
@@ -218,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**Environment**](Environment.md)
 
 ### Authorization
 

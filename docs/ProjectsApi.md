@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 <a name="postProject"></a>
 # **postProject**
-> postProject(projectBody)
+> Project postProject(projectBody)
 
 Create a new project with the given key and name.
 
@@ -238,7 +238,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.postProject(projectBody, callback);
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**Project**](Project.md)
 
 ### Authorization
 
