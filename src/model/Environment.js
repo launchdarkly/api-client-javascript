@@ -59,6 +59,8 @@
 
 
 
+
+
   };
 
   /**
@@ -104,6 +106,12 @@
       }
       if (data.hasOwnProperty('tags')) {
         obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
+      }
+      if (data.hasOwnProperty('requireComments')) {
+        obj['requireComments'] = ApiClient.convertToType(data['requireComments'], 'Boolean');
+      }
+      if (data.hasOwnProperty('confirmChanges')) {
+        obj['confirmChanges'] = ApiClient.convertToType(data['confirmChanges'], 'Boolean');
       }
     }
     return obj;
@@ -162,6 +170,16 @@
    * @member {Array.<String>} tags
    */
   exports.prototype['tags'] = undefined;
+  /**
+   * Determines if this environment requires comments for flag and segment changes.
+   * @member {Boolean} requireComments
+   */
+  exports.prototype['requireComments'] = undefined;
+  /**
+   * Determines if this environment requires confirmation for flag and segment changes.
+   * @member {Boolean} confirmChanges
+   */
+  exports.prototype['confirmChanges'] = undefined;
 
 
 

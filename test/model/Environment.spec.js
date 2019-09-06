@@ -123,6 +123,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property requireComments (base name: "requireComments")', function() {
+      // uncomment below and update the code to test the property requireComments
+      //var instance = new LaunchDarklyApi.Environment();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property confirmChanges (base name: "confirmChanges")', function() {
+      // uncomment below and update the code to test the property confirmChanges
+      //var instance = new LaunchDarklyApi.Environment();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

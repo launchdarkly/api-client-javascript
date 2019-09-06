@@ -14,5 +14,7 @@ Name | Type | Description | Notes
 **secureMode** | **Boolean** | Determines if this environment is in safe mode. | [optional] 
 **defaultTrackEvents** | **Boolean** | Set to true to send detailed event information for new flags. | [optional] 
 **tags** | **[String]** | An array of tags for this environment. | [optional] 
+**requireComments** | **Boolean** | Determines if this environment requires comments for flag and segment changes. | [optional] 
+**confirmChanges** | **Boolean** | Determines if this environment requires confirmation for flag and segment changes. | [optional] 
 
 
