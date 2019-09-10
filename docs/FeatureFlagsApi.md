@@ -4,7 +4,7 @@ All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**copyFeatureFlag**](FeatureFlagsApi.md#copyFeatureFlag) | **POST** /flags/{projectKey}/{environmentKey}/{featureFlagKey}/copy | Copies the feature flag configuration from one environment to the same feature flag in another environment.
+[**copyFeatureFlag**](FeatureFlagsApi.md#copyFeatureFlag) | **POST** /flags/{projectKey}/{featureFlagKey}/copy | Copies the feature flag configuration from one environment to the same feature flag in another environment.
 [**deleteFeatureFlag**](FeatureFlagsApi.md#deleteFeatureFlag) | **DELETE** /flags/{projectKey}/{featureFlagKey} | Delete a feature flag in all environments. Be careful-- only delete feature flags that are no longer being used by your application.
 [**getFeatureFlag**](FeatureFlagsApi.md#getFeatureFlag) | **GET** /flags/{projectKey}/{featureFlagKey} | Get a single feature flag by key.
 [**getFeatureFlagStatus**](FeatureFlagsApi.md#getFeatureFlagStatus) | **GET** /flag-statuses/{projectKey}/{environmentKey}/{featureFlagKey} | Get the status for a particular feature flag.
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="copyFeatureFlag"></a>
 # **copyFeatureFlag**
-> FeatureFlag copyFeatureFlag(projectKey, environmentKey, featureFlagKey, )
+> FeatureFlag copyFeatureFlag(projectKey, featureFlagKey, featureFlagCopyBody)
 
 Copies the feature flag configuration from one environment to the same feature flag in another environment.
 
@@ -35,9 +35,9 @@ var apiInstance = new LaunchDarklyApi.FeatureFlagsApi();
 
 var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
 
-var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
-
 var featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key. The key identifies the flag in your code.
+
+var featureFlagCopyBody = new LaunchDarklyApi.FeatureFlagCopyBody(); // FeatureFlagCopyBody | Copy feature flag configurations between environments.
 
 
 var callback = function(error, data, response) {
@@ -47,7 +47,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.copyFeatureFlag(projectKey, environmentKey, featureFlagKey, , callback);
+apiInstance.copyFeatureFlag(projectKey, featureFlagKey, featureFlagCopyBody, callback);
 ```
 
 ### Parameters
@@ -55,8 +55,8 @@ apiInstance.copyFeatureFlag(projectKey, environmentKey, featureFlagKey, , callba
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagCopyBody** | [**FeatureFlagCopyBody**](FeatureFlagCopyBody.md)| Copy feature flag configurations between environments. | 
 
 ### Return type
 
