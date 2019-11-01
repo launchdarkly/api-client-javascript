@@ -19,5 +19,7 @@ Name | Type | Description | Notes
 **links** | [**Links**](Links.md) |  | [optional] 
 **maintainer** | [**Member**](Member.md) |  | [optional] 
 **environments** | [**{String: FeatureFlagConfig}**](FeatureFlagConfig.md) |  | [optional] 
+**archivedDate** | **Number** | A unix epoch time in milliseconds specifying the archived time of this flag. | [optional] 
+**archived** | **Boolean** | Whether or not this flag is archived. | [optional] 
 
 
