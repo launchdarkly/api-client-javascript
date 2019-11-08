@@ -1,26 +1,26 @@
-# LaunchDarklyApi.UsageApi
+# LaunchDarklyApi.CustomerMetricsApi
 
 All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getEvaluations**](UsageApi.md#getEvaluations) | **GET** /usage/evaluations/{envId}/{flagKey} | [BETA] Get events usage by event id and the feature flag key.
-[**getEvent**](UsageApi.md#getEvent) | **GET** /usage/events/{type} | [BETA] Get events usage by event type.
-[**getEvents**](UsageApi.md#getEvents) | **GET** /usage/events | [BETA] Get events usage endpoints.
-[**getMAU**](UsageApi.md#getMAU) | **GET** /usage/mau | [BETA] Get monthly active user data.
-[**getMAUByCategory**](UsageApi.md#getMAUByCategory) | **GET** /usage/mau/bycategory | [BETA] Get monthly active user data by category.
-[**getStream**](UsageApi.md#getStream) | **GET** /usage/streams/{source} | [BETA] Get a stream endpoint and return timeseries data.
-[**getStreamBySDK**](UsageApi.md#getStreamBySDK) | **GET** /usage/streams/{source}/bysdkversion | [BETA] Get a stream timeseries data by source show sdk version metadata.
-[**getStreamSDKVersion**](UsageApi.md#getStreamSDKVersion) | **GET** /usage/streams/{source}/sdkversions | [BETA] Get a stream timeseries data by source and show all sdk version associated.
-[**getStreams**](UsageApi.md#getStreams) | **GET** /usage/streams | [BETA] Returns a list of all streams.
-[**getUsage**](UsageApi.md#getUsage) | **GET** /usage | [BETA] Returns of the usage endpoints available.
+[**getEvaluations**](CustomerMetricsApi.md#getEvaluations) | **GET** /usage/evaluations/{envId}/{flagKey} | Get events usage by event id and the feature flag key.
+[**getEvent**](CustomerMetricsApi.md#getEvent) | **GET** /usage/events/{type} | Get events usage by event type.
+[**getEvents**](CustomerMetricsApi.md#getEvents) | **GET** /usage/events | Get events usage endpoints.
+[**getMAU**](CustomerMetricsApi.md#getMAU) | **GET** /usage/mau | Get monthly active user data.
+[**getMAUByCategory**](CustomerMetricsApi.md#getMAUByCategory) | **GET** /usage/mau/bycategory | Get monthly active user data by category.
+[**getStream**](CustomerMetricsApi.md#getStream) | **GET** /usage/streams/{source} | Get a stream endpoint and return timeseries data.
+[**getStreamBySDK**](CustomerMetricsApi.md#getStreamBySDK) | **GET** /usage/streams/{source}/bysdkversion | Get a stream timeseries data by source show sdk version metadata.
+[**getStreamSDKVersion**](CustomerMetricsApi.md#getStreamSDKVersion) | **GET** /usage/streams/{source}/sdkversions | Get a stream timeseries data by source and show all sdk version associated.
+[**getStreams**](CustomerMetricsApi.md#getStreams) | **GET** /usage/streams | Returns a list of all streams.
+[**getUsage**](CustomerMetricsApi.md#getUsage) | **GET** /usage | Returns of the usage endpoints available.
 
 
 <a name="getEvaluations"></a>
 # **getEvaluations**
 > StreamSDKVersion getEvaluations(envId, flagKey)
 
-[BETA] Get events usage by event id and the feature flag key.
+Get events usage by event id and the feature flag key.
 
 ### Example
 ```javascript
@@ -33,7 +33,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsageApi();
+var apiInstance = new LaunchDarklyApi.CustomerMetricsApi();
 
 var envId = "envId_example"; // String | The environment id for the flag evaluations in question.
 
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 # **getEvent**
 > StreamSDKVersion getEvent(type)
 
-[BETA] Get events usage by event type.
+Get events usage by event type.
 
 ### Example
 ```javascript
@@ -87,7 +87,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsageApi();
+var apiInstance = new LaunchDarklyApi.CustomerMetricsApi();
 
 var type = "type_example"; // String | The type of event we would like to track.
 
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 # **getEvents**
 > Events getEvents()
 
-[BETA] Get events usage endpoints.
+Get events usage endpoints.
 
 ### Example
 ```javascript
@@ -138,7 +138,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsageApi();
+var apiInstance = new LaunchDarklyApi.CustomerMetricsApi();
 
 var callback = function(error, data, response) {
   if (error) {
@@ -170,7 +170,7 @@ This endpoint does not need any parameter.
 # **getMAU**
 > MAU getMAU()
 
-[BETA] Get monthly active user data.
+Get monthly active user data.
 
 ### Example
 ```javascript
@@ -183,7 +183,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsageApi();
+var apiInstance = new LaunchDarklyApi.CustomerMetricsApi();
 
 var callback = function(error, data, response) {
   if (error) {
@@ -215,7 +215,7 @@ This endpoint does not need any parameter.
 # **getMAUByCategory**
 > MAUbyCategory getMAUByCategory()
 
-[BETA] Get monthly active user data by category.
+Get monthly active user data by category.
 
 ### Example
 ```javascript
@@ -228,7 +228,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsageApi();
+var apiInstance = new LaunchDarklyApi.CustomerMetricsApi();
 
 var callback = function(error, data, response) {
   if (error) {
@@ -260,7 +260,7 @@ This endpoint does not need any parameter.
 # **getStream**
 > Stream getStream(source)
 
-[BETA] Get a stream endpoint and return timeseries data.
+Get a stream endpoint and return timeseries data.
 
 ### Example
 ```javascript
@@ -273,7 +273,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsageApi();
+var apiInstance = new LaunchDarklyApi.CustomerMetricsApi();
 
 var source = "source_example"; // String | The source of where the stream comes from.
 
@@ -311,7 +311,7 @@ Name | Type | Description  | Notes
 # **getStreamBySDK**
 > StreamBySDK getStreamBySDK(source)
 
-[BETA] Get a stream timeseries data by source show sdk version metadata.
+Get a stream timeseries data by source show sdk version metadata.
 
 ### Example
 ```javascript
@@ -324,7 +324,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsageApi();
+var apiInstance = new LaunchDarklyApi.CustomerMetricsApi();
 
 var source = "source_example"; // String | The source of where the stream comes from.
 
@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 # **getStreamSDKVersion**
 > StreamSDKVersion getStreamSDKVersion(source)
 
-[BETA] Get a stream timeseries data by source and show all sdk version associated.
+Get a stream timeseries data by source and show all sdk version associated.
 
 ### Example
 ```javascript
@@ -375,7 +375,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsageApi();
+var apiInstance = new LaunchDarklyApi.CustomerMetricsApi();
 
 var source = "source_example"; // String | The source of where the stream comes from.
 
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 # **getStreams**
 > Streams getStreams()
 
-[BETA] Returns a list of all streams.
+Returns a list of all streams.
 
 ### Example
 ```javascript
@@ -426,7 +426,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsageApi();
+var apiInstance = new LaunchDarklyApi.CustomerMetricsApi();
 
 var callback = function(error, data, response) {
   if (error) {
@@ -458,7 +458,7 @@ This endpoint does not need any parameter.
 # **getUsage**
 > Usage getUsage()
 
-[BETA] Returns of the usage endpoints available.
+Returns of the usage endpoints available.
 
 ### Example
 ```javascript
@@ -471,7 +471,7 @@ Token.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //Token.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsageApi();
+var apiInstance = new LaunchDarklyApi.CustomerMetricsApi();
 
 var callback = function(error, data, response) {
   if (error) {
