@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **offVariation** | **Number** |  | [optional] 
 **prerequisites** | [**[Prerequisite]**](Prerequisite.md) |  | [optional] 
 **trackEvents** | **Boolean** | Set to true to send detailed event information for this flag. | [optional] 
+**trackEventsFallthrough** | **Boolean** | Set to true to send detailed event information when targeting is enabled but no individual targeting rule is matched. | [optional] 
 
 
