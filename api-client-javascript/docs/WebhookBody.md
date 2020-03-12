@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **sign** | **Boolean** | If sign is false, the webhook will not include a signature header, and the secret can be omitted. | 
 **on** | **Boolean** | Whether this webhook is enabled or not. | 
 **name** | **String** | The name of the webhook. | [optional] 
-**statements** | [**Statements**](Statements.md) |  | [optional] 
+**statements** | [**[Statement]**](Statement.md) |  | [optional] 
 **tags** | **[String]** | Tags for the webhook. | [optional] 
 
 
