@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **temporary** | **Boolean** | Whether or not the flag is a temporary flag. | [optional] 
 **tags** | **[String]** | Tags for the feature flag. | [optional] 
 **includeInSnippet** | **Boolean** | Whether or not this flag should be made available to the client-side JavaScript SDK. | [optional] 
+**defaults** | [**Defaults**](Defaults.md) |  | [optional] 
 
 
