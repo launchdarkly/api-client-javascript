@@ -5,6 +5,7 @@ All URIs are relative to *https://app.launchdarkly.com/api/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteMember**](TeamMembersApi.md#deleteMember) | **DELETE** /members/{memberId} | Delete a team member by ID.
+[**getMe**](TeamMembersApi.md#getMe) | **GET** /members/me | Get the current team member associated with the token
 [**getMember**](TeamMembersApi.md#getMember) | **GET** /members/{memberId} | Get a single team member by ID.
 [**getMembers**](TeamMembersApi.md#getMembers) | **GET** /members | Returns a list of all members in the account.
 [**patchMember**](TeamMembersApi.md#patchMember) | **PATCH** /members/{memberId} | Modify a team member by ID.
@@ -52,6 +53,51 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getMe"></a>
+# **getMe**
+> Member getMe()
+
+Get the current team member associated with the token
+
+### Example
+```javascript
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
+
+// Configure API key authorization: Token
+var Token = defaultClient.authentications['Token'];
+Token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Token.apiKeyPrefix = 'Token';
+
+var apiInstance = new LaunchDarklyApi.TeamMembersApi();
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getMe(callback);
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Member**](Member.md)
 
 ### Authorization
 
@@ -115,7 +161,7 @@ Name | Type | Description  | Notes
 
 <a name="getMembers"></a>
 # **getMembers**
-> Members getMembers()
+> Members getMembers(opts)
 
 Returns a list of all members in the account.
 
@@ -132,6 +178,13 @@ Token.apiKey = 'YOUR API KEY';
 
 var apiInstance = new LaunchDarklyApi.TeamMembersApi();
 
+var opts = { 
+  'limit': 8.14, // Number | The number of objects to return. Defaults to -1, which returns everything.
+  '_number': true, // Boolean | Where to start in the list. This is for use with pagination. For example, an offset of 10 would skip the first 10 items and then return the next limit items.
+  'filter': "filter_example", // String | A comma-separated list of filters. Each filter is of the form field:value.
+  'sort': "sort_example" // String | A comma-separated list of fields to sort by. A field prefixed by a - will be sorted in descending order.
+};
+
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -139,11 +192,17 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getMembers(callback);
+apiInstance.getMembers(opts, callback);
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The number of objects to return. Defaults to -1, which returns everything. | [optional] 
+ **_number** | **Boolean**| Where to start in the list. This is for use with pagination. For example, an offset of 10 would skip the first 10 items and then return the next limit items. | [optional] 
+ **filter** | **String**| A comma-separated list of filters. Each filter is of the form field:value. | [optional] 
+ **sort** | **String**| A comma-separated list of fields to sort by. A field prefixed by a - will be sorted in descending order. | [optional] 
 
 ### Return type
 
