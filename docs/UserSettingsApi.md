@@ -4,10 +4,69 @@ All URIs are relative to *https://app.launchdarkly.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getExpiringUserTargetsForUser**](UserSettingsApi.md#getExpiringUserTargetsForUser) | **GET** /users/{projectKey}/{userKey}/expiring-user-targets/{environmentKey} | Get expiring dates on flags for user
 [**getUserFlagSetting**](UserSettingsApi.md#getUserFlagSetting) | **GET** /users/{projectKey}/{environmentKey}/{userKey}/flags/{featureFlagKey} | Fetch a single flag setting for a user by key.
 [**getUserFlagSettings**](UserSettingsApi.md#getUserFlagSettings) | **GET** /users/{projectKey}/{environmentKey}/{userKey}/flags | Fetch a single flag setting for a user by key.
+[**patchExpiringUserTargetsForFlags**](UserSettingsApi.md#patchExpiringUserTargetsForFlags) | **PATCH** /users/{projectKey}/{userKey}/expiring-user-targets/{environmentKey} | Update, add, or delete expiring user targets for a single user on all flags
 [**putFlagSetting**](UserSettingsApi.md#putFlagSetting) | **PUT** /users/{projectKey}/{environmentKey}/{userKey}/flags/{featureFlagKey} | Specifically enable or disable a feature flag for a user based on their key.
 
+
+<a name="getExpiringUserTargetsForUser"></a>
+# **getExpiringUserTargetsForUser**
+> UserTargetingExpirationOnFlagsForUser getExpiringUserTargetsForUser(projectKey, environmentKey, userKey, )
+
+Get expiring dates on flags for user
+
+### Example
+```javascript
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
+
+// Configure API key authorization: Token
+var Token = defaultClient.authentications['Token'];
+Token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Token.apiKeyPrefix = 'Token';
+
+var apiInstance = new LaunchDarklyApi.UserSettingsApi();
+
+var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
+
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
+
+var userKey = "userKey_example"; // String | The user's key.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getExpiringUserTargetsForUser(projectKey, environmentKey, userKey, , callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+ **userKey** | **String**| The user&#39;s key. | 
+
+### Return type
+
+[**UserTargetingExpirationOnFlagsForUser**](UserTargetingExpirationOnFlagsForUser.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a name="getUserFlagSetting"></a>
 # **getUserFlagSetting**
@@ -116,6 +175,66 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**UserFlagSettings**](UserFlagSettings.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="patchExpiringUserTargetsForFlags"></a>
+# **patchExpiringUserTargetsForFlags**
+> UserTargetingExpirationOnFlagsForUser patchExpiringUserTargetsForFlags(projectKey, environmentKey, userKey, patchComment)
+
+Update, add, or delete expiring user targets for a single user on all flags
+
+### Example
+```javascript
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
+
+// Configure API key authorization: Token
+var Token = defaultClient.authentications['Token'];
+Token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Token.apiKeyPrefix = 'Token';
+
+var apiInstance = new LaunchDarklyApi.UserSettingsApi();
+
+var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
+
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
+
+var userKey = "userKey_example"; // String | The user's key.
+
+var patchComment = new LaunchDarklyApi.PatchComment(); // PatchComment | Requires a JSON Patch representation of the desired changes to the project, and an optional comment. 'http://jsonpatch.com/' Feature flag patches also support JSON Merge Patch format. 'https://tools.ietf.org/html/rfc7386' The addition of comments is also supported.
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.patchExpiringUserTargetsForFlags(projectKey, environmentKey, userKey, patchComment, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+ **userKey** | **String**| The user&#39;s key. | 
+ **patchComment** | [**PatchComment**](PatchComment.md)| Requires a JSON Patch representation of the desired changes to the project, and an optional comment. &#39;http://jsonpatch.com/&#39; Feature flag patches also support JSON Merge Patch format. &#39;https://tools.ietf.org/html/rfc7386&#39; The addition of comments is also supported. | 
+
+### Return type
+
+[**UserTargetingExpirationOnFlagsForUser**](UserTargetingExpirationOnFlagsForUser.md)
 
 ### Authorization
 
