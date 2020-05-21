@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 <a name="patchExpiringUserTargetsForFlags"></a>
 # **patchExpiringUserTargetsForFlags**
-> UserTargetingExpirationOnFlagsForUser patchExpiringUserTargetsForFlags(projectKey, environmentKey, userKey, patchComment)
+> UserTargetingExpirationOnFlagsForUser patchExpiringUserTargetsForFlags(projectKey, environmentKey, userKey, semanticPatchWithComment)
 
 Update, add, or delete expiring user targets for a single user on all flags
 
@@ -210,7 +210,7 @@ var environmentKey = "environmentKey_example"; // String | The environment key, 
 
 var userKey = "userKey_example"; // String | The user's key.
 
-var patchComment = new LaunchDarklyApi.PatchComment(); // PatchComment | Requires a JSON Patch representation of the desired changes to the project, and an optional comment. 'http://jsonpatch.com/' Feature flag patches also support JSON Merge Patch format. 'https://tools.ietf.org/html/rfc7386' The addition of comments is also supported.
+var semanticPatchWithComment = null; // Object | Requires a Semantic Patch representation of the desired changes to the resource. 'https://apidocs.launchdarkly.com/reference#updates-via-semantic-patches'. The addition of comments is also supported.
 
 
 var callback = function(error, data, response) {
@@ -220,7 +220,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.patchExpiringUserTargetsForFlags(projectKey, environmentKey, userKey, patchComment, callback);
+apiInstance.patchExpiringUserTargetsForFlags(projectKey, environmentKey, userKey, semanticPatchWithComment, callback);
 ```
 
 ### Parameters
@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **userKey** | **String**| The user&#39;s key. | 
- **patchComment** | [**PatchComment**](PatchComment.md)| Requires a JSON Patch representation of the desired changes to the project, and an optional comment. &#39;http://jsonpatch.com/&#39; Feature flag patches also support JSON Merge Patch format. &#39;https://tools.ietf.org/html/rfc7386&#39; The addition of comments is also supported. | 
+ **semanticPatchWithComment** | **Object**| Requires a Semantic Patch representation of the desired changes to the resource. &#39;https://apidocs.launchdarkly.com/reference#updates-via-semantic-patches&#39;. The addition of comments is also supported. | 
 
 ### Return type
 
