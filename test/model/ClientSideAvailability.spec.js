@@ -31,7 +31,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyApi.Site();
+    instance = new LaunchDarklyApi.ClientSideAvailability();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,22 +50,22 @@
       object[property] = value;
   }
 
-  describe('Site', function() {
-    it('should create an instance of Site', function() {
-      // uncomment below and update the code to test Site
-      //var instance = new LaunchDarklyApi.Site();
-      //expect(instance).to.be.a(LaunchDarklyApi.Site);
+  describe('ClientSideAvailability', function() {
+    it('should create an instance of ClientSideAvailability', function() {
+      // uncomment below and update the code to test ClientSideAvailability
+      //var instance = new LaunchDarklyApi.ClientSideAvailability();
+      //expect(instance).to.be.a(LaunchDarklyApi.ClientSideAvailability);
     });
 
-    it('should have the property href (base name: "href")', function() {
-      // uncomment below and update the code to test the property href
-      //var instance = new LaunchDarklyApi.Site();
+    it('should have the property usingEnvironmentId (base name: "usingEnvironmentId")', function() {
+      // uncomment below and update the code to test the property usingEnvironmentId
+      //var instance = new LaunchDarklyApi.ClientSideAvailability();
       //expect(instance).to.be();
     });
 
-    it('should have the property type (base name: "type")', function() {
-      // uncomment below and update the code to test the property type
-      //var instance = new LaunchDarklyApi.Site();
+    it('should have the property usingMobileKey (base name: "usingMobileKey")', function() {
+      // uncomment below and update the code to test the property usingMobileKey
+      //var instance = new LaunchDarklyApi.ClientSideAvailability();
       //expect(instance).to.be();
     });
 

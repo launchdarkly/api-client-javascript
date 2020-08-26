@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **includeInSnippetByDefault** | **Boolean** |  | [optional] 
 **environments** | [**[Environment]**](Environment.md) |  | [optional] 
 **tags** | **[String]** | An array of tags for this project. | [optional] 
+**defaultClientSideAvailability** | [**ClientSideAvailability**](ClientSideAvailability.md) |  | [optional] 
 
 

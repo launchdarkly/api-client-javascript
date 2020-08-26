@@ -26,7 +26,7 @@
     if (!root.LaunchDarklyApi) {
       root.LaunchDarklyApi = {};
     }
-    root.LaunchDarklyApi.UsageError = factory(root.LaunchDarklyApi.ApiClient);
+    root.LaunchDarklyApi.ClientSideAvailability = factory(root.LaunchDarklyApi.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -35,44 +35,54 @@
 
 
   /**
-   * The UsageError model module.
-   * @module model/UsageError
+   * The ClientSideAvailability model module.
+   * @module model/ClientSideAvailability
    * @version 3.5.0
    */
 
   /**
-   * Constructs a new <code>UsageError</code>.
-   * @alias module:model/UsageError
+   * Constructs a new <code>ClientSideAvailability</code>.
+   * @alias module:model/ClientSideAvailability
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
+
   };
 
   /**
-   * Constructs a <code>UsageError</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>ClientSideAvailability</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/UsageError} obj Optional instance to populate.
-   * @return {module:model/UsageError} The populated <code>UsageError</code> instance.
+   * @param {module:model/ClientSideAvailability} obj Optional instance to populate.
+   * @return {module:model/ClientSideAvailability} The populated <code>ClientSideAvailability</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('message')) {
-        obj['message'] = ApiClient.convertToType(data['message'], 'String');
+      if (data.hasOwnProperty('usingEnvironmentId')) {
+        obj['usingEnvironmentId'] = ApiClient.convertToType(data['usingEnvironmentId'], 'Boolean');
+      }
+      if (data.hasOwnProperty('usingMobileKey')) {
+        obj['usingMobileKey'] = ApiClient.convertToType(data['usingMobileKey'], 'Boolean');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} message
+   * When set to true, this flag will be available to SDKs using the client-side id.
+   * @member {Boolean} usingEnvironmentId
    */
-  exports.prototype['message'] = undefined;
+  exports.prototype['usingEnvironmentId'] = undefined;
+  /**
+   * When set to true, this flag will be available to SDKS using a mobile key.
+   * @member {Boolean} usingMobileKey
+   */
+  exports.prototype['usingMobileKey'] = undefined;
 
 
 

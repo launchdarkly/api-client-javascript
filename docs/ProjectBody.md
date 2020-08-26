@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **includeInSnippetByDefault** | **Boolean** |  | [optional] 
 **tags** | **[String]** |  | [optional] 
 **environments** | [**[EnvironmentPost]**](EnvironmentPost.md) |  | [optional] 
+**defaultClientSideAvailability** | [**ClientSideAvailability**](ClientSideAvailability.md) |  | [optional] 
 
 
