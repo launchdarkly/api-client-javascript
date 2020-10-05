@@ -4,6 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **comment** | **String** |  | [optional] 
-**instructions** | [**[SemanticPatchOperationInstructions]**](SemanticPatchOperationInstructions.md) |  | 
+**instructions** | [**SemanticPatchInstruction**](SemanticPatchInstruction.md) |  | 
 
 
