@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**getEnvironment**](EnvironmentsApi.md#getEnvironment) | **GET** /projects/{projectKey}/environments/{environmentKey} | Get an environment given a project and key.
 [**patchEnvironment**](EnvironmentsApi.md#patchEnvironment) | **PATCH** /projects/{projectKey}/environments/{environmentKey} | Modify an environment by ID.
 [**postEnvironment**](EnvironmentsApi.md#postEnvironment) | **POST** /projects/{projectKey}/environments | Create a new environment in a specified project with a given name, key, and swatch color.
+[**resetEnvironmentMobileKey**](EnvironmentsApi.md#resetEnvironmentMobileKey) | **POST** /projects/{projectKey}/environments/{environmentKey}/mobileKey | Reset an environment&#39;s mobile key with an optional expiry time for the old key.
+[**resetEnvironmentSDKKey**](EnvironmentsApi.md#resetEnvironmentSDKKey) | **POST** /projects/{projectKey}/environments/{environmentKey}/apiKey | Reset an environment&#39;s SDK key with an optional expiry time for the old key.
 
 
 <a name="deleteEnvironment"></a>
@@ -215,6 +217,122 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentBody** | [**EnvironmentPost**](EnvironmentPost.md)| New environment. | 
+
+### Return type
+
+[**Environment**](Environment.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="resetEnvironmentMobileKey"></a>
+# **resetEnvironmentMobileKey**
+> Environment resetEnvironmentMobileKey(projectKey, environmentKey, , opts)
+
+Reset an environment&#39;s mobile key with an optional expiry time for the old key.
+
+### Example
+```javascript
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
+
+// Configure API key authorization: Token
+var Token = defaultClient.authentications['Token'];
+Token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Token.apiKeyPrefix = 'Token';
+
+var apiInstance = new LaunchDarklyApi.EnvironmentsApi();
+
+var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
+
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
+
+var opts = { 
+  'expiry': 789 // Number | An expiration time for the old environment SDK or mobile key, expressed as a Unix epoch time in milliseconds. By default, the key will expire immediately
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.resetEnvironmentMobileKey(projectKey, environmentKey, , opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+ **expiry** | **Number**| An expiration time for the old environment SDK or mobile key, expressed as a Unix epoch time in milliseconds. By default, the key will expire immediately | [optional] 
+
+### Return type
+
+[**Environment**](Environment.md)
+
+### Authorization
+
+[Token](../README.md#Token)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="resetEnvironmentSDKKey"></a>
+# **resetEnvironmentSDKKey**
+> Environment resetEnvironmentSDKKey(projectKey, environmentKey, , opts)
+
+Reset an environment&#39;s SDK key with an optional expiry time for the old key.
+
+### Example
+```javascript
+var LaunchDarklyApi = require('launchdarkly-api');
+var defaultClient = LaunchDarklyApi.ApiClient.instance;
+
+// Configure API key authorization: Token
+var Token = defaultClient.authentications['Token'];
+Token.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Token.apiKeyPrefix = 'Token';
+
+var apiInstance = new LaunchDarklyApi.EnvironmentsApi();
+
+var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
+
+var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
+
+var opts = { 
+  'expiry': 789 // Number | An expiration time for the old environment SDK or mobile key, expressed as a Unix epoch time in milliseconds. By default, the key will expire immediately
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.resetEnvironmentSDKKey(projectKey, environmentKey, , opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
+ **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
+ **expiry** | **Number**| An expiration time for the old environment SDK or mobile key, expressed as a Unix epoch time in milliseconds. By default, the key will expire immediately | [optional] 
 
 ### Return type
 
