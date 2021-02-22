@@ -256,7 +256,7 @@ apiInstance.patchMember(memberId, patchDelta, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **memberId** | **String**| The member ID. | 
- **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; | 
+ **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' | 
 
 ### Return type
 

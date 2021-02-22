@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **destinationId** | **String**| The data export destination ID. | 
- **patchOnly** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; Feature flag patches also support JSON Merge Patch format. &#39;https://tools.ietf.org/html/rfc7386&#39; The addition of comments is also supported. | 
+ **patchOnly** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' Feature flag patches also support JSON Merge Patch format. 'https://tools.ietf.org/html/rfc7386' The addition of comments is also supported. | 
 
 ### Return type
 

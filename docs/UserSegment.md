@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **tags** | **[String]** | An array of tags for this user segment. | [optional] 
 **creationDate** | **Number** | A unix epoch time in milliseconds specifying the creation time of this flag. | 
 **included** | **[String]** | An array of user keys that are included in this segment. | [optional] 
-**excluded** | **[String]** | An array of user keys that should not be included in this segment, unless they are also listed in \&quot;included\&quot;. | [optional] 
+**excluded** | **[String]** | An array of user keys that should not be included in this segment, unless they are also listed in \"included\". | [optional] 
 **rules** | [**[UserSegmentRule]**](UserSegmentRule.md) | An array of rules that can cause a user to be included in this segment. | [optional] 
 **unbounded** | **Boolean** | Controls whether this segment can support unlimited numbers of users. Requires the beta API and additional setup. Include/exclude lists in this payload are not used in unbounded segments. | [optional] 
 **version** | **Number** |  | [optional] 

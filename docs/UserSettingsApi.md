@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **userKey** | **String**| The user&#39;s key. | 
+ **userKey** | **String**| The user's key. | 
 
 ### Return type
 
@@ -112,8 +112,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **userKey** | **String**| The user&#39;s key. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **userKey** | **String**| The user's key. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
 
 ### Return type
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **userKey** | **String**| The user&#39;s key. | 
+ **userKey** | **String**| The user's key. | 
 
 ### Return type
 
@@ -229,8 +229,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **userKey** | **String**| The user&#39;s key. | 
- **semanticPatchWithComment** | **Object**| Requires a Semantic Patch representation of the desired changes to the resource. &#39;https://apidocs.launchdarkly.com/reference#updates-via-semantic-patches&#39;. The addition of comments is also supported. | 
+ **userKey** | **String**| The user's key. | 
+ **semanticPatchWithComment** | **Object**| Requires a Semantic Patch representation of the desired changes to the resource. 'https://apidocs.launchdarkly.com/reference#updates-via-semantic-patches'. The addition of comments is also supported. | 
 
 ### Return type
 
@@ -291,8 +291,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **userKey** | **String**| The user&#39;s key. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **userKey** | **String**| The user's key. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **userSettingsBody** | [**UserSettingsBody**](UserSettingsBody.md)|  | 
 
 ### Return type

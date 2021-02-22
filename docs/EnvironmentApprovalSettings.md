@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 * `launchdarkly` (value: `"launchdarkly"`)
 
-* `service-now` (value: `"service-now"`)
+* `serviceNow` (value: `"service-now"`)
 
 
 

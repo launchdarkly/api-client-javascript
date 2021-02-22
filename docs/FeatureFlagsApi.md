@@ -70,7 +70,7 @@ apiInstance.copyFeatureFlag(projectKey, featureFlagKey, featureFlagCopyBody, cal
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **featureFlagCopyBody** | [**FeatureFlagCopyBody**](FeatureFlagCopyBody.md)| Copy feature flag configurations between environments. | 
 
 ### Return type
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **approvalRequestId** | **String**| The approval request ID | 
  **approvalRequestConfigBody** | [**ApprovalRequestConfigBody**](ApprovalRequestConfigBody.md)| Create a new approval request | [optional] 
 
@@ -189,7 +189,7 @@ apiInstance.deleteFeatureFlag(projectKey, featureFlagKey, , callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
 
 ### Return type
 
@@ -247,7 +247,7 @@ apiInstance.deleteFlagConfigScheduledChanges(projectKey, featureFlagKey, environ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **scheduledChangeId** | **String**| The id of the scheduled change | 
 
@@ -307,7 +307,7 @@ apiInstance.getApprovalRequest(projectKey, featureFlagKey, environmentKey, appro
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **approvalRequestId** | **String**| The approval request ID | 
 
@@ -365,7 +365,7 @@ apiInstance.getApprovalRequests(projectKey, featureFlagKey, environmentKey, , ca
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
 
 ### Return type
@@ -423,7 +423,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
 
 ### Return type
 
@@ -480,8 +480,8 @@ apiInstance.getFeatureFlag(projectKey, featureFlagKey, , opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
- **env** | [**[String]**](String.md)| By default, each feature will include configurations for each environment. You can filter environments with the env query parameter. For example, setting env&#x3D;[\&quot;production\&quot;] will restrict the returned configurations to just your production environment. | [optional] 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
+ **env** | [**[String]**](String.md)| By default, each feature will include configurations for each environment. You can filter environments with the env query parameter. For example, setting env=[\"production\"] will restrict the returned configurations to just your production environment. | [optional] 
 
 ### Return type
 
@@ -538,7 +538,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
 
 ### Return type
 
@@ -592,7 +592,7 @@ apiInstance.getFeatureFlagStatusAcrossEnvironments(projectKey, featureFlagKey, ,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
 
 ### Return type
 
@@ -708,8 +708,8 @@ apiInstance.getFeatureFlags(projectKey, , opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **env** | [**[String]**](String.md)| By default, each feature will include configurations for each environment. You can filter environments with the env query parameter. For example, setting env&#x3D;[\&quot;production\&quot;] will restrict the returned configurations to just your production environment. | [optional] 
- **summary** | **Boolean**| By default in api version &gt;&#x3D; 1, flags will _not_ include their list of prerequisites, targets or rules.  Set summary&#x3D;0 to include these fields for each flag returned. | [optional] 
+ **env** | [**[String]**](String.md)| By default, each feature will include configurations for each environment. You can filter environments with the env query parameter. For example, setting env=[\"production\"] will restrict the returned configurations to just your production environment. | [optional] 
+ **summary** | **Boolean**| By default in api version >= 1, flags will _not_ include their list of prerequisites, targets or rules.  Set summary=0 to include these fields for each flag returned. | [optional] 
  **archived** | **Boolean**| When set to 1, only archived flags will be included in the list of flags returned.  By default, archived flags are not included in the list of flags. | [optional] 
  **limit** | **Number**| The number of objects to return. Defaults to -1, which returns everything. | [optional] 
  **offset** | **Number**| Where to start in the list. This is for use with pagination. For example, an offset of 10 would skip the first 10 items and then return the next limit items. | [optional] 
@@ -773,7 +773,7 @@ apiInstance.getFlagConfigScheduledChange(projectKey, featureFlagKey, environment
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **scheduledChangeId** | **String**| The id of the scheduled change | 
 
@@ -831,7 +831,7 @@ apiInstance.getFlagConfigScheduledChanges(projectKey, featureFlagKey, environmen
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
 
 ### Return type
@@ -890,7 +890,7 @@ apiInstance.getFlagConfigScheduledChangesConflicts(projectKey, featureFlagKey, e
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **flagConfigScheduledChangesConflictsBody** | [**FlagConfigScheduledChangesConflictsBody**](FlagConfigScheduledChangesConflictsBody.md)| Used to determine if a semantic patch will result in conflicts with scheduled changes on a feature flag. | 
 
@@ -951,8 +951,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
- **semanticPatchWithComment** | **Object**| Requires a Semantic Patch representation of the desired changes to the resource. &#39;https://apidocs.launchdarkly.com/reference#updates-via-semantic-patches&#39;. The addition of comments is also supported. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
+ **semanticPatchWithComment** | **Object**| Requires a Semantic Patch representation of the desired changes to the resource. 'https://apidocs.launchdarkly.com/reference#updates-via-semantic-patches'. The addition of comments is also supported. | 
 
 ### Return type
 
@@ -1008,8 +1008,8 @@ apiInstance.patchFeatureFlag(projectKey, featureFlagKey, patchComment, callback)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
- **patchComment** | [**PatchComment**](PatchComment.md)| Requires a JSON Patch representation of the desired changes to the project, and an optional comment. &#39;http://jsonpatch.com/&#39; Feature flag patches also support JSON Merge Patch format. &#39;https://tools.ietf.org/html/rfc7386&#39; The addition of comments is also supported. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
+ **patchComment** | [**PatchComment**](PatchComment.md)| Requires a JSON Patch representation of the desired changes to the project, and an optional comment. 'http://jsonpatch.com/' Feature flag patches also support JSON Merge Patch format. 'https://tools.ietf.org/html/rfc7386' The addition of comments is also supported. | 
 
 ### Return type
 
@@ -1069,7 +1069,7 @@ apiInstance.patchFlagConfigScheduledChange(projectKey, featureFlagKey, flagConfi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **flagConfigScheduledChangesPatchBody** | [**FlagConfigScheduledChangesPatchBody**](FlagConfigScheduledChangesPatchBody.md)| Update scheduled changes on a feature flag. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **scheduledChangeId** | **String**| The id of the scheduled change | 
@@ -1132,7 +1132,7 @@ apiInstance.postApplyApprovalRequest(projectKey, featureFlagKey, environmentKey,
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **approvalRequestId** | **String**| The approval request ID | 
  **approvalRequestApplyConfigBody** | [**ApprovalRequestApplyConfigBody**](ApprovalRequestApplyConfigBody.md)| Apply an approval request | 
@@ -1196,7 +1196,7 @@ apiInstance.postApprovalRequest(projectKey, featureFlagKey, environmentKey, appr
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **approvalRequestId** | **String**| The approval request ID | 
  **approvalRequestConfigBody** | [**ApprovalRequestConfigBody**](ApprovalRequestConfigBody.md)| Create a new approval request | [optional] 
@@ -1257,7 +1257,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **featureFlagBody** | [**FeatureFlagBody**](FeatureFlagBody.md)| Create a new feature flag. | 
- **clone** | **String**| The key of the feature flag to be cloned. The key identifies the flag in your code.  For example, setting clone&#x3D;flagKey will copy the full targeting configuration for all environments (including on/off state) from the original flag to the new flag. | [optional] 
+ **clone** | **String**| The key of the feature flag to be cloned. The key identifies the flag in your code.  For example, setting clone=flagKey will copy the full targeting configuration for all environments (including on/off state) from the original flag to the new flag. | [optional] 
 
 ### Return type
 
@@ -1316,7 +1316,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **flagConfigScheduledChangesPostBody** | [**FlagConfigScheduledChangesPostBody**](FlagConfigScheduledChangesPostBody.md)| Create scheduled changes on a feature flag. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
 
 ### Return type
@@ -1377,7 +1377,7 @@ apiInstance.postReviewApprovalRequest(projectKey, featureFlagKey, environmentKey
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **featureFlagKey** | **String**| The feature flag&#39;s key. The key identifies the flag in your code. | 
+ **featureFlagKey** | **String**| The feature flag's key. The key identifies the flag in your code. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **approvalRequestId** | **String**| The approval request ID | 
  **approvalRequestReviewConfigBody** | [**ApprovalRequestReviewConfigBody**](ApprovalRequestReviewConfigBody.md)| Review an approval request | 

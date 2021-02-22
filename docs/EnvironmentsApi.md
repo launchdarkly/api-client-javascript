@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**getEnvironment**](EnvironmentsApi.md#getEnvironment) | **GET** /projects/{projectKey}/environments/{environmentKey} | Get an environment given a project and key.
 [**patchEnvironment**](EnvironmentsApi.md#patchEnvironment) | **PATCH** /projects/{projectKey}/environments/{environmentKey} | Modify an environment by ID.
 [**postEnvironment**](EnvironmentsApi.md#postEnvironment) | **POST** /projects/{projectKey}/environments | Create a new environment in a specified project with a given name, key, and swatch color.
-[**resetEnvironmentMobileKey**](EnvironmentsApi.md#resetEnvironmentMobileKey) | **POST** /projects/{projectKey}/environments/{environmentKey}/mobileKey | Reset an environment&#39;s mobile key. The optional expiry for the old key is deprecated for this endpoint, so the old key will always expire immediately.
-[**resetEnvironmentSDKKey**](EnvironmentsApi.md#resetEnvironmentSDKKey) | **POST** /projects/{projectKey}/environments/{environmentKey}/apiKey | Reset an environment&#39;s SDK key with an optional expiry time for the old key.
+[**resetEnvironmentMobileKey**](EnvironmentsApi.md#resetEnvironmentMobileKey) | **POST** /projects/{projectKey}/environments/{environmentKey}/mobileKey | Reset an environment's mobile key. The optional expiry for the old key is deprecated for this endpoint, so the old key will always expire immediately.
+[**resetEnvironmentSDKKey**](EnvironmentsApi.md#resetEnvironmentSDKKey) | **POST** /projects/{projectKey}/environments/{environmentKey}/apiKey | Reset an environment's SDK key with an optional expiry time for the old key.
 
 
 <a name="deleteEnvironment"></a>
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; | 
+ **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' | 
 
 ### Return type
 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 # **resetEnvironmentMobileKey**
 > Environment resetEnvironmentMobileKey(projectKey, environmentKey, , opts)
 
-Reset an environment&#39;s mobile key. The optional expiry for the old key is deprecated for this endpoint, so the old key will always expire immediately.
+Reset an environment's mobile key. The optional expiry for the old key is deprecated for this endpoint, so the old key will always expire immediately.
 
 ### Example
 ```javascript
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 # **resetEnvironmentSDKKey**
 > Environment resetEnvironmentSDKKey(projectKey, environmentKey, , opts)
 
-Reset an environment&#39;s SDK key with an optional expiry time for the old key.
+Reset an environment's SDK key with an optional expiry time for the old key.
 
 ### Example
 ```javascript

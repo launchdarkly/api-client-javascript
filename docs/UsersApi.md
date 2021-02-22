@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /users/{projectKey}/{environmentKey}/{userKey} | Delete a user by ID.
 [**getSearchUsers**](UsersApi.md#getSearchUsers) | **GET** /user-search/{projectKey}/{environmentKey} | Search users in LaunchDarkly based on their last active date, or a search query. It should not be used to enumerate all users in LaunchDarkly-- use the List users API resource.
 [**getUser**](UsersApi.md#getUser) | **GET** /users/{projectKey}/{environmentKey}/{userKey} | Get a user by key.
-[**getUsers**](UsersApi.md#getUsers) | **GET** /users/{projectKey}/{environmentKey} | List all users in the environment. Includes the total count of users. In each page, there will be up to &#39;limit&#39; users returned (default 20). This is useful for exporting all users in the system for further analysis. Paginated collections will include a next link containing a URL with the next set of elements in the collection.
+[**getUsers**](UsersApi.md#getUsers) | **GET** /users/{projectKey}/{environmentKey} | List all users in the environment. Includes the total count of users. In each page, there will be up to 'limit' users returned (default 20). This is useful for exporting all users in the system for further analysis. Paginated collections will include a next link containing a URL with the next set of elements in the collection.
 
 
 <a name="deleteUser"></a>
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **userKey** | **String**| The user&#39;s key. | 
+ **userKey** | **String**| The user's key. | 
 
 ### Return type
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **userKey** | **String**| The user&#39;s key. | 
+ **userKey** | **String**| The user's key. | 
 
 ### Return type
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 # **getUsers**
 > Users getUsers(projectKey, environmentKey, , opts)
 
-List all users in the environment. Includes the total count of users. In each page, there will be up to &#39;limit&#39; users returned (default 20). This is useful for exporting all users in the system for further analysis. Paginated collections will include a next link containing a URL with the next set of elements in the collection.
+List all users in the environment. Includes the total count of users. In each page, there will be up to 'limit' users returned (default 20). This is useful for exporting all users in the system for further analysis. Paginated collections will include a next link containing a URL with the next set of elements in the collection.
 
 ### Example
 ```javascript
@@ -234,8 +234,8 @@ Name | Type | Description  | Notes
  **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
  **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
  **limit** | **Number**| Pagination limit. | [optional] 
- **h** | **String**| This parameter is required when following \&quot;next\&quot; links. | [optional] 
- **scrollId** | **String**| This parameter is required when following \&quot;next\&quot; links. | [optional] 
+ **h** | **String**| This parameter is required when following \"next\" links. | [optional] 
+ **scrollId** | **String**| This parameter is required when following \"next\" links. | [optional] 
 
 ### Return type
 

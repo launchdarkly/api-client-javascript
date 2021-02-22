@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **links** | [**Links**](Links.md) |  | [optional] 
 **id** | **String** | Unique destination ID. | [optional] 
 **name** | **String** | The destination name | [optional] 
-**kind** | **String** | Destination type (\&quot;google-pubsub\&quot;, \&quot;kinesis\&quot;, \&quot;mparticle\&quot;, or \&quot;segment\&quot;) | [optional] 
+**kind** | **String** | Destination type (\"google-pubsub\", \"kinesis\", \"mparticle\", or \"segment\") | [optional] 
 **config** | **Object** | destination-specific configuration. | [optional] 
 **on** | **Boolean** | Whether the data export destination is on or not. | [optional] 
 **version** | **Number** |  | [optional] 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Enum: KindEnum
 
 
-* `google-pubsub` (value: `"google-pubsub"`)
+* `googlePubsub` (value: `"google-pubsub"`)
 
 * `kinesis` (value: `"kinesis"`)
 

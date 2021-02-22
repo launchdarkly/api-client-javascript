@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**getTokens**](AccessTokensApi.md#getTokens) | **GET** /tokens | Returns a list of tokens in the account.
 [**patchToken**](AccessTokensApi.md#patchToken) | **PATCH** /tokens/{tokenId} | Modify an access token by ID.
 [**postToken**](AccessTokensApi.md#postToken) | **POST** /tokens | Create a new token.
-[**resetToken**](AccessTokensApi.md#resetToken) | **POST** /tokens/{tokenId}/reset | Reset an access token&#39;s secret key with an optional expiry time for the old key.
+[**resetToken**](AccessTokensApi.md#resetToken) | **POST** /tokens/{tokenId}/reset | Reset an access token's secret key with an optional expiry time for the old key.
 
 
 <a name="deleteToken"></a>
@@ -151,7 +151,7 @@ apiInstance.getTokens(opts, callback);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **showAll** | **Boolean**| If set to true, and the authentication access token has the \&quot;Admin\&quot; role, personal access tokens for all members will be retrieved. | [optional] 
+ **showAll** | **Boolean**| If set to true, and the authentication access token has the \"Admin\" role, personal access tokens for all members will be retrieved. | [optional] 
 
 ### Return type
 
@@ -205,7 +205,7 @@ apiInstance.patchToken(tokenIdpatchDelta, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tokenId** | **String**| The access token ID. | 
- **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; | 
+ **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' | 
 
 ### Return type
 
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 # **resetToken**
 > Token resetToken(tokenId, opts)
 
-Reset an access token&#39;s secret key with an optional expiry time for the old key.
+Reset an access token's secret key with an optional expiry time for the old key.
 
 ### Example
 ```javascript

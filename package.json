@@ -1,17 +1,18 @@
 {
   "name": "launchdarkly-api",
-  "version": "5.0.1",
-  "description": "Build_custom_integrations_with_the_LaunchDarkly_REST_API",
+  "version": "5.0.2",
+  "description": "Build custom integrations with the LaunchDarkly REST API",
   "license": "Apache 2.0",
   "main": "src/index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --recursive"
+    "test": "mocha --recursive"
   },
   "browser": {
     "fs": false
   },
   "dependencies": {
-    "superagent": "3.7.0"
+    "superagent": "3.7.0",
+    "querystring": "0.2.0"
   },
   "devDependencies": {
     "mocha": "~2.3.4",

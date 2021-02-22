@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Enum: KindEnum
 
 
-* `google-pubsub` (value: `"google-pubsub"`)
+* `googlePubsub` (value: `"google-pubsub"`)
 
 * `kinesis` (value: `"kinesis"`)
 

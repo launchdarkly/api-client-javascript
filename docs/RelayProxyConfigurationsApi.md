@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**getRelayProxyConfigs**](RelayProxyConfigurationsApi.md#getRelayProxyConfigs) | **GET** /account/relay-auto-configs | Returns a list of relay proxy configurations in the account.
 [**patchRelayProxyConfig**](RelayProxyConfigurationsApi.md#patchRelayProxyConfig) | **PATCH** /account/relay-auto-configs/{id} | Modify a relay proxy configuration by ID.
 [**postRelayAutoConfig**](RelayProxyConfigurationsApi.md#postRelayAutoConfig) | **POST** /account/relay-auto-configs | Create a new relay proxy config.
-[**resetRelayProxyConfig**](RelayProxyConfigurationsApi.md#resetRelayProxyConfig) | **POST** /account/relay-auto-configs/{id}/reset | Reset a relay proxy configuration&#39;s secret key with an optional expiry time for the old key.
+[**resetRelayProxyConfig**](RelayProxyConfigurationsApi.md#resetRelayProxyConfig) | **POST** /account/relay-auto-configs/{id}/reset | Reset a relay proxy configuration's secret key with an optional expiry time for the old key.
 
 
 <a name="deleteRelayProxyConfig"></a>
@@ -198,7 +198,7 @@ apiInstance.patchRelayProxyConfig(idpatchDelta, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The relay proxy configuration ID | 
- **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; | 
+ **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' | 
 
 ### Return type
 
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 # **resetRelayProxyConfig**
 > RelayProxyConfig resetRelayProxyConfig(id, opts)
 
-Reset a relay proxy configuration&#39;s secret key with an optional expiry time for the old key.
+Reset a relay proxy configuration's secret key with an optional expiry time for the old key.
 
 ### Example
 ```javascript

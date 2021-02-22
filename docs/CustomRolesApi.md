@@ -197,7 +197,7 @@ apiInstance.patchCustomRole(customRoleKey, patchDelta, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customRoleKey** | **String**| The custom role key. | 
- **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. &#39;http://jsonpatch.com/&#39; | 
+ **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' | 
 
 ### Return type
 
