@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**IntegrationLinks**](IntegrationLinks.md) |  | [optional] 
+**links** | [**DependentFlagLinks**](DependentFlagLinks.md) |  | [optional] 
 **items** | [**[IntegrationSubscription]**](IntegrationSubscription.md) |  | [optional] 
 
 

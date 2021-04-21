@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**patchExpiringUserTargetsOnSegment**](UserSegmentsApi.md#patchExpiringUserTargetsOnSegment) | **PATCH** /segments/{projectKey}/{userSegmentKey}/expiring-user-targets/{environmentKey} | Update, add, or delete expiring user targets on user segment
 [**patchUserSegment**](UserSegmentsApi.md#patchUserSegment) | **PATCH** /segments/{projectKey}/{environmentKey}/{userSegmentKey} | Perform a partial update to a user segment.
 [**postUserSegment**](UserSegmentsApi.md#postUserSegment) | **POST** /segments/{projectKey}/{environmentKey} | Creates a new user segment.
-[**updatedBigSegmentTargets**](UserSegmentsApi.md#updatedBigSegmentTargets) | **POST** /segments/{projectKey}/{environmentKey}/{userSegmentKey}/users | Update targets included or excluded in a big segment
+[**updateBigSegmentTargets**](UserSegmentsApi.md#updateBigSegmentTargets) | **POST** /segments/{projectKey}/{environmentKey}/{userSegmentKey}/users | Update targets included or excluded in a big segment
 
 
 <a name="deleteUserSegment"></a>
@@ -420,9 +420,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="updatedBigSegmentTargets"></a>
-# **updatedBigSegmentTargets**
-> updatedBigSegmentTargets(projectKey, environmentKey, userSegmentKey, bigSegmentTargetsBody)
+<a name="updateBigSegmentTargets"></a>
+# **updateBigSegmentTargets**
+> updateBigSegmentTargets(projectKey, environmentKey, userSegmentKey, bigSegmentTargetsBody)
 
 Update targets included or excluded in a big segment
 
@@ -455,7 +455,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.updatedBigSegmentTargets(projectKey, environmentKey, userSegmentKey, bigSegmentTargetsBody, callback);
+apiInstance.updateBigSegmentTargets(projectKey, environmentKey, userSegmentKey, bigSegmentTargetsBody, callback);
 ```
 
 ### Parameters
