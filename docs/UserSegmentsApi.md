@@ -161,7 +161,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getUserSegment(projectKey, environmentKey, userSegmentKey, , callback);
+apiInstance.getUserSegment(projectKey, environmentKey, userSegmentKey, callback);
 ```
 
 ### Parameters
