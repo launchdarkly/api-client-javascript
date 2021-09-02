@@ -1,9 +1,10 @@
 # LaunchDarklyApi.Webhooks
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**Links**](Links.md) |  | [optional] 
-**items** | [**[Webhook]**](Webhook.md) |  | [optional] 
+**links** | [**{String: Link}**](Link.md) |  | 
+**items** | [**[Webhook]**](Webhook.md) |  | 
 
 

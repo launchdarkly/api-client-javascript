@@ -1,59 +1,57 @@
 # LaunchDarklyApi.DataExportDestinationsApi
 
-All URIs are relative to *https://app.launchdarkly.com/api/v2*
+All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteDestination**](DataExportDestinationsApi.md#deleteDestination) | **DELETE** /destinations/{projectKey}/{environmentKey}/{destinationId} | Get a single data export destination by ID
-[**getDestination**](DataExportDestinationsApi.md#getDestination) | **GET** /destinations/{projectKey}/{environmentKey}/{destinationId} | Get a single data export destination by ID
-[**getDestinations**](DataExportDestinationsApi.md#getDestinations) | **GET** /destinations | Returns a list of all data export destinations.
-[**patchDestination**](DataExportDestinationsApi.md#patchDestination) | **PATCH** /destinations/{projectKey}/{environmentKey}/{destinationId} | Perform a partial update to a data export destination.
-[**postDestination**](DataExportDestinationsApi.md#postDestination) | **POST** /destinations/{projectKey}/{environmentKey} | Create a new data export destination
+[**deleteDestination**](DataExportDestinationsApi.md#deleteDestination) | **DELETE** /api/v2/destinations/{projKey}/{envKey}/{id} | Delete Data Export destination
+[**getDestination**](DataExportDestinationsApi.md#getDestination) | **GET** /api/v2/destinations/{projKey}/{envKey}/{id} | Get destination
+[**getDestinations**](DataExportDestinationsApi.md#getDestinations) | **GET** /api/v2/destinations | List destinations
+[**patchDestination**](DataExportDestinationsApi.md#patchDestination) | **PATCH** /api/v2/destinations/{projKey}/{envKey}/{id} | Update Data Export destination
+[**postDestination**](DataExportDestinationsApi.md#postDestination) | **POST** /api/v2/destinations/{projKey}/{envKey} | Create data export destination
 
 
-<a name="deleteDestination"></a>
-# **deleteDestination**
-> deleteDestination(projectKey, environmentKey, destinationId, )
 
-Get a single data export destination by ID
+## deleteDestination
+
+> deleteDestination(projKey, envKey, id)
+
+Delete Data Export destination
+
+Delete Data Export destination by ID
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
-
-var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
-
-var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
-
-var destinationId = "destinationId_example"; // String | The data export destination ID.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
+let projKey = "projKey_example"; // String | The project key
+let envKey = "envKey_example"; // String | The environment key
+let id = "id_example"; // String | The Data Export destination ID
+apiInstance.deleteDestination(projKey, envKey, id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteDestination(projectKey, environmentKey, destinationId, , callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **destinationId** | **String**| The data export destination ID. | 
+ **projKey** | **String**| The project key | 
+ **envKey** | **String**| The environment key | 
+ **id** | **String**| The Data Export destination ID | 
 
 ### Return type
 
@@ -61,56 +59,54 @@ null (empty response body)
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-<a name="getDestination"></a>
-# **getDestination**
-> Destination getDestination(projectKey, environmentKey, destinationId, )
 
-Get a single data export destination by ID
+## getDestination
+
+> Destination getDestination(projKey, envKey, id)
+
+Get destination
+
+Get a single Data Export destination by ID
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
-
-var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
-
-var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
-
-var destinationId = "destinationId_example"; // String | The data export destination ID.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
+let projKey = "projKey_example"; // String | The project key
+let envKey = "envKey_example"; // String | The environment key
+let id = "id_example"; // String | The Data Export destination ID
+apiInstance.getDestination(projKey, envKey, id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getDestination(projectKey, environmentKey, destinationId, , callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **destinationId** | **String**| The data export destination ID. | 
+ **projKey** | **String**| The project key | 
+ **envKey** | **String**| The environment key | 
+ **id** | **String**| The Data Export destination ID | 
 
 ### Return type
 
@@ -118,43 +114,45 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getDestinations"></a>
-# **getDestinations**
+
+## getDestinations
+
 > Destinations getDestinations()
 
-Returns a list of all data export destinations.
+List destinations
+
+Get a list of Data Export destinations configured across all projects and environments.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
+apiInstance.getDestinations((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getDestinations(callback);
+});
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -163,59 +161,56 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="patchDestination"></a>
-# **patchDestination**
-> Destination patchDestination(projectKey, environmentKey, destinationId, patchOnly)
 
-Perform a partial update to a data export destination.
+## patchDestination
+
+> Destination patchDestination(projKey, envKey, id, patchOperation)
+
+Update Data Export destination
+
+Update a Data Export destination. This requires a JSON Patch representation of the modified destination.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
-
-var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
-
-var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
-
-var destinationId = "destinationId_example"; // String | The data export destination ID.
-
-var patchOnly = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' Feature flag patches also support JSON Merge Patch format. 'https://tools.ietf.org/html/rfc7386' The addition of comments is also supported.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
+let projKey = "projKey_example"; // String | The project key
+let envKey = "envKey_example"; // String | The environment key
+let id = "id_example"; // String | The Data Export destination ID
+let patchOperation = [{"op":"replace","path":"/config/topic","value":"ld-pubsub-test-192302"}]; // [PatchOperation] | 
+apiInstance.patchDestination(projKey, envKey, id, patchOperation, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.patchDestination(projectKey, environmentKey, destinationId, patchOnly, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **destinationId** | **String**| The data export destination ID. | 
- **patchOnly** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' Feature flag patches also support JSON Merge Patch format. 'https://tools.ietf.org/html/rfc7386' The addition of comments is also supported. | 
+ **projKey** | **String**| The project key | 
+ **envKey** | **String**| The environment key | 
+ **id** | **String**| The Data Export destination ID | 
+ **patchOperation** | [**[PatchOperation]**](PatchOperation.md)|  | 
 
 ### Return type
 
@@ -223,56 +218,54 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="postDestination"></a>
-# **postDestination**
-> Destination postDestination(projectKey, environmentKey, destinationBody)
 
-Create a new data export destination
+## postDestination
+
+> Destination postDestination(projKey, envKey, destinationPost)
+
+Create data export destination
+
+Create a new destination. The &#x60;config&#x60; body parameter represents the configuration parameters required for a destination type.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
-
-var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
-
-var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
-
-var destinationBody = new LaunchDarklyApi.DestinationBody(); // DestinationBody | Create a new data export destination.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
+let projKey = "projKey_example"; // String | The project key
+let envKey = "envKey_example"; // String | The environment key
+let destinationPost = {"config":{"project":"test-prod","topic":"ld-pubsub-test-192301"},"kind":"google-pubsub"}; // DestinationPost | 
+apiInstance.postDestination(projKey, envKey, destinationPost, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.postDestination(projectKey, environmentKey, destinationBody, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **destinationBody** | [**DestinationBody**](DestinationBody.md)| Create a new data export destination. | 
+ **projKey** | **String**| The project key | 
+ **envKey** | **String**| The environment key | 
+ **destinationPost** | [**DestinationPost**](DestinationPost.md)|  | 
 
 ### Return type
 
@@ -280,10 +273,10 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 

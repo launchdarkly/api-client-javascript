@@ -1,10 +1,11 @@
 # LaunchDarklyApi.Users
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**Links**](Links.md) |  | [optional] 
-**totalCount** | **Number** |  | [optional] 
-**items** | [**[UserRecord]**](UserRecord.md) |  | [optional] 
+**links** | [**{String: Link}**](Link.md) |  | [optional] 
+**totalCount** | **Number** |  | 
+**items** | [**[User]**](User.md) |  | 
 
 

@@ -1,9 +1,10 @@
 # LaunchDarklyApi.Projects
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**Links**](Links.md) |  | [optional] 
-**items** | [**[Project]**](Project.md) |  | [optional] 
+**links** | [**{String: Link}**](Link.md) | A link to this resource. | 
+**items** | [**[Project]**](Project.md) | List of projects. | 
 
 

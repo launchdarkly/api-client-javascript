@@ -1,53 +1,53 @@
 # LaunchDarklyApi.CustomRolesApi
 
-All URIs are relative to *https://app.launchdarkly.com/api/v2*
+All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteCustomRole**](CustomRolesApi.md#deleteCustomRole) | **DELETE** /roles/{customRoleKey} | Delete a custom role by key.
-[**getCustomRole**](CustomRolesApi.md#getCustomRole) | **GET** /roles/{customRoleKey} | Get one custom role by key.
-[**getCustomRoles**](CustomRolesApi.md#getCustomRoles) | **GET** /roles | Return a complete list of custom roles.
-[**patchCustomRole**](CustomRolesApi.md#patchCustomRole) | **PATCH** /roles/{customRoleKey} | Modify a custom role by key.
-[**postCustomRole**](CustomRolesApi.md#postCustomRole) | **POST** /roles | Create a new custom role.
+[**deleteCustomRole**](CustomRolesApi.md#deleteCustomRole) | **DELETE** /api/v2/roles/{key} | Delete custom role
+[**getCustomRole**](CustomRolesApi.md#getCustomRole) | **GET** /api/v2/roles/{key} | Get custom role
+[**getCustomRoles**](CustomRolesApi.md#getCustomRoles) | **GET** /api/v2/roles | List custom roles
+[**patchCustomRole**](CustomRolesApi.md#patchCustomRole) | **PATCH** /api/v2/roles/{key} | Update custom role
+[**postCustomRole**](CustomRolesApi.md#postCustomRole) | **POST** /api/v2/roles | Create custom role
 
 
-<a name="deleteCustomRole"></a>
-# **deleteCustomRole**
-> deleteCustomRole(customRoleKey, )
 
-Delete a custom role by key.
+## deleteCustomRole
+
+> deleteCustomRole(key)
+
+Delete custom role
+
+Delete a custom role by key
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.CustomRolesApi();
-
-var customRoleKey = "customRoleKey_example"; // String | The custom role key.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.CustomRolesApi();
+let key = "key_example"; // String | The key of the custom role to delete
+apiInstance.deleteCustomRole(key, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteCustomRole(customRoleKey, , callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customRoleKey** | **String**| The custom role key. | 
+ **key** | **String**| The key of the custom role to delete | 
 
 ### Return type
 
@@ -55,94 +55,96 @@ null (empty response body)
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-<a name="getCustomRole"></a>
-# **getCustomRole**
-> CustomRole getCustomRole(customRoleKey, )
 
-Get one custom role by key.
+## getCustomRole
+
+> CustomRolePost getCustomRole(key)
+
+Get custom role
+
+Get a single custom role by key or ID
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.CustomRolesApi();
-
-var customRoleKey = "customRoleKey_example"; // String | The custom role key.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.CustomRolesApi();
+let key = "key_example"; // String | The custom role's key or ID
+apiInstance.getCustomRole(key, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getCustomRole(customRoleKey, , callback);
+});
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customRoleKey** | **String**| The custom role key. | 
+ **key** | **String**| The custom role&#39;s key or ID | 
 
 ### Return type
 
-[**CustomRole**](CustomRole.md)
+[**CustomRolePost**](CustomRolePost.md)
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getCustomRoles"></a>
-# **getCustomRoles**
+
+## getCustomRoles
+
 > CustomRoles getCustomRoles()
 
-Return a complete list of custom roles.
+List custom roles
+
+Get a complete list of custom roles. Custom roles let you create flexible policies providing fine-grained access control to everything in LaunchDarkly, from feature flags to goals, environments, and teams. With custom roles, it&#39;s possible to enforce access policies that meet your exact workflow needs. Custom roles are available to customers on our enterprise plans. If you&#39;re interested in learning more about our enterprise plans, contact sales@launchdarkly.com.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.CustomRolesApi();
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.CustomRolesApi();
+apiInstance.getCustomRoles((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getCustomRoles(callback);
+});
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -151,53 +153,52 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="patchCustomRole"></a>
-# **patchCustomRole**
-> CustomRole patchCustomRole(customRoleKey, patchDelta)
 
-Modify a custom role by key.
+## patchCustomRole
+
+> CustomRole patchCustomRole(key, patchWithComment)
+
+Update custom role
+
+Update a single custom role. The request must be a valid JSON Patch document describing the changes to be made to the custom role.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.CustomRolesApi();
-
-var customRoleKey = "customRoleKey_example"; // String | The custom role key.
-
-var patchDelta = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.CustomRolesApi();
+let key = "key_example"; // String | The key of the custom role to update
+let patchWithComment = new LaunchDarklyApi.PatchWithComment(); // PatchWithComment | 
+apiInstance.patchCustomRole(key, patchWithComment, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.patchCustomRole(customRoleKey, patchDelta, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customRoleKey** | **String**| The custom role key. | 
- **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' | 
+ **key** | **String**| The key of the custom role to update | 
+ **patchWithComment** | [**PatchWithComment**](PatchWithComment.md)|  | 
 
 ### Return type
 
@@ -205,50 +206,50 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="postCustomRole"></a>
-# **postCustomRole**
-> CustomRole postCustomRole(customRoleBody)
 
-Create a new custom role.
+## postCustomRole
+
+> CustomRole postCustomRole(statementPost)
+
+Create custom role
+
+Create a new custom role
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.CustomRolesApi();
-
-var customRoleBody = new LaunchDarklyApi.CustomRoleBody(); // CustomRoleBody | New role or roles to create.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.CustomRolesApi();
+let statementPost = [new LaunchDarklyApi.StatementPost()]; // [StatementPost] | 
+apiInstance.postCustomRole(statementPost, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.postCustomRole(customRoleBody, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customRoleBody** | [**CustomRoleBody**](CustomRoleBody.md)| New role or roles to create. | 
+ **statementPost** | [**[StatementPost]**](StatementPost.md)|  | 
 
 ### Return type
 
@@ -256,10 +257,10 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 

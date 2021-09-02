@@ -1,58 +1,56 @@
 # LaunchDarklyApi.UsersApi
 
-All URIs are relative to *https://app.launchdarkly.com/api/v2*
+All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /users/{projectKey}/{environmentKey}/{userKey} | Delete a user by ID.
-[**getSearchUsers**](UsersApi.md#getSearchUsers) | **GET** /user-search/{projectKey}/{environmentKey} | Search users in LaunchDarkly based on their last active date, or a search query. It should not be used to enumerate all users in LaunchDarkly-- use the List users API resource.
-[**getUser**](UsersApi.md#getUser) | **GET** /users/{projectKey}/{environmentKey}/{userKey} | Get a user by key.
-[**getUsers**](UsersApi.md#getUsers) | **GET** /users/{projectKey}/{environmentKey} | List all users in the environment. Includes the total count of users. In each page, there will be up to 'limit' users returned (default 20). This is useful for exporting all users in the system for further analysis. Paginated collections will include a next link containing a URL with the next set of elements in the collection.
+[**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /api/v2/users/{projKey}/{envKey}/{key} | Delete user
+[**getSearchUsers**](UsersApi.md#getSearchUsers) | **GET** /api/v2/user-search/{projKey}/{envKey} | Find users
+[**getUser**](UsersApi.md#getUser) | **GET** /api/v2/users/{projKey}/{envKey}/{key} | Get user
+[**getUsers**](UsersApi.md#getUsers) | **GET** /api/v2/users/{projKey}/{envKey} | List users
 
 
-<a name="deleteUser"></a>
-# **deleteUser**
-> deleteUser(projectKey, environmentKey, userKey, )
 
-Delete a user by ID.
+## deleteUser
+
+> deleteUser(projKey, envKey, key)
+
+Delete user
+
+Delete a user by key
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsersApi();
-
-var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
-
-var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
-
-var userKey = "userKey_example"; // String | The user's key.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.UsersApi();
+let projKey = "projKey_example"; // String | The project key
+let envKey = "envKey_example"; // String | The environment key
+let key = "key_example"; // String | The user key
+apiInstance.deleteUser(projKey, envKey, key, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteUser(projectKey, environmentKey, userKey, , callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **userKey** | **String**| The user's key. | 
+ **projKey** | **String**| The project key | 
+ **envKey** | **String**| The environment key | 
+ **key** | **String**| The user key | 
 
 ### Return type
 
@@ -60,63 +58,64 @@ null (empty response body)
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-<a name="getSearchUsers"></a>
-# **getSearchUsers**
-> Users getSearchUsers(projectKey, environmentKey, , opts)
 
-Search users in LaunchDarkly based on their last active date, or a search query. It should not be used to enumerate all users in LaunchDarkly-- use the List users API resource.
+## getSearchUsers
+
+> Users getSearchUsers(projKey, envKey, opts)
+
+Find users
+
+Search users in LaunchDarkly based on their last active date, or a search query. Do not use to enumerate all users in LaunchDarkly. Instead use the [List users](getUsers) API resource.  &gt; ### &#x60;offset&#x60; is deprecated &gt; &gt; &#x60;offset&#x60; is deprecated and will be removed in a future API version. You can still use &#x60;offset&#x60; and &#x60;limit&#x60; for pagination, but we recommend you use &#x60;sort&#x60; and &#x60;searchAfter&#x60; instead. &#x60;searchAfter&#x60; allows you to page through more than 10,000 users, but &#x60;offset&#x60; and &#x60;limit&#x60; do not. 
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsersApi();
-
-var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
-
-var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
-
-var opts = { 
-  'q': "q_example", // String | Search query.
-  'limit': 56, // Number | Pagination limit.
-  'offset': 56, // Number | Specifies the first item to return in the collection.
-  'after': 789, // Number | A timestamp filter, expressed as a Unix epoch time in milliseconds. All entries returned will have occurred after this timestamp.
+let apiInstance = new LaunchDarklyApi.UsersApi();
+let projKey = "projKey_example"; // String | The project key
+let envKey = "envKey_example"; // String | The environment key
+let opts = {
+  'q': "q_example", // String | Full-text search for users based on name, first name, last name, e-mail address, or key
+  'limit': 789, // Number | Specifies the maximum number of items in the collection to return (max: 50, default: 20)
+  'offset': 789, // Number | Specifies the first item to return in the collection
+  'after': 789, // Number | A unix epoch time in milliseconds specifying the maximum last time a user requested a feature flag from LaunchDarkly
+  'searchAfter': "searchAfter_example" // String | Limits results to users with sort values after the value you specify. You can use this for pagination, but we recommend using the `next` link we provide instead.
 };
-
-var callback = function(error, data, response) {
+apiInstance.getSearchUsers(projKey, envKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getSearchUsers(projectKey, environmentKey, , opts, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **q** | **String**| Search query. | [optional] 
- **limit** | **Number**| Pagination limit. | [optional] 
- **offset** | **Number**| Specifies the first item to return in the collection. | [optional] 
- **after** | **Number**| A timestamp filter, expressed as a Unix epoch time in milliseconds. All entries returned will have occurred after this timestamp. | [optional] 
+ **projKey** | **String**| The project key | 
+ **envKey** | **String**| The environment key | 
+ **q** | **String**| Full-text search for users based on name, first name, last name, e-mail address, or key | [optional] 
+ **limit** | **Number**| Specifies the maximum number of items in the collection to return (max: 50, default: 20) | [optional] 
+ **offset** | **Number**| Specifies the first item to return in the collection | [optional] 
+ **after** | **Number**| A unix epoch time in milliseconds specifying the maximum last time a user requested a feature flag from LaunchDarkly | [optional] 
+ **searchAfter** | **String**| Limits results to users with sort values after the value you specify. You can use this for pagination, but we recommend using the &#x60;next&#x60; link we provide instead. | [optional] 
 
 ### Return type
 
@@ -124,118 +123,113 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getUser"></a>
-# **getUser**
-> UserRecord getUser(projectKey, environmentKey, userKey, )
 
-Get a user by key.
+## getUser
+
+> User getUser(projKey, envKey, key)
+
+Get user
+
+Get a user by key. The &#x60;user&#x60; object contains all attributes sent in &#x60;variation&#x60; calls for that key.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsersApi();
-
-var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
-
-var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
-
-var userKey = "userKey_example"; // String | The user's key.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.UsersApi();
+let projKey = "projKey_example"; // String | The project key
+let envKey = "envKey_example"; // String | The environment key
+let key = "key_example"; // String | The user key
+apiInstance.getUser(projKey, envKey, key, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getUser(projectKey, environmentKey, userKey, , callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **userKey** | **String**| The user's key. | 
+ **projKey** | **String**| The project key | 
+ **envKey** | **String**| The environment key | 
+ **key** | **String**| The user key | 
 
 ### Return type
 
-[**UserRecord**](UserRecord.md)
+[**User**](User.md)
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getUsers"></a>
-# **getUsers**
-> Users getUsers(projectKey, environmentKey, , opts)
 
-List all users in the environment. Includes the total count of users. In each page, there will be up to 'limit' users returned (default 20). This is useful for exporting all users in the system for further analysis. Paginated collections will include a next link containing a URL with the next set of elements in the collection.
+## getUsers
+
+> Users getUsers(projKey, envKey, opts)
+
+List users
+
+List all users in the environment. Includes the total count of users. In each page, there is up to &#x60;limit&#x60; users returned. The default is 20. This is useful for exporting all users in the system for further analysis. To paginate through, follow the &#x60;next&#x60; link in the &#x60;_links&#x60; object, as [described in Representations](/#section/Representations). 
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.UsersApi();
-
-var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
-
-var environmentKey = "environmentKey_example"; // String | The environment key, used to tie together flag configuration and users under one environment so they can be managed together.
-
-var opts = { 
-  'limit': 56, // Number | Pagination limit.
-  'h': "h_example", // String | This parameter is required when following \"next\" links.
-  'scrollId': "scrollId_example" // String | This parameter is required when following \"next\" links.
+let apiInstance = new LaunchDarklyApi.UsersApi();
+let projKey = "projKey_example"; // String | The project key
+let envKey = "envKey_example"; // String | The environment key
+let opts = {
+  'limit': 789, // Number | The number of elements to return per page
+  'searchAfter': "searchAfter_example" // String | Limits results to users with sort values after the value you specify. You can use this for pagination, but we recommend using the `next` link we provide instead.
 };
-
-var callback = function(error, data, response) {
+apiInstance.getUsers(projKey, envKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getUsers(projectKey, environmentKey, , opts, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **environmentKey** | **String**| The environment key, used to tie together flag configuration and users under one environment so they can be managed together. | 
- **limit** | **Number**| Pagination limit. | [optional] 
- **h** | **String**| This parameter is required when following \"next\" links. | [optional] 
- **scrollId** | **String**| This parameter is required when following \"next\" links. | [optional] 
+ **projKey** | **String**| The project key | 
+ **envKey** | **String**| The environment key | 
+ **limit** | **Number**| The number of elements to return per page | [optional] 
+ **searchAfter** | **String**| Limits results to users with sort values after the value you specify. You can use this for pagination, but we recommend using the &#x60;next&#x60; link we provide instead. | [optional] 
 
 ### Return type
 
@@ -243,10 +237,10 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

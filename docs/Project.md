@@ -1,15 +1,16 @@
 # LaunchDarklyApi.Project
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**Links**](Links.md) |  | [optional] 
-**id** | [**Id**](Id.md) |  | [optional] 
-**key** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
-**includeInSnippetByDefault** | **Boolean** |  | [optional] 
-**environments** | [**[Environment]**](Environment.md) |  | [optional] 
-**tags** | **[String]** | An array of tags for this project. | [optional] 
+**links** | [**{String: Link}**](Link.md) |  | 
+**id** | **String** |  | 
+**key** | **String** |  | 
+**includeInSnippetByDefault** | **Boolean** |  | 
 **defaultClientSideAvailability** | [**ClientSideAvailability**](ClientSideAvailability.md) |  | [optional] 
+**name** | **String** |  | 
+**tags** | **[String]** |  | 
+**environments** | [**[Environment]**](Environment.md) |  | 
 
 

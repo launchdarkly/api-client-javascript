@@ -1,19 +1,26 @@
 # LaunchDarklyApi.UserSegment
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | **String** | Unique identifier for the user segment. | 
-**name** | **String** | Name of the user segment. | 
-**description** | **String** | Description of the user segment. | [optional] 
-**tags** | **[String]** | An array of tags for this user segment. | [optional] 
-**creationDate** | **Number** | A unix epoch time in milliseconds specifying the creation time of this flag. | 
-**included** | **[String]** | An array of user keys that are included in this segment. | [optional] 
-**excluded** | **[String]** | An array of user keys that should not be included in this segment, unless they are also listed in \"included\". | [optional] 
-**rules** | [**[UserSegmentRule]**](UserSegmentRule.md) | An array of rules that can cause a user to be included in this segment. | [optional] 
-**unbounded** | **Boolean** | Controls whether this is considered a \"big segment\" which can support an unlimited numbers of users. Include/exclude lists sent with this payload are not used in big segments. Contact your account manager for early access to this feature. | [optional] 
-**version** | **Number** |  | [optional] 
-**links** | [**Links**](Links.md) |  | [optional] 
-**flags** | [**[FlagListItem]**](FlagListItem.md) |  | [optional] 
+**name** | **String** | A human-friendly name for the segment | 
+**description** | **String** | A description of the segment&#39;s purpose | [optional] 
+**tags** | **[String]** | Tags for the segment | 
+**creationDate** | **Number** |  | 
+**key** | **String** | A unique key used to reference the segment | 
+**included** | **[String]** | Included users are always segment members, regardless of segment rules. For Big Segments this array is either empty or omitted entirely. | [optional] 
+**excluded** | **[String]** | Segment rules bypass excluded users, so they will never be included based on rules. Excluded users may still be included explicitly. This value is omitted for Big Segments. | [optional] 
+**links** | [**{String: Link}**](Link.md) |  | 
+**rules** | [**[UserSegmentRule]**](UserSegmentRule.md) |  | 
+**version** | **Number** |  | 
+**deleted** | **Boolean** |  | 
+**access** | [**AccessRep**](AccessRep.md) |  | [optional] 
+**flags** | [**[FlagListingRep]**](FlagListingRep.md) |  | [optional] 
+**unbounded** | **Boolean** |  | [optional] 
+**generation** | **Number** |  | 
+**unboundedMetadata** | [**SegmentMetadata**](SegmentMetadata.md) |  | [optional] 
+**external** | **String** |  | [optional] 
+**externalLink** | **String** |  | [optional] 
 
 

@@ -1,53 +1,53 @@
 # LaunchDarklyApi.ProjectsApi
 
-All URIs are relative to *https://app.launchdarkly.com/api/v2*
+All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteProject**](ProjectsApi.md#deleteProject) | **DELETE** /projects/{projectKey} | Delete a project by key. Caution-- deleting a project will delete all associated environments and feature flags. You cannot delete the last project in an account.
-[**getProject**](ProjectsApi.md#getProject) | **GET** /projects/{projectKey} | Fetch a single project by key.
-[**getProjects**](ProjectsApi.md#getProjects) | **GET** /projects | Returns a list of all projects in the account.
-[**patchProject**](ProjectsApi.md#patchProject) | **PATCH** /projects/{projectKey} | Modify a project by ID.
-[**postProject**](ProjectsApi.md#postProject) | **POST** /projects | Create a new project with the given key and name.
+[**deleteProject**](ProjectsApi.md#deleteProject) | **DELETE** /api/v2/projects/{projectKey} | Delete project
+[**getProject**](ProjectsApi.md#getProject) | **GET** /api/v2/projects/{projectKey} | Get project
+[**getProjects**](ProjectsApi.md#getProjects) | **GET** /api/v2/projects | List projects
+[**patchProject**](ProjectsApi.md#patchProject) | **PATCH** /api/v2/projects/{projectKey} | Update project
+[**postProject**](ProjectsApi.md#postProject) | **POST** /api/v2/projects | Create project
 
 
-<a name="deleteProject"></a>
-# **deleteProject**
-> deleteProject(projectKey, )
 
-Delete a project by key. Caution-- deleting a project will delete all associated environments and feature flags. You cannot delete the last project in an account.
+## deleteProject
+
+> deleteProject(projectKey)
+
+Delete project
+
+Delete a project by key. Caution: deleting a project will delete all associated environments and feature flags. You cannot delete the last project in an account.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.ProjectsApi();
-
-var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.ProjectsApi();
+let projectKey = "projectKey_example"; // String | The project key
+apiInstance.deleteProject(projectKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteProject(projectKey, , callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
+ **projectKey** | **String**| The project key | 
 
 ### Return type
 
@@ -55,50 +55,50 @@ null (empty response body)
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-<a name="getProject"></a>
-# **getProject**
-> Project getProject(projectKey, )
 
-Fetch a single project by key.
+## getProject
+
+> Project getProject(projectKey)
+
+Get project
+
+Get a single project by key.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.ProjectsApi();
-
-var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.ProjectsApi();
+let projectKey = "projectKey_example"; // String | The project key
+apiInstance.getProject(projectKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getProject(projectKey, , callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
+ **projectKey** | **String**| The project key | 
 
 ### Return type
 
@@ -106,43 +106,45 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getProjects"></a>
-# **getProjects**
+
+## getProjects
+
 > Projects getProjects()
 
-Returns a list of all projects in the account.
+List projects
+
+Get a list of all projects in the account.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.ProjectsApi();
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.ProjectsApi();
+apiInstance.getProjects((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getProjects(callback);
+});
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -151,53 +153,52 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="patchProject"></a>
-# **patchProject**
-> Project patchProject(projectKey, patchDelta)
 
-Modify a project by ID.
+## patchProject
+
+> Project patchProject(projectKey, patchOperation)
+
+Update project
+
+Update a project. Requires a [JSON Patch](http://tools.ietf.org/html/rfc6902) representation of the desired changes to the project.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.ProjectsApi();
-
-var projectKey = "projectKey_example"; // String | The project key, used to tie the flags together under one project so they can be managed together.
-
-var patchDelta = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.ProjectsApi();
+let projectKey = "projectKey_example"; // String | The project key
+let patchOperation = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | 
+apiInstance.patchProject(projectKey, patchOperation, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.patchProject(projectKey, patchDelta, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key, used to tie the flags together under one project so they can be managed together. | 
- **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' | 
+ **projectKey** | **String**| The project key | 
+ **patchOperation** | [**[PatchOperation]**](PatchOperation.md)|  | 
 
 ### Return type
 
@@ -205,50 +206,50 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="postProject"></a>
-# **postProject**
-> Project postProject(projectBody)
 
-Create a new project with the given key and name.
+## postProject
+
+> Project postProject(projectPost)
+
+Create project
+
+Create a new project with the given key and name. Project keys must be unique within an account.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.ProjectsApi();
-
-var projectBody = new LaunchDarklyApi.ProjectBody(); // ProjectBody | Project keys must be unique within an account.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.ProjectsApi();
+let projectPost = {"key":"my-project","name":"My Project"}; // ProjectPost | 
+apiInstance.postProject(projectPost, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.postProject(projectBody, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectBody** | [**ProjectBody**](ProjectBody.md)| Project keys must be unique within an account. | 
+ **projectPost** | [**ProjectPost**](ProjectPost.md)|  | 
 
 ### Return type
 
@@ -256,10 +257,10 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 

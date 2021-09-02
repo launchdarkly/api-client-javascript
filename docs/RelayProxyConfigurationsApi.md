@@ -1,54 +1,54 @@
 # LaunchDarklyApi.RelayProxyConfigurationsApi
 
-All URIs are relative to *https://app.launchdarkly.com/api/v2*
+All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteRelayProxyConfig**](RelayProxyConfigurationsApi.md#deleteRelayProxyConfig) | **DELETE** /account/relay-auto-configs/{id} | Delete a relay proxy configuration by ID.
-[**getRelayProxyConfig**](RelayProxyConfigurationsApi.md#getRelayProxyConfig) | **GET** /account/relay-auto-configs/{id} | Get a single relay proxy configuration by ID.
-[**getRelayProxyConfigs**](RelayProxyConfigurationsApi.md#getRelayProxyConfigs) | **GET** /account/relay-auto-configs | Returns a list of relay proxy configurations in the account.
-[**patchRelayProxyConfig**](RelayProxyConfigurationsApi.md#patchRelayProxyConfig) | **PATCH** /account/relay-auto-configs/{id} | Modify a relay proxy configuration by ID.
-[**postRelayAutoConfig**](RelayProxyConfigurationsApi.md#postRelayAutoConfig) | **POST** /account/relay-auto-configs | Create a new relay proxy config.
-[**resetRelayProxyConfig**](RelayProxyConfigurationsApi.md#resetRelayProxyConfig) | **POST** /account/relay-auto-configs/{id}/reset | Reset a relay proxy configuration's secret key with an optional expiry time for the old key.
+[**deleteRelayAutoConfig**](RelayProxyConfigurationsApi.md#deleteRelayAutoConfig) | **DELETE** /api/v2/account/relay-auto-configs/{id} | Delete Relay Proxy config by ID
+[**getRelayProxyConfig**](RelayProxyConfigurationsApi.md#getRelayProxyConfig) | **GET** /api/v2/account/relay-auto-configs/{id} | Get Relay Proxy config
+[**getRelayProxyConfigs**](RelayProxyConfigurationsApi.md#getRelayProxyConfigs) | **GET** /api/v2/account/relay-auto-configs | List Relay Proxy configs
+[**patchRelayAutoConfig**](RelayProxyConfigurationsApi.md#patchRelayAutoConfig) | **PATCH** /api/v2/account/relay-auto-configs/{id} | Update a Relay Proxy config
+[**postRelayAutoConfig**](RelayProxyConfigurationsApi.md#postRelayAutoConfig) | **POST** /api/v2/account/relay-auto-configs | Create a new Relay Proxy config
+[**resetRelayAutoConfig**](RelayProxyConfigurationsApi.md#resetRelayAutoConfig) | **POST** /api/v2/account/relay-auto-configs/{id}/reset | Reset Relay Proxy configuration key
 
 
-<a name="deleteRelayProxyConfig"></a>
-# **deleteRelayProxyConfig**
-> deleteRelayProxyConfig(id)
 
-Delete a relay proxy configuration by ID.
+## deleteRelayAutoConfig
+
+> deleteRelayAutoConfig(id)
+
+Delete Relay Proxy config by ID
+
+Delete a Relay Proxy config
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
-
-var id = "id_example"; // String | The relay proxy configuration ID
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
+let id = "id_example"; // String | The relay auto config id
+apiInstance.deleteRelayAutoConfig(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteRelayProxyConfig(id, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The relay proxy configuration ID | 
+ **id** | **String**| The relay auto config id | 
 
 ### Return type
 
@@ -56,266 +56,267 @@ null (empty response body)
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
-<a name="getRelayProxyConfig"></a>
-# **getRelayProxyConfig**
-> RelayProxyConfig getRelayProxyConfig(id)
 
-Get a single relay proxy configuration by ID.
+## getRelayProxyConfig
+
+> RelayAutoConfigRep getRelayProxyConfig(id)
+
+Get Relay Proxy config
+
+Get a single Relay Proxy Auto Config by ID
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
-
-var id = "id_example"; // String | The relay proxy configuration ID
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
+let id = "id_example"; // String | The relay auto config id
+apiInstance.getRelayProxyConfig(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getRelayProxyConfig(id, callback);
+});
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The relay proxy configuration ID | 
+ **id** | **String**| The relay auto config id | 
 
 ### Return type
 
-[**RelayProxyConfig**](RelayProxyConfig.md)
+[**RelayAutoConfigRep**](RelayAutoConfigRep.md)
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="getRelayProxyConfigs"></a>
-# **getRelayProxyConfigs**
-> RelayProxyConfigs getRelayProxyConfigs()
 
-Returns a list of relay proxy configurations in the account.
+## getRelayProxyConfigs
+
+> RelayAutoConfigCollectionRep getRelayProxyConfigs()
+
+List Relay Proxy configs
+
+Get a list of Relay Proxy configurations in the account.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
+apiInstance.getRelayProxyConfigs((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getRelayProxyConfigs(callback);
+});
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**RelayProxyConfigs**](RelayProxyConfigs.md)
+[**RelayAutoConfigCollectionRep**](RelayAutoConfigCollectionRep.md)
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="patchRelayProxyConfig"></a>
-# **patchRelayProxyConfig**
-> RelayProxyConfig patchRelayProxyConfig(idpatchDelta)
 
-Modify a relay proxy configuration by ID.
+## patchRelayAutoConfig
+
+> RelayAutoConfigRep patchRelayAutoConfig(id, patchWithComment)
+
+Update a Relay Proxy config
+
+Update a Relay Proxy config.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
-
-var id = "id_example"; // String | The relay proxy configuration ID
-
-var patchDelta = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
+let id = "id_example"; // String | The relay auto config id
+let patchWithComment = new LaunchDarklyApi.PatchWithComment(); // PatchWithComment | 
+apiInstance.patchRelayAutoConfig(id, patchWithComment, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.patchRelayProxyConfig(idpatchDelta, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The relay proxy configuration ID | 
- **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' | 
+ **id** | **String**| The relay auto config id | 
+ **patchWithComment** | [**PatchWithComment**](PatchWithComment.md)|  | 
 
 ### Return type
 
-[**RelayProxyConfig**](RelayProxyConfig.md)
+[**RelayAutoConfigRep**](RelayAutoConfigRep.md)
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="postRelayAutoConfig"></a>
-# **postRelayAutoConfig**
-> RelayProxyConfig postRelayAutoConfig(relayProxyConfigBody)
 
-Create a new relay proxy config.
+## postRelayAutoConfig
+
+> RelayAutoConfigRep postRelayAutoConfig(relayAutoConfigPost)
+
+Create a new Relay Proxy config
+
+Create a Relay Proxy config
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
-
-var relayProxyConfigBody = new LaunchDarklyApi.RelayProxyConfigBody(); // RelayProxyConfigBody | Create a new relay proxy configuration
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
+let relayAutoConfigPost = new LaunchDarklyApi.RelayAutoConfigPost(); // RelayAutoConfigPost | 
+apiInstance.postRelayAutoConfig(relayAutoConfigPost, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.postRelayAutoConfig(relayProxyConfigBody, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **relayProxyConfigBody** | [**RelayProxyConfigBody**](RelayProxyConfigBody.md)| Create a new relay proxy configuration | 
+ **relayAutoConfigPost** | [**RelayAutoConfigPost**](RelayAutoConfigPost.md)|  | 
 
 ### Return type
 
-[**RelayProxyConfig**](RelayProxyConfig.md)
+[**RelayAutoConfigRep**](RelayAutoConfigRep.md)
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="resetRelayProxyConfig"></a>
-# **resetRelayProxyConfig**
-> RelayProxyConfig resetRelayProxyConfig(id, opts)
 
-Reset a relay proxy configuration's secret key with an optional expiry time for the old key.
+## resetRelayAutoConfig
+
+> RelayAutoConfigRep resetRelayAutoConfig(id, opts)
+
+Reset Relay Proxy configuration key
+
+Reset a Relay Proxy configuration&#39;s secret key with an optional expiry time for the old key.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
-
-var id = "id_example"; // String | The relay proxy configuration ID
-
-var opts = { 
-  'expiry': 789 // Number | An expiration time for the old relay proxy configuration key, expressed as a Unix epoch time in milliseconds. By default, the relay proxy configuration will expire immediately
+let apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
+let id = "id_example"; // String | The Relay Proxy configuration ID
+let opts = {
+  'expiry': 789 // Number | An expiration time for the old Relay Proxy configuration key, expressed as a Unix epoch time in milliseconds. By default, the Relay Proxy configuration will expire immediately.
 };
-
-var callback = function(error, data, response) {
+apiInstance.resetRelayAutoConfig(id, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.resetRelayProxyConfig(id, opts, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The relay proxy configuration ID | 
- **expiry** | **Number**| An expiration time for the old relay proxy configuration key, expressed as a Unix epoch time in milliseconds. By default, the relay proxy configuration will expire immediately | [optional] 
+ **id** | **String**| The Relay Proxy configuration ID | 
+ **expiry** | **Number**| An expiration time for the old Relay Proxy configuration key, expressed as a Unix epoch time in milliseconds. By default, the Relay Proxy configuration will expire immediately. | [optional] 
 
 ### Return type
 
-[**RelayProxyConfig**](RelayProxyConfig.md)
+[**RelayAutoConfigRep**](RelayAutoConfigRep.md)
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 

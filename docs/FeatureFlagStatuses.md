@@ -1,9 +1,10 @@
 # LaunchDarklyApi.FeatureFlagStatuses
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**FeatureFlagStatusLinks**](FeatureFlagStatusLinks.md) |  | [optional] 
-**items** | [**[FeatureFlagStatus]**](FeatureFlagStatus.md) |  | [optional] 
+**links** | [**{String: Link}**](Link.md) |  | 
+**items** | [**[FlagStatusRep]**](FlagStatusRep.md) |  | [optional] 
 
 

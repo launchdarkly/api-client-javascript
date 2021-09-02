@@ -1,9 +1,11 @@
 # LaunchDarklyApi.WeightedVariation
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**variation** | **Number** |  | [optional] 
-**weight** | **Number** |  | [optional] 
+**variation** | **Number** |  | 
+**weight** | **Number** |  | 
+**untracked** | **Boolean** |  | [optional] 
 
 

@@ -1,27 +1,41 @@
 # LaunchDarklyApi.FeatureFlag
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | **String** |  | [optional] 
-**name** | **String** | Name of the feature flag. | [optional] 
-**description** | **String** | Description of the feature flag. | [optional] 
-**kind** | **String** | Whether the feature flag is a boolean flag or multivariate. | [optional] 
-**creationDate** | **Number** | A unix epoch time in milliseconds specifying the creation time of this flag. | [optional] 
-**includeInSnippet** | **Boolean** |  | [optional] 
-**temporary** | **Boolean** | Whether or not this flag is temporary. | [optional] 
-**maintainerId** | **String** | The ID of the member that should maintain this flag. | [optional] 
-**tags** | **[String]** | An array of tags for this feature flag. | [optional] 
-**variations** | [**[Variation]**](Variation.md) | The variations for this feature flag. | [optional] 
-**goalIds** | **[String]** | An array goals from all environments associated with this feature flag | [optional] 
-**version** | **Number** |  | [optional] 
-**customProperties** | [**{String: CustomProperty}**](CustomProperty.md) | A mapping of keys to CustomProperty entries. | [optional] 
-**links** | [**Links**](Links.md) |  | [optional] 
-**maintainer** | [**Member**](Member.md) |  | [optional] 
-**environments** | [**{String: FeatureFlagConfig}**](FeatureFlagConfig.md) |  | [optional] 
-**archivedDate** | **Number** | A unix epoch time in milliseconds specifying the archived time of this flag. | [optional] 
-**archived** | **Boolean** | Whether or not this flag is archived. | [optional] 
+**name** | **String** | A human-friendly name for the feature flag | 
+**kind** | **String** | Kind of feature flag | 
+**description** | **String** | Description of the feature flag | [optional] 
+**key** | **String** | A unique key used to reference the flag in your code | 
+**version** | **Number** | Version of the feature flag | 
+**creationDate** | **Number** |  | 
+**includeInSnippet** | **Boolean** | Deprecated, use clientSideAvailability. Whether or not this flag should be made available to the client-side JavaScript SDK | [optional] 
 **clientSideAvailability** | [**ClientSideAvailability**](ClientSideAvailability.md) |  | [optional] 
+**variations** | [**[Variation]**](Variation.md) | An array of possible variations for the flag | 
+**variationJsonSchema** | **Object** |  | [optional] 
+**temporary** | **Boolean** | Whether or not the flag is a temporary flag | 
+**tags** | **[String]** | Tags for the feature flag | 
+**links** | [**{String: Link}**](Link.md) |  | 
+**maintainerId** | **String** | Associated maintainerId for the feature flag | [optional] 
+**maintainer** | [**MemberSummaryRep**](MemberSummaryRep.md) |  | [optional] 
+**goalIds** | **[String]** |  | [optional] 
+**experiments** | [**ExperimentInfoRep**](ExperimentInfoRep.md) |  | 
+**customProperties** | [**{String: CustomProperty}**](CustomProperty.md) |  | 
+**archived** | **Boolean** | Boolean indicating if the feature flag is archived | 
+**archivedDate** | **Number** |  | [optional] 
 **defaults** | [**Defaults**](Defaults.md) |  | [optional] 
+**environments** | [**{String: FeatureFlagConfig}**](FeatureFlagConfig.md) |  | 
+
+
+
+## Enum: KindEnum
+
+
+* `boolean` (value: `"boolean"`)
+
+* `multivariate` (value: `"multivariate"`)
+
+
 
 

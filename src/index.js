@@ -1,823 +1,1350 @@
-/*
+/**
  * LaunchDarkly REST API
- * Build custom integrations with the LaunchDarkly REST API
+ * # Authentication  All REST API resources are authenticated with either [personal or service access tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens), or session cookies. Other authentication mechanisms are not supported. You can manage personal access tokens on your [Account settings](https://app.launchdarkly.com/settings/tokens) page.  LaunchDarkly also has SDK keys, mobile keys, and client-side IDs that are used by our server-side SDKs, mobile SDKs, and client-side SDKs, respectively. **These keys cannot be used to access our REST API**. These keys are environment-specific, and can only perform read-only operations (fetching feature flag settings).  | Auth mechanism                                                                                  | Allowed resources                                                                                     | Use cases                                          | | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------- | | [Personal access tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens) | Can be customized on a per-token basis                                                                | Building scripts, custom integrations, data export | | SDK keys                                                                                        | Can only access read-only SDK-specific resources and the firehose, restricted to a single environment | Server-side SDKs, Firehose API                     | | Mobile keys                                                                                     | Can only access read-only mobile SDK-specific resources, restricted to a single environment           | Mobile SDKs                                        | | Client-side ID                                                                                  | Single environment, only flags marked available to client-side                                        | Client-side JavaScript                             |  > ### Keep your access tokens and SDK keys private > > Access tokens should _never_ be exposed in untrusted contexts. Never put an access token in client-side JavaScript, or embed it in a mobile application. LaunchDarkly has special mobile keys that you can embed in mobile apps. If you accidentally expose an access token or SDK key, you can reset it from your [Account Settings](https://app.launchdarkly.com/settings#/tokens) page. > > The client-side ID is safe to embed in untrusted contexts. It's designed for use in client-side JavaScript.  ## Via request header  The preferred way to authenticate with the API is by adding an `Authorization` header containing your access token to your requests. The value of the `Authorization` header must be your access token.  Manage personal access tokens from the [Account Settings](https://app.launchdarkly.com/settings/tokens) page.  ## Via session cookie  For testing purposes, you can make API calls directly from your web browser. If you're logged in to the application, the API will use your existing session to authenticate calls.  If you have a [role](https://docs.launchdarkly.com/home/team/built-in-roles) other than Admin, or have a [custom role](https://docs.launchdarkly.com/home/team/custom-roles) defined, you may not have permission to perform some API calls. You will receive a `401` response code in that case.  > ### Modifying the Origin header causes an error > > LaunchDarkly validates that the Origin header for any API request authenticated by a session cookie matches the expected Origin header. The expected Origin header is `https://app.launchdarkly.com`. > > If the Origin header does not match what's expected, LaunchDarkly returns an error. This error can prevent the LaunchDarkly app from working correctly. > > Any browser extension that intentionally changes the Origin header can cause this problem. For example, the `Allow-Control-Allow-Origin: *` Chrome extension changes the Origin header to `http://evil.com` and causes the app to fail. > > To prevent this error, do not modify your Origin header. > > LaunchDarkly does not require origin matching when authenticating with an access token, so this issue does not affect normal API usage.  # Representations  All resources expect and return JSON response bodies. Error responses will also send a JSON body. Read [Errors](#section/Errors) for a more detailed description of the error format used by the API.  In practice this means that you always get a response with a `Content-Type` header set to `application/json`.  In addition, request bodies for `PUT`, `POST`, `REPORT` and `PATCH` requests must be encoded as JSON with a `Content-Type` header set to `application/json`.  ## Summary and detailed representations  When you fetch a list of resources, the response includes only the most important attributes of each resource. This is a _summary representation_ of the resource. When you fetch an individual resource (for example, a single feature flag), you receive a _detailed representation_ containing all of the attributes of the resource.  The best way to find a detailed representation is to follow links. Every summary representation includes a link to its detailed representation.  ## Links and addressability  The best way to navigate the API is by following links. These are attributes in representations that link to other resources. The API always uses the same format for links:  - Links to other resources within the API are encapsulated in a `_links` object. - If the resource has a corresponding link to HTML content on the site, it is stored in a special `_site` link.  Each link has two attributes: an href (the URL) and a type (the content type). For example, a feature resource might return the following:  ```json {   \"_links\": {     \"parent\": {       \"href\": \"/api/features\",       \"type\": \"application/json\"     },     \"self\": {       \"href\": \"/api/features/sort.order\",       \"type\": \"application/json\"     }   },   \"_site\": {     \"href\": \"/features/sort.order\",     \"type\": \"text/html\"   } } ```  From this, you can navigate to the parent collection of features by following the `parent` link, or navigate to the site page for the feature by following the `_site` link.  Collections are always represented as a JSON object with an `items` attribute containing an array of representations. Like all other representations, collections have `_links` defined at the top level.  Paginated collections include `first`, `last`, `next`, and `prev` links containing a URL with the respective set of elements in the collection.  # Updates  Resources that accept partial updates use the `PATCH` verb, and support the [JSON Patch](http://tools.ietf.org/html/rfc6902) format. Some resources also support the [JSON Merge Patch](https://tools.ietf.org/html/rfc7386) format. In addition, some resources support optional comments that can be submitted with updates. Comments appear in outgoing webhooks, the audit log, and other integrations.  ## Updates via JSON Patch  [JSON Patch](http://tools.ietf.org/html/rfc6902) is a way to specify the modifications to perform on a resource. For example, in this feature flag representation:  ```json {     \"name\": \"New recommendations engine\",     \"key\": \"engine.enable\",     \"description\": \"This is the description\",     ... } ```  You can change the feature flag's description with the following patch document:  ```json [{ \"op\": \"replace\", \"path\": \"/description\", \"value\": \"This is the new description\" }] ```  JSON Patch documents are always arrays. You can specify multiple modifications to perform in a single request. You can also test that certain preconditions are met before applying the patch:  ```json [   { \"op\": \"test\", \"path\": \"/version\", \"value\": 10 },   { \"op\": \"replace\", \"path\": \"/description\", \"value\": \"The new description\" } ] ```  The above patch request tests whether the feature flag's `version` is `10`, and if so, changes the feature flag's description.  Attributes that aren't editable, like a resource's `_links`, have names that start with an underscore.  ## Updates via JSON Merge Patch  The API also supports the [JSON Merge Patch](https://tools.ietf.org/html/rfc7386) format, as well as the [Update feature flag](/tag/Feature-flags#operation/patchFeatureFlag) resource.  JSON Merge Patch is less expressive than JSON Patch but in many cases, it is simpler to construct a merge patch document. For example, you can change a feature flag's description with the following merge patch document:  ```json {   \"description\": \"New flag description\" } ```  ## Updates with comments  You can submit optional comments with `PATCH` changes. The [Update feature flag](/tag/Feature-flags#operation/patchFeatureFlag) resource supports comments.  To submit a comment along with a JSON Patch document, use the following format:  ```json {   \"comment\": \"This is a comment string\",   \"patch\": [{ \"op\": \"replace\", \"path\": \"/description\", \"value\": \"The new description\" }] } ```  To submit a comment along with a JSON Merge Patch document, use the following format:  ```json {   \"comment\": \"This is a comment string\",   \"merge\": { \"description\": \"New flag description\" } } ```  ## Updates via semantic patches  The API also supports the Semantic patch format. A semantic `PATCH` is a way to specify the modifications to perform on a resource as a set of executable instructions.  JSON Patch uses paths and a limited set of operations to describe how to transform the current state of the resource into a new state. Semantic patch allows you to be explicit about intent using precise, custom instructions. In many cases, semantic patch instructions can also be defined independently of the current state of the resource. This can be useful when defining a change that may be applied at a future date.  For example, in this feature flag configuration in environment Production:  ```json {     \"name\": \"Alternate sort order\",     \"kind\": \"boolean\",     \"key\": \"sort.order\",    ...     \"environments\": {         \"production\": {             \"on\": true,             \"archived\": false,             \"salt\": \"c29ydC5vcmRlcg==\",             \"sel\": \"8de1085cb7354b0ab41c0e778376dfd3\",             \"lastModified\": 1469131558260,             \"version\": 81,             \"targets\": [                 {                     \"values\": [                         \"Gerhard.Little@yahoo.com\"                     ],                     \"variation\": 0                 },                 {                     \"values\": [                         \"1461797806429-33-861961230\",                         \"438580d8-02ee-418d-9eec-0085cab2bdf0\"                     ],                     \"variation\": 1                 }             ],             \"rules\": [],             \"fallthrough\": {                 \"variation\": 0             },             \"offVariation\": 1,             \"prerequisites\": [],             \"_site\": {                 \"href\": \"/default/production/features/sort.order\",                 \"type\": \"text/html\"             }        }     } } ```  You can add a date you want a user to be removed from the feature flag's user targets. For example, “remove user 1461797806429-33-861961230 from the user target for variation 0 on the Alternate sort order flag in the production environment on Wed Jul 08 2020 at 15:27:41 pm”. This is done using the following:  ```json {   \"comment\": \"update expiring user targets\",   \"instructions\": [     {       \"kind\": \"removeExpireUserTargetDate\",       \"userKey\": \"userKey\",       \"variationId\": \"978d53f9-7fe3-4a63-992d-97bcb4535dc8\"     },     {       \"kind\": \"updateExpireUserTargetDate\",       \"userKey\": \"userKey2\",       \"variationId\": \"978d53f9-7fe3-4a63-992d-97bcb4535dc8\",       \"value\": 1587582000000     },     {       \"kind\": \"addExpireUserTargetDate\",       \"userKey\": \"userKey3\",       \"variationId\": \"978d53f9-7fe3-4a63-992d-97bcb4535dc8\",       \"value\": 1594247266386     }   ] } ```  Here is another example. In this feature flag configuration:  ```json {   \"name\": \"New recommendations engine\",   \"key\": \"engine.enable\",   \"environments\": {     \"test\": {       \"on\": true     }   } } ```  You can change the feature flag's description with the following patch document as a set of executable instructions. For example, “add user X to targets for variation Y and remove user A from targets for variation B for test flag”:  ```json {   \"comment\": \"\",   \"instructions\": [     {       \"kind\": \"removeUserTargets\",       \"values\": [\"438580d8-02ee-418d-9eec-0085cab2bdf0\"],       \"variationId\": \"852cb784-54ff-46b9-8c35-5498d2e4f270\"     },     {       \"kind\": \"addUserTargets\",       \"values\": [\"438580d8-02ee-418d-9eec-0085cab2bdf0\"],       \"variationId\": \"1bb18465-33b6-49aa-a3bd-eeb6650b33ad\"     }   ] } ```  > ### Supported semantic patch API endpoints > > - [Update feature flag](/tag/Feature-flags#operation/patchFeatureFlag) > - [Update expiring user targets on feature flag](/tag/Feature-flags#operation/patchExpiringUserTargets) > - [Update expiring user target for flags](/tag/User-Settings#operation/patchExpiringFlagsForUser) > - [Update expiring user targets on segment](/tag/Segments#operation/patchExpiringUserTargetsOnSegment)  # Errors  The API always returns errors in a common format. Here's an example:  ```json {   \"code\": \"invalid_request\",   \"message\": \"A feature with that key already exists\",   \"id\": \"30ce6058-87da-11e4-b116-123b93f75cba\" } ```  The general class of error is indicated by the `code`. The `message` is a human-readable explanation of what went wrong. The `id` is a unique identifier. Use it when you're working with LaunchDarkly support to debug a problem with a specific API call.  ## HTTP Status - Error Response Codes  | Code | Definition        | Desc.                                                                                       | Possible Solution                                                | | ---- | ----------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | | 400  | Bad Request       | A request that fails may return this HTTP response code.                                    | Ensure JSON syntax in request body is correct.                   | | 401  | Unauthorized      | User doesn't have permission to an API call.                                                | Ensure your SDK key is good.                                     | | 403  | Forbidden         | User does not have permission for operation.                                                | Ensure that the user or access token has proper permissions set. | | 409  | Conflict          | The API request could not be completed because it conflicted with a concurrent API request. | Retry your request.                                              | | 429  | Too many requests | See [Rate limiting](/#section/Rate-limiting).                                               | Wait and try again later.                                        |  # CORS  The LaunchDarkly API supports Cross Origin Resource Sharing (CORS) for AJAX requests from any origin. If an `Origin` header is given in a request, it will be echoed as an explicitly allowed origin. Otherwise, a wildcard is returned: `Access-Control-Allow-Origin: *`. For more information on CORS, see the [CORS W3C Recommendation](http://www.w3.org/TR/cors). Example CORS headers might look like:  ```http Access-Control-Allow-Headers: Accept, Content-Type, Content-Length, Accept-Encoding, Authorization Access-Control-Allow-Methods: OPTIONS, GET, DELETE, PATCH Access-Control-Allow-Origin: * Access-Control-Max-Age: 300 ```  You can make authenticated CORS calls just as you would make same-origin calls, using either [token or session-based authentication](#section/Authentication). If you’re using session auth, you should set the `withCredentials` property for your `xhr` request to `true`. You should never expose your access tokens to untrusted users.  # Rate limiting  We use several rate limiting strategies to ensure the availability of our APIs. Rate-limited calls to our APIs will return a `429` status code. Calls to our APIs will include headers indicating the current rate limit status. The specific headers returned depend on the API route being called. The limits differ based on the route, authentication mechanism, and other factors. Routes that are not rate limited may not contain any of the headers described below.  > ### Rate limiting and SDKs > > LaunchDarkly SDKs are never rate limited and do not use the API endpoints defined here. LaunchDarkly uses a different set of approaches, including streaming/server-sent events and a global CDN, to ensure availability to the routes used by LaunchDarkly SDKs. > > The client-side ID is safe to embed in untrusted contexts. It's designed for use in client-side JavaScript.  ## Global rate limits  Authenticated requests are subject to a global limit. This is the maximum number of calls that can be made to the API per ten seconds. All personal access tokens on the account share this limit, so exceeding the limit with one access token will impact other tokens. Calls that are subject to global rate limits will return the headers below:  | Header name                    | Description                                                                      | | ------------------------------ | -------------------------------------------------------------------------------- | | `X-Ratelimit-Global-Remaining` | The maximum number of requests the account is permitted to make per ten seconds. | | `X-Ratelimit-Reset`            | The time at which the current rate limit window resets in epoch milliseconds.    |  We do not publicly document the specific number of calls that can be made globally. This limit may change, and we encourage clients to program against the specification, relying on the two headers defined above, rather than hardcoding to the current limit.  ## Route-level rate limits  Some authenticated routes have custom rate limits. These also reset every ten seconds. Any access tokens hitting the same route share this limit, so exceeding the limit with one access token may impact other tokens. Calls that are subject to route-level rate limits will return the headers below:  | Header name                   | Description                                                                                           | | ----------------------------- | ----------------------------------------------------------------------------------------------------- | | `X-Ratelimit-Route-Remaining` | The maximum number of requests to the current route the account is permitted to make per ten seconds. | | `X-Ratelimit-Reset`           | The time at which the current rate limit window resets in epoch milliseconds.                         |  A _route_ represents a specific URL pattern and verb. For example, the [Delete environment](/tag/Environments#operation/deleteEnvironment) endpoint is considered a single route, and each call to delete an environment counts against your route-level rate limit for that route.  We do not publicly document the specific number of calls that can be made to each endpoint per ten seconds. These limits may change, and we encourage clients to program against the specification, relying on the two headers defined above, rather than hardcoding to the current limits.  ## IP-based rate limiting  We also employ IP-based rate limiting on some API routes. If you hit an IP-based rate limit, your API response will include a `Retry-After` header indicating how long to wait before re-trying the call. Clients must wait at least `Retry-After` seconds before making additional calls to our API, and should employ jitter and backoff strategies to avoid triggering rate limits again.  # OpenAPI (Swagger)  We have a [complete OpenAPI (Swagger) specification](https://app.launchdarkly.com/api/v2/openapi.json) for our API.  You can use this specification to generate client libraries to interact with our REST API in your language of choice.  This specification is supported by several API-based tools such as Postman and Insomnia. In many cases, you can directly import our specification to ease use in navigating the APIs in the tooling.  # Client libraries  We auto-generate multiple client libraries based on our OpenAPI specification. To learn more, visit [GitHub](https://github.com/search?q=topic%3Alaunchdarkly-api+org%3Alaunchdarkly&type=Repositories).  # Method Overriding  Some firewalls and HTTP clients restrict the use of verbs other than `GET` and `POST`. In those environments, our API endpoints that use `PUT`, `PATCH`, and `DELETE` verbs will be inaccessible.  To avoid this issue, our API supports the `X-HTTP-Method-Override` header, allowing clients to \"tunnel\" `PUT`, `PATCH`, and `DELETE` requests via a `POST` request.  For example, if you wish to call one of our `PATCH` resources via a `POST` request, you can include `X-HTTP-Method-Override:PATCH` as a header.  # Beta resources  We sometimes release new API resources in **beta** status before we release them with general availability.  Resources that are in beta are still undergoing testing and development. They may change without notice, including becoming backwards incompatible.  We try to promote resources into general availability as quickly as possible. This happens after sufficient testing and when we're satisfied that we no longer need to make backwards-incompatible changes.  We mark beta resources with a \"Beta\" callout in our documentation, pictured below:  > ### This feature is in beta > > To use this feature, pass in a header including the `LD-API-Version` key with value set to `beta`. Use this header with each call. To learn more, read [Beta resources](/#section/Beta-resources).  ## Using beta resources  To use a beta resource, you must include a header in the request. If you call a beta resource without this header, you'll receive a `403` response.  Use this header:  ``` LD-API-Version: beta ```  # Versioning  We try hard to keep our REST API backwards compatible, but we occasionally have to make backwards-incompatible changes in the process of shipping new features. These breaking changes can cause unexpected behavior if you don't prepare for them accordingly.  Updates to our REST API include support for the latest features in LaunchDarkly. We also release a new version of our REST API every time we make a breaking change. We provide simultaneous support for multiple API versions so you can migrate from your current API version to a new version at your own pace.  ## Setting the API version per request  You can set the API version on a specific request by sending an `LD-API-Version` header, as shown in the example below:  ``` LD-API-Version: 20191212 ```  The header value is the version number of the API version you'd like to request. The number for each version corresponds to the date the version was released. In the example above the version `20191212` corresponds to December 12, 2019.  ## Setting the API version per access token  When creating an access token, you must specify a specific version of the API to use. This ensures that integrations using this token cannot be broken by version changes.  Tokens created before versioning was released have their version set to `20160426` (the version of the API that existed before versioning) so that they continue working the same way they did before versioning.  If you would like to upgrade your integration to use a new API version, you can explicitly set the header described above.  > ### Best practice: Set the header for every client or integration > > We recommend that you set the API version header explicitly in any client or integration you build. > > Only rely on the access token API version during manual testing. 
  *
- * OpenAPI spec version: 5.3.0
+ * The version of the OpenAPI document: 2.0
  * Contact: support@launchdarkly.com
  *
- * NOTE: This class is auto generated by the swagger code generator program.
- * https://github.com/swagger-api/swagger-codegen.git
- *
- * Swagger Codegen version: 2.4.17
- *
+ * NOTE: This class is auto generated by OpenAPI Generator (https://openapi-generator.tech).
+ * https://openapi-generator.tech
  * Do not edit the class manually.
  *
  */
 
-(function(factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ApprovalRequest', 'model/ApprovalRequestApplyConfigBody', 'model/ApprovalRequestConfigBody', 'model/ApprovalRequestReview', 'model/ApprovalRequestReviewConfigBody', 'model/ApprovalRequestReviewStatus', 'model/ApprovalRequests', 'model/AuditLogEntries', 'model/AuditLogEntry', 'model/AuditLogEntryTarget', 'model/BigSegmentTargetChanges', 'model/BigSegmentTargetsBody', 'model/Clause', 'model/ClientSideAvailability', 'model/CopyActions', 'model/CustomProperty', 'model/CustomPropertyValues', 'model/CustomRole', 'model/CustomRoleBody', 'model/CustomRoles', 'model/Defaults', 'model/DependentFlag', 'model/DependentFlagEnvironment', 'model/DependentFlagEnvironmentLinks', 'model/DependentFlagLinks', 'model/DependentFlagsByEnvironment', 'model/DependentFlagsLinks', 'model/Destination', 'model/DestinationAmazonKinesis', 'model/DestinationBody', 'model/DestinationGooglePubSub', 'model/DestinationMParticle', 'model/DestinationSegment', 'model/Destinations', 'model/Environment', 'model/EnvironmentApprovalSettings', 'model/EnvironmentPost', 'model/EvaluationUsageError', 'model/Events', 'model/Fallthrough', 'model/FeatureFlag', 'model/FeatureFlagBody', 'model/FeatureFlagConfig', 'model/FeatureFlagCopyBody', 'model/FeatureFlagCopyObject', 'model/FeatureFlagScheduledChange', 'model/FeatureFlagScheduledChanges', 'model/FeatureFlagScheduledChangesConflicts', 'model/FeatureFlagScheduledChangesConflictsInstructions', 'model/FeatureFlagStatus', 'model/FeatureFlagStatusAcrossEnvironments', 'model/FeatureFlagStatusForQueriedEnvironment', 'model/FeatureFlagStatusLinks', 'model/FeatureFlagStatuses', 'model/FeatureFlags', 'model/FlagConfigScheduledChangesConflictsBody', 'model/FlagConfigScheduledChangesPatchBody', 'model/FlagConfigScheduledChangesPostBody', 'model/FlagListItem', 'model/HierarchicalLinks', 'model/Id', 'model/Integration', 'model/IntegrationSubscription', 'model/IntegrationSubscriptionStatus', 'model/Integrations', 'model/Link', 'model/Links', 'model/MAU', 'model/MAUMetadata', 'model/MAUbyCategory', 'model/Member', 'model/MemberLastSeenMetadata', 'model/Members', 'model/MembersBody', 'model/MultiEnvironmentDependentFlag', 'model/MultiEnvironmentDependentFlags', 'model/PatchComment', 'model/PatchOperation', 'model/Policy', 'model/Prerequisite', 'model/Project', 'model/ProjectBody', 'model/Projects', 'model/RelayProxyConfig', 'model/RelayProxyConfigBody', 'model/RelayProxyConfigs', 'model/Role', 'model/Rollout', 'model/Rule', 'model/ScheduledChangesFeatureFlagConflict', 'model/SemanticPatchInstruction', 'model/SemanticPatchInstructionInner', 'model/SemanticPatchOperation', 'model/Site', 'model/Statement', 'model/Stream', 'model/StreamBySDK', 'model/StreamBySDKLinks', 'model/StreamBySDKLinksMetadata', 'model/StreamLinks', 'model/StreamSDKVersion', 'model/StreamSDKVersionData', 'model/StreamUsageError', 'model/StreamUsageLinks', 'model/StreamUsageMetadata', 'model/StreamUsageSeries', 'model/Streams', 'model/SubscriptionBody', 'model/Target', 'model/Token', 'model/TokenBody', 'model/Tokens', 'model/Usage', 'model/UsageError', 'model/UsageLinks', 'model/User', 'model/UserFlagSetting', 'model/UserFlagSettings', 'model/UserRecord', 'model/UserSegment', 'model/UserSegmentBody', 'model/UserSegmentRule', 'model/UserSegments', 'model/UserSettingsBody', 'model/UserTargetingExpirationForFlag', 'model/UserTargetingExpirationForFlags', 'model/UserTargetingExpirationForSegment', 'model/UserTargetingExpirationOnFlagsForUser', 'model/UserTargetingExpirationResourceIdForFlag', 'model/Users', 'model/Variation', 'model/Webhook', 'model/WebhookBody', 'model/Webhooks', 'model/WeightedVariation', 'api/AccessTokensApi', 'api/AuditLogApi', 'api/CustomRolesApi', 'api/CustomerMetricsApi', 'api/DataExportDestinationsApi', 'api/EnvironmentsApi', 'api/FeatureFlagsApi', 'api/IntegrationsApi', 'api/ProjectsApi', 'api/RelayProxyConfigurationsApi', 'api/RootApi', 'api/TeamMembersApi', 'api/UserSegmentsApi', 'api/UserSettingsApi', 'api/UsersApi', 'api/WebhooksApi'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/ApprovalRequest'), require('./model/ApprovalRequestApplyConfigBody'), require('./model/ApprovalRequestConfigBody'), require('./model/ApprovalRequestReview'), require('./model/ApprovalRequestReviewConfigBody'), require('./model/ApprovalRequestReviewStatus'), require('./model/ApprovalRequests'), require('./model/AuditLogEntries'), require('./model/AuditLogEntry'), require('./model/AuditLogEntryTarget'), require('./model/BigSegmentTargetChanges'), require('./model/BigSegmentTargetsBody'), require('./model/Clause'), require('./model/ClientSideAvailability'), require('./model/CopyActions'), require('./model/CustomProperty'), require('./model/CustomPropertyValues'), require('./model/CustomRole'), require('./model/CustomRoleBody'), require('./model/CustomRoles'), require('./model/Defaults'), require('./model/DependentFlag'), require('./model/DependentFlagEnvironment'), require('./model/DependentFlagEnvironmentLinks'), require('./model/DependentFlagLinks'), require('./model/DependentFlagsByEnvironment'), require('./model/DependentFlagsLinks'), require('./model/Destination'), require('./model/DestinationAmazonKinesis'), require('./model/DestinationBody'), require('./model/DestinationGooglePubSub'), require('./model/DestinationMParticle'), require('./model/DestinationSegment'), require('./model/Destinations'), require('./model/Environment'), require('./model/EnvironmentApprovalSettings'), require('./model/EnvironmentPost'), require('./model/EvaluationUsageError'), require('./model/Events'), require('./model/Fallthrough'), require('./model/FeatureFlag'), require('./model/FeatureFlagBody'), require('./model/FeatureFlagConfig'), require('./model/FeatureFlagCopyBody'), require('./model/FeatureFlagCopyObject'), require('./model/FeatureFlagScheduledChange'), require('./model/FeatureFlagScheduledChanges'), require('./model/FeatureFlagScheduledChangesConflicts'), require('./model/FeatureFlagScheduledChangesConflictsInstructions'), require('./model/FeatureFlagStatus'), require('./model/FeatureFlagStatusAcrossEnvironments'), require('./model/FeatureFlagStatusForQueriedEnvironment'), require('./model/FeatureFlagStatusLinks'), require('./model/FeatureFlagStatuses'), require('./model/FeatureFlags'), require('./model/FlagConfigScheduledChangesConflictsBody'), require('./model/FlagConfigScheduledChangesPatchBody'), require('./model/FlagConfigScheduledChangesPostBody'), require('./model/FlagListItem'), require('./model/HierarchicalLinks'), require('./model/Id'), require('./model/Integration'), require('./model/IntegrationSubscription'), require('./model/IntegrationSubscriptionStatus'), require('./model/Integrations'), require('./model/Link'), require('./model/Links'), require('./model/MAU'), require('./model/MAUMetadata'), require('./model/MAUbyCategory'), require('./model/Member'), require('./model/MemberLastSeenMetadata'), require('./model/Members'), require('./model/MembersBody'), require('./model/MultiEnvironmentDependentFlag'), require('./model/MultiEnvironmentDependentFlags'), require('./model/PatchComment'), require('./model/PatchOperation'), require('./model/Policy'), require('./model/Prerequisite'), require('./model/Project'), require('./model/ProjectBody'), require('./model/Projects'), require('./model/RelayProxyConfig'), require('./model/RelayProxyConfigBody'), require('./model/RelayProxyConfigs'), require('./model/Role'), require('./model/Rollout'), require('./model/Rule'), require('./model/ScheduledChangesFeatureFlagConflict'), require('./model/SemanticPatchInstruction'), require('./model/SemanticPatchInstructionInner'), require('./model/SemanticPatchOperation'), require('./model/Site'), require('./model/Statement'), require('./model/Stream'), require('./model/StreamBySDK'), require('./model/StreamBySDKLinks'), require('./model/StreamBySDKLinksMetadata'), require('./model/StreamLinks'), require('./model/StreamSDKVersion'), require('./model/StreamSDKVersionData'), require('./model/StreamUsageError'), require('./model/StreamUsageLinks'), require('./model/StreamUsageMetadata'), require('./model/StreamUsageSeries'), require('./model/Streams'), require('./model/SubscriptionBody'), require('./model/Target'), require('./model/Token'), require('./model/TokenBody'), require('./model/Tokens'), require('./model/Usage'), require('./model/UsageError'), require('./model/UsageLinks'), require('./model/User'), require('./model/UserFlagSetting'), require('./model/UserFlagSettings'), require('./model/UserRecord'), require('./model/UserSegment'), require('./model/UserSegmentBody'), require('./model/UserSegmentRule'), require('./model/UserSegments'), require('./model/UserSettingsBody'), require('./model/UserTargetingExpirationForFlag'), require('./model/UserTargetingExpirationForFlags'), require('./model/UserTargetingExpirationForSegment'), require('./model/UserTargetingExpirationOnFlagsForUser'), require('./model/UserTargetingExpirationResourceIdForFlag'), require('./model/Users'), require('./model/Variation'), require('./model/Webhook'), require('./model/WebhookBody'), require('./model/Webhooks'), require('./model/WeightedVariation'), require('./api/AccessTokensApi'), require('./api/AuditLogApi'), require('./api/CustomRolesApi'), require('./api/CustomerMetricsApi'), require('./api/DataExportDestinationsApi'), require('./api/EnvironmentsApi'), require('./api/FeatureFlagsApi'), require('./api/IntegrationsApi'), require('./api/ProjectsApi'), require('./api/RelayProxyConfigurationsApi'), require('./api/RootApi'), require('./api/TeamMembersApi'), require('./api/UserSegmentsApi'), require('./api/UserSettingsApi'), require('./api/UsersApi'), require('./api/WebhooksApi'));
-  }
-}(function(ApiClient, ApprovalRequest, ApprovalRequestApplyConfigBody, ApprovalRequestConfigBody, ApprovalRequestReview, ApprovalRequestReviewConfigBody, ApprovalRequestReviewStatus, ApprovalRequests, AuditLogEntries, AuditLogEntry, AuditLogEntryTarget, BigSegmentTargetChanges, BigSegmentTargetsBody, Clause, ClientSideAvailability, CopyActions, CustomProperty, CustomPropertyValues, CustomRole, CustomRoleBody, CustomRoles, Defaults, DependentFlag, DependentFlagEnvironment, DependentFlagEnvironmentLinks, DependentFlagLinks, DependentFlagsByEnvironment, DependentFlagsLinks, Destination, DestinationAmazonKinesis, DestinationBody, DestinationGooglePubSub, DestinationMParticle, DestinationSegment, Destinations, Environment, EnvironmentApprovalSettings, EnvironmentPost, EvaluationUsageError, Events, Fallthrough, FeatureFlag, FeatureFlagBody, FeatureFlagConfig, FeatureFlagCopyBody, FeatureFlagCopyObject, FeatureFlagScheduledChange, FeatureFlagScheduledChanges, FeatureFlagScheduledChangesConflicts, FeatureFlagScheduledChangesConflictsInstructions, FeatureFlagStatus, FeatureFlagStatusAcrossEnvironments, FeatureFlagStatusForQueriedEnvironment, FeatureFlagStatusLinks, FeatureFlagStatuses, FeatureFlags, FlagConfigScheduledChangesConflictsBody, FlagConfigScheduledChangesPatchBody, FlagConfigScheduledChangesPostBody, FlagListItem, HierarchicalLinks, Id, Integration, IntegrationSubscription, IntegrationSubscriptionStatus, Integrations, Link, Links, MAU, MAUMetadata, MAUbyCategory, Member, MemberLastSeenMetadata, Members, MembersBody, MultiEnvironmentDependentFlag, MultiEnvironmentDependentFlags, PatchComment, PatchOperation, Policy, Prerequisite, Project, ProjectBody, Projects, RelayProxyConfig, RelayProxyConfigBody, RelayProxyConfigs, Role, Rollout, Rule, ScheduledChangesFeatureFlagConflict, SemanticPatchInstruction, SemanticPatchInstructionInner, SemanticPatchOperation, Site, Statement, Stream, StreamBySDK, StreamBySDKLinks, StreamBySDKLinksMetadata, StreamLinks, StreamSDKVersion, StreamSDKVersionData, StreamUsageError, StreamUsageLinks, StreamUsageMetadata, StreamUsageSeries, Streams, SubscriptionBody, Target, Token, TokenBody, Tokens, Usage, UsageError, UsageLinks, User, UserFlagSetting, UserFlagSettings, UserRecord, UserSegment, UserSegmentBody, UserSegmentRule, UserSegments, UserSettingsBody, UserTargetingExpirationForFlag, UserTargetingExpirationForFlags, UserTargetingExpirationForSegment, UserTargetingExpirationOnFlagsForUser, UserTargetingExpirationResourceIdForFlag, Users, Variation, Webhook, WebhookBody, Webhooks, WeightedVariation, AccessTokensApi, AuditLogApi, CustomRolesApi, CustomerMetricsApi, DataExportDestinationsApi, EnvironmentsApi, FeatureFlagsApi, IntegrationsApi, ProjectsApi, RelayProxyConfigurationsApi, RootApi, TeamMembersApi, UserSegmentsApi, UserSettingsApi, UsersApi, WebhooksApi) {
-  'use strict';
 
-  /**
-   * Build custom integrations with the LaunchDarkly REST API.<br>
-   * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
-   * <p>
-   * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
-   * <pre>
-   * var LaunchDarklyApi = require('index'); // See note below*.
-   * var xxxSvc = new LaunchDarklyApi.XxxApi(); // Allocate the API class we're going to use.
-   * var yyyModel = new LaunchDarklyApi.Yyy(); // Construct a model instance.
-   * yyyModel.someProperty = 'someValue';
-   * ...
-   * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
-   * ...
-   * </pre>
-   * <em>*NOTE: For a top-level AMD script, use require(['index'], function(){...})
-   * and put the application logic within the callback function.</em>
-   * </p>
-   * <p>
-   * A non-AMD browser application (discouraged) might do something like this:
-   * <pre>
-   * var xxxSvc = new LaunchDarklyApi.XxxApi(); // Allocate the API class we're going to use.
-   * var yyy = new LaunchDarklyApi.Yyy(); // Construct a model instance.
-   * yyyModel.someProperty = 'someValue';
-   * ...
-   * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
-   * ...
-   * </pre>
-   * </p>
-   * @module index
-   * @version 5.3.0
-   */
-  var exports = {
+import ApiClient from './ApiClient';
+import AccessDeniedReasonRep from './model/AccessDeniedReasonRep';
+import AccessDeniedRep from './model/AccessDeniedRep';
+import AccessRep from './model/AccessRep';
+import AccessTokenPost from './model/AccessTokenPost';
+import ApprovalSettings from './model/ApprovalSettings';
+import AuditLogEntryListingRep from './model/AuditLogEntryListingRep';
+import AuditLogEntryListingRepCollection from './model/AuditLogEntryListingRepCollection';
+import AuditLogEntryRep from './model/AuditLogEntryRep';
+import AuthorizedAppDataRep from './model/AuthorizedAppDataRep';
+import BigSegmentTarget from './model/BigSegmentTarget';
+import BranchCollectionRep from './model/BranchCollectionRep';
+import BranchRep from './model/BranchRep';
+import Clause from './model/Clause';
+import ClientSideAvailability from './model/ClientSideAvailability';
+import ClientSideAvailabilityPost from './model/ClientSideAvailabilityPost';
+import ConfidenceIntervalRep from './model/ConfidenceIntervalRep';
+import Conflict from './model/Conflict';
+import CopiedFromEnv from './model/CopiedFromEnv';
+import CreateCopyFlagConfigApprovalRequestRequest from './model/CreateCopyFlagConfigApprovalRequestRequest';
+import CreateFlagConfigApprovalRequestRequest from './model/CreateFlagConfigApprovalRequestRequest';
+import CustomProperty from './model/CustomProperty';
+import CustomRole from './model/CustomRole';
+import CustomRolePost from './model/CustomRolePost';
+import CustomRolePostData from './model/CustomRolePostData';
+import CustomRoles from './model/CustomRoles';
+import DefaultClientSideAvailabilityPost from './model/DefaultClientSideAvailabilityPost';
+import Defaults from './model/Defaults';
+import DependentFlag from './model/DependentFlag';
+import DependentFlagEnvironment from './model/DependentFlagEnvironment';
+import DependentFlagsByEnvironment from './model/DependentFlagsByEnvironment';
+import Destination from './model/Destination';
+import DestinationPost from './model/DestinationPost';
+import Destinations from './model/Destinations';
+import Environment from './model/Environment';
+import EnvironmentPost from './model/EnvironmentPost';
+import ExperimentAllocationRep from './model/ExperimentAllocationRep';
+import ExperimentEnabledPeriodRep from './model/ExperimentEnabledPeriodRep';
+import ExperimentEnvironmentSettingRep from './model/ExperimentEnvironmentSettingRep';
+import ExperimentInfoRep from './model/ExperimentInfoRep';
+import ExperimentMetadataRep from './model/ExperimentMetadataRep';
+import ExperimentRep from './model/ExperimentRep';
+import ExperimentResultsRep from './model/ExperimentResultsRep';
+import ExperimentStatsRep from './model/ExperimentStatsRep';
+import ExperimentTimeSeriesSlice from './model/ExperimentTimeSeriesSlice';
+import ExperimentTimeSeriesVariationSlice from './model/ExperimentTimeSeriesVariationSlice';
+import ExperimentTotalsRep from './model/ExperimentTotalsRep';
+import ExpiringUserTargetError from './model/ExpiringUserTargetError';
+import ExpiringUserTargetGetResponse from './model/ExpiringUserTargetGetResponse';
+import ExpiringUserTargetItem from './model/ExpiringUserTargetItem';
+import ExpiringUserTargetPatchResponse from './model/ExpiringUserTargetPatchResponse';
+import Extinction from './model/Extinction';
+import ExtinctionCollectionRep from './model/ExtinctionCollectionRep';
+import ExtinctionRep from './model/ExtinctionRep';
+import FeatureFlag from './model/FeatureFlag';
+import FeatureFlagBody from './model/FeatureFlagBody';
+import FeatureFlagConfig from './model/FeatureFlagConfig';
+import FeatureFlagScheduledChange from './model/FeatureFlagScheduledChange';
+import FeatureFlagScheduledChanges from './model/FeatureFlagScheduledChanges';
+import FeatureFlagStatus from './model/FeatureFlagStatus';
+import FeatureFlagStatusAcrossEnvironments from './model/FeatureFlagStatusAcrossEnvironments';
+import FeatureFlagStatuses from './model/FeatureFlagStatuses';
+import FeatureFlags from './model/FeatureFlags';
+import FlagConfigApprovalRequestResponse from './model/FlagConfigApprovalRequestResponse';
+import FlagConfigApprovalRequestsResponse from './model/FlagConfigApprovalRequestsResponse';
+import FlagCopyConfigEnvironment from './model/FlagCopyConfigEnvironment';
+import FlagCopyConfigPost from './model/FlagCopyConfigPost';
+import FlagGlobalAttributesRep from './model/FlagGlobalAttributesRep';
+import FlagListingRep from './model/FlagListingRep';
+import FlagScheduledChangesInput from './model/FlagScheduledChangesInput';
+import FlagStatusRep from './model/FlagStatusRep';
+import FlagSummary from './model/FlagSummary';
+import HunkRep from './model/HunkRep';
+import InlineObject from './model/InlineObject';
+import InlineObject1 from './model/InlineObject1';
+import InlineResponse200 from './model/InlineResponse200';
+import IntegrationMetadata from './model/IntegrationMetadata';
+import IntegrationStatus from './model/IntegrationStatus';
+import IpList from './model/IpList';
+import LastSeenMetadata from './model/LastSeenMetadata';
+import Link from './model/Link';
+import Member from './model/Member';
+import MemberDataRep from './model/MemberDataRep';
+import MemberPermissionGrantSummaryRep from './model/MemberPermissionGrantSummaryRep';
+import MemberSummaryRep from './model/MemberSummaryRep';
+import MemberTeamSummaryRep from './model/MemberTeamSummaryRep';
+import Members from './model/Members';
+import MetricCollectionRep from './model/MetricCollectionRep';
+import MetricListingRep from './model/MetricListingRep';
+import MetricPost from './model/MetricPost';
+import MetricRep from './model/MetricRep';
+import Modification from './model/Modification';
+import MultiEnvironmentDependentFlag from './model/MultiEnvironmentDependentFlag';
+import MultiEnvironmentDependentFlags from './model/MultiEnvironmentDependentFlags';
+import NewMemberForm from './model/NewMemberForm';
+import ParentResourceRep from './model/ParentResourceRep';
+import PatchOperation from './model/PatchOperation';
+import PatchSegmentInstruction from './model/PatchSegmentInstruction';
+import PatchSegmentRequest from './model/PatchSegmentRequest';
+import PatchWithComment from './model/PatchWithComment';
+import PostApprovalRequestApplyRequest from './model/PostApprovalRequestApplyRequest';
+import PostApprovalRequestReviewRequest from './model/PostApprovalRequestReviewRequest';
+import PostFlagScheduledChangesInput from './model/PostFlagScheduledChangesInput';
+import Prerequisite from './model/Prerequisite';
+import Project from './model/Project';
+import ProjectListingRep from './model/ProjectListingRep';
+import ProjectPost from './model/ProjectPost';
+import Projects from './model/Projects';
+import PubNubDetailRep from './model/PubNubDetailRep';
+import ReferenceRep from './model/ReferenceRep';
+import RelayAutoConfigCollectionRep from './model/RelayAutoConfigCollectionRep';
+import RelayAutoConfigPost from './model/RelayAutoConfigPost';
+import RelayAutoConfigRep from './model/RelayAutoConfigRep';
+import RepositoryCollectionRep from './model/RepositoryCollectionRep';
+import RepositoryPost from './model/RepositoryPost';
+import RepositoryRep from './model/RepositoryRep';
+import ResourceAccess from './model/ResourceAccess';
+import ResourceIDResponse from './model/ResourceIDResponse';
+import ReviewResponse from './model/ReviewResponse';
+import Rollout from './model/Rollout';
+import Rule from './model/Rule';
+import SdkListRep from './model/SdkListRep';
+import SdkVersionListRep from './model/SdkVersionListRep';
+import SdkVersionRep from './model/SdkVersionRep';
+import SegmentBody from './model/SegmentBody';
+import SegmentMetadata from './model/SegmentMetadata';
+import SegmentUserList from './model/SegmentUserList';
+import SegmentUserState from './model/SegmentUserState';
+import SeriesListRep from './model/SeriesListRep';
+import SourceFlag from './model/SourceFlag';
+import Statement from './model/Statement';
+import StatementPost from './model/StatementPost';
+import StatementPostData from './model/StatementPostData';
+import StatementRep from './model/StatementRep';
+import StatisticCollectionRep from './model/StatisticCollectionRep';
+import StatisticRep from './model/StatisticRep';
+import StatisticsRoot from './model/StatisticsRoot';
+import SubjectDataRep from './model/SubjectDataRep';
+import Target from './model/Target';
+import TargetResourceRep from './model/TargetResourceRep';
+import TitleRep from './model/TitleRep';
+import Token from './model/Token';
+import TokenDataRep from './model/TokenDataRep';
+import Tokens from './model/Tokens';
+import UrlPost from './model/UrlPost';
+import User from './model/User';
+import UserAttributeNamesRep from './model/UserAttributeNamesRep';
+import UserFlagSetting from './model/UserFlagSetting';
+import UserFlagSettings from './model/UserFlagSettings';
+import UserRecord from './model/UserRecord';
+import UserSegment from './model/UserSegment';
+import UserSegmentRule from './model/UserSegmentRule';
+import UserSegments from './model/UserSegments';
+import Users from './model/Users';
+import ValuePut from './model/ValuePut';
+import Variate from './model/Variate';
+import Variation from './model/Variation';
+import VariationOrRolloutRep from './model/VariationOrRolloutRep';
+import VariationSummary from './model/VariationSummary';
+import VersionsRep from './model/VersionsRep';
+import Webhook from './model/Webhook';
+import WebhookPost from './model/WebhookPost';
+import Webhooks from './model/Webhooks';
+import WeightedVariation from './model/WeightedVariation';
+import AccessTokensApi from './api/AccessTokensApi';
+import AccountMembersApi from './api/AccountMembersApi';
+import AccountUsageBetaApi from './api/AccountUsageBetaApi';
+import ApprovalsApi from './api/ApprovalsApi';
+import AuditLogApi from './api/AuditLogApi';
+import CodeReferencesApi from './api/CodeReferencesApi';
+import CustomRolesApi from './api/CustomRolesApi';
+import DataExportDestinationsApi from './api/DataExportDestinationsApi';
+import EnvironmentsApi from './api/EnvironmentsApi';
+import ExperimentsBetaApi from './api/ExperimentsBetaApi';
+import FeatureFlagsApi from './api/FeatureFlagsApi';
+import FeatureFlagsBetaApi from './api/FeatureFlagsBetaApi';
+import MetricsApi from './api/MetricsApi';
+import OtherApi from './api/OtherApi';
+import ProjectsApi from './api/ProjectsApi';
+import RelayProxyConfigurationsApi from './api/RelayProxyConfigurationsApi';
+import ScheduledChangesApi from './api/ScheduledChangesApi';
+import SegmentsApi from './api/SegmentsApi';
+import UserSettingsApi from './api/UserSettingsApi';
+import UsersApi from './api/UsersApi';
+import UsersBetaApi from './api/UsersBetaApi';
+import WebhooksApi from './api/WebhooksApi';
+
+
+/**
+* Build custom integrations with the LaunchDarkly REST API.<br>
+* The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
+* <p>
+* An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
+* <pre>
+* var LaunchDarklyApi = require('index'); // See note below*.
+* var xxxSvc = new LaunchDarklyApi.XxxApi(); // Allocate the API class we're going to use.
+* var yyyModel = new LaunchDarklyApi.Yyy(); // Construct a model instance.
+* yyyModel.someProperty = 'someValue';
+* ...
+* var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
+* ...
+* </pre>
+* <em>*NOTE: For a top-level AMD script, use require(['index'], function(){...})
+* and put the application logic within the callback function.</em>
+* </p>
+* <p>
+* A non-AMD browser application (discouraged) might do something like this:
+* <pre>
+* var xxxSvc = new LaunchDarklyApi.XxxApi(); // Allocate the API class we're going to use.
+* var yyy = new LaunchDarklyApi.Yyy(); // Construct a model instance.
+* yyyModel.someProperty = 'someValue';
+* ...
+* var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
+* ...
+* </pre>
+* </p>
+* @module index
+* @version 6.0.0
+*/
+export {
     /**
      * The ApiClient constructor.
      * @property {module:ApiClient}
      */
-    ApiClient: ApiClient,
+    ApiClient,
+
     /**
-     * The ApprovalRequest model constructor.
-     * @property {module:model/ApprovalRequest}
+     * The AccessDeniedReasonRep model constructor.
+     * @property {module:model/AccessDeniedReasonRep}
      */
-    ApprovalRequest: ApprovalRequest,
+    AccessDeniedReasonRep,
+
     /**
-     * The ApprovalRequestApplyConfigBody model constructor.
-     * @property {module:model/ApprovalRequestApplyConfigBody}
+     * The AccessDeniedRep model constructor.
+     * @property {module:model/AccessDeniedRep}
      */
-    ApprovalRequestApplyConfigBody: ApprovalRequestApplyConfigBody,
+    AccessDeniedRep,
+
     /**
-     * The ApprovalRequestConfigBody model constructor.
-     * @property {module:model/ApprovalRequestConfigBody}
+     * The AccessRep model constructor.
+     * @property {module:model/AccessRep}
      */
-    ApprovalRequestConfigBody: ApprovalRequestConfigBody,
+    AccessRep,
+
     /**
-     * The ApprovalRequestReview model constructor.
-     * @property {module:model/ApprovalRequestReview}
+     * The AccessTokenPost model constructor.
+     * @property {module:model/AccessTokenPost}
      */
-    ApprovalRequestReview: ApprovalRequestReview,
+    AccessTokenPost,
+
     /**
-     * The ApprovalRequestReviewConfigBody model constructor.
-     * @property {module:model/ApprovalRequestReviewConfigBody}
+     * The ApprovalSettings model constructor.
+     * @property {module:model/ApprovalSettings}
      */
-    ApprovalRequestReviewConfigBody: ApprovalRequestReviewConfigBody,
+    ApprovalSettings,
+
     /**
-     * The ApprovalRequestReviewStatus model constructor.
-     * @property {module:model/ApprovalRequestReviewStatus}
+     * The AuditLogEntryListingRep model constructor.
+     * @property {module:model/AuditLogEntryListingRep}
      */
-    ApprovalRequestReviewStatus: ApprovalRequestReviewStatus,
+    AuditLogEntryListingRep,
+
     /**
-     * The ApprovalRequests model constructor.
-     * @property {module:model/ApprovalRequests}
+     * The AuditLogEntryListingRepCollection model constructor.
+     * @property {module:model/AuditLogEntryListingRepCollection}
      */
-    ApprovalRequests: ApprovalRequests,
+    AuditLogEntryListingRepCollection,
+
     /**
-     * The AuditLogEntries model constructor.
-     * @property {module:model/AuditLogEntries}
+     * The AuditLogEntryRep model constructor.
+     * @property {module:model/AuditLogEntryRep}
      */
-    AuditLogEntries: AuditLogEntries,
+    AuditLogEntryRep,
+
     /**
-     * The AuditLogEntry model constructor.
-     * @property {module:model/AuditLogEntry}
+     * The AuthorizedAppDataRep model constructor.
+     * @property {module:model/AuthorizedAppDataRep}
      */
-    AuditLogEntry: AuditLogEntry,
+    AuthorizedAppDataRep,
+
     /**
-     * The AuditLogEntryTarget model constructor.
-     * @property {module:model/AuditLogEntryTarget}
+     * The BigSegmentTarget model constructor.
+     * @property {module:model/BigSegmentTarget}
      */
-    AuditLogEntryTarget: AuditLogEntryTarget,
+    BigSegmentTarget,
+
     /**
-     * The BigSegmentTargetChanges model constructor.
-     * @property {module:model/BigSegmentTargetChanges}
+     * The BranchCollectionRep model constructor.
+     * @property {module:model/BranchCollectionRep}
      */
-    BigSegmentTargetChanges: BigSegmentTargetChanges,
+    BranchCollectionRep,
+
     /**
-     * The BigSegmentTargetsBody model constructor.
-     * @property {module:model/BigSegmentTargetsBody}
+     * The BranchRep model constructor.
+     * @property {module:model/BranchRep}
      */
-    BigSegmentTargetsBody: BigSegmentTargetsBody,
+    BranchRep,
+
     /**
      * The Clause model constructor.
      * @property {module:model/Clause}
      */
-    Clause: Clause,
+    Clause,
+
     /**
      * The ClientSideAvailability model constructor.
      * @property {module:model/ClientSideAvailability}
      */
-    ClientSideAvailability: ClientSideAvailability,
+    ClientSideAvailability,
+
     /**
-     * The CopyActions model constructor.
-     * @property {module:model/CopyActions}
+     * The ClientSideAvailabilityPost model constructor.
+     * @property {module:model/ClientSideAvailabilityPost}
      */
-    CopyActions: CopyActions,
+    ClientSideAvailabilityPost,
+
+    /**
+     * The ConfidenceIntervalRep model constructor.
+     * @property {module:model/ConfidenceIntervalRep}
+     */
+    ConfidenceIntervalRep,
+
+    /**
+     * The Conflict model constructor.
+     * @property {module:model/Conflict}
+     */
+    Conflict,
+
+    /**
+     * The CopiedFromEnv model constructor.
+     * @property {module:model/CopiedFromEnv}
+     */
+    CopiedFromEnv,
+
+    /**
+     * The CreateCopyFlagConfigApprovalRequestRequest model constructor.
+     * @property {module:model/CreateCopyFlagConfigApprovalRequestRequest}
+     */
+    CreateCopyFlagConfigApprovalRequestRequest,
+
+    /**
+     * The CreateFlagConfigApprovalRequestRequest model constructor.
+     * @property {module:model/CreateFlagConfigApprovalRequestRequest}
+     */
+    CreateFlagConfigApprovalRequestRequest,
+
     /**
      * The CustomProperty model constructor.
      * @property {module:model/CustomProperty}
      */
-    CustomProperty: CustomProperty,
-    /**
-     * The CustomPropertyValues model constructor.
-     * @property {module:model/CustomPropertyValues}
-     */
-    CustomPropertyValues: CustomPropertyValues,
+    CustomProperty,
+
     /**
      * The CustomRole model constructor.
      * @property {module:model/CustomRole}
      */
-    CustomRole: CustomRole,
+    CustomRole,
+
     /**
-     * The CustomRoleBody model constructor.
-     * @property {module:model/CustomRoleBody}
+     * The CustomRolePost model constructor.
+     * @property {module:model/CustomRolePost}
      */
-    CustomRoleBody: CustomRoleBody,
+    CustomRolePost,
+
+    /**
+     * The CustomRolePostData model constructor.
+     * @property {module:model/CustomRolePostData}
+     */
+    CustomRolePostData,
+
     /**
      * The CustomRoles model constructor.
      * @property {module:model/CustomRoles}
      */
-    CustomRoles: CustomRoles,
+    CustomRoles,
+
+    /**
+     * The DefaultClientSideAvailabilityPost model constructor.
+     * @property {module:model/DefaultClientSideAvailabilityPost}
+     */
+    DefaultClientSideAvailabilityPost,
+
     /**
      * The Defaults model constructor.
      * @property {module:model/Defaults}
      */
-    Defaults: Defaults,
+    Defaults,
+
     /**
      * The DependentFlag model constructor.
      * @property {module:model/DependentFlag}
      */
-    DependentFlag: DependentFlag,
+    DependentFlag,
+
     /**
      * The DependentFlagEnvironment model constructor.
      * @property {module:model/DependentFlagEnvironment}
      */
-    DependentFlagEnvironment: DependentFlagEnvironment,
-    /**
-     * The DependentFlagEnvironmentLinks model constructor.
-     * @property {module:model/DependentFlagEnvironmentLinks}
-     */
-    DependentFlagEnvironmentLinks: DependentFlagEnvironmentLinks,
-    /**
-     * The DependentFlagLinks model constructor.
-     * @property {module:model/DependentFlagLinks}
-     */
-    DependentFlagLinks: DependentFlagLinks,
+    DependentFlagEnvironment,
+
     /**
      * The DependentFlagsByEnvironment model constructor.
      * @property {module:model/DependentFlagsByEnvironment}
      */
-    DependentFlagsByEnvironment: DependentFlagsByEnvironment,
-    /**
-     * The DependentFlagsLinks model constructor.
-     * @property {module:model/DependentFlagsLinks}
-     */
-    DependentFlagsLinks: DependentFlagsLinks,
+    DependentFlagsByEnvironment,
+
     /**
      * The Destination model constructor.
      * @property {module:model/Destination}
      */
-    Destination: Destination,
+    Destination,
+
     /**
-     * The DestinationAmazonKinesis model constructor.
-     * @property {module:model/DestinationAmazonKinesis}
+     * The DestinationPost model constructor.
+     * @property {module:model/DestinationPost}
      */
-    DestinationAmazonKinesis: DestinationAmazonKinesis,
-    /**
-     * The DestinationBody model constructor.
-     * @property {module:model/DestinationBody}
-     */
-    DestinationBody: DestinationBody,
-    /**
-     * The DestinationGooglePubSub model constructor.
-     * @property {module:model/DestinationGooglePubSub}
-     */
-    DestinationGooglePubSub: DestinationGooglePubSub,
-    /**
-     * The DestinationMParticle model constructor.
-     * @property {module:model/DestinationMParticle}
-     */
-    DestinationMParticle: DestinationMParticle,
-    /**
-     * The DestinationSegment model constructor.
-     * @property {module:model/DestinationSegment}
-     */
-    DestinationSegment: DestinationSegment,
+    DestinationPost,
+
     /**
      * The Destinations model constructor.
      * @property {module:model/Destinations}
      */
-    Destinations: Destinations,
+    Destinations,
+
     /**
      * The Environment model constructor.
      * @property {module:model/Environment}
      */
-    Environment: Environment,
-    /**
-     * The EnvironmentApprovalSettings model constructor.
-     * @property {module:model/EnvironmentApprovalSettings}
-     */
-    EnvironmentApprovalSettings: EnvironmentApprovalSettings,
+    Environment,
+
     /**
      * The EnvironmentPost model constructor.
      * @property {module:model/EnvironmentPost}
      */
-    EnvironmentPost: EnvironmentPost,
+    EnvironmentPost,
+
     /**
-     * The EvaluationUsageError model constructor.
-     * @property {module:model/EvaluationUsageError}
+     * The ExperimentAllocationRep model constructor.
+     * @property {module:model/ExperimentAllocationRep}
      */
-    EvaluationUsageError: EvaluationUsageError,
+    ExperimentAllocationRep,
+
     /**
-     * The Events model constructor.
-     * @property {module:model/Events}
+     * The ExperimentEnabledPeriodRep model constructor.
+     * @property {module:model/ExperimentEnabledPeriodRep}
      */
-    Events: Events,
+    ExperimentEnabledPeriodRep,
+
     /**
-     * The Fallthrough model constructor.
-     * @property {module:model/Fallthrough}
+     * The ExperimentEnvironmentSettingRep model constructor.
+     * @property {module:model/ExperimentEnvironmentSettingRep}
      */
-    Fallthrough: Fallthrough,
+    ExperimentEnvironmentSettingRep,
+
+    /**
+     * The ExperimentInfoRep model constructor.
+     * @property {module:model/ExperimentInfoRep}
+     */
+    ExperimentInfoRep,
+
+    /**
+     * The ExperimentMetadataRep model constructor.
+     * @property {module:model/ExperimentMetadataRep}
+     */
+    ExperimentMetadataRep,
+
+    /**
+     * The ExperimentRep model constructor.
+     * @property {module:model/ExperimentRep}
+     */
+    ExperimentRep,
+
+    /**
+     * The ExperimentResultsRep model constructor.
+     * @property {module:model/ExperimentResultsRep}
+     */
+    ExperimentResultsRep,
+
+    /**
+     * The ExperimentStatsRep model constructor.
+     * @property {module:model/ExperimentStatsRep}
+     */
+    ExperimentStatsRep,
+
+    /**
+     * The ExperimentTimeSeriesSlice model constructor.
+     * @property {module:model/ExperimentTimeSeriesSlice}
+     */
+    ExperimentTimeSeriesSlice,
+
+    /**
+     * The ExperimentTimeSeriesVariationSlice model constructor.
+     * @property {module:model/ExperimentTimeSeriesVariationSlice}
+     */
+    ExperimentTimeSeriesVariationSlice,
+
+    /**
+     * The ExperimentTotalsRep model constructor.
+     * @property {module:model/ExperimentTotalsRep}
+     */
+    ExperimentTotalsRep,
+
+    /**
+     * The ExpiringUserTargetError model constructor.
+     * @property {module:model/ExpiringUserTargetError}
+     */
+    ExpiringUserTargetError,
+
+    /**
+     * The ExpiringUserTargetGetResponse model constructor.
+     * @property {module:model/ExpiringUserTargetGetResponse}
+     */
+    ExpiringUserTargetGetResponse,
+
+    /**
+     * The ExpiringUserTargetItem model constructor.
+     * @property {module:model/ExpiringUserTargetItem}
+     */
+    ExpiringUserTargetItem,
+
+    /**
+     * The ExpiringUserTargetPatchResponse model constructor.
+     * @property {module:model/ExpiringUserTargetPatchResponse}
+     */
+    ExpiringUserTargetPatchResponse,
+
+    /**
+     * The Extinction model constructor.
+     * @property {module:model/Extinction}
+     */
+    Extinction,
+
+    /**
+     * The ExtinctionCollectionRep model constructor.
+     * @property {module:model/ExtinctionCollectionRep}
+     */
+    ExtinctionCollectionRep,
+
+    /**
+     * The ExtinctionRep model constructor.
+     * @property {module:model/ExtinctionRep}
+     */
+    ExtinctionRep,
+
     /**
      * The FeatureFlag model constructor.
      * @property {module:model/FeatureFlag}
      */
-    FeatureFlag: FeatureFlag,
+    FeatureFlag,
+
     /**
      * The FeatureFlagBody model constructor.
      * @property {module:model/FeatureFlagBody}
      */
-    FeatureFlagBody: FeatureFlagBody,
+    FeatureFlagBody,
+
     /**
      * The FeatureFlagConfig model constructor.
      * @property {module:model/FeatureFlagConfig}
      */
-    FeatureFlagConfig: FeatureFlagConfig,
-    /**
-     * The FeatureFlagCopyBody model constructor.
-     * @property {module:model/FeatureFlagCopyBody}
-     */
-    FeatureFlagCopyBody: FeatureFlagCopyBody,
-    /**
-     * The FeatureFlagCopyObject model constructor.
-     * @property {module:model/FeatureFlagCopyObject}
-     */
-    FeatureFlagCopyObject: FeatureFlagCopyObject,
+    FeatureFlagConfig,
+
     /**
      * The FeatureFlagScheduledChange model constructor.
      * @property {module:model/FeatureFlagScheduledChange}
      */
-    FeatureFlagScheduledChange: FeatureFlagScheduledChange,
+    FeatureFlagScheduledChange,
+
     /**
      * The FeatureFlagScheduledChanges model constructor.
      * @property {module:model/FeatureFlagScheduledChanges}
      */
-    FeatureFlagScheduledChanges: FeatureFlagScheduledChanges,
-    /**
-     * The FeatureFlagScheduledChangesConflicts model constructor.
-     * @property {module:model/FeatureFlagScheduledChangesConflicts}
-     */
-    FeatureFlagScheduledChangesConflicts: FeatureFlagScheduledChangesConflicts,
-    /**
-     * The FeatureFlagScheduledChangesConflictsInstructions model constructor.
-     * @property {module:model/FeatureFlagScheduledChangesConflictsInstructions}
-     */
-    FeatureFlagScheduledChangesConflictsInstructions: FeatureFlagScheduledChangesConflictsInstructions,
+    FeatureFlagScheduledChanges,
+
     /**
      * The FeatureFlagStatus model constructor.
      * @property {module:model/FeatureFlagStatus}
      */
-    FeatureFlagStatus: FeatureFlagStatus,
+    FeatureFlagStatus,
+
     /**
      * The FeatureFlagStatusAcrossEnvironments model constructor.
      * @property {module:model/FeatureFlagStatusAcrossEnvironments}
      */
-    FeatureFlagStatusAcrossEnvironments: FeatureFlagStatusAcrossEnvironments,
-    /**
-     * The FeatureFlagStatusForQueriedEnvironment model constructor.
-     * @property {module:model/FeatureFlagStatusForQueriedEnvironment}
-     */
-    FeatureFlagStatusForQueriedEnvironment: FeatureFlagStatusForQueriedEnvironment,
-    /**
-     * The FeatureFlagStatusLinks model constructor.
-     * @property {module:model/FeatureFlagStatusLinks}
-     */
-    FeatureFlagStatusLinks: FeatureFlagStatusLinks,
+    FeatureFlagStatusAcrossEnvironments,
+
     /**
      * The FeatureFlagStatuses model constructor.
      * @property {module:model/FeatureFlagStatuses}
      */
-    FeatureFlagStatuses: FeatureFlagStatuses,
+    FeatureFlagStatuses,
+
     /**
      * The FeatureFlags model constructor.
      * @property {module:model/FeatureFlags}
      */
-    FeatureFlags: FeatureFlags,
+    FeatureFlags,
+
     /**
-     * The FlagConfigScheduledChangesConflictsBody model constructor.
-     * @property {module:model/FlagConfigScheduledChangesConflictsBody}
+     * The FlagConfigApprovalRequestResponse model constructor.
+     * @property {module:model/FlagConfigApprovalRequestResponse}
      */
-    FlagConfigScheduledChangesConflictsBody: FlagConfigScheduledChangesConflictsBody,
+    FlagConfigApprovalRequestResponse,
+
     /**
-     * The FlagConfigScheduledChangesPatchBody model constructor.
-     * @property {module:model/FlagConfigScheduledChangesPatchBody}
+     * The FlagConfigApprovalRequestsResponse model constructor.
+     * @property {module:model/FlagConfigApprovalRequestsResponse}
      */
-    FlagConfigScheduledChangesPatchBody: FlagConfigScheduledChangesPatchBody,
+    FlagConfigApprovalRequestsResponse,
+
     /**
-     * The FlagConfigScheduledChangesPostBody model constructor.
-     * @property {module:model/FlagConfigScheduledChangesPostBody}
+     * The FlagCopyConfigEnvironment model constructor.
+     * @property {module:model/FlagCopyConfigEnvironment}
      */
-    FlagConfigScheduledChangesPostBody: FlagConfigScheduledChangesPostBody,
+    FlagCopyConfigEnvironment,
+
     /**
-     * The FlagListItem model constructor.
-     * @property {module:model/FlagListItem}
+     * The FlagCopyConfigPost model constructor.
+     * @property {module:model/FlagCopyConfigPost}
      */
-    FlagListItem: FlagListItem,
+    FlagCopyConfigPost,
+
     /**
-     * The HierarchicalLinks model constructor.
-     * @property {module:model/HierarchicalLinks}
+     * The FlagGlobalAttributesRep model constructor.
+     * @property {module:model/FlagGlobalAttributesRep}
      */
-    HierarchicalLinks: HierarchicalLinks,
+    FlagGlobalAttributesRep,
+
     /**
-     * The Id model constructor.
-     * @property {module:model/Id}
+     * The FlagListingRep model constructor.
+     * @property {module:model/FlagListingRep}
      */
-    Id: Id,
+    FlagListingRep,
+
     /**
-     * The Integration model constructor.
-     * @property {module:model/Integration}
+     * The FlagScheduledChangesInput model constructor.
+     * @property {module:model/FlagScheduledChangesInput}
      */
-    Integration: Integration,
+    FlagScheduledChangesInput,
+
     /**
-     * The IntegrationSubscription model constructor.
-     * @property {module:model/IntegrationSubscription}
+     * The FlagStatusRep model constructor.
+     * @property {module:model/FlagStatusRep}
      */
-    IntegrationSubscription: IntegrationSubscription,
+    FlagStatusRep,
+
     /**
-     * The IntegrationSubscriptionStatus model constructor.
-     * @property {module:model/IntegrationSubscriptionStatus}
+     * The FlagSummary model constructor.
+     * @property {module:model/FlagSummary}
      */
-    IntegrationSubscriptionStatus: IntegrationSubscriptionStatus,
+    FlagSummary,
+
     /**
-     * The Integrations model constructor.
-     * @property {module:model/Integrations}
+     * The HunkRep model constructor.
+     * @property {module:model/HunkRep}
      */
-    Integrations: Integrations,
+    HunkRep,
+
+    /**
+     * The InlineObject model constructor.
+     * @property {module:model/InlineObject}
+     */
+    InlineObject,
+
+    /**
+     * The InlineObject1 model constructor.
+     * @property {module:model/InlineObject1}
+     */
+    InlineObject1,
+
+    /**
+     * The InlineResponse200 model constructor.
+     * @property {module:model/InlineResponse200}
+     */
+    InlineResponse200,
+
+    /**
+     * The IntegrationMetadata model constructor.
+     * @property {module:model/IntegrationMetadata}
+     */
+    IntegrationMetadata,
+
+    /**
+     * The IntegrationStatus model constructor.
+     * @property {module:model/IntegrationStatus}
+     */
+    IntegrationStatus,
+
+    /**
+     * The IpList model constructor.
+     * @property {module:model/IpList}
+     */
+    IpList,
+
+    /**
+     * The LastSeenMetadata model constructor.
+     * @property {module:model/LastSeenMetadata}
+     */
+    LastSeenMetadata,
+
     /**
      * The Link model constructor.
      * @property {module:model/Link}
      */
-    Link: Link,
-    /**
-     * The Links model constructor.
-     * @property {module:model/Links}
-     */
-    Links: Links,
-    /**
-     * The MAU model constructor.
-     * @property {module:model/MAU}
-     */
-    MAU: MAU,
-    /**
-     * The MAUMetadata model constructor.
-     * @property {module:model/MAUMetadata}
-     */
-    MAUMetadata: MAUMetadata,
-    /**
-     * The MAUbyCategory model constructor.
-     * @property {module:model/MAUbyCategory}
-     */
-    MAUbyCategory: MAUbyCategory,
+    Link,
+
     /**
      * The Member model constructor.
      * @property {module:model/Member}
      */
-    Member: Member,
+    Member,
+
     /**
-     * The MemberLastSeenMetadata model constructor.
-     * @property {module:model/MemberLastSeenMetadata}
+     * The MemberDataRep model constructor.
+     * @property {module:model/MemberDataRep}
      */
-    MemberLastSeenMetadata: MemberLastSeenMetadata,
+    MemberDataRep,
+
+    /**
+     * The MemberPermissionGrantSummaryRep model constructor.
+     * @property {module:model/MemberPermissionGrantSummaryRep}
+     */
+    MemberPermissionGrantSummaryRep,
+
+    /**
+     * The MemberSummaryRep model constructor.
+     * @property {module:model/MemberSummaryRep}
+     */
+    MemberSummaryRep,
+
+    /**
+     * The MemberTeamSummaryRep model constructor.
+     * @property {module:model/MemberTeamSummaryRep}
+     */
+    MemberTeamSummaryRep,
+
     /**
      * The Members model constructor.
      * @property {module:model/Members}
      */
-    Members: Members,
+    Members,
+
     /**
-     * The MembersBody model constructor.
-     * @property {module:model/MembersBody}
+     * The MetricCollectionRep model constructor.
+     * @property {module:model/MetricCollectionRep}
      */
-    MembersBody: MembersBody,
+    MetricCollectionRep,
+
+    /**
+     * The MetricListingRep model constructor.
+     * @property {module:model/MetricListingRep}
+     */
+    MetricListingRep,
+
+    /**
+     * The MetricPost model constructor.
+     * @property {module:model/MetricPost}
+     */
+    MetricPost,
+
+    /**
+     * The MetricRep model constructor.
+     * @property {module:model/MetricRep}
+     */
+    MetricRep,
+
+    /**
+     * The Modification model constructor.
+     * @property {module:model/Modification}
+     */
+    Modification,
+
     /**
      * The MultiEnvironmentDependentFlag model constructor.
      * @property {module:model/MultiEnvironmentDependentFlag}
      */
-    MultiEnvironmentDependentFlag: MultiEnvironmentDependentFlag,
+    MultiEnvironmentDependentFlag,
+
     /**
      * The MultiEnvironmentDependentFlags model constructor.
      * @property {module:model/MultiEnvironmentDependentFlags}
      */
-    MultiEnvironmentDependentFlags: MultiEnvironmentDependentFlags,
+    MultiEnvironmentDependentFlags,
+
     /**
-     * The PatchComment model constructor.
-     * @property {module:model/PatchComment}
+     * The NewMemberForm model constructor.
+     * @property {module:model/NewMemberForm}
      */
-    PatchComment: PatchComment,
+    NewMemberForm,
+
+    /**
+     * The ParentResourceRep model constructor.
+     * @property {module:model/ParentResourceRep}
+     */
+    ParentResourceRep,
+
     /**
      * The PatchOperation model constructor.
      * @property {module:model/PatchOperation}
      */
-    PatchOperation: PatchOperation,
+    PatchOperation,
+
     /**
-     * The Policy model constructor.
-     * @property {module:model/Policy}
+     * The PatchSegmentInstruction model constructor.
+     * @property {module:model/PatchSegmentInstruction}
      */
-    Policy: Policy,
+    PatchSegmentInstruction,
+
+    /**
+     * The PatchSegmentRequest model constructor.
+     * @property {module:model/PatchSegmentRequest}
+     */
+    PatchSegmentRequest,
+
+    /**
+     * The PatchWithComment model constructor.
+     * @property {module:model/PatchWithComment}
+     */
+    PatchWithComment,
+
+    /**
+     * The PostApprovalRequestApplyRequest model constructor.
+     * @property {module:model/PostApprovalRequestApplyRequest}
+     */
+    PostApprovalRequestApplyRequest,
+
+    /**
+     * The PostApprovalRequestReviewRequest model constructor.
+     * @property {module:model/PostApprovalRequestReviewRequest}
+     */
+    PostApprovalRequestReviewRequest,
+
+    /**
+     * The PostFlagScheduledChangesInput model constructor.
+     * @property {module:model/PostFlagScheduledChangesInput}
+     */
+    PostFlagScheduledChangesInput,
+
     /**
      * The Prerequisite model constructor.
      * @property {module:model/Prerequisite}
      */
-    Prerequisite: Prerequisite,
+    Prerequisite,
+
     /**
      * The Project model constructor.
      * @property {module:model/Project}
      */
-    Project: Project,
+    Project,
+
     /**
-     * The ProjectBody model constructor.
-     * @property {module:model/ProjectBody}
+     * The ProjectListingRep model constructor.
+     * @property {module:model/ProjectListingRep}
      */
-    ProjectBody: ProjectBody,
+    ProjectListingRep,
+
+    /**
+     * The ProjectPost model constructor.
+     * @property {module:model/ProjectPost}
+     */
+    ProjectPost,
+
     /**
      * The Projects model constructor.
      * @property {module:model/Projects}
      */
-    Projects: Projects,
+    Projects,
+
     /**
-     * The RelayProxyConfig model constructor.
-     * @property {module:model/RelayProxyConfig}
+     * The PubNubDetailRep model constructor.
+     * @property {module:model/PubNubDetailRep}
      */
-    RelayProxyConfig: RelayProxyConfig,
+    PubNubDetailRep,
+
     /**
-     * The RelayProxyConfigBody model constructor.
-     * @property {module:model/RelayProxyConfigBody}
+     * The ReferenceRep model constructor.
+     * @property {module:model/ReferenceRep}
      */
-    RelayProxyConfigBody: RelayProxyConfigBody,
+    ReferenceRep,
+
     /**
-     * The RelayProxyConfigs model constructor.
-     * @property {module:model/RelayProxyConfigs}
+     * The RelayAutoConfigCollectionRep model constructor.
+     * @property {module:model/RelayAutoConfigCollectionRep}
      */
-    RelayProxyConfigs: RelayProxyConfigs,
+    RelayAutoConfigCollectionRep,
+
     /**
-     * The Role model constructor.
-     * @property {module:model/Role}
+     * The RelayAutoConfigPost model constructor.
+     * @property {module:model/RelayAutoConfigPost}
      */
-    Role: Role,
+    RelayAutoConfigPost,
+
+    /**
+     * The RelayAutoConfigRep model constructor.
+     * @property {module:model/RelayAutoConfigRep}
+     */
+    RelayAutoConfigRep,
+
+    /**
+     * The RepositoryCollectionRep model constructor.
+     * @property {module:model/RepositoryCollectionRep}
+     */
+    RepositoryCollectionRep,
+
+    /**
+     * The RepositoryPost model constructor.
+     * @property {module:model/RepositoryPost}
+     */
+    RepositoryPost,
+
+    /**
+     * The RepositoryRep model constructor.
+     * @property {module:model/RepositoryRep}
+     */
+    RepositoryRep,
+
+    /**
+     * The ResourceAccess model constructor.
+     * @property {module:model/ResourceAccess}
+     */
+    ResourceAccess,
+
+    /**
+     * The ResourceIDResponse model constructor.
+     * @property {module:model/ResourceIDResponse}
+     */
+    ResourceIDResponse,
+
+    /**
+     * The ReviewResponse model constructor.
+     * @property {module:model/ReviewResponse}
+     */
+    ReviewResponse,
+
     /**
      * The Rollout model constructor.
      * @property {module:model/Rollout}
      */
-    Rollout: Rollout,
+    Rollout,
+
     /**
      * The Rule model constructor.
      * @property {module:model/Rule}
      */
-    Rule: Rule,
+    Rule,
+
     /**
-     * The ScheduledChangesFeatureFlagConflict model constructor.
-     * @property {module:model/ScheduledChangesFeatureFlagConflict}
+     * The SdkListRep model constructor.
+     * @property {module:model/SdkListRep}
      */
-    ScheduledChangesFeatureFlagConflict: ScheduledChangesFeatureFlagConflict,
+    SdkListRep,
+
     /**
-     * The SemanticPatchInstruction model constructor.
-     * @property {module:model/SemanticPatchInstruction}
+     * The SdkVersionListRep model constructor.
+     * @property {module:model/SdkVersionListRep}
      */
-    SemanticPatchInstruction: SemanticPatchInstruction,
+    SdkVersionListRep,
+
     /**
-     * The SemanticPatchInstructionInner model constructor.
-     * @property {module:model/SemanticPatchInstructionInner}
+     * The SdkVersionRep model constructor.
+     * @property {module:model/SdkVersionRep}
      */
-    SemanticPatchInstructionInner: SemanticPatchInstructionInner,
+    SdkVersionRep,
+
     /**
-     * The SemanticPatchOperation model constructor.
-     * @property {module:model/SemanticPatchOperation}
+     * The SegmentBody model constructor.
+     * @property {module:model/SegmentBody}
      */
-    SemanticPatchOperation: SemanticPatchOperation,
+    SegmentBody,
+
     /**
-     * The Site model constructor.
-     * @property {module:model/Site}
+     * The SegmentMetadata model constructor.
+     * @property {module:model/SegmentMetadata}
      */
-    Site: Site,
+    SegmentMetadata,
+
+    /**
+     * The SegmentUserList model constructor.
+     * @property {module:model/SegmentUserList}
+     */
+    SegmentUserList,
+
+    /**
+     * The SegmentUserState model constructor.
+     * @property {module:model/SegmentUserState}
+     */
+    SegmentUserState,
+
+    /**
+     * The SeriesListRep model constructor.
+     * @property {module:model/SeriesListRep}
+     */
+    SeriesListRep,
+
+    /**
+     * The SourceFlag model constructor.
+     * @property {module:model/SourceFlag}
+     */
+    SourceFlag,
+
     /**
      * The Statement model constructor.
      * @property {module:model/Statement}
      */
-    Statement: Statement,
+    Statement,
+
     /**
-     * The Stream model constructor.
-     * @property {module:model/Stream}
+     * The StatementPost model constructor.
+     * @property {module:model/StatementPost}
      */
-    Stream: Stream,
+    StatementPost,
+
     /**
-     * The StreamBySDK model constructor.
-     * @property {module:model/StreamBySDK}
+     * The StatementPostData model constructor.
+     * @property {module:model/StatementPostData}
      */
-    StreamBySDK: StreamBySDK,
+    StatementPostData,
+
     /**
-     * The StreamBySDKLinks model constructor.
-     * @property {module:model/StreamBySDKLinks}
+     * The StatementRep model constructor.
+     * @property {module:model/StatementRep}
      */
-    StreamBySDKLinks: StreamBySDKLinks,
+    StatementRep,
+
     /**
-     * The StreamBySDKLinksMetadata model constructor.
-     * @property {module:model/StreamBySDKLinksMetadata}
+     * The StatisticCollectionRep model constructor.
+     * @property {module:model/StatisticCollectionRep}
      */
-    StreamBySDKLinksMetadata: StreamBySDKLinksMetadata,
+    StatisticCollectionRep,
+
     /**
-     * The StreamLinks model constructor.
-     * @property {module:model/StreamLinks}
+     * The StatisticRep model constructor.
+     * @property {module:model/StatisticRep}
      */
-    StreamLinks: StreamLinks,
+    StatisticRep,
+
     /**
-     * The StreamSDKVersion model constructor.
-     * @property {module:model/StreamSDKVersion}
+     * The StatisticsRoot model constructor.
+     * @property {module:model/StatisticsRoot}
      */
-    StreamSDKVersion: StreamSDKVersion,
+    StatisticsRoot,
+
     /**
-     * The StreamSDKVersionData model constructor.
-     * @property {module:model/StreamSDKVersionData}
+     * The SubjectDataRep model constructor.
+     * @property {module:model/SubjectDataRep}
      */
-    StreamSDKVersionData: StreamSDKVersionData,
-    /**
-     * The StreamUsageError model constructor.
-     * @property {module:model/StreamUsageError}
-     */
-    StreamUsageError: StreamUsageError,
-    /**
-     * The StreamUsageLinks model constructor.
-     * @property {module:model/StreamUsageLinks}
-     */
-    StreamUsageLinks: StreamUsageLinks,
-    /**
-     * The StreamUsageMetadata model constructor.
-     * @property {module:model/StreamUsageMetadata}
-     */
-    StreamUsageMetadata: StreamUsageMetadata,
-    /**
-     * The StreamUsageSeries model constructor.
-     * @property {module:model/StreamUsageSeries}
-     */
-    StreamUsageSeries: StreamUsageSeries,
-    /**
-     * The Streams model constructor.
-     * @property {module:model/Streams}
-     */
-    Streams: Streams,
-    /**
-     * The SubscriptionBody model constructor.
-     * @property {module:model/SubscriptionBody}
-     */
-    SubscriptionBody: SubscriptionBody,
+    SubjectDataRep,
+
     /**
      * The Target model constructor.
      * @property {module:model/Target}
      */
-    Target: Target,
+    Target,
+
+    /**
+     * The TargetResourceRep model constructor.
+     * @property {module:model/TargetResourceRep}
+     */
+    TargetResourceRep,
+
+    /**
+     * The TitleRep model constructor.
+     * @property {module:model/TitleRep}
+     */
+    TitleRep,
+
     /**
      * The Token model constructor.
      * @property {module:model/Token}
      */
-    Token: Token,
+    Token,
+
     /**
-     * The TokenBody model constructor.
-     * @property {module:model/TokenBody}
+     * The TokenDataRep model constructor.
+     * @property {module:model/TokenDataRep}
      */
-    TokenBody: TokenBody,
+    TokenDataRep,
+
     /**
      * The Tokens model constructor.
      * @property {module:model/Tokens}
      */
-    Tokens: Tokens,
+    Tokens,
+
     /**
-     * The Usage model constructor.
-     * @property {module:model/Usage}
+     * The UrlPost model constructor.
+     * @property {module:model/UrlPost}
      */
-    Usage: Usage,
-    /**
-     * The UsageError model constructor.
-     * @property {module:model/UsageError}
-     */
-    UsageError: UsageError,
-    /**
-     * The UsageLinks model constructor.
-     * @property {module:model/UsageLinks}
-     */
-    UsageLinks: UsageLinks,
+    UrlPost,
+
     /**
      * The User model constructor.
      * @property {module:model/User}
      */
-    User: User,
+    User,
+
+    /**
+     * The UserAttributeNamesRep model constructor.
+     * @property {module:model/UserAttributeNamesRep}
+     */
+    UserAttributeNamesRep,
+
     /**
      * The UserFlagSetting model constructor.
      * @property {module:model/UserFlagSetting}
      */
-    UserFlagSetting: UserFlagSetting,
+    UserFlagSetting,
+
     /**
      * The UserFlagSettings model constructor.
      * @property {module:model/UserFlagSettings}
      */
-    UserFlagSettings: UserFlagSettings,
+    UserFlagSettings,
+
     /**
      * The UserRecord model constructor.
      * @property {module:model/UserRecord}
      */
-    UserRecord: UserRecord,
+    UserRecord,
+
     /**
      * The UserSegment model constructor.
      * @property {module:model/UserSegment}
      */
-    UserSegment: UserSegment,
-    /**
-     * The UserSegmentBody model constructor.
-     * @property {module:model/UserSegmentBody}
-     */
-    UserSegmentBody: UserSegmentBody,
+    UserSegment,
+
     /**
      * The UserSegmentRule model constructor.
      * @property {module:model/UserSegmentRule}
      */
-    UserSegmentRule: UserSegmentRule,
+    UserSegmentRule,
+
     /**
      * The UserSegments model constructor.
      * @property {module:model/UserSegments}
      */
-    UserSegments: UserSegments,
-    /**
-     * The UserSettingsBody model constructor.
-     * @property {module:model/UserSettingsBody}
-     */
-    UserSettingsBody: UserSettingsBody,
-    /**
-     * The UserTargetingExpirationForFlag model constructor.
-     * @property {module:model/UserTargetingExpirationForFlag}
-     */
-    UserTargetingExpirationForFlag: UserTargetingExpirationForFlag,
-    /**
-     * The UserTargetingExpirationForFlags model constructor.
-     * @property {module:model/UserTargetingExpirationForFlags}
-     */
-    UserTargetingExpirationForFlags: UserTargetingExpirationForFlags,
-    /**
-     * The UserTargetingExpirationForSegment model constructor.
-     * @property {module:model/UserTargetingExpirationForSegment}
-     */
-    UserTargetingExpirationForSegment: UserTargetingExpirationForSegment,
-    /**
-     * The UserTargetingExpirationOnFlagsForUser model constructor.
-     * @property {module:model/UserTargetingExpirationOnFlagsForUser}
-     */
-    UserTargetingExpirationOnFlagsForUser: UserTargetingExpirationOnFlagsForUser,
-    /**
-     * The UserTargetingExpirationResourceIdForFlag model constructor.
-     * @property {module:model/UserTargetingExpirationResourceIdForFlag}
-     */
-    UserTargetingExpirationResourceIdForFlag: UserTargetingExpirationResourceIdForFlag,
+    UserSegments,
+
     /**
      * The Users model constructor.
      * @property {module:model/Users}
      */
-    Users: Users,
+    Users,
+
+    /**
+     * The ValuePut model constructor.
+     * @property {module:model/ValuePut}
+     */
+    ValuePut,
+
+    /**
+     * The Variate model constructor.
+     * @property {module:model/Variate}
+     */
+    Variate,
+
     /**
      * The Variation model constructor.
      * @property {module:model/Variation}
      */
-    Variation: Variation,
+    Variation,
+
+    /**
+     * The VariationOrRolloutRep model constructor.
+     * @property {module:model/VariationOrRolloutRep}
+     */
+    VariationOrRolloutRep,
+
+    /**
+     * The VariationSummary model constructor.
+     * @property {module:model/VariationSummary}
+     */
+    VariationSummary,
+
+    /**
+     * The VersionsRep model constructor.
+     * @property {module:model/VersionsRep}
+     */
+    VersionsRep,
+
     /**
      * The Webhook model constructor.
      * @property {module:model/Webhook}
      */
-    Webhook: Webhook,
+    Webhook,
+
     /**
-     * The WebhookBody model constructor.
-     * @property {module:model/WebhookBody}
+     * The WebhookPost model constructor.
+     * @property {module:model/WebhookPost}
      */
-    WebhookBody: WebhookBody,
+    WebhookPost,
+
     /**
      * The Webhooks model constructor.
      * @property {module:model/Webhooks}
      */
-    Webhooks: Webhooks,
+    Webhooks,
+
     /**
      * The WeightedVariation model constructor.
      * @property {module:model/WeightedVariation}
      */
-    WeightedVariation: WeightedVariation,
-    /**
-     * The AccessTokensApi service constructor.
-     * @property {module:api/AccessTokensApi}
-     */
-    AccessTokensApi: AccessTokensApi,
-    /**
-     * The AuditLogApi service constructor.
-     * @property {module:api/AuditLogApi}
-     */
-    AuditLogApi: AuditLogApi,
-    /**
-     * The CustomRolesApi service constructor.
-     * @property {module:api/CustomRolesApi}
-     */
-    CustomRolesApi: CustomRolesApi,
-    /**
-     * The CustomerMetricsApi service constructor.
-     * @property {module:api/CustomerMetricsApi}
-     */
-    CustomerMetricsApi: CustomerMetricsApi,
-    /**
-     * The DataExportDestinationsApi service constructor.
-     * @property {module:api/DataExportDestinationsApi}
-     */
-    DataExportDestinationsApi: DataExportDestinationsApi,
-    /**
-     * The EnvironmentsApi service constructor.
-     * @property {module:api/EnvironmentsApi}
-     */
-    EnvironmentsApi: EnvironmentsApi,
-    /**
-     * The FeatureFlagsApi service constructor.
-     * @property {module:api/FeatureFlagsApi}
-     */
-    FeatureFlagsApi: FeatureFlagsApi,
-    /**
-     * The IntegrationsApi service constructor.
-     * @property {module:api/IntegrationsApi}
-     */
-    IntegrationsApi: IntegrationsApi,
-    /**
-     * The ProjectsApi service constructor.
-     * @property {module:api/ProjectsApi}
-     */
-    ProjectsApi: ProjectsApi,
-    /**
-     * The RelayProxyConfigurationsApi service constructor.
-     * @property {module:api/RelayProxyConfigurationsApi}
-     */
-    RelayProxyConfigurationsApi: RelayProxyConfigurationsApi,
-    /**
-     * The RootApi service constructor.
-     * @property {module:api/RootApi}
-     */
-    RootApi: RootApi,
-    /**
-     * The TeamMembersApi service constructor.
-     * @property {module:api/TeamMembersApi}
-     */
-    TeamMembersApi: TeamMembersApi,
-    /**
-     * The UserSegmentsApi service constructor.
-     * @property {module:api/UserSegmentsApi}
-     */
-    UserSegmentsApi: UserSegmentsApi,
-    /**
-     * The UserSettingsApi service constructor.
-     * @property {module:api/UserSettingsApi}
-     */
-    UserSettingsApi: UserSettingsApi,
-    /**
-     * The UsersApi service constructor.
-     * @property {module:api/UsersApi}
-     */
-    UsersApi: UsersApi,
-    /**
-     * The WebhooksApi service constructor.
-     * @property {module:api/WebhooksApi}
-     */
-    WebhooksApi: WebhooksApi
-  };
+    WeightedVariation,
 
-  return exports;
-}));
+    /**
+    * The AccessTokensApi service constructor.
+    * @property {module:api/AccessTokensApi}
+    */
+    AccessTokensApi,
+
+    /**
+    * The AccountMembersApi service constructor.
+    * @property {module:api/AccountMembersApi}
+    */
+    AccountMembersApi,
+
+    /**
+    * The AccountUsageBetaApi service constructor.
+    * @property {module:api/AccountUsageBetaApi}
+    */
+    AccountUsageBetaApi,
+
+    /**
+    * The ApprovalsApi service constructor.
+    * @property {module:api/ApprovalsApi}
+    */
+    ApprovalsApi,
+
+    /**
+    * The AuditLogApi service constructor.
+    * @property {module:api/AuditLogApi}
+    */
+    AuditLogApi,
+
+    /**
+    * The CodeReferencesApi service constructor.
+    * @property {module:api/CodeReferencesApi}
+    */
+    CodeReferencesApi,
+
+    /**
+    * The CustomRolesApi service constructor.
+    * @property {module:api/CustomRolesApi}
+    */
+    CustomRolesApi,
+
+    /**
+    * The DataExportDestinationsApi service constructor.
+    * @property {module:api/DataExportDestinationsApi}
+    */
+    DataExportDestinationsApi,
+
+    /**
+    * The EnvironmentsApi service constructor.
+    * @property {module:api/EnvironmentsApi}
+    */
+    EnvironmentsApi,
+
+    /**
+    * The ExperimentsBetaApi service constructor.
+    * @property {module:api/ExperimentsBetaApi}
+    */
+    ExperimentsBetaApi,
+
+    /**
+    * The FeatureFlagsApi service constructor.
+    * @property {module:api/FeatureFlagsApi}
+    */
+    FeatureFlagsApi,
+
+    /**
+    * The FeatureFlagsBetaApi service constructor.
+    * @property {module:api/FeatureFlagsBetaApi}
+    */
+    FeatureFlagsBetaApi,
+
+    /**
+    * The MetricsApi service constructor.
+    * @property {module:api/MetricsApi}
+    */
+    MetricsApi,
+
+    /**
+    * The OtherApi service constructor.
+    * @property {module:api/OtherApi}
+    */
+    OtherApi,
+
+    /**
+    * The ProjectsApi service constructor.
+    * @property {module:api/ProjectsApi}
+    */
+    ProjectsApi,
+
+    /**
+    * The RelayProxyConfigurationsApi service constructor.
+    * @property {module:api/RelayProxyConfigurationsApi}
+    */
+    RelayProxyConfigurationsApi,
+
+    /**
+    * The ScheduledChangesApi service constructor.
+    * @property {module:api/ScheduledChangesApi}
+    */
+    ScheduledChangesApi,
+
+    /**
+    * The SegmentsApi service constructor.
+    * @property {module:api/SegmentsApi}
+    */
+    SegmentsApi,
+
+    /**
+    * The UserSettingsApi service constructor.
+    * @property {module:api/UserSettingsApi}
+    */
+    UserSettingsApi,
+
+    /**
+    * The UsersApi service constructor.
+    * @property {module:api/UsersApi}
+    */
+    UsersApi,
+
+    /**
+    * The UsersBetaApi service constructor.
+    * @property {module:api/UsersBetaApi}
+    */
+    UsersBetaApi,
+
+    /**
+    * The WebhooksApi service constructor.
+    * @property {module:api/WebhooksApi}
+    */
+    WebhooksApi
+};

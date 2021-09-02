@@ -1,9 +1,10 @@
 # LaunchDarklyApi.Destinations
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**Links**](Links.md) |  | [optional] 
+**links** | [**{String: Link}**](Link.md) |  | [optional] 
 **items** | [**[Destination]**](Destination.md) |  | [optional] 
 
 

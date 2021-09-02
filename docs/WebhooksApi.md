@@ -1,53 +1,53 @@
 # LaunchDarklyApi.WebhooksApi
 
-All URIs are relative to *https://app.launchdarkly.com/api/v2*
+All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteWebhook**](WebhooksApi.md#deleteWebhook) | **DELETE** /webhooks/{resourceId} | Delete a webhook by ID.
-[**getWebhook**](WebhooksApi.md#getWebhook) | **GET** /webhooks/{resourceId} | Get a webhook by ID.
-[**getWebhooks**](WebhooksApi.md#getWebhooks) | **GET** /webhooks | Fetch a list of all webhooks.
-[**patchWebhook**](WebhooksApi.md#patchWebhook) | **PATCH** /webhooks/{resourceId} | Modify a webhook by ID.
-[**postWebhook**](WebhooksApi.md#postWebhook) | **POST** /webhooks | Create a webhook.
+[**deleteWebhook**](WebhooksApi.md#deleteWebhook) | **DELETE** /api/v2/webhooks/{id} | Delete webhook
+[**getAllWebhooks**](WebhooksApi.md#getAllWebhooks) | **GET** /api/v2/webhooks | List webhooks
+[**getWebhook**](WebhooksApi.md#getWebhook) | **GET** /api/v2/webhooks/{id} | Get webhook
+[**patchWebhook**](WebhooksApi.md#patchWebhook) | **PATCH** /api/v2/webhooks/{id} | Update webhook
+[**postWebhook**](WebhooksApi.md#postWebhook) | **POST** /api/v2/webhooks | Creates a webhook
 
 
-<a name="deleteWebhook"></a>
-# **deleteWebhook**
-> deleteWebhook(resourceId, )
+
+## deleteWebhook
+
+> deleteWebhook(id)
+
+Delete webhook
 
 Delete a webhook by ID.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.WebhooksApi();
-
-var resourceId = "resourceId_example"; // String | The resource ID.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.WebhooksApi();
+let id = "id_example"; // String | The ID of the webhook to delete
+apiInstance.deleteWebhook(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteWebhook(resourceId, , callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceId** | **String**| The resource ID. | 
+ **id** | **String**| The ID of the webhook to delete | 
 
 ### Return type
 
@@ -55,94 +55,45 @@ null (empty response body)
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="getWebhook"></a>
-# **getWebhook**
-> Webhook getWebhook(resourceId, )
-
-Get a webhook by ID.
-
-### Example
-```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
-
-var apiInstance = new LaunchDarklyApi.WebhooksApi();
-
-var resourceId = "resourceId_example"; // String | The resource ID.
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.getWebhook(resourceId, , callback);
-```
+## getAllWebhooks
 
-### Parameters
+> Webhooks getAllWebhooks()
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **resourceId** | **String**| The resource ID. | 
-
-### Return type
-
-[**Webhook**](Webhook.md)
-
-### Authorization
-
-[Token](../README.md#Token)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="getWebhooks"></a>
-# **getWebhooks**
-> Webhooks getWebhooks()
+List webhooks
 
 Fetch a list of all webhooks.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.WebhooksApi();
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.WebhooksApi();
+apiInstance.getAllWebhooks((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getWebhooks(callback);
+});
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -151,53 +102,50 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="patchWebhook"></a>
-# **patchWebhook**
-> Webhook patchWebhook(resourceId, patchDelta)
 
-Modify a webhook by ID.
+## getWebhook
+
+> Webhook getWebhook(id)
+
+Get webhook
+
+Get a single webhook by ID.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.WebhooksApi();
-
-var resourceId = "resourceId_example"; // String | The resource ID.
-
-var patchDelta = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/'
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.WebhooksApi();
+let id = "id_example"; // String | The ID of the webhook
+apiInstance.getWebhook(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.patchWebhook(resourceId, patchDelta, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resourceId** | **String**| The resource ID. | 
- **patchDelta** | [**[PatchOperation]**](PatchOperation.md)| Requires a JSON Patch representation of the desired changes to the project. 'http://jsonpatch.com/' | 
+ **id** | **String**| The ID of the webhook | 
 
 ### Return type
 
@@ -205,50 +153,52 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="postWebhook"></a>
-# **postWebhook**
-> Webhook postWebhook(webhookBody)
 
-Create a webhook.
+## patchWebhook
+
+> Webhook patchWebhook(id, patchOperation)
+
+Update webhook
+
+Update a webhook&#39;s settings. The request should be a valid JSON Patch document describing the changes to be made to the webhook.
 
 ### Example
+
 ```javascript
-var LaunchDarklyApi = require('launchdarkly-api');
-var defaultClient = LaunchDarklyApi.ApiClient.instance;
-
-// Configure API key authorization: Token
-var Token = defaultClient.authentications['Token'];
-Token.apiKey = 'YOUR API KEY';
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//Token.apiKeyPrefix = 'Token';
+//ApiKey.apiKeyPrefix = 'Token';
 
-var apiInstance = new LaunchDarklyApi.WebhooksApi();
-
-var webhookBody = new LaunchDarklyApi.WebhookBody(); // WebhookBody | New webhook.
-
-
-var callback = function(error, data, response) {
+let apiInstance = new LaunchDarklyApi.WebhooksApi();
+let id = "id_example"; // String | The ID of the webhook to update
+let patchOperation = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | 
+apiInstance.patchWebhook(id, patchOperation, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.postWebhook(webhookBody, callback);
+});
 ```
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **webhookBody** | [**WebhookBody**](WebhookBody.md)| New webhook. | 
+ **id** | **String**| The ID of the webhook to update | 
+ **patchOperation** | [**[PatchOperation]**](PatchOperation.md)|  | 
 
 ### Return type
 
@@ -256,10 +206,61 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Token](../README.md#Token)
+[ApiKey](../README.md#ApiKey)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postWebhook
+
+> Webhook postWebhook(webhookPost)
+
+Creates a webhook
+
+Create a new webhook
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.WebhooksApi();
+let webhookPost = new LaunchDarklyApi.WebhookPost(); // WebhookPost | 
+apiInstance.postWebhook(webhookPost, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **webhookPost** | [**WebhookPost**](WebhookPost.md)|  | 
+
+### Return type
+
+[**Webhook**](Webhook.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 

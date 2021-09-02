@@ -1,10 +1,11 @@
 # LaunchDarklyApi.FeatureFlagStatusAcrossEnvironments
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**FeatureFlagStatusLinks**](FeatureFlagStatusLinks.md) |  | [optional] 
-**key** | **String** |  | [optional] 
-**environments** | [**{String: FeatureFlagStatusForQueriedEnvironment}**](FeatureFlagStatusForQueriedEnvironment.md) |  | [optional] 
+**environments** | [**{String: FeatureFlagStatus}**](FeatureFlagStatus.md) | Flag status for environment. | [optional] 
+**key** | **String** | feature flag key | [optional] 
+**links** | [**{String: Link}**](Link.md) |  | [optional] 
 
 
