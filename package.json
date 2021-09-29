@@ -1,6 +1,6 @@
 {
   "name": "launchdarkly-api",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "Build custom integrations with the LaunchDarkly REST API",
   "license": "Apache 2.0",
   "main": "dist/index.js",

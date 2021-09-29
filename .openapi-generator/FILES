@@ -35,6 +35,8 @@ docs/CustomRolePost.md
 docs/CustomRolePostData.md
 docs/CustomRoles.md
 docs/CustomRolesApi.md
+docs/CustomWorkflowMeta.md
+docs/CustomWorkflowStageMeta.md
 docs/DataExportDestinationsApi.md
 docs/DefaultClientSideAvailabilityPost.md
 docs/Defaults.md
@@ -116,6 +118,8 @@ docs/PatchOperation.md
 docs/PatchSegmentInstruction.md
 docs/PatchSegmentRequest.md
 docs/PatchWithComment.md
+docs/PermissionGrantInput.md
+docs/PermissionGrantRep.md
 docs/PostApprovalRequestApplyRequest.md
 docs/PostApprovalRequestReviewRequest.md
 docs/PostFlagScheduledChangesInput.md
@@ -160,6 +164,11 @@ docs/StatisticsRoot.md
 docs/SubjectDataRep.md
 docs/Target.md
 docs/TargetResourceRep.md
+docs/TeamCollectionRep.md
+docs/TeamPatchInput.md
+docs/TeamPostInput.md
+docs/TeamRep.md
+docs/TeamsBetaApi.md
 docs/TitleRep.md
 docs/Token.md
 docs/TokenDataRep.md
@@ -210,6 +219,7 @@ src/api/ProjectsApi.js
 src/api/RelayProxyConfigurationsApi.js
 src/api/ScheduledChangesApi.js
 src/api/SegmentsApi.js
+src/api/TeamsBetaApi.js
 src/api/UserSettingsApi.js
 src/api/UsersApi.js
 src/api/UsersBetaApi.js
@@ -240,6 +250,8 @@ src/model/CustomRole.js
 src/model/CustomRolePost.js
 src/model/CustomRolePostData.js
 src/model/CustomRoles.js
+src/model/CustomWorkflowMeta.js
+src/model/CustomWorkflowStageMeta.js
 src/model/DefaultClientSideAvailabilityPost.js
 src/model/Defaults.js
 src/model/DependentFlag.js
@@ -314,6 +326,8 @@ src/model/PatchOperation.js
 src/model/PatchSegmentInstruction.js
 src/model/PatchSegmentRequest.js
 src/model/PatchWithComment.js
+src/model/PermissionGrantInput.js
+src/model/PermissionGrantRep.js
 src/model/PostApprovalRequestApplyRequest.js
 src/model/PostApprovalRequestReviewRequest.js
 src/model/PostFlagScheduledChangesInput.js
@@ -354,6 +368,10 @@ src/model/StatisticsRoot.js
 src/model/SubjectDataRep.js
 src/model/Target.js
 src/model/TargetResourceRep.js
+src/model/TeamCollectionRep.js
+src/model/TeamPatchInput.js
+src/model/TeamPostInput.js
+src/model/TeamRep.js
 src/model/TitleRep.js
 src/model/Token.js
 src/model/TokenDataRep.js
@@ -396,6 +414,7 @@ test/api/ProjectsApi.spec.js
 test/api/RelayProxyConfigurationsApi.spec.js
 test/api/ScheduledChangesApi.spec.js
 test/api/SegmentsApi.spec.js
+test/api/TeamsBetaApi.spec.js
 test/api/UserSettingsApi.spec.js
 test/api/UsersApi.spec.js
 test/api/UsersBetaApi.spec.js
@@ -425,6 +444,8 @@ test/model/CustomRole.spec.js
 test/model/CustomRolePost.spec.js
 test/model/CustomRolePostData.spec.js
 test/model/CustomRoles.spec.js
+test/model/CustomWorkflowMeta.spec.js
+test/model/CustomWorkflowStageMeta.spec.js
 test/model/DefaultClientSideAvailabilityPost.spec.js
 test/model/Defaults.spec.js
 test/model/DependentFlag.spec.js
@@ -499,6 +520,8 @@ test/model/PatchOperation.spec.js
 test/model/PatchSegmentInstruction.spec.js
 test/model/PatchSegmentRequest.spec.js
 test/model/PatchWithComment.spec.js
+test/model/PermissionGrantInput.spec.js
+test/model/PermissionGrantRep.spec.js
 test/model/PostApprovalRequestApplyRequest.spec.js
 test/model/PostApprovalRequestReviewRequest.spec.js
 test/model/PostFlagScheduledChangesInput.spec.js
@@ -539,6 +562,10 @@ test/model/StatisticsRoot.spec.js
 test/model/SubjectDataRep.spec.js
 test/model/Target.spec.js
 test/model/TargetResourceRep.spec.js
+test/model/TeamCollectionRep.spec.js
+test/model/TeamPatchInput.spec.js
+test/model/TeamPostInput.spec.js
+test/model/TeamRep.spec.js
 test/model/TitleRep.spec.js
 test/model/Token.spec.js
 test/model/TokenDataRep.spec.js
