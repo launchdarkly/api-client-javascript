@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The User model module.
  * @module model/User
- * @version 6.0.1
+ * @version 6.0.2
  */
 class User {
     /**

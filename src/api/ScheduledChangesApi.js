@@ -16,12 +16,19 @@ import ApiClient from "../ApiClient";
 import FeatureFlagScheduledChange from '../model/FeatureFlagScheduledChange';
 import FeatureFlagScheduledChanges from '../model/FeatureFlagScheduledChanges';
 import FlagScheduledChangesInput from '../model/FlagScheduledChangesInput';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import MethodNotAllowedErrorRep from '../model/MethodNotAllowedErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import PostFlagScheduledChangesInput from '../model/PostFlagScheduledChangesInput';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * ScheduledChanges service.
 * @module api/ScheduledChangesApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class ScheduledChangesApi {
 
@@ -88,7 +95,7 @@ export default class ScheduledChangesApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/scheduled-changes/{id}', 'DELETE',

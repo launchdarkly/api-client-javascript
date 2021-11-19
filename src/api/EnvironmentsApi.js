@@ -15,12 +15,18 @@
 import ApiClient from "../ApiClient";
 import Environment from '../model/Environment';
 import EnvironmentPost from '../model/EnvironmentPost';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import PatchOperation from '../model/PatchOperation';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * Environments service.
 * @module api/EnvironmentsApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class EnvironmentsApi {
 
@@ -75,7 +81,7 @@ export default class EnvironmentsApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/projects/{projectKey}/environments/{environmentKey}', 'DELETE',
@@ -197,7 +203,7 @@ export default class EnvironmentsApi {
 
     /**
      * Create environment
-     * > ### Approval settings > > The `approvalSettings` key is only returned when the Flag Approvals feature is enabled.  Create a new environment in a specified project with a given name, key, swatch color, and default TTL. 
+     * > ### Approval settings > > The `approvalSettings` key is only returned when the Flag Approvals feature is enabled. > > You cannot update approval settings when creating new environments. Update approval settings with the PATCH Environment API.  Create a new environment in a specified project with a given name, key, swatch color, and default TTL. 
      * @param {String} projectKey The project key
      * @param {module:model/EnvironmentPost} environmentPost 
      * @param {module:api/EnvironmentsApi~postEnvironmentCallback} callback The callback function, accepting three arguments: error, data, response

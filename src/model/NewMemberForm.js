@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NewMemberForm model module.
  * @module model/NewMemberForm
- * @version 6.0.1
+ * @version 6.0.2
  */
 class NewMemberForm {
     /**

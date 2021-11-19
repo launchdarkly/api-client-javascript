@@ -22,12 +22,19 @@ import FeatureFlagStatuses from '../model/FeatureFlagStatuses';
 import FeatureFlags from '../model/FeatureFlags';
 import FlagCopyConfigPost from '../model/FlagCopyConfigPost';
 import FlagStatusRep from '../model/FlagStatusRep';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import MethodNotAllowedErrorRep from '../model/MethodNotAllowedErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import PatchWithComment from '../model/PatchWithComment';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * FeatureFlags service.
 * @module api/FeatureFlagsApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class FeatureFlagsApi {
 
@@ -136,7 +143,7 @@ export default class FeatureFlagsApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/flags/{projKey}/{key}', 'DELETE',

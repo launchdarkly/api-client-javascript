@@ -14,11 +14,16 @@
 
 import ApiClient from "../ApiClient";
 import ExperimentResultsRep from '../model/ExperimentResultsRep';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * ExperimentsBeta service.
 * @module api/ExperimentsBetaApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class ExperimentsBetaApi {
 
@@ -152,7 +157,7 @@ export default class ExperimentsBetaApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/flags/{projKey}/{flagKey}/experiments/{envKey}/{metricKey}/results', 'DELETE',

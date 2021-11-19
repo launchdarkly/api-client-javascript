@@ -14,14 +14,21 @@
 
 import ApiClient from "../ApiClient";
 import AccessTokenPost from '../model/AccessTokenPost';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
+import PatchFailedErrorRep from '../model/PatchFailedErrorRep';
 import PatchOperation from '../model/PatchOperation';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
 import Token from '../model/Token';
 import Tokens from '../model/Tokens';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * AccessTokens service.
 * @module api/AccessTokensApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class AccessTokensApi {
 
@@ -70,7 +77,7 @@ export default class AccessTokensApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/tokens/{id}', 'DELETE',

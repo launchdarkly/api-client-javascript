@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **key** | **String** | The custom role key | 
 **description** | **String** | Description of custom role | [optional] 
 **policy** | [**[StatementPost]**](StatementPost.md) |  | 
+**basePermissions** | **String** |  | [optional] 
 
 

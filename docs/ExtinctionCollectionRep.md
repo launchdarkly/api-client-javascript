@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **links** | [**{String: Link}**](Link.md) |  | 
-**items** | **{String: [ExtinctionRep]}** |  | 
+**items** | **{String: [ExtinctionRep]}** | An array of extinction events | 
 
 

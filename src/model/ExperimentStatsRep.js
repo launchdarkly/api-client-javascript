@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ExperimentStatsRep model module.
  * @module model/ExperimentStatsRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class ExperimentStatsRep {
     /**

@@ -60,12 +60,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## getCustomRole
 
-> CustomRolePost getCustomRole(key)
+> CustomRole getCustomRole(key)
 
 Get custom role
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**CustomRolePost**](CustomRolePost.md)
+[**CustomRole**](CustomRole.md)
 
 ### Authorization
 
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 ## postCustomRole
 
-> CustomRole postCustomRole(statementPost)
+> CustomRole postCustomRole(customRolePost)
 
 Create custom role
 
@@ -234,8 +234,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.CustomRolesApi();
-let statementPost = [new LaunchDarklyApi.StatementPost()]; // [StatementPost] | 
-apiInstance.postCustomRole(statementPost, (error, data, response) => {
+let customRolePost = new LaunchDarklyApi.CustomRolePost(); // CustomRolePost | 
+apiInstance.postCustomRole(customRolePost, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -249,7 +249,7 @@ apiInstance.postCustomRole(statementPost, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **statementPost** | [**[StatementPost]**](StatementPost.md)|  | 
+ **customRolePost** | [**CustomRolePost**](CustomRolePost.md)|  | 
 
 ### Return type
 

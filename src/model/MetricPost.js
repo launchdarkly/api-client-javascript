@@ -17,7 +17,7 @@ import UrlPost from './UrlPost';
 /**
  * The MetricPost model module.
  * @module model/MetricPost
- * @version 6.0.1
+ * @version 6.0.2
  */
 class MetricPost {
     /**

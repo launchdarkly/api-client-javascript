@@ -13,12 +13,16 @@
 
 
 import ApiClient from "../ApiClient";
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 import UserAttributeNamesRep from '../model/UserAttributeNamesRep';
 
 /**
 * UsersBeta service.
 * @module api/UsersBetaApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class UsersBetaApi {
 

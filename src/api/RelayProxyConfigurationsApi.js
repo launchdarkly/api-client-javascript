@@ -13,15 +13,22 @@
 
 
 import ApiClient from "../ApiClient";
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
+import PatchFailedErrorRep from '../model/PatchFailedErrorRep';
 import PatchWithComment from '../model/PatchWithComment';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
 import RelayAutoConfigCollectionRep from '../model/RelayAutoConfigCollectionRep';
 import RelayAutoConfigPost from '../model/RelayAutoConfigPost';
 import RelayAutoConfigRep from '../model/RelayAutoConfigRep';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * RelayProxyConfigurations service.
 * @module api/RelayProxyConfigurationsApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class RelayProxyConfigurationsApi {
 
@@ -70,7 +77,7 @@ export default class RelayProxyConfigurationsApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/account/relay-auto-configs/{id}', 'DELETE',

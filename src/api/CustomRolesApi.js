@@ -16,13 +16,18 @@ import ApiClient from "../ApiClient";
 import CustomRole from '../model/CustomRole';
 import CustomRolePost from '../model/CustomRolePost';
 import CustomRoles from '../model/CustomRoles';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import PatchWithComment from '../model/PatchWithComment';
-import StatementPost from '../model/StatementPost';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * CustomRoles service.
 * @module api/CustomRolesApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class CustomRolesApi {
 
@@ -71,7 +76,7 @@ export default class CustomRolesApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/roles/{key}', 'DELETE',
@@ -84,7 +89,7 @@ export default class CustomRolesApi {
      * Callback function to receive the result of the getCustomRole operation.
      * @callback module:api/CustomRolesApi~getCustomRoleCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/CustomRolePost} data The data returned by the service call.
+     * @param {module:model/CustomRole} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -93,7 +98,7 @@ export default class CustomRolesApi {
      * Get a single custom role by key or ID
      * @param {String} key The custom role's key or ID
      * @param {module:api/CustomRolesApi~getCustomRoleCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/CustomRolePost}
+     * data is of type: {@link module:model/CustomRole}
      */
     getCustomRole(key, callback) {
       let postBody = null;
@@ -115,7 +120,7 @@ export default class CustomRolesApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = CustomRolePost;
+      let returnType = CustomRole;
       return this.apiClient.callApi(
         '/api/v2/roles/{key}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -219,15 +224,15 @@ export default class CustomRolesApi {
     /**
      * Create custom role
      * Create a new custom role
-     * @param {Array.<module:model/StatementPost>} statementPost 
+     * @param {module:model/CustomRolePost} customRolePost 
      * @param {module:api/CustomRolesApi~postCustomRoleCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CustomRole}
      */
-    postCustomRole(statementPost, callback) {
-      let postBody = statementPost;
-      // verify the required parameter 'statementPost' is set
-      if (statementPost === undefined || statementPost === null) {
-        throw new Error("Missing the required parameter 'statementPost' when calling postCustomRole");
+    postCustomRole(customRolePost, callback) {
+      let postBody = customRolePost;
+      // verify the required parameter 'customRolePost' is set
+      if (customRolePost === undefined || customRolePost === null) {
+        throw new Error("Missing the required parameter 'customRolePost' when calling postCustomRole");
       }
 
       let pathParams = {

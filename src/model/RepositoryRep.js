@@ -18,17 +18,17 @@ import BranchRep from './BranchRep';
 /**
  * The RepositoryRep model module.
  * @module model/RepositoryRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class RepositoryRep {
     /**
      * Constructs a new <code>RepositoryRep</code>.
      * @alias module:model/RepositoryRep
-     * @param name {String} 
-     * @param type {String} 
-     * @param defaultBranch {String} 
-     * @param enabled {Boolean} 
-     * @param version {Number} 
+     * @param name {String} The repository name
+     * @param type {module:model/RepositoryRep.TypeEnum} The type of repository
+     * @param defaultBranch {String} The repository's default branch
+     * @param enabled {Boolean} Whether or not a repository is enabled for code reference scanning
+     * @param version {Number} The version of the repository's saved information
      * @param links {Object.<String, Object>} 
      */
     constructor(name, type, defaultBranch, enabled, version, links) { 
@@ -102,46 +102,55 @@ class RepositoryRep {
 }
 
 /**
+ * The repository name
  * @member {String} name
  */
 RepositoryRep.prototype['name'] = undefined;
 
 /**
+ * A URL to access the repository
  * @member {String} sourceLink
  */
 RepositoryRep.prototype['sourceLink'] = undefined;
 
 /**
+ * A template for constructing a valid URL to view the commit
  * @member {String} commitUrlTemplate
  */
 RepositoryRep.prototype['commitUrlTemplate'] = undefined;
 
 /**
+ * A template for constructing a valid URL to view the hunk
  * @member {String} hunkUrlTemplate
  */
 RepositoryRep.prototype['hunkUrlTemplate'] = undefined;
 
 /**
- * @member {String} type
+ * The type of repository
+ * @member {module:model/RepositoryRep.TypeEnum} type
  */
 RepositoryRep.prototype['type'] = undefined;
 
 /**
+ * The repository's default branch
  * @member {String} defaultBranch
  */
 RepositoryRep.prototype['defaultBranch'] = undefined;
 
 /**
+ * Whether or not a repository is enabled for code reference scanning
  * @member {Boolean} enabled
  */
 RepositoryRep.prototype['enabled'] = undefined;
 
 /**
+ * The version of the repository's saved information
  * @member {Number} version
  */
 RepositoryRep.prototype['version'] = undefined;
 
 /**
+ * An array of the repository's branches that have been scanned for code references
  * @member {Array.<module:model/BranchRep>} branches
  */
 RepositoryRep.prototype['branches'] = undefined;
@@ -158,6 +167,33 @@ RepositoryRep.prototype['_access'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>type</code> property.
+ * @enum {String}
+ * @readonly
+ */
+RepositoryRep['TypeEnum'] = {
+
+    /**
+     * value: "github"
+     * @const
+     */
+    "github": "github",
+
+    /**
+     * value: "bitbucket"
+     * @const
+     */
+    "bitbucket": "bitbucket",
+
+    /**
+     * value: "custom"
+     * @const
+     */
+    "custom": "custom"
+};
 
 
 

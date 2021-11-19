@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FeatureFlagStatus model module.
  * @module model/FeatureFlagStatus
- * @version 6.0.1
+ * @version 6.0.2
  */
 class FeatureFlagStatus {
     /**

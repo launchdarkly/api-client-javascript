@@ -17,13 +17,19 @@ import CreateCopyFlagConfigApprovalRequestRequest from '../model/CreateCopyFlagC
 import CreateFlagConfigApprovalRequestRequest from '../model/CreateFlagConfigApprovalRequestRequest';
 import FlagConfigApprovalRequestResponse from '../model/FlagConfigApprovalRequestResponse';
 import FlagConfigApprovalRequestsResponse from '../model/FlagConfigApprovalRequestsResponse';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import PostApprovalRequestApplyRequest from '../model/PostApprovalRequestApplyRequest';
 import PostApprovalRequestReviewRequest from '../model/PostApprovalRequestReviewRequest';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * Approvals service.
 * @module api/ApprovalsApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class ApprovalsApi {
 
@@ -90,7 +96,7 @@ export default class ApprovalsApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}', 'DELETE',
@@ -461,7 +467,7 @@ export default class ApprovalsApi {
       let accepts = ['application/json'];
       let returnType = FlagConfigApprovalRequestResponse;
       return this.apiClient.callApi(
-        '/api/v2/projects/{projectKey}/flags/{featureFlagKey}/copy/environments/{environmentKey}/approval-requests-flag-copy', 'POST',
+        '/api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests-flag-copy', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

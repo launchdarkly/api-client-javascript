@@ -17,7 +17,7 @@ import StatementPost from './StatementPost';
 /**
  * The AccessTokenPost model module.
  * @module model/AccessTokenPost
- * @version 6.0.1
+ * @version 6.0.2
  */
 class AccessTokenPost {
     /**

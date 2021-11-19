@@ -17,16 +17,18 @@ import PermissionGrantInput from './PermissionGrantInput';
 /**
  * The TeamPostInput model module.
  * @module model/TeamPostInput
- * @version 6.0.1
+ * @version 6.0.2
  */
 class TeamPostInput {
     /**
      * Constructs a new <code>TeamPostInput</code>.
      * @alias module:model/TeamPostInput
+     * @param key {String} The team's key or ID
+     * @param name {String} A human-friendly name for the team
      */
-    constructor() { 
+    constructor(key, name) { 
         
-        TeamPostInput.initialize(this);
+        TeamPostInput.initialize(this, key, name);
     }
 
     /**
@@ -34,7 +36,9 @@ class TeamPostInput {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, key, name) { 
+        obj['key'] = key;
+        obj['name'] = name;
     }
 
     /**
@@ -74,31 +78,37 @@ class TeamPostInput {
 }
 
 /**
+ * List of custom role keys the team will access
  * @member {Array.<String>} customRoleKeys
  */
 TeamPostInput.prototype['customRoleKeys'] = undefined;
 
 /**
+ * A description of the team
  * @member {String} description
  */
 TeamPostInput.prototype['description'] = undefined;
 
 /**
+ * The team's key or ID
  * @member {String} key
  */
 TeamPostInput.prototype['key'] = undefined;
 
 /**
+ * A list of member IDs who belong to the team
  * @member {Array.<String>} memberIDs
  */
 TeamPostInput.prototype['memberIDs'] = undefined;
 
 /**
+ * A human-friendly name for the team
  * @member {String} name
  */
 TeamPostInput.prototype['name'] = undefined;
 
 /**
+ * A list of permission grants to apply to the team. Can use \"maintainTeam\" to add team maintainers
  * @member {Array.<module:model/PermissionGrantInput>} permissionGrants
  */
 TeamPostInput.prototype['permissionGrants'] = undefined;

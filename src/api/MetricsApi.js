@@ -13,15 +13,21 @@
 
 
 import ApiClient from "../ApiClient";
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
 import MetricCollectionRep from '../model/MetricCollectionRep';
 import MetricPost from '../model/MetricPost';
 import MetricRep from '../model/MetricRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import PatchOperation from '../model/PatchOperation';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * Metrics service.
 * @module api/MetricsApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class MetricsApi {
 
@@ -76,7 +82,7 @@ export default class MetricsApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/metrics/{projectKey}/{key}', 'DELETE',

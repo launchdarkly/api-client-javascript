@@ -21,7 +21,7 @@ import MemberTeamSummaryRep from './MemberTeamSummaryRep';
 /**
  * The Member model module.
  * @module model/Member
- * @version 6.0.1
+ * @version 6.0.2
  */
 class Member {
     /**
@@ -37,10 +37,11 @@ class Member {
      * @param mfa {String} Whether or not multi-factor authentication is enabled for this member
      * @param excludedDashboards {Array.<String>} Default dashboards that the member has chosen to ignore
      * @param lastSeen {Number} 
+     * @param creationDate {Number} 
      */
-    constructor(links, id, role, email, pendingInvite, verified, customRoles, mfa, excludedDashboards, lastSeen) { 
+    constructor(links, id, role, email, pendingInvite, verified, customRoles, mfa, excludedDashboards, lastSeen, creationDate) { 
         
-        Member.initialize(this, links, id, role, email, pendingInvite, verified, customRoles, mfa, excludedDashboards, lastSeen);
+        Member.initialize(this, links, id, role, email, pendingInvite, verified, customRoles, mfa, excludedDashboards, lastSeen, creationDate);
     }
 
     /**
@@ -48,7 +49,7 @@ class Member {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, links, id, role, email, pendingInvite, verified, customRoles, mfa, excludedDashboards, lastSeen) { 
+    static initialize(obj, links, id, role, email, pendingInvite, verified, customRoles, mfa, excludedDashboards, lastSeen, creationDate) { 
         obj['_links'] = links;
         obj['_id'] = id;
         obj['role'] = role;
@@ -59,6 +60,7 @@ class Member {
         obj['mfa'] = mfa;
         obj['excludedDashboards'] = excludedDashboards;
         obj['_lastSeen'] = lastSeen;
+        obj['creationDate'] = creationDate;
     }
 
     /**
@@ -122,6 +124,9 @@ class Member {
             }
             if (data.hasOwnProperty('permissionGrants')) {
                 obj['permissionGrants'] = ApiClient.convertToType(data['permissionGrants'], [MemberPermissionGrantSummaryRep]);
+            }
+            if (data.hasOwnProperty('creationDate')) {
+                obj['creationDate'] = ApiClient.convertToType(data['creationDate'], 'Number');
             }
         }
         return obj;
@@ -224,6 +229,11 @@ Member.prototype['teams'] = undefined;
  * @member {Array.<module:model/MemberPermissionGrantSummaryRep>} permissionGrants
  */
 Member.prototype['permissionGrants'] = undefined;
+
+/**
+ * @member {Number} creationDate
+ */
+Member.prototype['creationDate'] = undefined;
 
 
 

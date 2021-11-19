@@ -17,7 +17,7 @@ import SourceFlag from './SourceFlag';
 /**
  * The CreateCopyFlagConfigApprovalRequestRequest model module.
  * @module model/CreateCopyFlagConfigApprovalRequestRequest
- * @version 6.0.1
+ * @version 6.0.2
  */
 class CreateCopyFlagConfigApprovalRequestRequest {
     /**

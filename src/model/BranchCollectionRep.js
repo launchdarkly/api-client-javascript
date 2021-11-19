@@ -18,14 +18,14 @@ import Link from './Link';
 /**
  * The BranchCollectionRep model module.
  * @module model/BranchCollectionRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class BranchCollectionRep {
     /**
      * Constructs a new <code>BranchCollectionRep</code>.
      * @alias module:model/BranchCollectionRep
      * @param links {Object.<String, module:model/Link>} 
-     * @param items {Array.<module:model/BranchRep>} 
+     * @param items {Array.<module:model/BranchRep>} An array of branches
      */
     constructor(links, items) { 
         
@@ -72,6 +72,7 @@ class BranchCollectionRep {
 BranchCollectionRep.prototype['_links'] = undefined;
 
 /**
+ * An array of branches
  * @member {Array.<module:model/BranchRep>} items
  */
 BranchCollectionRep.prototype['items'] = undefined;

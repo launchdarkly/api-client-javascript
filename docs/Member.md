@@ -21,5 +21,6 @@ Name | Type | Description | Notes
 **integrationMetadata** | [**IntegrationMetadata**](IntegrationMetadata.md) |  | [optional] 
 **teams** | [**[MemberTeamSummaryRep]**](MemberTeamSummaryRep.md) |  | [optional] 
 **permissionGrants** | [**[MemberPermissionGrantSummaryRep]**](MemberPermissionGrantSummaryRep.md) |  | [optional] 
+**creationDate** | **Number** |  | 
 
 

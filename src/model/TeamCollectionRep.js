@@ -18,7 +18,7 @@ import TeamRep from './TeamRep';
 /**
  * The TeamCollectionRep model module.
  * @module model/TeamCollectionRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class TeamCollectionRep {
     /**

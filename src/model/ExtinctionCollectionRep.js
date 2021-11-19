@@ -18,14 +18,14 @@ import Link from './Link';
 /**
  * The ExtinctionCollectionRep model module.
  * @module model/ExtinctionCollectionRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class ExtinctionCollectionRep {
     /**
      * Constructs a new <code>ExtinctionCollectionRep</code>.
      * @alias module:model/ExtinctionCollectionRep
      * @param links {Object.<String, module:model/Link>} 
-     * @param items {Object.<String, Array.<module:model/ExtinctionRep>>} 
+     * @param items {Object.<String, Array.<module:model/ExtinctionRep>>} An array of extinction events
      */
     constructor(links, items) { 
         
@@ -72,6 +72,7 @@ class ExtinctionCollectionRep {
 ExtinctionCollectionRep.prototype['_links'] = undefined;
 
 /**
+ * An array of extinction events
  * @member {Object.<String, Array.<module:model/ExtinctionRep>>} items
  */
 ExtinctionCollectionRep.prototype['items'] = undefined;

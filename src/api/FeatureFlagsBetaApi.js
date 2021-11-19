@@ -14,12 +14,16 @@
 
 import ApiClient from "../ApiClient";
 import DependentFlagsByEnvironment from '../model/DependentFlagsByEnvironment';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
 import MultiEnvironmentDependentFlags from '../model/MultiEnvironmentDependentFlags';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * FeatureFlagsBeta service.
 * @module api/FeatureFlagsBetaApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class FeatureFlagsBetaApi {
 

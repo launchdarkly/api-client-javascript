@@ -17,6 +17,10 @@ import AccessDeniedReasonRep from './model/AccessDeniedReasonRep';
 import AccessDeniedRep from './model/AccessDeniedRep';
 import AccessRep from './model/AccessRep';
 import AccessTokenPost from './model/AccessTokenPost';
+import ActionInputRep from './model/ActionInputRep';
+import ActionOutputRep from './model/ActionOutputRep';
+import ApprovalConditionInputRep from './model/ApprovalConditionInputRep';
+import ApprovalConditionOutputRep from './model/ApprovalConditionOutputRep';
 import ApprovalSettings from './model/ApprovalSettings';
 import AuditLogEntryListingRep from './model/AuditLogEntryListingRep';
 import AuditLogEntryListingRepCollection from './model/AuditLogEntryListingRepCollection';
@@ -28,8 +32,12 @@ import BranchRep from './model/BranchRep';
 import Clause from './model/Clause';
 import ClientSideAvailability from './model/ClientSideAvailability';
 import ClientSideAvailabilityPost from './model/ClientSideAvailabilityPost';
+import ConditionBaseOutputRep from './model/ConditionBaseOutputRep';
+import ConditionInputRep from './model/ConditionInputRep';
+import ConditionOutputRep from './model/ConditionOutputRep';
 import ConfidenceIntervalRep from './model/ConfidenceIntervalRep';
 import Conflict from './model/Conflict';
+import ConflictOutputRep from './model/ConflictOutputRep';
 import CopiedFromEnv from './model/CopiedFromEnv';
 import CreateCopyFlagConfigApprovalRequestRequest from './model/CreateCopyFlagConfigApprovalRequestRequest';
 import CreateFlagConfigApprovalRequestRequest from './model/CreateFlagConfigApprovalRequestRequest';
@@ -38,8 +46,11 @@ import CustomRole from './model/CustomRole';
 import CustomRolePost from './model/CustomRolePost';
 import CustomRolePostData from './model/CustomRolePostData';
 import CustomRoles from './model/CustomRoles';
+import CustomWorkflowInputRep from './model/CustomWorkflowInputRep';
 import CustomWorkflowMeta from './model/CustomWorkflowMeta';
+import CustomWorkflowOutputRep from './model/CustomWorkflowOutputRep';
 import CustomWorkflowStageMeta from './model/CustomWorkflowStageMeta';
+import CustomWorkflowsListingOutputRep from './model/CustomWorkflowsListingOutputRep';
 import DefaultClientSideAvailabilityPost from './model/DefaultClientSideAvailabilityPost';
 import Defaults from './model/Defaults';
 import DependentFlag from './model/DependentFlag';
@@ -50,6 +61,7 @@ import DestinationPost from './model/DestinationPost';
 import Destinations from './model/Destinations';
 import Environment from './model/Environment';
 import EnvironmentPost from './model/EnvironmentPost';
+import ExecutionOutputRep from './model/ExecutionOutputRep';
 import ExperimentAllocationRep from './model/ExperimentAllocationRep';
 import ExperimentEnabledPeriodRep from './model/ExperimentEnabledPeriodRep';
 import ExperimentEnvironmentSettingRep from './model/ExperimentEnvironmentSettingRep';
@@ -65,7 +77,6 @@ import ExpiringUserTargetError from './model/ExpiringUserTargetError';
 import ExpiringUserTargetGetResponse from './model/ExpiringUserTargetGetResponse';
 import ExpiringUserTargetItem from './model/ExpiringUserTargetItem';
 import ExpiringUserTargetPatchResponse from './model/ExpiringUserTargetPatchResponse';
-import Extinction from './model/Extinction';
 import ExtinctionCollectionRep from './model/ExtinctionCollectionRep';
 import ExtinctionRep from './model/ExtinctionRep';
 import FeatureFlag from './model/FeatureFlag';
@@ -86,12 +97,12 @@ import FlagListingRep from './model/FlagListingRep';
 import FlagScheduledChangesInput from './model/FlagScheduledChangesInput';
 import FlagStatusRep from './model/FlagStatusRep';
 import FlagSummary from './model/FlagSummary';
+import ForbiddenErrorRep from './model/ForbiddenErrorRep';
 import HunkRep from './model/HunkRep';
-import InlineObject from './model/InlineObject';
-import InlineObject1 from './model/InlineObject1';
 import InlineResponse200 from './model/InlineResponse200';
 import IntegrationMetadata from './model/IntegrationMetadata';
 import IntegrationStatus from './model/IntegrationStatus';
+import InvalidRequestErrorRep from './model/InvalidRequestErrorRep';
 import IpList from './model/IpList';
 import LastSeenMetadata from './model/LastSeenMetadata';
 import Link from './model/Link';
@@ -101,6 +112,7 @@ import MemberPermissionGrantSummaryRep from './model/MemberPermissionGrantSummar
 import MemberSummaryRep from './model/MemberSummaryRep';
 import MemberTeamSummaryRep from './model/MemberTeamSummaryRep';
 import Members from './model/Members';
+import MethodNotAllowedErrorRep from './model/MethodNotAllowedErrorRep';
 import MetricCollectionRep from './model/MetricCollectionRep';
 import MetricListingRep from './model/MetricListingRep';
 import MetricPost from './model/MetricPost';
@@ -109,7 +121,9 @@ import Modification from './model/Modification';
 import MultiEnvironmentDependentFlag from './model/MultiEnvironmentDependentFlag';
 import MultiEnvironmentDependentFlags from './model/MultiEnvironmentDependentFlags';
 import NewMemberForm from './model/NewMemberForm';
+import NotFoundErrorRep from './model/NotFoundErrorRep';
 import ParentResourceRep from './model/ParentResourceRep';
+import PatchFailedErrorRep from './model/PatchFailedErrorRep';
 import PatchOperation from './model/PatchOperation';
 import PatchSegmentInstruction from './model/PatchSegmentInstruction';
 import PatchSegmentRequest from './model/PatchSegmentRequest';
@@ -125,6 +139,8 @@ import ProjectListingRep from './model/ProjectListingRep';
 import ProjectPost from './model/ProjectPost';
 import Projects from './model/Projects';
 import PubNubDetailRep from './model/PubNubDetailRep';
+import PutBranch from './model/PutBranch';
+import RateLimitedErrorRep from './model/RateLimitedErrorRep';
 import ReferenceRep from './model/ReferenceRep';
 import RelayAutoConfigCollectionRep from './model/RelayAutoConfigCollectionRep';
 import RelayAutoConfigPost from './model/RelayAutoConfigPost';
@@ -134,9 +150,12 @@ import RepositoryPost from './model/RepositoryPost';
 import RepositoryRep from './model/RepositoryRep';
 import ResourceAccess from './model/ResourceAccess';
 import ResourceIDResponse from './model/ResourceIDResponse';
+import ReviewOutputRep from './model/ReviewOutputRep';
 import ReviewResponse from './model/ReviewResponse';
 import Rollout from './model/Rollout';
 import Rule from './model/Rule';
+import ScheduleConditionInputRep from './model/ScheduleConditionInputRep';
+import ScheduleConditionOutputRep from './model/ScheduleConditionOutputRep';
 import SdkListRep from './model/SdkListRep';
 import SdkVersionListRep from './model/SdkVersionListRep';
 import SdkVersionRep from './model/SdkVersionRep';
@@ -146,6 +165,8 @@ import SegmentUserList from './model/SegmentUserList';
 import SegmentUserState from './model/SegmentUserState';
 import SeriesListRep from './model/SeriesListRep';
 import SourceFlag from './model/SourceFlag';
+import StageInputRep from './model/StageInputRep';
+import StageOutputRep from './model/StageOutputRep';
 import Statement from './model/Statement';
 import StatementPost from './model/StatementPost';
 import StatementPostData from './model/StatementPostData';
@@ -153,6 +174,7 @@ import StatementRep from './model/StatementRep';
 import StatisticCollectionRep from './model/StatisticCollectionRep';
 import StatisticRep from './model/StatisticRep';
 import StatisticsRoot from './model/StatisticsRoot';
+import StatusConflictErrorRep from './model/StatusConflictErrorRep';
 import SubjectDataRep from './model/SubjectDataRep';
 import Target from './model/Target';
 import TargetResourceRep from './model/TargetResourceRep';
@@ -164,6 +186,7 @@ import TitleRep from './model/TitleRep';
 import Token from './model/Token';
 import TokenDataRep from './model/TokenDataRep';
 import Tokens from './model/Tokens';
+import UnauthorizedErrorRep from './model/UnauthorizedErrorRep';
 import UrlPost from './model/UrlPost';
 import User from './model/User';
 import UserAttributeNamesRep from './model/UserAttributeNamesRep';
@@ -207,6 +230,7 @@ import UserSettingsApi from './api/UserSettingsApi';
 import UsersApi from './api/UsersApi';
 import UsersBetaApi from './api/UsersBetaApi';
 import WebhooksApi from './api/WebhooksApi';
+import WorkflowsBetaApi from './api/WorkflowsBetaApi';
 
 
 /**
@@ -238,7 +262,7 @@ import WebhooksApi from './api/WebhooksApi';
 * </pre>
 * </p>
 * @module index
-* @version 6.0.1
+* @version 6.0.2
 */
 export {
     /**
@@ -270,6 +294,30 @@ export {
      * @property {module:model/AccessTokenPost}
      */
     AccessTokenPost,
+
+    /**
+     * The ActionInputRep model constructor.
+     * @property {module:model/ActionInputRep}
+     */
+    ActionInputRep,
+
+    /**
+     * The ActionOutputRep model constructor.
+     * @property {module:model/ActionOutputRep}
+     */
+    ActionOutputRep,
+
+    /**
+     * The ApprovalConditionInputRep model constructor.
+     * @property {module:model/ApprovalConditionInputRep}
+     */
+    ApprovalConditionInputRep,
+
+    /**
+     * The ApprovalConditionOutputRep model constructor.
+     * @property {module:model/ApprovalConditionOutputRep}
+     */
+    ApprovalConditionOutputRep,
 
     /**
      * The ApprovalSettings model constructor.
@@ -338,6 +386,24 @@ export {
     ClientSideAvailabilityPost,
 
     /**
+     * The ConditionBaseOutputRep model constructor.
+     * @property {module:model/ConditionBaseOutputRep}
+     */
+    ConditionBaseOutputRep,
+
+    /**
+     * The ConditionInputRep model constructor.
+     * @property {module:model/ConditionInputRep}
+     */
+    ConditionInputRep,
+
+    /**
+     * The ConditionOutputRep model constructor.
+     * @property {module:model/ConditionOutputRep}
+     */
+    ConditionOutputRep,
+
+    /**
      * The ConfidenceIntervalRep model constructor.
      * @property {module:model/ConfidenceIntervalRep}
      */
@@ -348,6 +414,12 @@ export {
      * @property {module:model/Conflict}
      */
     Conflict,
+
+    /**
+     * The ConflictOutputRep model constructor.
+     * @property {module:model/ConflictOutputRep}
+     */
+    ConflictOutputRep,
 
     /**
      * The CopiedFromEnv model constructor.
@@ -398,16 +470,34 @@ export {
     CustomRoles,
 
     /**
+     * The CustomWorkflowInputRep model constructor.
+     * @property {module:model/CustomWorkflowInputRep}
+     */
+    CustomWorkflowInputRep,
+
+    /**
      * The CustomWorkflowMeta model constructor.
      * @property {module:model/CustomWorkflowMeta}
      */
     CustomWorkflowMeta,
 
     /**
+     * The CustomWorkflowOutputRep model constructor.
+     * @property {module:model/CustomWorkflowOutputRep}
+     */
+    CustomWorkflowOutputRep,
+
+    /**
      * The CustomWorkflowStageMeta model constructor.
      * @property {module:model/CustomWorkflowStageMeta}
      */
     CustomWorkflowStageMeta,
+
+    /**
+     * The CustomWorkflowsListingOutputRep model constructor.
+     * @property {module:model/CustomWorkflowsListingOutputRep}
+     */
+    CustomWorkflowsListingOutputRep,
 
     /**
      * The DefaultClientSideAvailabilityPost model constructor.
@@ -468,6 +558,12 @@ export {
      * @property {module:model/EnvironmentPost}
      */
     EnvironmentPost,
+
+    /**
+     * The ExecutionOutputRep model constructor.
+     * @property {module:model/ExecutionOutputRep}
+     */
+    ExecutionOutputRep,
 
     /**
      * The ExperimentAllocationRep model constructor.
@@ -558,12 +654,6 @@ export {
      * @property {module:model/ExpiringUserTargetPatchResponse}
      */
     ExpiringUserTargetPatchResponse,
-
-    /**
-     * The Extinction model constructor.
-     * @property {module:model/Extinction}
-     */
-    Extinction,
 
     /**
      * The ExtinctionCollectionRep model constructor.
@@ -686,22 +776,16 @@ export {
     FlagSummary,
 
     /**
+     * The ForbiddenErrorRep model constructor.
+     * @property {module:model/ForbiddenErrorRep}
+     */
+    ForbiddenErrorRep,
+
+    /**
      * The HunkRep model constructor.
      * @property {module:model/HunkRep}
      */
     HunkRep,
-
-    /**
-     * The InlineObject model constructor.
-     * @property {module:model/InlineObject}
-     */
-    InlineObject,
-
-    /**
-     * The InlineObject1 model constructor.
-     * @property {module:model/InlineObject1}
-     */
-    InlineObject1,
 
     /**
      * The InlineResponse200 model constructor.
@@ -720,6 +804,12 @@ export {
      * @property {module:model/IntegrationStatus}
      */
     IntegrationStatus,
+
+    /**
+     * The InvalidRequestErrorRep model constructor.
+     * @property {module:model/InvalidRequestErrorRep}
+     */
+    InvalidRequestErrorRep,
 
     /**
      * The IpList model constructor.
@@ -776,6 +866,12 @@ export {
     Members,
 
     /**
+     * The MethodNotAllowedErrorRep model constructor.
+     * @property {module:model/MethodNotAllowedErrorRep}
+     */
+    MethodNotAllowedErrorRep,
+
+    /**
      * The MetricCollectionRep model constructor.
      * @property {module:model/MetricCollectionRep}
      */
@@ -824,10 +920,22 @@ export {
     NewMemberForm,
 
     /**
+     * The NotFoundErrorRep model constructor.
+     * @property {module:model/NotFoundErrorRep}
+     */
+    NotFoundErrorRep,
+
+    /**
      * The ParentResourceRep model constructor.
      * @property {module:model/ParentResourceRep}
      */
     ParentResourceRep,
+
+    /**
+     * The PatchFailedErrorRep model constructor.
+     * @property {module:model/PatchFailedErrorRep}
+     */
+    PatchFailedErrorRep,
 
     /**
      * The PatchOperation model constructor.
@@ -920,6 +1028,18 @@ export {
     PubNubDetailRep,
 
     /**
+     * The PutBranch model constructor.
+     * @property {module:model/PutBranch}
+     */
+    PutBranch,
+
+    /**
+     * The RateLimitedErrorRep model constructor.
+     * @property {module:model/RateLimitedErrorRep}
+     */
+    RateLimitedErrorRep,
+
+    /**
      * The ReferenceRep model constructor.
      * @property {module:model/ReferenceRep}
      */
@@ -974,6 +1094,12 @@ export {
     ResourceIDResponse,
 
     /**
+     * The ReviewOutputRep model constructor.
+     * @property {module:model/ReviewOutputRep}
+     */
+    ReviewOutputRep,
+
+    /**
      * The ReviewResponse model constructor.
      * @property {module:model/ReviewResponse}
      */
@@ -990,6 +1116,18 @@ export {
      * @property {module:model/Rule}
      */
     Rule,
+
+    /**
+     * The ScheduleConditionInputRep model constructor.
+     * @property {module:model/ScheduleConditionInputRep}
+     */
+    ScheduleConditionInputRep,
+
+    /**
+     * The ScheduleConditionOutputRep model constructor.
+     * @property {module:model/ScheduleConditionOutputRep}
+     */
+    ScheduleConditionOutputRep,
 
     /**
      * The SdkListRep model constructor.
@@ -1046,6 +1184,18 @@ export {
     SourceFlag,
 
     /**
+     * The StageInputRep model constructor.
+     * @property {module:model/StageInputRep}
+     */
+    StageInputRep,
+
+    /**
+     * The StageOutputRep model constructor.
+     * @property {module:model/StageOutputRep}
+     */
+    StageOutputRep,
+
+    /**
      * The Statement model constructor.
      * @property {module:model/Statement}
      */
@@ -1086,6 +1236,12 @@ export {
      * @property {module:model/StatisticsRoot}
      */
     StatisticsRoot,
+
+    /**
+     * The StatusConflictErrorRep model constructor.
+     * @property {module:model/StatusConflictErrorRep}
+     */
+    StatusConflictErrorRep,
 
     /**
      * The SubjectDataRep model constructor.
@@ -1152,6 +1308,12 @@ export {
      * @property {module:model/Tokens}
      */
     Tokens,
+
+    /**
+     * The UnauthorizedErrorRep model constructor.
+     * @property {module:model/UnauthorizedErrorRep}
+     */
+    UnauthorizedErrorRep,
 
     /**
      * The UrlPost model constructor.
@@ -1409,5 +1571,11 @@ export {
     * The WebhooksApi service constructor.
     * @property {module:api/WebhooksApi}
     */
-    WebhooksApi
+    WebhooksApi,
+
+    /**
+    * The WorkflowsBetaApi service constructor.
+    * @property {module:api/WorkflowsBetaApi}
+    */
+    WorkflowsBetaApi
 };

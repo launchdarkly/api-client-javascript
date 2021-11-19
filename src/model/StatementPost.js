@@ -16,17 +16,19 @@ import ApiClient from '../ApiClient';
 /**
  * The StatementPost model module.
  * @module model/StatementPost
- * @version 6.0.1
+ * @version 6.0.2
  */
 class StatementPost {
     /**
      * Constructs a new <code>StatementPost</code>.
      * @alias module:model/StatementPost
+     * @param resources {Array.<String>} Resource specifier strings
+     * @param actions {Array.<String>} Actions to perform on a resource
      * @param effect {String} 
      */
-    constructor(effect) { 
+    constructor(resources, actions, effect) { 
         
-        StatementPost.initialize(this, effect);
+        StatementPost.initialize(this, resources, actions, effect);
     }
 
     /**
@@ -34,7 +36,9 @@ class StatementPost {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, effect) { 
+    static initialize(obj, resources, actions, effect) { 
+        obj['resources'] = resources;
+        obj['actions'] = actions;
         obj['effect'] = effect;
     }
 

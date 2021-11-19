@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RepositoryPost model module.
  * @module model/RepositoryPost
- * @version 6.0.1
+ * @version 6.0.2
  */
 class RepositoryPost {
     /**
@@ -85,11 +85,13 @@ RepositoryPost.prototype['name'] = undefined;
 RepositoryPost.prototype['sourceLink'] = undefined;
 
 /**
+ * A template for constructing a valid URL to view the commit
  * @member {String} commitUrlTemplate
  */
 RepositoryPost.prototype['commitUrlTemplate'] = undefined;
 
 /**
+ * A template for constructing a valid URL to view the hunk
  * @member {String} hunkUrlTemplate
  */
 RepositoryPost.prototype['hunkUrlTemplate'] = undefined;

@@ -16,12 +16,18 @@ import ApiClient from "../ApiClient";
 import Destination from '../model/Destination';
 import DestinationPost from '../model/DestinationPost';
 import Destinations from '../model/Destinations';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import PatchOperation from '../model/PatchOperation';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * DataExportDestinations service.
 * @module api/DataExportDestinationsApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class DataExportDestinationsApi {
 
@@ -82,7 +88,7 @@ export default class DataExportDestinationsApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/destinations/{projKey}/{envKey}/{id}', 'DELETE',

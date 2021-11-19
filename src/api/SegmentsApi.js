@@ -16,17 +16,23 @@ import ApiClient from "../ApiClient";
 import BigSegmentTarget from '../model/BigSegmentTarget';
 import ExpiringUserTargetGetResponse from '../model/ExpiringUserTargetGetResponse';
 import ExpiringUserTargetPatchResponse from '../model/ExpiringUserTargetPatchResponse';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import PatchSegmentRequest from '../model/PatchSegmentRequest';
 import PatchWithComment from '../model/PatchWithComment';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
 import SegmentBody from '../model/SegmentBody';
 import SegmentUserState from '../model/SegmentUserState';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 import UserSegment from '../model/UserSegment';
 import UserSegments from '../model/UserSegments';
 
 /**
 * Segments service.
 * @module api/SegmentsApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class SegmentsApi {
 
@@ -87,7 +93,7 @@ export default class SegmentsApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/segments/{projKey}/{envKey}/{key}', 'DELETE',
@@ -540,7 +546,7 @@ export default class SegmentsApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = ['application/json'];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/segments/{projKey}/{envKey}/{key}/users', 'POST',

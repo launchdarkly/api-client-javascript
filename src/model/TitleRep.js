@@ -22,7 +22,7 @@ import TokenDataRep from './TokenDataRep';
 /**
  * The TitleRep model module.
  * @module model/TitleRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class TitleRep {
     /**

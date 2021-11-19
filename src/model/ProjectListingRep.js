@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The ProjectListingRep model module.
  * @module model/ProjectListingRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class ProjectListingRep {
     /**

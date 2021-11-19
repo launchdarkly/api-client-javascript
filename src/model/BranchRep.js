@@ -17,16 +17,20 @@ import ReferenceRep from './ReferenceRep';
 /**
  * The BranchRep model module.
  * @module model/BranchRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class BranchRep {
     /**
      * Constructs a new <code>BranchRep</code>.
      * @alias module:model/BranchRep
+     * @param name {String} The branch name
+     * @param head {String} An ID representing the branch HEAD. For example, a commit SHA.
+     * @param syncTime {Number} 
+     * @param links {Object.<String, Object>} 
      */
-    constructor() { 
+    constructor(name, head, syncTime, links) { 
         
-        BranchRep.initialize(this);
+        BranchRep.initialize(this, name, head, syncTime, links);
     }
 
     /**
@@ -34,7 +38,11 @@ class BranchRep {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, name, head, syncTime, links) { 
+        obj['name'] = name;
+        obj['head'] = head;
+        obj['syncTime'] = syncTime;
+        obj['_links'] = links;
     }
 
     /**
@@ -74,16 +82,19 @@ class BranchRep {
 }
 
 /**
+ * The branch name
  * @member {String} name
  */
 BranchRep.prototype['name'] = undefined;
 
 /**
+ * An ID representing the branch HEAD. For example, a commit SHA.
  * @member {String} head
  */
 BranchRep.prototype['head'] = undefined;
 
 /**
+ * An optional ID used to prevent older data from overwriting newer data
  * @member {Number} updateSequenceId
  */
 BranchRep.prototype['updateSequenceId'] = undefined;
@@ -94,6 +105,7 @@ BranchRep.prototype['updateSequenceId'] = undefined;
 BranchRep.prototype['syncTime'] = undefined;
 
 /**
+ * An array of flag references found on the branch
  * @member {Array.<module:model/ReferenceRep>} references
  */
 BranchRep.prototype['references'] = undefined;

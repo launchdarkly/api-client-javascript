@@ -19,7 +19,7 @@ import StatementRep from './StatementRep';
 /**
  * The Token model module.
  * @module model/Token
- * @version 6.0.1
+ * @version 6.0.2
  */
 class Token {
     /**

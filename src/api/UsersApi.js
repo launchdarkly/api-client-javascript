@@ -13,13 +13,19 @@
 
 
 import ApiClient from "../ApiClient";
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 import User from '../model/User';
 import Users from '../model/Users';
 
 /**
 * Users service.
 * @module api/UsersApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class UsersApi {
 
@@ -80,7 +86,7 @@ export default class UsersApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/users/{projKey}/{envKey}/{key}', 'DELETE',
@@ -99,7 +105,7 @@ export default class UsersApi {
 
     /**
      * Find users
-     * Search users in LaunchDarkly based on their last active date, or a search query. Do not use to enumerate all users in LaunchDarkly. Instead use the [List users](getUsers) API resource.  > ### `offset` is deprecated > > `offset` is deprecated and will be removed in a future API version. You can still use `offset` and `limit` for pagination, but we recommend you use `sort` and `searchAfter` instead. `searchAfter` allows you to page through more than 10,000 users, but `offset` and `limit` do not. 
+     * Search users in LaunchDarkly based on their last active date, a user attribute filter set, or a search query. Do not use to list all users in LaunchDarkly. Instead, use the [List users](getUsers) API resource.  An example user attribute filter set is `filter=firstName:Anna,activeTrial:false`. This matches users that have the user attribute `firstName` set to `Anna`, that also have the attribute `activeTrial` set to `false`.  > ### `offset` is deprecated > > `offset` is deprecated and will be removed in a future API version. You can still use `offset` and `limit` for pagination, but we recommend you use `sort` and `searchAfter` instead. `searchAfter` allows you to page through more than 10,000 users, but `offset` and `limit` do not. 
      * @param {String} projKey The project key
      * @param {String} envKey The environment key
      * @param {Object} opts Optional parameters
@@ -107,7 +113,9 @@ export default class UsersApi {
      * @param {Number} opts.limit Specifies the maximum number of items in the collection to return (max: 50, default: 20)
      * @param {Number} opts.offset Specifies the first item to return in the collection
      * @param {Number} opts.after A unix epoch time in milliseconds specifying the maximum last time a user requested a feature flag from LaunchDarkly
+     * @param {String} opts.sort Specifies a field by which to sort. LaunchDarkly supports the `userKey` and `lastSeen` fields. Fields prefixed by a dash ( - ) sort in descending order.
      * @param {String} opts.searchAfter Limits results to users with sort values after the value you specify. You can use this for pagination, but we recommend using the `next` link we provide instead.
+     * @param {String} opts.filter A comma-separated list of user attribute filters. Each filter is in the form of attributeKey:attributeValue
      * @param {module:api/UsersApi~getSearchUsersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Users}
      */
@@ -132,7 +140,9 @@ export default class UsersApi {
         'limit': opts['limit'],
         'offset': opts['offset'],
         'after': opts['after'],
-        'searchAfter': opts['searchAfter']
+        'sort': opts['sort'],
+        'searchAfter': opts['searchAfter'],
+        'filter': opts['filter']
       };
       let headerParams = {
       };

@@ -162,6 +162,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property importInProgress (base name: "_importInProgress")', function() {
+      // uncomment below and update the code to test the property importInProgress
+      //var instance = new LaunchDarklyApi.UserSegment();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

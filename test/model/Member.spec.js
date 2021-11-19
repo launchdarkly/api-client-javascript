@@ -156,6 +156,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property creationDate (base name: "creationDate")', function() {
+      // uncomment below and update the code to test the property creationDate
+      //var instance = new LaunchDarklyApi.Member();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

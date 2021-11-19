@@ -17,16 +17,18 @@ import HunkRep from './HunkRep';
 /**
  * The ReferenceRep model module.
  * @module model/ReferenceRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class ReferenceRep {
     /**
      * Constructs a new <code>ReferenceRep</code>.
      * @alias module:model/ReferenceRep
+     * @param path {String} File path of the reference
+     * @param hunks {Array.<module:model/HunkRep>} 
      */
-    constructor() { 
+    constructor(path, hunks) { 
         
-        ReferenceRep.initialize(this);
+        ReferenceRep.initialize(this, path, hunks);
     }
 
     /**
@@ -34,7 +36,9 @@ class ReferenceRep {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, path, hunks) { 
+        obj['path'] = path;
+        obj['hunks'] = hunks;
     }
 
     /**
@@ -65,11 +69,13 @@ class ReferenceRep {
 }
 
 /**
+ * File path of the reference
  * @member {String} path
  */
 ReferenceRep.prototype['path'] = undefined;
 
 /**
+ * Programming language used in the file
  * @member {String} hint
  */
 ReferenceRep.prototype['hint'] = undefined;

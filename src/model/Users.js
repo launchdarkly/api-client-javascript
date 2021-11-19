@@ -18,7 +18,7 @@ import User from './User';
 /**
  * The Users model module.
  * @module model/Users
- * @version 6.0.1
+ * @version 6.0.2
  */
 class Users {
     /**

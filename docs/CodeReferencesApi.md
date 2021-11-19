@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**getRootStatistic**](CodeReferencesApi.md#getRootStatistic) | **GET** /api/v2/code-refs/statistics | Get links to code reference repositories for each project
 [**getStatistics**](CodeReferencesApi.md#getStatistics) | **GET** /api/v2/code-refs/statistics/{projKey} | Get number of code references for flags
 [**patchRepository**](CodeReferencesApi.md#patchRepository) | **PATCH** /api/v2/code-refs/repositories/{repo} | Update repository
-[**postExtinction**](CodeReferencesApi.md#postExtinction) | **POST** /api/v2/code-refs/repositories/{repo}/branches/{branch} | Create extinction
+[**postExtinction**](CodeReferencesApi.md#postExtinction) | **POST** /api/v2/code-refs/repositories/{repo}/branches/{branch}/extinction-events | Create extinction
 [**postRepository**](CodeReferencesApi.md#postRepository) | **POST** /api/v2/code-refs/repositories | Create repository
 [**putBranch**](CodeReferencesApi.md#putBranch) | **PUT** /api/v2/code-refs/repositories/{repo}/branches/{branch} | Upsert branch
 
@@ -70,7 +70,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## deleteRepository
@@ -121,7 +121,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## getBranch
@@ -256,7 +256,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new LaunchDarklyApi.CodeReferencesApi();
 let opts = {
   'repoName': "repoName_example", // String | Filter results to a specific repository
-  'branchName': "branchName_example", // String | Filter results to a specific branch
+  'branchName': "branchName_example", // String | Filter results to a specific branch. By default, only the default branch will be queried for extinctions.
   'projKey': "projKey_example", // String | Filter results to a specific project
   'flagKey': "flagKey_example" // String | Filter results to a specific flag key
 };
@@ -275,7 +275,7 @@ apiInstance.getExtinctions(opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **repoName** | **String**| Filter results to a specific repository | [optional] 
- **branchName** | **String**| Filter results to a specific branch | [optional] 
+ **branchName** | **String**| Filter results to a specific branch. By default, only the default branch will be queried for extinctions. | [optional] 
  **projKey** | **String**| Filter results to a specific project | [optional] 
  **flagKey** | **String**| Filter results to a specific flag key | [optional] 
 
@@ -560,7 +560,7 @@ Name | Type | Description  | Notes
 
 ## postExtinction
 
-> postExtinction(repo, branch, inlineObject)
+> postExtinction(repo, branch, extinctionRep)
 
 Create extinction
 
@@ -580,8 +580,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new LaunchDarklyApi.CodeReferencesApi();
 let repo = "repo_example"; // String | The repository name
 let branch = "branch_example"; // String | The url-encoded branch name
-let inlineObject = [new LaunchDarklyApi.InlineObject()]; // [InlineObject] | 
-apiInstance.postExtinction(repo, branch, inlineObject, (error, data, response) => {
+let extinctionRep = [new LaunchDarklyApi.ExtinctionRep()]; // [ExtinctionRep] | 
+apiInstance.postExtinction(repo, branch, extinctionRep, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -597,7 +597,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **repo** | **String**| The repository name | 
  **branch** | **String**| The url-encoded branch name | 
- **inlineObject** | [**[InlineObject]**](InlineObject.md)|  | 
+ **extinctionRep** | [**[ExtinctionRep]**](ExtinctionRep.md)|  | 
 
 ### Return type
 
@@ -610,12 +610,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## postRepository
 
-> postRepository(repositoryPost)
+> RepositoryRep postRepository(repositoryPost)
 
 Create repository
 
@@ -638,7 +638,7 @@ apiInstance.postRepository(repositoryPost, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -652,7 +652,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**RepositoryRep**](RepositoryRep.md)
 
 ### Authorization
 
@@ -661,12 +661,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 
 ## putBranch
 
-> putBranch(repo, branch, branchRep)
+> putBranch(repo, branch, putBranch)
 
 Upsert branch
 
@@ -686,8 +686,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new LaunchDarklyApi.CodeReferencesApi();
 let repo = "repo_example"; // String | The repository name
 let branch = "branch_example"; // String | The url-encoded branch name
-let branchRep = new LaunchDarklyApi.BranchRep(); // BranchRep | 
-apiInstance.putBranch(repo, branch, branchRep, (error, data, response) => {
+let putBranch = new LaunchDarklyApi.PutBranch(); // PutBranch | 
+apiInstance.putBranch(repo, branch, putBranch, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -703,7 +703,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **repo** | **String**| The repository name | 
  **branch** | **String**| The url-encoded branch name | 
- **branchRep** | [**BranchRep**](BranchRep.md)|  | 
+ **putBranch** | [**PutBranch**](PutBranch.md)|  | 
 
 ### Return type
 
@@ -716,5 +716,5 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 

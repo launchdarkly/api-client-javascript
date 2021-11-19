@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FlagSummary model module.
  * @module model/FlagSummary
- * @version 6.0.1
+ * @version 6.0.2
  */
 class FlagSummary {
     /**

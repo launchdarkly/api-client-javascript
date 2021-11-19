@@ -17,7 +17,7 @@ import SegmentUserList from './SegmentUserList';
 /**
  * The SegmentUserState model module.
  * @module model/SegmentUserState
- * @version 6.0.1
+ * @version 6.0.2
  */
 class SegmentUserState {
     /**

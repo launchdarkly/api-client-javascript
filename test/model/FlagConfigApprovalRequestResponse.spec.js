@@ -168,8 +168,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property customWorkflowMetaData (base name: "customWorkflowMetaData")', function() {
-      // uncomment below and update the code to test the property customWorkflowMetaData
+    it('should have the property customWorkflowMetadata (base name: "customWorkflowMetadata")', function() {
+      // uncomment below and update the code to test the property customWorkflowMetadata
       //var instance = new LaunchDarklyApi.FlagConfigApprovalRequestResponse();
       //expect(instance).to.be();
     });

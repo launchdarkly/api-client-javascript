@@ -21,7 +21,7 @@ import Link from './Link';
 /**
  * The ExperimentResultsRep model module.
  * @module model/ExperimentResultsRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class ExperimentResultsRep {
     /**

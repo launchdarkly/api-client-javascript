@@ -54,20 +54,20 @@
       //expect(instance).to.be.a(LaunchDarklyApi.CustomRole);
     });
 
+    it('should have the property id (base name: "_id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instance = new LaunchDarklyApi.CustomRole();
+      //expect(instance).to.be();
+    });
+
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
       //var instance = new LaunchDarklyApi.CustomRole();
       //expect(instance).to.be();
     });
 
-    it('should have the property name (base name: "name")', function() {
-      // uncomment below and update the code to test the property name
-      //var instance = new LaunchDarklyApi.CustomRole();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property key (base name: "key")', function() {
-      // uncomment below and update the code to test the property key
+    it('should have the property access (base name: "_access")', function() {
+      // uncomment below and update the code to test the property access
       //var instance = new LaunchDarklyApi.CustomRole();
       //expect(instance).to.be();
     });
@@ -78,8 +78,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property id (base name: "_id")', function() {
-      // uncomment below and update the code to test the property id
+    it('should have the property key (base name: "key")', function() {
+      // uncomment below and update the code to test the property key
+      //var instance = new LaunchDarklyApi.CustomRole();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
       //var instance = new LaunchDarklyApi.CustomRole();
       //expect(instance).to.be();
     });
@@ -90,8 +96,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property access (base name: "_access")', function() {
-      // uncomment below and update the code to test the property access
+    it('should have the property basePermissions (base name: "basePermissions")', function() {
+      // uncomment below and update the code to test the property basePermissions
       //var instance = new LaunchDarklyApi.CustomRole();
       //expect(instance).to.be();
     });

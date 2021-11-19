@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The FeatureFlags model module.
  * @module model/FeatureFlags
- * @version 6.0.1
+ * @version 6.0.2
  */
 class FeatureFlags {
     /**

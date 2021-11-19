@@ -22,7 +22,7 @@ import ReviewResponse from './ReviewResponse';
 /**
  * The FlagConfigApprovalRequestResponse model module.
  * @module model/FlagConfigApprovalRequestResponse
- * @version 6.0.1
+ * @version 6.0.2
  */
 class FlagConfigApprovalRequestResponse {
     /**
@@ -132,8 +132,8 @@ class FlagConfigApprovalRequestResponse {
             if (data.hasOwnProperty('source')) {
                 obj['source'] = CopiedFromEnv.constructFromObject(data['source']);
             }
-            if (data.hasOwnProperty('customWorkflowMetaData')) {
-                obj['customWorkflowMetaData'] = CustomWorkflowMeta.constructFromObject(data['customWorkflowMetaData']);
+            if (data.hasOwnProperty('customWorkflowMetadata')) {
+                obj['customWorkflowMetadata'] = CustomWorkflowMeta.constructFromObject(data['customWorkflowMetadata']);
             }
         }
         return obj;
@@ -241,9 +241,9 @@ FlagConfigApprovalRequestResponse.prototype['integrationMetadata'] = undefined;
 FlagConfigApprovalRequestResponse.prototype['source'] = undefined;
 
 /**
- * @member {module:model/CustomWorkflowMeta} customWorkflowMetaData
+ * @member {module:model/CustomWorkflowMeta} customWorkflowMetadata
  */
-FlagConfigApprovalRequestResponse.prototype['customWorkflowMetaData'] = undefined;
+FlagConfigApprovalRequestResponse.prototype['customWorkflowMetadata'] = undefined;
 
 
 

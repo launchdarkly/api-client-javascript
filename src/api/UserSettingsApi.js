@@ -15,7 +15,12 @@
 import ApiClient from "../ApiClient";
 import ExpiringUserTargetGetResponse from '../model/ExpiringUserTargetGetResponse';
 import ExpiringUserTargetPatchResponse from '../model/ExpiringUserTargetPatchResponse';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import PatchWithComment from '../model/PatchWithComment';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 import UserFlagSetting from '../model/UserFlagSetting';
 import UserFlagSettings from '../model/UserFlagSettings';
 import ValuePut from '../model/ValuePut';
@@ -23,7 +28,7 @@ import ValuePut from '../model/ValuePut';
 /**
 * UserSettings service.
 * @module api/UserSettingsApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class UserSettingsApi {
 
@@ -326,7 +331,7 @@ export default class UserSettingsApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = ['application/json'];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/users/{projKey}/{envKey}/{key}/flags/{featureKey}', 'PUT',

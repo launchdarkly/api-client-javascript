@@ -78,6 +78,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property basePermissions (base name: "basePermissions")', function() {
+      // uncomment below and update the code to test the property basePermissions
+      //var instance = new LaunchDarklyApi.CustomRolePost();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

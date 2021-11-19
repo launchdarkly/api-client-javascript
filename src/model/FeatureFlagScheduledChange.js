@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The FeatureFlagScheduledChange model module.
  * @module model/FeatureFlagScheduledChange
- * @version 6.0.1
+ * @version 6.0.2
  */
 class FeatureFlagScheduledChange {
     /**

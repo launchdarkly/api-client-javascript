@@ -16,17 +16,19 @@ import ApiClient from '../ApiClient';
 /**
  * The StatementPostData model module.
  * @module model/StatementPostData
- * @version 6.0.1
+ * @version 6.0.2
  */
 class StatementPostData {
     /**
      * Constructs a new <code>StatementPostData</code>.
      * @alias module:model/StatementPostData
+     * @param resources {Array.<String>} Resource specifier strings
+     * @param actions {Array.<String>} Actions to perform on a resource
      * @param effect {String} 
      */
-    constructor(effect) { 
+    constructor(resources, actions, effect) { 
         
-        StatementPostData.initialize(this, effect);
+        StatementPostData.initialize(this, resources, actions, effect);
     }
 
     /**
@@ -34,7 +36,9 @@ class StatementPostData {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, effect) { 
+    static initialize(obj, resources, actions, effect) { 
+        obj['resources'] = resources;
+        obj['actions'] = actions;
         obj['effect'] = effect;
     }
 

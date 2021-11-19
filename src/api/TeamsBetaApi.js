@@ -13,15 +13,22 @@
 
 
 import ApiClient from "../ApiClient";
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import MethodNotAllowedErrorRep from '../model/MethodNotAllowedErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
 import TeamCollectionRep from '../model/TeamCollectionRep';
 import TeamPatchInput from '../model/TeamPatchInput';
 import TeamPostInput from '../model/TeamPostInput';
 import TeamRep from '../model/TeamRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * TeamsBeta service.
 * @module api/TeamsBetaApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class TeamsBetaApi {
 
@@ -46,8 +53,8 @@ export default class TeamsBetaApi {
      */
 
     /**
-     * Delete team by key
-     * Delete a team by key.
+     * Delete team
+     * Delete a team by key
      * @param {String} key The team key
      * @param {module:api/TeamsBetaApi~deleteTeamCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -70,7 +77,7 @@ export default class TeamsBetaApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/teams/{key}', 'DELETE',
@@ -88,8 +95,8 @@ export default class TeamsBetaApi {
      */
 
     /**
-     * Get team by key
-     * Fetch a team by key.
+     * Get team
+     * Fetch a team by key
      * @param {String} key The team key
      * @param {module:api/TeamsBetaApi~getTeamCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TeamRep}
@@ -131,17 +138,25 @@ export default class TeamsBetaApi {
      */
 
     /**
-     * Get all teams
-     * Fetch all teams.
+     * List teams
+     * Return a list of teams.  By default, this returns the first 20 teams. Page through this list with the `limit` parameter and by following the `first`, `prev`, `next`, and `last` links in the returned `_links` field. These links are not present if the pages they refer to don't exist. For example, the `first` and `prev` links will be missing from the response on the first page.  ### Filtering teams  LaunchDarkly supports the `query` field for filtering. `query` is a string that matches against the teams' names and keys. It is not case sensitive. For example, the filter `query:abc` matches teams with the string `abc` in their name or key. 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The number of teams to return in the response. Defaults to 20.
+     * @param {Number} opts.offset Where to start in the list. This is for use with pagination. For example, an offset of 10 would skip the first ten items and then return the next `limit` items.
+     * @param {String} opts.filter A comma-separated list of filters. Each filter is of the form `field:value`. Supported fields are explained above.
      * @param {module:api/TeamsBetaApi~getTeamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TeamCollectionRep}
      */
-    getTeams(callback) {
+    getTeams(opts, callback) {
+      opts = opts || {};
       let postBody = null;
 
       let pathParams = {
       };
       let queryParams = {
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'filter': opts['filter']
       };
       let headerParams = {
       };
@@ -168,8 +183,8 @@ export default class TeamsBetaApi {
      */
 
     /**
-     * Patch team by key
-     * Perform a partial update to a team.  The body of a semantic patch request takes the following three properties:  1. comment `string`: (Optional) A description of the update. 1. environmentKey `string`: (Required) The key of the LaunchDarkly environment. 1. instructions `array`: (Required) The action or list of actions to be performed by the update. Each update action in the list must be an object/hash table with a `kind` property, although depending on the action, other properties may be necessary. Read below for more information on the specific supported semantic patch instructions.  If any instruction in the patch encounters an error, the error will be returned and the flag will not be changed. In general, instructions will silently do nothing if the flag is already in the state requested by the patch instruction. They will generally error if a parameter refers to something that does not exist. Other specific error conditions are noted in the instruction descriptions.  ### Instructions  #### `addCustomRoles`  Adds custom roles to the team. Team members will have these custom roles granted to them.  ##### Parameters  - `values`: list of custom role keys  #### `removeCustomRoles`  Removes the custom roles on the team. Team members will no longer have these custom roles granted to them.  ##### Parameters  - `values`: list of custom role keys  #### `addMembers`  Adds members to the team.  ##### Parameters  - `values`: list of member IDs  #### `removeMembers`  Removes members from the team.  ##### Parameters  - `values`: list of member IDs  #### `addPermissionGrants`  Adds permission grants to members for the team, allowing them to, for example, act as a team maintainer. A permission grant may have either an `actionSet` or a list of `actions` but not both at the same time. The members do not have to be team members to have a permission grant for the team.  ##### Parameters  - `actionSet`: name of the action set - `actions`: list of actions - `memberIDs`: list of member IDs  #### `removePermissionGrants`  Removes permission grants from members for the team. The `actionSet` and `actions` must match an existing permission grant.  ##### Parameters  - `actionSet`: name of the action set - `actions`: list of actions - `memberIDs`: list of member IDs  #### `updateDescription`  Updates the team's description.  ##### Parameters  - `value`: the team's new description  #### `updateName`  Updates the team's name.  ##### Parameters  - `value`: the team's new name 
+     * Update team
+     * Perform a partial update to a team.  The body of a semantic patch request takes the following three properties:  1. comment `string`: (Optional) A description of the update. 1. instructions `array`: (Required) The action or list of actions to be performed by the update. Each update action in the list must be an object/hash table with a `kind` property, although depending on the action, other properties may be necessary. Read below for more information on the specific supported semantic patch instructions.  If any instruction in the patch encounters an error, the error will be returned and the flag will not be changed. In general, instructions will silently do nothing if the flag is already in the state requested by the patch instruction. They will generally error if a parameter refers to something that does not exist. Other specific error conditions are noted in the instruction descriptions.  ### Instructions  #### `addCustomRoles`  Adds custom roles to the team. Team members will have these custom roles granted to them.  ##### Parameters  - `values`: list of custom role keys  #### `removeCustomRoles`  Removes the custom roles on the team. Team members will no longer have these custom roles granted to them.  ##### Parameters  - `values`: list of custom role keys  #### `addMembers`  Adds members to the team.  ##### Parameters  - `values`: list of member IDs  #### `removeMembers`  Removes members from the team.  ##### Parameters  - `values`: list of member IDs  #### `addPermissionGrants`  Adds permission grants to members for the team, allowing them to, for example, act as a team maintainer. A permission grant may have either an `actionSet` or a list of `actions` but not both at the same time. The members do not have to be team members to have a permission grant for the team.  ##### Parameters  - `actionSet`: name of the action set - `actions`: list of actions - `memberIDs`: list of member IDs  #### `removePermissionGrants`  Removes permission grants from members for the team. The `actionSet` and `actions` must match an existing permission grant.  ##### Parameters  - `actionSet`: name of the action set - `actions`: list of actions - `memberIDs`: list of member IDs  #### `updateDescription`  Updates the team's description.  ##### Parameters  - `value`: the team's new description  #### `updateName`  Updates the team's name.  ##### Parameters  - `value`: the team's new name 
      * @param {String} key The team key
      * @param {module:model/TeamPatchInput} teamPatchInput 
      * @param {module:api/TeamsBetaApi~patchTeamCallback} callback The callback function, accepting three arguments: error, data, response
@@ -217,7 +232,7 @@ export default class TeamsBetaApi {
 
     /**
      * Create team
-     * Create a team.
+     * Create a team
      * @param {module:model/TeamPostInput} teamPostInput 
      * @param {module:api/TeamsBetaApi~postTeamCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TeamRep}

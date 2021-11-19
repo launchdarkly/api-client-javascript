@@ -54,7 +54,7 @@
       //expect(instance).to.be.a(LaunchDarklyApi.ApprovalSettings);
     });
 
-    it('should have the property required (base name: "Required")', function() {
+    it('should have the property required (base name: "required")', function() {
       // uncomment below and update the code to test the property required
       //var instance = new LaunchDarklyApi.ApprovalSettings();
       //expect(instance).to.be();

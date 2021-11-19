@@ -4,16 +4,29 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | 
-**sourceLink** | **String** |  | [optional] 
-**commitUrlTemplate** | **String** |  | [optional] 
-**hunkUrlTemplate** | **String** |  | [optional] 
-**type** | **String** |  | 
-**defaultBranch** | **String** |  | 
-**enabled** | **Boolean** |  | 
-**version** | **Number** |  | 
-**branches** | [**[BranchRep]**](BranchRep.md) |  | [optional] 
+**name** | **String** | The repository name | 
+**sourceLink** | **String** | A URL to access the repository | [optional] 
+**commitUrlTemplate** | **String** | A template for constructing a valid URL to view the commit | [optional] 
+**hunkUrlTemplate** | **String** | A template for constructing a valid URL to view the hunk | [optional] 
+**type** | **String** | The type of repository | 
+**defaultBranch** | **String** | The repository&#39;s default branch | 
+**enabled** | **Boolean** | Whether or not a repository is enabled for code reference scanning | 
+**version** | **Number** | The version of the repository&#39;s saved information | 
+**branches** | [**[BranchRep]**](BranchRep.md) | An array of the repository&#39;s branches that have been scanned for code references | [optional] 
 **links** | **{String: Object}** |  | 
 **access** | [**AccessRep**](AccessRep.md) |  | [optional] 
+
+
+
+## Enum: TypeEnum
+
+
+* `github` (value: `"github"`)
+
+* `bitbucket` (value: `"bitbucket"`)
+
+* `custom` (value: `"custom"`)
+
+
 
 

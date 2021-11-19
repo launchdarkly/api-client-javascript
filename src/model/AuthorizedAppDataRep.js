@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The AuthorizedAppDataRep model module.
  * @module model/AuthorizedAppDataRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class AuthorizedAppDataRep {
     /**

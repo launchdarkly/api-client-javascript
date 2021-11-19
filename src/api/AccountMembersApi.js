@@ -13,15 +13,21 @@
 
 
 import ApiClient from "../ApiClient";
-import InlineObject1 from '../model/InlineObject1';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
 import Member from '../model/Member';
 import Members from '../model/Members';
+import NewMemberForm from '../model/NewMemberForm';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import PatchOperation from '../model/PatchOperation';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * AccountMembers service.
 * @module api/AccountMembersApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class AccountMembersApi {
 
@@ -47,7 +53,7 @@ export default class AccountMembersApi {
 
     /**
      * Delete account member
-     * Delete a single account member by ID
+     * Delete a single account member by ID. Requests to delete account members will not work if SCIM is enabled for the account.
      * @param {String} id The member ID
      * @param {module:api/AccountMembersApi~deleteMemberCallback} callback The callback function, accepting three arguments: error, data, response
      */
@@ -70,7 +76,7 @@ export default class AccountMembersApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/members/{id}', 'DELETE',
@@ -136,7 +142,7 @@ export default class AccountMembersApi {
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit The number of members to return in the response. Defaults to 20.
      * @param {Number} opts.offset Where to start in the list. This is for use with pagination. For example, an offset of 10 would skip the first ten items and then return the next `limit` items.
-     * @param {String} opts.filter A comma-separated list of filters. Each filter is of the form `field:value`. Supported fields are explained below.
+     * @param {String} opts.filter A comma-separated list of filters. Each filter is of the form `field:value`. Supported fields are explained above.
      * @param {String} opts.sort A comma-separated list of fields to sort by. Fields prefixed by a dash ( - ) sort in descending order.
      * @param {module:api/AccountMembersApi~getMembersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Members}
@@ -179,7 +185,7 @@ export default class AccountMembersApi {
 
     /**
      * Modify an account member
-     * Update a single account member. The request should be a valid JSON Patch document describing the changes to be made to the member.
+     * Update a single account member. The request should be a valid JSON Patch document describing the changes to be made to the member. Requests to update account members will not work if SCIM is enabled for the account.
      * @param {String} id The member ID
      * @param {Array.<module:model/PatchOperation>} patchOperation 
      * @param {module:api/AccountMembersApi~patchMemberCallback} callback The callback function, accepting three arguments: error, data, response
@@ -227,16 +233,16 @@ export default class AccountMembersApi {
 
     /**
      * Invite new members
-     * > ### Full use of this API resource is only available to accounts with paid subscriptions > > The ability to bulk invite members is a paid feature. Single members may be invited if not on a paid plan.  Invite one or more new members to join an account. Each member is sent an invitation. Members with \"admin\" or \"owner\" roles may create new members, as well as anyone with a \"createMember\" permission for \"member/\\*\". If a member cannot be invited, the entire request is rejected and no members are invited from that request.  Each member _must_ have an `email` field and either a `role` or a `customRoles` field. If any of the fields are not populated correctly, the request is rejected with the reason specified in the \"message\" field of the response.  _No more than 50 members may be created per request._  A request may also fail because of conflicts with existing members. These conflicts are reported using the additional `code` and `invalid_emails` response fields with the following possible values for `code`:  - **email_already_exists_in_account**: A member with this email address already exists in this account. - **email_taken_in_different_account**: A member with this email address exists in another account. - **duplicate_email**s: This request contains two or more members with the same email address.  A request that fails for one of the above reasons returns an HTTP response code of 400 (Bad Request). 
-     * @param {Array.<module:model/InlineObject1>} inlineObject1 
+     * > ### Full use of this API resource is only available to accounts with paid subscriptions > > The ability to bulk invite members is a paid feature. Single members may be invited if not on a paid plan.  Invite one or more new members to join an account. Each member is sent an invitation. Members with \"admin\" or \"owner\" roles may create new members, as well as anyone with a \"createMember\" permission for \"member/\\*\". If a member cannot be invited, the entire request is rejected and no members are invited from that request.  Each member _must_ have an `email` field and either a `role` or a `customRoles` field. If any of the fields are not populated correctly, the request is rejected with the reason specified in the \"message\" field of the response.  Requests to create account members will not work if SCIM is enabled for the account.  _No more than 50 members may be created per request._  A request may also fail because of conflicts with existing members. These conflicts are reported using the additional `code` and `invalid_emails` response fields with the following possible values for `code`:  - **email_already_exists_in_account**: A member with this email address already exists in this account. - **email_taken_in_different_account**: A member with this email address exists in another account. - **duplicate_email**s: This request contains two or more members with the same email address.  A request that fails for one of the above reasons returns an HTTP response code of 400 (Bad Request). 
+     * @param {Array.<module:model/NewMemberForm>} newMemberForm 
      * @param {module:api/AccountMembersApi~postMembersCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Members}
      */
-    postMembers(inlineObject1, callback) {
-      let postBody = inlineObject1;
-      // verify the required parameter 'inlineObject1' is set
-      if (inlineObject1 === undefined || inlineObject1 === null) {
-        throw new Error("Missing the required parameter 'inlineObject1' when calling postMembers");
+    postMembers(newMemberForm, callback) {
+      let postBody = newMemberForm;
+      // verify the required parameter 'newMemberForm' is set
+      if (newMemberForm === undefined || newMemberForm === null) {
+        throw new Error("Missing the required parameter 'newMemberForm' when calling postMembers");
       }
 
       let pathParams = {

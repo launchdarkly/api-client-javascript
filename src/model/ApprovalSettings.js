@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ApprovalSettings model module.
  * @module model/ApprovalSettings
- * @version 6.0.1
+ * @version 6.0.2
  */
 class ApprovalSettings {
     /**
@@ -42,7 +42,7 @@ class ApprovalSettings {
      * Only for internal use.
      */
     static initialize(obj, required, bypassApprovalsForPendingChanges, minNumApprovals, canReviewOwnRequest, canApplyDeclinedChanges, serviceKind, serviceConfig, requiredApprovalTags) { 
-        obj['Required'] = required;
+        obj['required'] = required;
         obj['bypassApprovalsForPendingChanges'] = bypassApprovalsForPendingChanges;
         obj['minNumApprovals'] = minNumApprovals;
         obj['canReviewOwnRequest'] = canReviewOwnRequest;
@@ -63,8 +63,8 @@ class ApprovalSettings {
         if (data) {
             obj = obj || new ApprovalSettings();
 
-            if (data.hasOwnProperty('Required')) {
-                obj['Required'] = ApiClient.convertToType(data['Required'], 'Boolean');
+            if (data.hasOwnProperty('required')) {
+                obj['required'] = ApiClient.convertToType(data['required'], 'Boolean');
             }
             if (data.hasOwnProperty('bypassApprovalsForPendingChanges')) {
                 obj['bypassApprovalsForPendingChanges'] = ApiClient.convertToType(data['bypassApprovalsForPendingChanges'], 'Boolean');
@@ -96,9 +96,9 @@ class ApprovalSettings {
 
 /**
  * If approvals are required for this environment.
- * @member {Boolean} Required
+ * @member {Boolean} required
  */
-ApprovalSettings.prototype['Required'] = undefined;
+ApprovalSettings.prototype['required'] = undefined;
 
 /**
  * @member {Boolean} bypassApprovalsForPendingChanges

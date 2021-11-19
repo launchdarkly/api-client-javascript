@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**path** | **String** |  | [optional] 
-**hint** | **String** |  | [optional] 
-**hunks** | [**[HunkRep]**](HunkRep.md) |  | [optional] 
+**path** | **String** | File path of the reference | 
+**hint** | **String** | Programming language used in the file | [optional] 
+**hunks** | [**[HunkRep]**](HunkRep.md) |  | 
 
 

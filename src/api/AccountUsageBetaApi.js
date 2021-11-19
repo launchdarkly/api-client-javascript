@@ -13,14 +13,19 @@
 
 
 import ApiClient from "../ApiClient";
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
 import SdkListRep from '../model/SdkListRep';
 import SdkVersionListRep from '../model/SdkVersionListRep';
 import SeriesListRep from '../model/SeriesListRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * AccountUsageBeta service.
 * @module api/AccountUsageBetaApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class AccountUsageBetaApi {
 

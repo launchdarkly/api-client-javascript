@@ -17,7 +17,7 @@ import StatementPost from './StatementPost';
 /**
  * The CustomRolePost model module.
  * @module model/CustomRolePost
- * @version 6.0.1
+ * @version 6.0.2
  */
 class CustomRolePost {
     /**
@@ -66,6 +66,9 @@ class CustomRolePost {
             if (data.hasOwnProperty('policy')) {
                 obj['policy'] = ApiClient.convertToType(data['policy'], [StatementPost]);
             }
+            if (data.hasOwnProperty('basePermissions')) {
+                obj['basePermissions'] = ApiClient.convertToType(data['basePermissions'], 'String');
+            }
         }
         return obj;
     }
@@ -95,6 +98,11 @@ CustomRolePost.prototype['description'] = undefined;
  * @member {Array.<module:model/StatementPost>} policy
  */
 CustomRolePost.prototype['policy'] = undefined;
+
+/**
+ * @member {String} basePermissions
+ */
+CustomRolePost.prototype['basePermissions'] = undefined;
 
 
 

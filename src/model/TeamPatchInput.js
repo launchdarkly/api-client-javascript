@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TeamPatchInput model module.
  * @module model/TeamPatchInput
- * @version 6.0.1
+ * @version 6.0.2
  */
 class TeamPatchInput {
     /**

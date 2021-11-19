@@ -18,14 +18,14 @@ import RepositoryRep from './RepositoryRep';
 /**
  * The RepositoryCollectionRep model module.
  * @module model/RepositoryCollectionRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class RepositoryCollectionRep {
     /**
      * Constructs a new <code>RepositoryCollectionRep</code>.
      * @alias module:model/RepositoryCollectionRep
      * @param links {Object.<String, module:model/Link>} 
-     * @param items {Array.<module:model/RepositoryRep>} 
+     * @param items {Array.<module:model/RepositoryRep>} An array of repositories
      */
     constructor(links, items) { 
         
@@ -72,6 +72,7 @@ class RepositoryCollectionRep {
 RepositoryCollectionRep.prototype['_links'] = undefined;
 
 /**
+ * An array of repositories
  * @member {Array.<module:model/RepositoryRep>} items
  */
 RepositoryCollectionRep.prototype['items'] = undefined;

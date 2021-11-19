@@ -15,11 +15,16 @@
 import ApiClient from "../ApiClient";
 import AuditLogEntryListingRepCollection from '../model/AuditLogEntryListingRepCollection';
 import AuditLogEntryRep from '../model/AuditLogEntryRep';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * AuditLog service.
 * @module api/AuditLogApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class AuditLogApi {
 

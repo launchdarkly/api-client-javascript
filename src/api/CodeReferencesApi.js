@@ -16,18 +16,25 @@ import ApiClient from "../ApiClient";
 import BranchCollectionRep from '../model/BranchCollectionRep';
 import BranchRep from '../model/BranchRep';
 import ExtinctionCollectionRep from '../model/ExtinctionCollectionRep';
-import InlineObject from '../model/InlineObject';
+import ExtinctionRep from '../model/ExtinctionRep';
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import PatchOperation from '../model/PatchOperation';
+import PutBranch from '../model/PutBranch';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
 import RepositoryCollectionRep from '../model/RepositoryCollectionRep';
 import RepositoryPost from '../model/RepositoryPost';
 import RepositoryRep from '../model/RepositoryRep';
 import StatisticCollectionRep from '../model/StatisticCollectionRep';
 import StatisticsRoot from '../model/StatisticsRoot';
+import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 
 /**
 * CodeReferences service.
 * @module api/CodeReferencesApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class CodeReferencesApi {
 
@@ -81,7 +88,7 @@ export default class CodeReferencesApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = ['application/json'];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/code-refs/repositories/{repo}/branch-delete-tasks', 'POST',
@@ -123,7 +130,7 @@ export default class CodeReferencesApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/code-refs/repositories/{repo}', 'DELETE',
@@ -243,7 +250,7 @@ export default class CodeReferencesApi {
      * Get a list of all extinctions.
      * @param {Object} opts Optional parameters
      * @param {String} opts.repoName Filter results to a specific repository
-     * @param {String} opts.branchName Filter results to a specific branch
+     * @param {String} opts.branchName Filter results to a specific branch. By default, only the default branch will be queried for extinctions.
      * @param {String} opts.projKey Filter results to a specific project
      * @param {String} opts.flagKey Filter results to a specific flag key
      * @param {module:api/CodeReferencesApi~getExtinctionsCallback} callback The callback function, accepting three arguments: error, data, response
@@ -512,11 +519,11 @@ export default class CodeReferencesApi {
      * Create a new extinction
      * @param {String} repo The repository name
      * @param {String} branch The url-encoded branch name
-     * @param {Array.<module:model/InlineObject>} inlineObject 
+     * @param {Array.<module:model/ExtinctionRep>} extinctionRep 
      * @param {module:api/CodeReferencesApi~postExtinctionCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    postExtinction(repo, branch, inlineObject, callback) {
-      let postBody = inlineObject;
+    postExtinction(repo, branch, extinctionRep, callback) {
+      let postBody = extinctionRep;
       // verify the required parameter 'repo' is set
       if (repo === undefined || repo === null) {
         throw new Error("Missing the required parameter 'repo' when calling postExtinction");
@@ -525,9 +532,9 @@ export default class CodeReferencesApi {
       if (branch === undefined || branch === null) {
         throw new Error("Missing the required parameter 'branch' when calling postExtinction");
       }
-      // verify the required parameter 'inlineObject' is set
-      if (inlineObject === undefined || inlineObject === null) {
-        throw new Error("Missing the required parameter 'inlineObject' when calling postExtinction");
+      // verify the required parameter 'extinctionRep' is set
+      if (extinctionRep === undefined || extinctionRep === null) {
+        throw new Error("Missing the required parameter 'extinctionRep' when calling postExtinction");
       }
 
       let pathParams = {
@@ -543,10 +550,10 @@ export default class CodeReferencesApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = ['application/json'];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/v2/code-refs/repositories/{repo}/branches/{branch}', 'POST',
+        '/api/v2/code-refs/repositories/{repo}/branches/{branch}/extinction-events', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -556,7 +563,7 @@ export default class CodeReferencesApi {
      * Callback function to receive the result of the postRepository operation.
      * @callback module:api/CodeReferencesApi~postRepositoryCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/RepositoryRep} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -565,6 +572,7 @@ export default class CodeReferencesApi {
      * Create a repository with the specified name.
      * @param {module:model/RepositoryPost} repositoryPost 
      * @param {module:api/CodeReferencesApi~postRepositoryCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/RepositoryRep}
      */
     postRepository(repositoryPost, callback) {
       let postBody = repositoryPost;
@@ -584,8 +592,8 @@ export default class CodeReferencesApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = ['application/json'];
-      let accepts = [];
-      let returnType = null;
+      let accepts = ['application/json'];
+      let returnType = RepositoryRep;
       return this.apiClient.callApi(
         '/api/v2/code-refs/repositories', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -606,11 +614,11 @@ export default class CodeReferencesApi {
      * Create a new branch if it doesn't exist, or updates the branch if it already exists.
      * @param {String} repo The repository name
      * @param {String} branch The url-encoded branch name
-     * @param {module:model/BranchRep} branchRep 
+     * @param {module:model/PutBranch} putBranch 
      * @param {module:api/CodeReferencesApi~putBranchCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    putBranch(repo, branch, branchRep, callback) {
-      let postBody = branchRep;
+    putBranch(repo, branch, putBranch, callback) {
+      let postBody = putBranch;
       // verify the required parameter 'repo' is set
       if (repo === undefined || repo === null) {
         throw new Error("Missing the required parameter 'repo' when calling putBranch");
@@ -619,9 +627,9 @@ export default class CodeReferencesApi {
       if (branch === undefined || branch === null) {
         throw new Error("Missing the required parameter 'branch' when calling putBranch");
       }
-      // verify the required parameter 'branchRep' is set
-      if (branchRep === undefined || branchRep === null) {
-        throw new Error("Missing the required parameter 'branchRep' when calling putBranch");
+      // verify the required parameter 'putBranch' is set
+      if (putBranch === undefined || putBranch === null) {
+        throw new Error("Missing the required parameter 'putBranch' when calling putBranch");
       }
 
       let pathParams = {
@@ -637,7 +645,7 @@ export default class CodeReferencesApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = ['application/json'];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/code-refs/repositories/{repo}/branches/{branch}', 'PUT',

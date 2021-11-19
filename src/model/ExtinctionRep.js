@@ -16,17 +16,17 @@ import ApiClient from '../ApiClient';
 /**
  * The ExtinctionRep model module.
  * @module model/ExtinctionRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class ExtinctionRep {
     /**
      * Constructs a new <code>ExtinctionRep</code>.
      * @alias module:model/ExtinctionRep
-     * @param revision {String} 
-     * @param message {String} 
+     * @param revision {String} The identifier for the revision where flag became extinct. For example, a commit SHA.
+     * @param message {String} Description of the extinction. For example, the commit message for the revision.
      * @param time {Number} 
-     * @param flagKey {String} 
-     * @param projKey {String} 
+     * @param flagKey {String} The feature flag key
+     * @param projKey {String} The project key
      */
     constructor(revision, message, time, flagKey, projKey) { 
         
@@ -80,11 +80,13 @@ class ExtinctionRep {
 }
 
 /**
+ * The identifier for the revision where flag became extinct. For example, a commit SHA.
  * @member {String} revision
  */
 ExtinctionRep.prototype['revision'] = undefined;
 
 /**
+ * Description of the extinction. For example, the commit message for the revision.
  * @member {String} message
  */
 ExtinctionRep.prototype['message'] = undefined;
@@ -95,11 +97,13 @@ ExtinctionRep.prototype['message'] = undefined;
 ExtinctionRep.prototype['time'] = undefined;
 
 /**
+ * The feature flag key
  * @member {String} flagKey
  */
 ExtinctionRep.prototype['flagKey'] = undefined;
 
 /**
+ * The project key
  * @member {String} projKey
  */
 ExtinctionRep.prototype['projKey'] = undefined;

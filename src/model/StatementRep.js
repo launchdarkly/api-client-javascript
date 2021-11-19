@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StatementRep model module.
  * @module model/StatementRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class StatementRep {
     /**

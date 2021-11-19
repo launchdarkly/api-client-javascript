@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The StatisticsRoot model module.
  * @module model/StatisticsRoot
- * @version 6.0.1
+ * @version 6.0.2
  */
 class StatisticsRoot {
     /**

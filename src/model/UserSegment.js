@@ -21,7 +21,7 @@ import UserSegmentRule from './UserSegmentRule';
 /**
  * The UserSegment model module.
  * @module model/UserSegment
- * @version 6.0.1
+ * @version 6.0.2
  */
 class UserSegment {
     /**
@@ -123,6 +123,9 @@ class UserSegment {
             }
             if (data.hasOwnProperty('_externalLink')) {
                 obj['_externalLink'] = ApiClient.convertToType(data['_externalLink'], 'String');
+            }
+            if (data.hasOwnProperty('_importInProgress')) {
+                obj['_importInProgress'] = ApiClient.convertToType(data['_importInProgress'], 'Boolean');
             }
         }
         return obj;
@@ -226,6 +229,11 @@ UserSegment.prototype['_external'] = undefined;
  * @member {String} _externalLink
  */
 UserSegment.prototype['_externalLink'] = undefined;
+
+/**
+ * @member {Boolean} _importInProgress
+ */
+UserSegment.prototype['_importInProgress'] = undefined;
 
 
 

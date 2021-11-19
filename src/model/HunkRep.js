@@ -16,16 +16,17 @@ import ApiClient from '../ApiClient';
 /**
  * The HunkRep model module.
  * @module model/HunkRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class HunkRep {
     /**
      * Constructs a new <code>HunkRep</code>.
      * @alias module:model/HunkRep
+     * @param startingLineNumber {Number} Line number of beginning of code reference hunk
      */
-    constructor() { 
+    constructor(startingLineNumber) { 
         
-        HunkRep.initialize(this);
+        HunkRep.initialize(this, startingLineNumber);
     }
 
     /**
@@ -33,7 +34,8 @@ class HunkRep {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, startingLineNumber) { 
+        obj['startingLineNumber'] = startingLineNumber;
     }
 
     /**
@@ -70,26 +72,31 @@ class HunkRep {
 }
 
 /**
+ * Line number of beginning of code reference hunk
  * @member {Number} startingLineNumber
  */
 HunkRep.prototype['startingLineNumber'] = undefined;
 
 /**
+ * Contextual lines of code that include the referenced feature flag
  * @member {String} lines
  */
 HunkRep.prototype['lines'] = undefined;
 
 /**
+ * The project key
  * @member {String} projKey
  */
 HunkRep.prototype['projKey'] = undefined;
 
 /**
+ * The feature flag key
  * @member {String} flagKey
  */
 HunkRep.prototype['flagKey'] = undefined;
 
 /**
+ * An array of flag key aliases
  * @member {Array.<String>} aliases
  */
 HunkRep.prototype['aliases'] = undefined;

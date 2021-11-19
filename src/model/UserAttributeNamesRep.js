@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UserAttributeNamesRep model module.
  * @module model/UserAttributeNamesRep
- * @version 6.0.1
+ * @version 6.0.2
  */
 class UserAttributeNamesRep {
     /**

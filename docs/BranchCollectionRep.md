@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **links** | [**{String: Link}**](Link.md) |  | 
-**items** | [**[BranchRep]**](BranchRep.md) |  | 
+**items** | [**[BranchRep]**](BranchRep.md) | An array of branches | 
 
 

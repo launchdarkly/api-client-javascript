@@ -17,7 +17,7 @@ import DefaultClientSideAvailabilityPost from './DefaultClientSideAvailabilityPo
 /**
  * The ProjectPost model module.
  * @module model/ProjectPost
- * @version 6.0.1
+ * @version 6.0.2
  */
 class ProjectPost {
     /**

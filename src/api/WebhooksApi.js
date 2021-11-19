@@ -13,7 +13,12 @@
 
 
 import ApiClient from "../ApiClient";
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
+import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import PatchOperation from '../model/PatchOperation';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 import Webhook from '../model/Webhook';
 import WebhookPost from '../model/WebhookPost';
 import Webhooks from '../model/Webhooks';
@@ -21,7 +26,7 @@ import Webhooks from '../model/Webhooks';
 /**
 * Webhooks service.
 * @module api/WebhooksApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class WebhooksApi {
 
@@ -70,7 +75,7 @@ export default class WebhooksApi {
 
       let authNames = ['ApiKey'];
       let contentTypes = [];
-      let accepts = [];
+      let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/webhooks/{id}', 'DELETE',

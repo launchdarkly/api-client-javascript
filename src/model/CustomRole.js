@@ -19,21 +19,21 @@ import Statement from './Statement';
 /**
  * The CustomRole model module.
  * @module model/CustomRole
- * @version 6.0.1
+ * @version 6.0.2
  */
 class CustomRole {
     /**
      * Constructs a new <code>CustomRole</code>.
      * @alias module:model/CustomRole
-     * @param links {Object.<String, module:model/Link>} 
-     * @param name {String} 
-     * @param key {String} 
      * @param id {String} 
+     * @param links {Object.<String, module:model/Link>} 
+     * @param key {String} 
+     * @param name {String} 
      * @param policy {Array.<module:model/Statement>} 
      */
-    constructor(links, name, key, id, policy) { 
+    constructor(id, links, key, name, policy) { 
         
-        CustomRole.initialize(this, links, name, key, id, policy);
+        CustomRole.initialize(this, id, links, key, name, policy);
     }
 
     /**
@@ -41,11 +41,11 @@ class CustomRole {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, links, name, key, id, policy) { 
-        obj['_links'] = links;
-        obj['name'] = name;
-        obj['key'] = key;
+    static initialize(obj, id, links, key, name, policy) { 
         obj['_id'] = id;
+        obj['_links'] = links;
+        obj['key'] = key;
+        obj['name'] = name;
         obj['policy'] = policy;
     }
 
@@ -60,26 +60,29 @@ class CustomRole {
         if (data) {
             obj = obj || new CustomRole();
 
+            if (data.hasOwnProperty('_id')) {
+                obj['_id'] = ApiClient.convertToType(data['_id'], 'String');
+            }
             if (data.hasOwnProperty('_links')) {
                 obj['_links'] = ApiClient.convertToType(data['_links'], {'String': Link});
             }
-            if (data.hasOwnProperty('name')) {
-                obj['name'] = ApiClient.convertToType(data['name'], 'String');
-            }
-            if (data.hasOwnProperty('key')) {
-                obj['key'] = ApiClient.convertToType(data['key'], 'String');
+            if (data.hasOwnProperty('_access')) {
+                obj['_access'] = AccessRep.constructFromObject(data['_access']);
             }
             if (data.hasOwnProperty('description')) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
-            if (data.hasOwnProperty('_id')) {
-                obj['_id'] = ApiClient.convertToType(data['_id'], 'String');
+            if (data.hasOwnProperty('key')) {
+                obj['key'] = ApiClient.convertToType(data['key'], 'String');
+            }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
             if (data.hasOwnProperty('policy')) {
                 obj['policy'] = ApiClient.convertToType(data['policy'], [Statement]);
             }
-            if (data.hasOwnProperty('_access')) {
-                obj['_access'] = AccessRep.constructFromObject(data['_access']);
+            if (data.hasOwnProperty('basePermissions')) {
+                obj['basePermissions'] = ApiClient.convertToType(data['basePermissions'], 'String');
             }
         }
         return obj;
@@ -89,19 +92,19 @@ class CustomRole {
 }
 
 /**
+ * @member {String} _id
+ */
+CustomRole.prototype['_id'] = undefined;
+
+/**
  * @member {Object.<String, module:model/Link>} _links
  */
 CustomRole.prototype['_links'] = undefined;
 
 /**
- * @member {String} name
+ * @member {module:model/AccessRep} _access
  */
-CustomRole.prototype['name'] = undefined;
-
-/**
- * @member {String} key
- */
-CustomRole.prototype['key'] = undefined;
+CustomRole.prototype['_access'] = undefined;
 
 /**
  * @member {String} description
@@ -109,9 +112,14 @@ CustomRole.prototype['key'] = undefined;
 CustomRole.prototype['description'] = undefined;
 
 /**
- * @member {String} _id
+ * @member {String} key
  */
-CustomRole.prototype['_id'] = undefined;
+CustomRole.prototype['key'] = undefined;
+
+/**
+ * @member {String} name
+ */
+CustomRole.prototype['name'] = undefined;
 
 /**
  * @member {Array.<module:model/Statement>} policy
@@ -119,9 +127,9 @@ CustomRole.prototype['_id'] = undefined;
 CustomRole.prototype['policy'] = undefined;
 
 /**
- * @member {module:model/AccessRep} _access
+ * @member {String} basePermissions
  */
-CustomRole.prototype['_access'] = undefined;
+CustomRole.prototype['basePermissions'] = undefined;
 
 
 

@@ -13,14 +13,17 @@
 
 
 import ApiClient from "../ApiClient";
+import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
 import InlineResponse200 from '../model/InlineResponse200';
 import IpList from '../model/IpList';
+import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
+import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 import VersionsRep from '../model/VersionsRep';
 
 /**
 * Other service.
 * @module api/OtherApi
-* @version 6.0.1
+* @version 6.0.2
 */
 export default class OtherApi {
 
