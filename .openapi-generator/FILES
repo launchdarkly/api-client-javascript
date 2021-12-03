@@ -54,6 +54,7 @@ docs/Defaults.md
 docs/DependentFlag.md
 docs/DependentFlagEnvironment.md
 docs/DependentFlagsByEnvironment.md
+docs/DerivedAttribute.md
 docs/Destination.md
 docs/DestinationPost.md
 docs/Destinations.md
@@ -77,8 +78,8 @@ docs/ExpiringUserTargetError.md
 docs/ExpiringUserTargetGetResponse.md
 docs/ExpiringUserTargetItem.md
 docs/ExpiringUserTargetPatchResponse.md
+docs/Extinction.md
 docs/ExtinctionCollectionRep.md
-docs/ExtinctionRep.md
 docs/FeatureFlag.md
 docs/FeatureFlagBody.md
 docs/FeatureFlagConfig.md
@@ -101,7 +102,6 @@ docs/FlagStatusRep.md
 docs/FlagSummary.md
 docs/ForbiddenErrorRep.md
 docs/HunkRep.md
-docs/InlineResponse200.md
 docs/IntegrationMetadata.md
 docs/IntegrationStatus.md
 docs/InvalidRequestErrorRep.md
@@ -119,6 +119,7 @@ docs/MetricCollectionRep.md
 docs/MetricListingRep.md
 docs/MetricPost.md
 docs/MetricRep.md
+docs/MetricSeen.md
 docs/MetricsApi.md
 docs/Modification.md
 docs/MultiEnvironmentDependentFlag.md
@@ -202,6 +203,7 @@ docs/UserAttributeNamesRep.md
 docs/UserFlagSetting.md
 docs/UserFlagSettings.md
 docs/UserRecord.md
+docs/UserRecordRep.md
 docs/UserSegment.md
 docs/UserSegmentRule.md
 docs/UserSegments.md
@@ -210,7 +212,6 @@ docs/Users.md
 docs/UsersApi.md
 docs/UsersBetaApi.md
 docs/ValuePut.md
-docs/Variate.md
 docs/Variation.md
 docs/VariationOrRolloutRep.md
 docs/VariationSummary.md
@@ -293,6 +294,7 @@ src/model/Defaults.js
 src/model/DependentFlag.js
 src/model/DependentFlagEnvironment.js
 src/model/DependentFlagsByEnvironment.js
+src/model/DerivedAttribute.js
 src/model/Destination.js
 src/model/DestinationPost.js
 src/model/Destinations.js
@@ -314,8 +316,8 @@ src/model/ExpiringUserTargetError.js
 src/model/ExpiringUserTargetGetResponse.js
 src/model/ExpiringUserTargetItem.js
 src/model/ExpiringUserTargetPatchResponse.js
+src/model/Extinction.js
 src/model/ExtinctionCollectionRep.js
-src/model/ExtinctionRep.js
 src/model/FeatureFlag.js
 src/model/FeatureFlagBody.js
 src/model/FeatureFlagConfig.js
@@ -336,7 +338,6 @@ src/model/FlagStatusRep.js
 src/model/FlagSummary.js
 src/model/ForbiddenErrorRep.js
 src/model/HunkRep.js
-src/model/InlineResponse200.js
 src/model/IntegrationMetadata.js
 src/model/IntegrationStatus.js
 src/model/InvalidRequestErrorRep.js
@@ -354,6 +355,7 @@ src/model/MetricCollectionRep.js
 src/model/MetricListingRep.js
 src/model/MetricPost.js
 src/model/MetricRep.js
+src/model/MetricSeen.js
 src/model/Modification.js
 src/model/MultiEnvironmentDependentFlag.js
 src/model/MultiEnvironmentDependentFlags.js
@@ -430,12 +432,12 @@ src/model/UserAttributeNamesRep.js
 src/model/UserFlagSetting.js
 src/model/UserFlagSettings.js
 src/model/UserRecord.js
+src/model/UserRecordRep.js
 src/model/UserSegment.js
 src/model/UserSegmentRule.js
 src/model/UserSegments.js
 src/model/Users.js
 src/model/ValuePut.js
-src/model/Variate.js
 src/model/Variation.js
 src/model/VariationOrRolloutRep.js
 src/model/VariationSummary.js
@@ -511,6 +513,7 @@ test/model/Defaults.spec.js
 test/model/DependentFlag.spec.js
 test/model/DependentFlagEnvironment.spec.js
 test/model/DependentFlagsByEnvironment.spec.js
+test/model/DerivedAttribute.spec.js
 test/model/Destination.spec.js
 test/model/DestinationPost.spec.js
 test/model/Destinations.spec.js
@@ -532,8 +535,8 @@ test/model/ExpiringUserTargetError.spec.js
 test/model/ExpiringUserTargetGetResponse.spec.js
 test/model/ExpiringUserTargetItem.spec.js
 test/model/ExpiringUserTargetPatchResponse.spec.js
+test/model/Extinction.spec.js
 test/model/ExtinctionCollectionRep.spec.js
-test/model/ExtinctionRep.spec.js
 test/model/FeatureFlag.spec.js
 test/model/FeatureFlagBody.spec.js
 test/model/FeatureFlagConfig.spec.js
@@ -554,7 +557,6 @@ test/model/FlagStatusRep.spec.js
 test/model/FlagSummary.spec.js
 test/model/ForbiddenErrorRep.spec.js
 test/model/HunkRep.spec.js
-test/model/InlineResponse200.spec.js
 test/model/IntegrationMetadata.spec.js
 test/model/IntegrationStatus.spec.js
 test/model/InvalidRequestErrorRep.spec.js
@@ -572,6 +574,7 @@ test/model/MetricCollectionRep.spec.js
 test/model/MetricListingRep.spec.js
 test/model/MetricPost.spec.js
 test/model/MetricRep.spec.js
+test/model/MetricSeen.spec.js
 test/model/Modification.spec.js
 test/model/MultiEnvironmentDependentFlag.spec.js
 test/model/MultiEnvironmentDependentFlags.spec.js
@@ -648,12 +651,12 @@ test/model/UserAttributeNamesRep.spec.js
 test/model/UserFlagSetting.spec.js
 test/model/UserFlagSettings.spec.js
 test/model/UserRecord.spec.js
+test/model/UserRecordRep.spec.js
 test/model/UserSegment.spec.js
 test/model/UserSegmentRule.spec.js
 test/model/UserSegments.spec.js
 test/model/Users.spec.js
 test/model/ValuePut.spec.js
-test/model/Variate.spec.js
 test/model/Variation.spec.js
 test/model/VariationOrRolloutRep.spec.js
 test/model/VariationSummary.spec.js

@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **series** | [**[ExperimentTimeSeriesSlice]**](ExperimentTimeSeriesSlice.md) |  | [optional] 
 **stats** | [**ExperimentStatsRep**](ExperimentStatsRep.md) |  | [optional] 
 **granularity** | **String** |  | [optional] 
+**metricSeen** | [**MetricSeen**](MetricSeen.md) |  | [optional] 
 
 

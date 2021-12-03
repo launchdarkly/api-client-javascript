@@ -5,6 +5,7 @@ All URIs are relative to *https://app.launchdarkly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteWorkflow**](WorkflowsBetaApi.md#deleteWorkflow) | **DELETE** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/workflows/{workflowId} | Delete workflow
+[**getCustomWorkflow**](WorkflowsBetaApi.md#getCustomWorkflow) | **GET** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/workflows/{workflowId} | Get custom workflow
 [**getWorkflows**](WorkflowsBetaApi.md#getWorkflows) | **GET** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/workflows | Get workflows
 [**postWorkflow**](WorkflowsBetaApi.md#postWorkflow) | **POST** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/workflows | Create workflow
 
@@ -56,6 +57,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getCustomWorkflow
+
+> CustomWorkflowOutputRep getCustomWorkflow(projectKey, featureFlagKey, environmentKey, workflowId)
+
+Get custom workflow
+
+Get a specific workflow by ID
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.WorkflowsBetaApi();
+let projectKey = "projectKey_example"; // String | The project key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let workflowId = "workflowId_example"; // String | The workflow ID
+apiInstance.getCustomWorkflow(projectKey, featureFlagKey, environmentKey, workflowId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectKey** | **String**| The project key | 
+ **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **environmentKey** | **String**| The environment key | 
+ **workflowId** | **String**| The workflow ID | 
+
+### Return type
+
+[**CustomWorkflowOutputRep**](CustomWorkflowOutputRep.md)
 
 ### Authorization
 

@@ -9,5 +9,7 @@ Name | Type | Description | Notes
 **ownerId** | **String** |  | [optional] 
 **user** | [**User**](User.md) |  | [optional] 
 **sortValue** | **Object** |  | [optional] 
+**links** | [**{String: Link}**](Link.md) |  | [optional] 
+**access** | [**AccessRep**](AccessRep.md) |  | [optional] 
 
 

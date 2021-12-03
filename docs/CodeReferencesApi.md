@@ -560,7 +560,7 @@ Name | Type | Description  | Notes
 
 ## postExtinction
 
-> postExtinction(repo, branch, extinctionRep)
+> postExtinction(repo, branch, extinction)
 
 Create extinction
 
@@ -580,8 +580,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new LaunchDarklyApi.CodeReferencesApi();
 let repo = "repo_example"; // String | The repository name
 let branch = "branch_example"; // String | The url-encoded branch name
-let extinctionRep = [new LaunchDarklyApi.ExtinctionRep()]; // [ExtinctionRep] | 
-apiInstance.postExtinction(repo, branch, extinctionRep, (error, data, response) => {
+let extinction = [new LaunchDarklyApi.Extinction()]; // [Extinction] | 
+apiInstance.postExtinction(repo, branch, extinction, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -597,7 +597,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **repo** | **String**| The repository name | 
  **branch** | **String**| The url-encoded branch name | 
- **extinctionRep** | [**[ExtinctionRep]**](ExtinctionRep.md)|  | 
+ **extinction** | [**[Extinction]**](Extinction.md)|  | 
 
 ### Return type
 

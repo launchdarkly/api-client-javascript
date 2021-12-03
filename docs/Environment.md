@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **defaultTtl** | **Number** | The default time (in minutes) that the PHP SDK can cache feature flag rules locally. | 
 **secureMode** | **Boolean** | Secure mode ensures that a user of the client-side SDK cannot impersonate another user. | 
 **defaultTrackEvents** | **Boolean** | Enables tracking detailed information for new flags by default. | 
+**requireComments** | **Boolean** |  | 
+**confirmChanges** | **Boolean** |  | 
 **tags** | **[String]** |  | 
 **approvalSettings** | [**ApprovalSettings**](ApprovalSettings.md) |  | [optional] 
 

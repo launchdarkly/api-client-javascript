@@ -107,7 +107,7 @@ null (empty response body)
 
 ## getRoot
 
-> {String: InlineResponse200} getRoot()
+> {String: Link} getRoot()
 
 Root resource
 
@@ -140,7 +140,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**{String: InlineResponse200}**](InlineResponse200.md)
+[**{String: Link}**](Link.md)
 
 ### Authorization
 

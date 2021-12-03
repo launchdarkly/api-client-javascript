@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ## getUser
 
-> User getUser(projKey, envKey, key)
+> UserRecord getUser(projKey, envKey, key)
 
 Get user
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**UserRecord**](UserRecord.md)
 
 ### Authorization
 
