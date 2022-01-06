@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property ref (base name: "ref")', function() {
+      // uncomment below and update the code to test the property ref
+      //var instance = new LaunchDarklyApi.Rule();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

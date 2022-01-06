@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MetricSeen model module.
  * @module model/MetricSeen
- * @version 7.0.0
+ * @version 7.1.0
  */
 class MetricSeen {
     /**
@@ -50,8 +50,8 @@ class MetricSeen {
             if (data.hasOwnProperty('ever')) {
                 obj['ever'] = ApiClient.convertToType(data['ever'], 'Boolean');
             }
-            if (data.hasOwnProperty('minutesAgo')) {
-                obj['minutesAgo'] = ApiClient.convertToType(data['minutesAgo'], 'Number');
+            if (data.hasOwnProperty('timestamp')) {
+                obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'Number');
             }
         }
         return obj;
@@ -66,9 +66,9 @@ class MetricSeen {
 MetricSeen.prototype['ever'] = undefined;
 
 /**
- * @member {Number} minutesAgo
+ * @member {Number} timestamp
  */
-MetricSeen.prototype['minutesAgo'] = undefined;
+MetricSeen.prototype['timestamp'] = undefined;
 
 
 

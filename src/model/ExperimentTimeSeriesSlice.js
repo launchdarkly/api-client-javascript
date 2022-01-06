@@ -17,7 +17,7 @@ import ExperimentTimeSeriesVariationSlice from './ExperimentTimeSeriesVariationS
 /**
  * The ExperimentTimeSeriesSlice model module.
  * @module model/ExperimentTimeSeriesSlice
- * @version 7.0.0
+ * @version 7.1.0
  */
 class ExperimentTimeSeriesSlice {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EnvironmentPost model module.
  * @module model/EnvironmentPost
- * @version 7.0.0
+ * @version 7.1.0
  */
 class EnvironmentPost {
     /**

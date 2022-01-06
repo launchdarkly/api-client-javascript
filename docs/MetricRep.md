@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **maintainer** | [**MemberSummaryRep**](MemberSummaryRep.md) |  | [optional] 
 **description** | **String** |  | [optional] 
 **isNumeric** | **Boolean** |  | [optional] 
-**successCriteria** | **Number** |  | [optional] 
+**successCriteria** | **String** |  | [optional] 
 **unit** | **String** |  | [optional] 
 **eventKey** | **String** |  | [optional] 
 **isActive** | **Boolean** |  | [optional] 
@@ -38,6 +38,17 @@ Name | Type | Description | Notes
 * `click` (value: `"click"`)
 
 * `custom` (value: `"custom"`)
+
+
+
+
+
+## Enum: SuccessCriteriaEnum
+
+
+* `HigherThanBaseline` (value: `"HigherThanBaseline"`)
+
+* `LowerThanBaseline` (value: `"LowerThanBaseline"`)
 
 
 

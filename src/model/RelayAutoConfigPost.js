@@ -17,7 +17,7 @@ import StatementRep from './StatementRep';
 /**
  * The RelayAutoConfigPost model module.
  * @module model/RelayAutoConfigPost
- * @version 7.0.0
+ * @version 7.1.0
  */
 class RelayAutoConfigPost {
     /**

@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **clauses** | [**[Clause]**](Clause.md) |  | 
 **trackEvents** | **Boolean** |  | 
 **description** | **String** |  | [optional] 
+**ref** | **String** |  | [optional] 
 
 

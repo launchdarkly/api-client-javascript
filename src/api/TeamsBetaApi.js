@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import ExpandedTeamRep from '../model/ExpandedTeamRep';
 import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
 import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
 import MethodNotAllowedErrorRep from '../model/MethodNotAllowedErrorRep';
@@ -20,6 +21,7 @@ import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
 import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
 import TeamCollectionRep from '../model/TeamCollectionRep';
+import TeamImportsRep from '../model/TeamImportsRep';
 import TeamPatchInput from '../model/TeamPatchInput';
 import TeamPostInput from '../model/TeamPostInput';
 import TeamRep from '../model/TeamRep';
@@ -28,7 +30,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * TeamsBeta service.
 * @module api/TeamsBetaApi
-* @version 7.0.0
+* @version 7.1.0
 */
 export default class TeamsBetaApi {
 
@@ -90,7 +92,7 @@ export default class TeamsBetaApi {
      * Callback function to receive the result of the getTeam operation.
      * @callback module:api/TeamsBetaApi~getTeamCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/TeamRep} data The data returned by the service call.
+     * @param {module:model/ExpandedTeamRep} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -99,7 +101,7 @@ export default class TeamsBetaApi {
      * Fetch a team by key
      * @param {String} key The team key
      * @param {module:api/TeamsBetaApi~getTeamCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/TeamRep}
+     * data is of type: {@link module:model/ExpandedTeamRep}
      */
     getTeam(key, callback) {
       let postBody = null;
@@ -121,7 +123,7 @@ export default class TeamsBetaApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = TeamRep;
+      let returnType = ExpandedTeamRep;
       return this.apiClient.callApi(
         '/api/v2/teams/{key}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -178,7 +180,7 @@ export default class TeamsBetaApi {
      * Callback function to receive the result of the patchTeam operation.
      * @callback module:api/TeamsBetaApi~patchTeamCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/TeamCollectionRep} data The data returned by the service call.
+     * @param {module:model/ExpandedTeamRep} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -188,7 +190,7 @@ export default class TeamsBetaApi {
      * @param {String} key The team key
      * @param {module:model/TeamPatchInput} teamPatchInput 
      * @param {module:api/TeamsBetaApi~patchTeamCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/TeamCollectionRep}
+     * data is of type: {@link module:model/ExpandedTeamRep}
      */
     patchTeam(key, teamPatchInput, callback) {
       let postBody = teamPatchInput;
@@ -214,7 +216,7 @@ export default class TeamsBetaApi {
       let authNames = ['ApiKey'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = TeamCollectionRep;
+      let returnType = ExpandedTeamRep;
       return this.apiClient.callApi(
         '/api/v2/teams/{key}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -259,6 +261,53 @@ export default class TeamsBetaApi {
       let returnType = TeamRep;
       return this.apiClient.callApi(
         '/api/v2/teams', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postTeamMembers operation.
+     * @callback module:api/TeamsBetaApi~postTeamMembersCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/TeamImportsRep} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Add members to team
+     * Add multiple members to an existing team by uploading a CSV file of member email addresses. Your CSV file must include email addresses in the first column. You can include data in additional columns, but LaunchDarkly ignores all data outside the first column. Headers are optional.  **Members are only added on a `201` response.** A `207` indicates the CSV file contains a combination of valid and invalid entries and will _not_ result in any members being added to the team.  On a `207` response, if an entry contains bad user input the `message` field will contain the row number as well as the reason for the error. The `message` field will be omitted if the entry is valid.  Example `207` response: ```json {   \"items\": [     {       \"status\": \"success\",       \"value\": \"a-valid-email@launchdarkly.com\"     },     {       \"message\": \"Line 2: empty row\",       \"status\": \"error\",       \"value\": \"\"     },     {       \"message\": \"Line 3: email already exists in the specified team\",       \"status\": \"error\",       \"value\": \"existing-team-member@launchdarkly.com\"     },     {       \"message\": \"Line 4: invalid email formatting\",       \"status\": \"error\",       \"value\": \"invalid email format\"     }   ] } ```  Message | Resolution --- | --- Empty row | This line is blank. Add an email address and try again. Duplicate entry | This email address appears in the file twice. Remove the email from the file and try again. Email already exists in the specified team | This member is already on your team. Remove the email from the file and try again. Invalid formatting | This email address is not formatted correctly. Fix the formatting and try again. Email does not belong to a LaunchDarkly member | The email address doesn't belong to a LaunchDarkly account member. Invite them to LaunchDarkly, then re-add them to the team.  On a `400` response, the `message` field may contain errors specific to this endpoint.  Example `400` response: ```json {   \"code\": \"invalid_request\",   \"message\": \"Unable to process file\" } ```  Message | Resolution --- | --- Unable to process file | LaunchDarkly could not process the file for an unspecified reason. Review your file for errors and try again. File exceeds 25mb | Break up your file into multiple files of less than 25mbs each. All emails have invalid formatting | None of the email addresses in the file are in the correct format. Fix the formatting and try again. All emails belong to existing team members | All listed members are already on this team. Populate the file with member emails that do not belong to the team and try again. File is empty | The CSV file does not contain any email addresses. Populate the file and try again. No emails belong to members of your LaunchDarkly organization | None of the email addresses belong to members of your LaunchDarkly account. Invite these members to LaunchDarkly, then re-add them to the team. 
+     * @param {String} key The team key
+     * @param {Object} opts Optional parameters
+     * @param {File} opts.file CSV file containing email addresses
+     * @param {module:api/TeamsBetaApi~postTeamMembersCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/TeamImportsRep}
+     */
+    postTeamMembers(key, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'key' is set
+      if (key === undefined || key === null) {
+        throw new Error("Missing the required parameter 'key' when calling postTeamMembers");
+      }
+
+      let pathParams = {
+        'key': key
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+        'file': opts['file']
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['multipart/form-data'];
+      let accepts = ['application/json'];
+      let returnType = TeamImportsRep;
+      return this.apiClient.callApi(
+        '/api/v2/teams/{key}/members', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

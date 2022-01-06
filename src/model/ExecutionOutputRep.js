@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ExecutionOutputRep model module.
  * @module model/ExecutionOutputRep
- * @version 7.0.0
+ * @version 7.1.0
  */
 class ExecutionOutputRep {
     /**

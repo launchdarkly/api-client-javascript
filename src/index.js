@@ -46,6 +46,7 @@ import CustomRole from './model/CustomRole';
 import CustomRolePost from './model/CustomRolePost';
 import CustomRolePostData from './model/CustomRolePostData';
 import CustomRoles from './model/CustomRoles';
+import CustomRolesRep from './model/CustomRolesRep';
 import CustomWorkflowInputRep from './model/CustomWorkflowInputRep';
 import CustomWorkflowMeta from './model/CustomWorkflowMeta';
 import CustomWorkflowOutputRep from './model/CustomWorkflowOutputRep';
@@ -63,6 +64,7 @@ import Destinations from './model/Destinations';
 import Environment from './model/Environment';
 import EnvironmentPost from './model/EnvironmentPost';
 import ExecutionOutputRep from './model/ExecutionOutputRep';
+import ExpandedTeamRep from './model/ExpandedTeamRep';
 import ExperimentAllocationRep from './model/ExperimentAllocationRep';
 import ExperimentEnabledPeriodRep from './model/ExperimentEnabledPeriodRep';
 import ExperimentEnvironmentSettingRep from './model/ExperimentEnvironmentSettingRep';
@@ -98,19 +100,26 @@ import FlagListingRep from './model/FlagListingRep';
 import FlagScheduledChangesInput from './model/FlagScheduledChangesInput';
 import FlagStatusRep from './model/FlagStatusRep';
 import FlagSummary from './model/FlagSummary';
+import FlagTriggerInput from './model/FlagTriggerInput';
 import ForbiddenErrorRep from './model/ForbiddenErrorRep';
 import HunkRep from './model/HunkRep';
+import Integration from './model/Integration';
 import IntegrationMetadata from './model/IntegrationMetadata';
 import IntegrationStatus from './model/IntegrationStatus';
+import IntegrationStatusRep from './model/IntegrationStatusRep';
+import IntegrationSubscriptionStatusRep from './model/IntegrationSubscriptionStatusRep';
+import Integrations from './model/Integrations';
 import InvalidRequestErrorRep from './model/InvalidRequestErrorRep';
 import IpList from './model/IpList';
 import LastSeenMetadata from './model/LastSeenMetadata';
 import Link from './model/Link';
 import Member from './model/Member';
 import MemberDataRep from './model/MemberDataRep';
+import MemberImportItemRep from './model/MemberImportItemRep';
 import MemberPermissionGrantSummaryRep from './model/MemberPermissionGrantSummaryRep';
 import MemberSummaryRep from './model/MemberSummaryRep';
 import MemberTeamSummaryRep from './model/MemberTeamSummaryRep';
+import MemberTeamsFormPost from './model/MemberTeamsFormPost';
 import Members from './model/Members';
 import MethodNotAllowedErrorRep from './model/MethodNotAllowedErrorRep';
 import MetricCollectionRep from './model/MetricCollectionRep';
@@ -142,6 +151,7 @@ import Projects from './model/Projects';
 import PubNubDetailRep from './model/PubNubDetailRep';
 import PutBranch from './model/PutBranch';
 import RateLimitedErrorRep from './model/RateLimitedErrorRep';
+import RecentTriggerBody from './model/RecentTriggerBody';
 import ReferenceRep from './model/ReferenceRep';
 import RelayAutoConfigCollectionRep from './model/RelayAutoConfigCollectionRep';
 import RelayAutoConfigPost from './model/RelayAutoConfigPost';
@@ -177,9 +187,11 @@ import StatisticRep from './model/StatisticRep';
 import StatisticsRoot from './model/StatisticsRoot';
 import StatusConflictErrorRep from './model/StatusConflictErrorRep';
 import SubjectDataRep from './model/SubjectDataRep';
+import SubscriptionPost from './model/SubscriptionPost';
 import Target from './model/Target';
 import TargetResourceRep from './model/TargetResourceRep';
 import TeamCollectionRep from './model/TeamCollectionRep';
+import TeamImportsRep from './model/TeamImportsRep';
 import TeamPatchInput from './model/TeamPatchInput';
 import TeamPostInput from './model/TeamPostInput';
 import TeamRep from './model/TeamRep';
@@ -187,6 +199,9 @@ import TitleRep from './model/TitleRep';
 import Token from './model/Token';
 import TokenDataRep from './model/TokenDataRep';
 import Tokens from './model/Tokens';
+import TriggerPost from './model/TriggerPost';
+import TriggerWorkflowCollectionRep from './model/TriggerWorkflowCollectionRep';
+import TriggerWorkflowRep from './model/TriggerWorkflowRep';
 import UnauthorizedErrorRep from './model/UnauthorizedErrorRep';
 import UrlPost from './model/UrlPost';
 import User from './model/User';
@@ -220,6 +235,8 @@ import EnvironmentsApi from './api/EnvironmentsApi';
 import ExperimentsBetaApi from './api/ExperimentsBetaApi';
 import FeatureFlagsApi from './api/FeatureFlagsApi';
 import FeatureFlagsBetaApi from './api/FeatureFlagsBetaApi';
+import FlagTriggersApi from './api/FlagTriggersApi';
+import IntegrationAuditLogSubscriptionsApi from './api/IntegrationAuditLogSubscriptionsApi';
 import MetricsApi from './api/MetricsApi';
 import OtherApi from './api/OtherApi';
 import ProjectsApi from './api/ProjectsApi';
@@ -263,7 +280,7 @@ import WorkflowsBetaApi from './api/WorkflowsBetaApi';
 * </pre>
 * </p>
 * @module index
-* @version 7.0.0
+* @version 7.1.0
 */
 export {
     /**
@@ -471,6 +488,12 @@ export {
     CustomRoles,
 
     /**
+     * The CustomRolesRep model constructor.
+     * @property {module:model/CustomRolesRep}
+     */
+    CustomRolesRep,
+
+    /**
      * The CustomWorkflowInputRep model constructor.
      * @property {module:model/CustomWorkflowInputRep}
      */
@@ -571,6 +594,12 @@ export {
      * @property {module:model/ExecutionOutputRep}
      */
     ExecutionOutputRep,
+
+    /**
+     * The ExpandedTeamRep model constructor.
+     * @property {module:model/ExpandedTeamRep}
+     */
+    ExpandedTeamRep,
 
     /**
      * The ExperimentAllocationRep model constructor.
@@ -783,6 +812,12 @@ export {
     FlagSummary,
 
     /**
+     * The FlagTriggerInput model constructor.
+     * @property {module:model/FlagTriggerInput}
+     */
+    FlagTriggerInput,
+
+    /**
      * The ForbiddenErrorRep model constructor.
      * @property {module:model/ForbiddenErrorRep}
      */
@@ -795,6 +830,12 @@ export {
     HunkRep,
 
     /**
+     * The Integration model constructor.
+     * @property {module:model/Integration}
+     */
+    Integration,
+
+    /**
      * The IntegrationMetadata model constructor.
      * @property {module:model/IntegrationMetadata}
      */
@@ -805,6 +846,24 @@ export {
      * @property {module:model/IntegrationStatus}
      */
     IntegrationStatus,
+
+    /**
+     * The IntegrationStatusRep model constructor.
+     * @property {module:model/IntegrationStatusRep}
+     */
+    IntegrationStatusRep,
+
+    /**
+     * The IntegrationSubscriptionStatusRep model constructor.
+     * @property {module:model/IntegrationSubscriptionStatusRep}
+     */
+    IntegrationSubscriptionStatusRep,
+
+    /**
+     * The Integrations model constructor.
+     * @property {module:model/Integrations}
+     */
+    Integrations,
 
     /**
      * The InvalidRequestErrorRep model constructor.
@@ -843,6 +902,12 @@ export {
     MemberDataRep,
 
     /**
+     * The MemberImportItemRep model constructor.
+     * @property {module:model/MemberImportItemRep}
+     */
+    MemberImportItemRep,
+
+    /**
      * The MemberPermissionGrantSummaryRep model constructor.
      * @property {module:model/MemberPermissionGrantSummaryRep}
      */
@@ -859,6 +924,12 @@ export {
      * @property {module:model/MemberTeamSummaryRep}
      */
     MemberTeamSummaryRep,
+
+    /**
+     * The MemberTeamsFormPost model constructor.
+     * @property {module:model/MemberTeamsFormPost}
+     */
+    MemberTeamsFormPost,
 
     /**
      * The Members model constructor.
@@ -1045,6 +1116,12 @@ export {
      * @property {module:model/RateLimitedErrorRep}
      */
     RateLimitedErrorRep,
+
+    /**
+     * The RecentTriggerBody model constructor.
+     * @property {module:model/RecentTriggerBody}
+     */
+    RecentTriggerBody,
 
     /**
      * The ReferenceRep model constructor.
@@ -1257,6 +1334,12 @@ export {
     SubjectDataRep,
 
     /**
+     * The SubscriptionPost model constructor.
+     * @property {module:model/SubscriptionPost}
+     */
+    SubscriptionPost,
+
+    /**
      * The Target model constructor.
      * @property {module:model/Target}
      */
@@ -1273,6 +1356,12 @@ export {
      * @property {module:model/TeamCollectionRep}
      */
     TeamCollectionRep,
+
+    /**
+     * The TeamImportsRep model constructor.
+     * @property {module:model/TeamImportsRep}
+     */
+    TeamImportsRep,
 
     /**
      * The TeamPatchInput model constructor.
@@ -1315,6 +1404,24 @@ export {
      * @property {module:model/Tokens}
      */
     Tokens,
+
+    /**
+     * The TriggerPost model constructor.
+     * @property {module:model/TriggerPost}
+     */
+    TriggerPost,
+
+    /**
+     * The TriggerWorkflowCollectionRep model constructor.
+     * @property {module:model/TriggerWorkflowCollectionRep}
+     */
+    TriggerWorkflowCollectionRep,
+
+    /**
+     * The TriggerWorkflowRep model constructor.
+     * @property {module:model/TriggerWorkflowRep}
+     */
+    TriggerWorkflowRep,
 
     /**
      * The UnauthorizedErrorRep model constructor.
@@ -1513,6 +1620,18 @@ export {
     * @property {module:api/FeatureFlagsBetaApi}
     */
     FeatureFlagsBetaApi,
+
+    /**
+    * The FlagTriggersApi service constructor.
+    * @property {module:api/FlagTriggersApi}
+    */
+    FlagTriggersApi,
+
+    /**
+    * The IntegrationAuditLogSubscriptionsApi service constructor.
+    * @property {module:api/IntegrationAuditLogSubscriptionsApi}
+    */
+    IntegrationAuditLogSubscriptionsApi,
 
     /**
     * The MetricsApi service constructor.

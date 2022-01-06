@@ -19,7 +19,7 @@ import PermissionGrantRep from './PermissionGrantRep';
 /**
  * The TeamRep model module.
  * @module model/TeamRep
- * @version 7.0.0
+ * @version 7.1.0
  */
 class TeamRep {
     /**

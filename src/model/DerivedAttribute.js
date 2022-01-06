@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DerivedAttribute model module.
  * @module model/DerivedAttribute
- * @version 7.0.0
+ * @version 7.1.0
  */
 class DerivedAttribute {
     /**

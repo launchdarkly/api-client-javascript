@@ -17,7 +17,7 @@ import UrlPost from './UrlPost';
 /**
  * The MetricPost model module.
  * @module model/MetricPost
- * @version 7.0.0
+ * @version 7.1.0
  */
 class MetricPost {
     /**
@@ -83,7 +83,7 @@ class MetricPost {
                 obj['eventKey'] = ApiClient.convertToType(data['eventKey'], 'String');
             }
             if (data.hasOwnProperty('successCriteria')) {
-                obj['successCriteria'] = ApiClient.convertToType(data['successCriteria'], 'Number');
+                obj['successCriteria'] = ApiClient.convertToType(data['successCriteria'], 'String');
             }
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
@@ -149,7 +149,7 @@ MetricPost.prototype['unit'] = undefined;
 MetricPost.prototype['eventKey'] = undefined;
 
 /**
- * @member {Number} successCriteria
+ * @member {module:model/MetricPost.SuccessCriteriaEnum} successCriteria
  */
 MetricPost.prototype['successCriteria'] = undefined;
 
@@ -186,6 +186,27 @@ MetricPost['KindEnum'] = {
      * @const
      */
     "custom": "custom"
+};
+
+
+/**
+ * Allowed values for the <code>successCriteria</code> property.
+ * @enum {String}
+ * @readonly
+ */
+MetricPost['SuccessCriteriaEnum'] = {
+
+    /**
+     * value: "HigherThanBaseline"
+     * @const
+     */
+    "HigherThanBaseline": "HigherThanBaseline",
+
+    /**
+     * value: "LowerThanBaseline"
+     * @const
+     */
+    "LowerThanBaseline": "LowerThanBaseline"
 };
 
 

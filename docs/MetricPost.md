@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **isNumeric** | **Boolean** |  | [optional] 
 **unit** | **String** |  | [optional] 
 **eventKey** | **String** | Required for custom metrics | [optional] 
-**successCriteria** | **Number** |  | [optional] 
+**successCriteria** | **String** |  | [optional] 
 **tags** | **[String]** |  | [optional] 
 
 
@@ -27,6 +27,17 @@ Name | Type | Description | Notes
 * `click` (value: `"click"`)
 
 * `custom` (value: `"custom"`)
+
+
+
+
+
+## Enum: SuccessCriteriaEnum
+
+
+* `HigherThanBaseline` (value: `"HigherThanBaseline"`)
+
+* `LowerThanBaseline` (value: `"LowerThanBaseline"`)
 
 
 

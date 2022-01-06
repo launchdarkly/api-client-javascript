@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ScheduleConditionInputRep model module.
  * @module model/ScheduleConditionInputRep
- * @version 7.0.0
+ * @version 7.1.0
  */
 class ScheduleConditionInputRep {
     /**

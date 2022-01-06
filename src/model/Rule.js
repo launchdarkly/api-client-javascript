@@ -18,7 +18,7 @@ import Rollout from './Rollout';
 /**
  * The Rule model module.
  * @module model/Rule
- * @version 7.0.0
+ * @version 7.1.0
  */
 class Rule {
     /**
@@ -71,6 +71,9 @@ class Rule {
             if (data.hasOwnProperty('description')) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
             }
+            if (data.hasOwnProperty('ref')) {
+                obj['ref'] = ApiClient.convertToType(data['ref'], 'String');
+            }
         }
         return obj;
     }
@@ -107,6 +110,11 @@ Rule.prototype['trackEvents'] = undefined;
  * @member {String} description
  */
 Rule.prototype['description'] = undefined;
+
+/**
+ * @member {String} ref
+ */
+Rule.prototype['ref'] = undefined;
 
 
 

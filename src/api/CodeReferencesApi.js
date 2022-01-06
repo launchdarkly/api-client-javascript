@@ -34,7 +34,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * CodeReferences service.
 * @module api/CodeReferencesApi
-* @version 7.0.0
+* @version 7.1.0
 */
 export default class CodeReferencesApi {
 
@@ -253,6 +253,8 @@ export default class CodeReferencesApi {
      * @param {String} opts.branchName Filter results to a specific branch. By default, only the default branch will be queried for extinctions.
      * @param {String} opts.projKey Filter results to a specific project
      * @param {String} opts.flagKey Filter results to a specific flag key
+     * @param {Number} opts.from Filter results to a specific timeframe based on commit time, expressed as a Unix epoch time in milliseconds. Must be used with `to`.
+     * @param {Number} opts.to Filter results to a specific timeframe based on commit time, expressed as a Unix epoch time in milliseconds. Must be used with `from`.
      * @param {module:api/CodeReferencesApi~getExtinctionsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ExtinctionCollectionRep}
      */
@@ -266,7 +268,9 @@ export default class CodeReferencesApi {
         'repoName': opts['repoName'],
         'branchName': opts['branchName'],
         'projKey': opts['projKey'],
-        'flagKey': opts['flagKey']
+        'flagKey': opts['flagKey'],
+        'from': opts['from'],
+        'to': opts['to']
       };
       let headerParams = {
       };

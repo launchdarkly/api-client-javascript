@@ -84,6 +84,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property commitTime (base name: "commitTime")', function() {
+      // uncomment below and update the code to test the property commitTime
+      //var instance = new LaunchDarklyApi.PutBranch();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

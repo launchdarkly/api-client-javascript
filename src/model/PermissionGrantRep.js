@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PermissionGrantRep model module.
  * @module model/PermissionGrantRep
- * @version 7.0.0
+ * @version 7.1.0
  */
 class PermissionGrantRep {
     /**

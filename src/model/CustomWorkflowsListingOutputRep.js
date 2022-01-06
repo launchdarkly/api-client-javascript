@@ -17,7 +17,7 @@ import CustomWorkflowOutputRep from './CustomWorkflowOutputRep';
 /**
  * The CustomWorkflowsListingOutputRep model module.
  * @module model/CustomWorkflowsListingOutputRep
- * @version 7.0.0
+ * @version 7.1.0
  */
 class CustomWorkflowsListingOutputRep {
     /**

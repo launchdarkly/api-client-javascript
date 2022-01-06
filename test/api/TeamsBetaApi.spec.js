@@ -98,6 +98,16 @@
         done();
       });
     });
+    describe('postTeamMembers', function() {
+      it('should call postTeamMembers successfully', function(done) {
+        //uncomment below and update the code to test postTeamMembers
+        //instance.postTeamMembers(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
   });
 
 }));

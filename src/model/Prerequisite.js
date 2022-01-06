@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Prerequisite model module.
  * @module model/Prerequisite
- * @version 7.0.0
+ * @version 7.1.0
  */
 class Prerequisite {
     /**

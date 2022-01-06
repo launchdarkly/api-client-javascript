@@ -17,7 +17,7 @@ import ConfidenceIntervalRep from './ConfidenceIntervalRep';
 /**
  * The ExperimentTotalsRep model module.
  * @module model/ExperimentTotalsRep
- * @version 7.0.0
+ * @version 7.1.0
  */
 class ExperimentTotalsRep {
     /**

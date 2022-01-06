@@ -258,7 +258,9 @@ let opts = {
   'repoName': "repoName_example", // String | Filter results to a specific repository
   'branchName': "branchName_example", // String | Filter results to a specific branch. By default, only the default branch will be queried for extinctions.
   'projKey': "projKey_example", // String | Filter results to a specific project
-  'flagKey': "flagKey_example" // String | Filter results to a specific flag key
+  'flagKey': "flagKey_example", // String | Filter results to a specific flag key
+  'from': 789, // Number | Filter results to a specific timeframe based on commit time, expressed as a Unix epoch time in milliseconds. Must be used with `to`.
+  'to': 789 // Number | Filter results to a specific timeframe based on commit time, expressed as a Unix epoch time in milliseconds. Must be used with `from`.
 };
 apiInstance.getExtinctions(opts, (error, data, response) => {
   if (error) {
@@ -278,6 +280,8 @@ Name | Type | Description  | Notes
  **branchName** | **String**| Filter results to a specific branch. By default, only the default branch will be queried for extinctions. | [optional] 
  **projKey** | **String**| Filter results to a specific project | [optional] 
  **flagKey** | **String**| Filter results to a specific flag key | [optional] 
+ **from** | **Number**| Filter results to a specific timeframe based on commit time, expressed as a Unix epoch time in milliseconds. Must be used with &#x60;to&#x60;. | [optional] 
+ **to** | **Number**| Filter results to a specific timeframe based on commit time, expressed as a Unix epoch time in milliseconds. Must be used with &#x60;from&#x60;. | [optional] 
 
 ### Return type
 

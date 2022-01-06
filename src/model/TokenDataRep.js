@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The TokenDataRep model module.
  * @module model/TokenDataRep
- * @version 7.0.0
+ * @version 7.1.0
  */
 class TokenDataRep {
     /**

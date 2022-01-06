@@ -17,7 +17,7 @@ import ReferenceRep from './ReferenceRep';
 /**
  * The PutBranch model module.
  * @module model/PutBranch
- * @version 7.0.0
+ * @version 7.1.0
  */
 class PutBranch {
     /**
@@ -69,6 +69,9 @@ class PutBranch {
             if (data.hasOwnProperty('references')) {
                 obj['references'] = ApiClient.convertToType(data['references'], [ReferenceRep]);
             }
+            if (data.hasOwnProperty('commitTime')) {
+                obj['commitTime'] = ApiClient.convertToType(data['commitTime'], 'Number');
+            }
         }
         return obj;
     }
@@ -104,6 +107,11 @@ PutBranch.prototype['syncTime'] = undefined;
  * @member {Array.<module:model/ReferenceRep>} references
  */
 PutBranch.prototype['references'] = undefined;
+
+/**
+ * @member {Number} commitTime
+ */
+PutBranch.prototype['commitTime'] = undefined;
 
 
 

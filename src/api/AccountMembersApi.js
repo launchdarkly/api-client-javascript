@@ -16,6 +16,7 @@ import ApiClient from "../ApiClient";
 import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
 import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
 import Member from '../model/Member';
+import MemberTeamsFormPost from '../model/MemberTeamsFormPost';
 import Members from '../model/Members';
 import NewMemberForm from '../model/NewMemberForm';
 import NotFoundErrorRep from '../model/NotFoundErrorRep';
@@ -27,7 +28,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * AccountMembers service.
 * @module api/AccountMembersApi
-* @version 7.0.0
+* @version 7.1.0
 */
 export default class AccountMembersApi {
 
@@ -185,7 +186,7 @@ export default class AccountMembersApi {
 
     /**
      * Modify an account member
-     * Update a single account member. The request should be a valid JSON Patch document describing the changes to be made to the member. Requests to update account members will not work if SCIM is enabled for the account.
+     *  Update a single account member. The request should be a valid JSON Patch document describing the changes to be made to the member.  To update fields in the account member object that are arrays, set the `path` to the name of the field and then append `/<array index>`. Using `/0` appends to the beginning of the array. For example, to add a new custom role to a member, use the following request body:  ```   [     {       \"op\": \"add\",       \"path\": \"/customRoles/0\",       \"value\": \"some-role-id\"     }   ] ```  Requests to update account members will not work if SCIM is enabled for the account. 
      * @param {String} id The member ID
      * @param {Array.<module:model/PatchOperation>} patchOperation 
      * @param {module:api/AccountMembersApi~patchMemberCallback} callback The callback function, accepting three arguments: error, data, response
@@ -218,6 +219,54 @@ export default class AccountMembersApi {
       let returnType = Member;
       return this.apiClient.callApi(
         '/api/v2/members/{id}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postMemberTeams operation.
+     * @callback module:api/AccountMembersApi~postMemberTeamsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Member} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Add member to teams
+     * Add member to team(s)
+     * @param {String} id The member ID
+     * @param {module:model/MemberTeamsFormPost} memberTeamsFormPost 
+     * @param {module:api/AccountMembersApi~postMemberTeamsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Member}
+     */
+    postMemberTeams(id, memberTeamsFormPost, callback) {
+      let postBody = memberTeamsFormPost;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling postMemberTeams");
+      }
+      // verify the required parameter 'memberTeamsFormPost' is set
+      if (memberTeamsFormPost === undefined || memberTeamsFormPost === null) {
+        throw new Error("Missing the required parameter 'memberTeamsFormPost' when calling postMemberTeams");
+      }
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = Member;
+      return this.apiClient.callApi(
+        '/api/v2/members/{id}/teams', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

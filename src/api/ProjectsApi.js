@@ -27,7 +27,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * Projects service.
 * @module api/ProjectsApi
-* @version 7.0.0
+* @version 7.1.0
 */
 export default class ProjectsApi {
 

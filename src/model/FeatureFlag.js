@@ -24,7 +24,7 @@ import Variation from './Variation';
 /**
  * The FeatureFlag model module.
  * @module model/FeatureFlag
- * @version 7.0.0
+ * @version 7.1.0
  */
 class FeatureFlag {
     /**

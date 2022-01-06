@@ -20,7 +20,7 @@ import Modification from './Modification';
 /**
  * The MetricListingRep model module.
  * @module model/MetricListingRep
- * @version 7.0.0
+ * @version 7.1.0
  */
 class MetricListingRep {
     /**
@@ -111,7 +111,7 @@ class MetricListingRep {
                 obj['isNumeric'] = ApiClient.convertToType(data['isNumeric'], 'Boolean');
             }
             if (data.hasOwnProperty('successCriteria')) {
-                obj['successCriteria'] = ApiClient.convertToType(data['successCriteria'], 'Number');
+                obj['successCriteria'] = ApiClient.convertToType(data['successCriteria'], 'String');
             }
             if (data.hasOwnProperty('unit')) {
                 obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
@@ -202,7 +202,7 @@ MetricListingRep.prototype['description'] = undefined;
 MetricListingRep.prototype['isNumeric'] = undefined;
 
 /**
- * @member {Number} successCriteria
+ * @member {module:model/MetricListingRep.SuccessCriteriaEnum} successCriteria
  */
 MetricListingRep.prototype['successCriteria'] = undefined;
 
@@ -244,6 +244,27 @@ MetricListingRep['KindEnum'] = {
      * @const
      */
     "custom": "custom"
+};
+
+
+/**
+ * Allowed values for the <code>successCriteria</code> property.
+ * @enum {String}
+ * @readonly
+ */
+MetricListingRep['SuccessCriteriaEnum'] = {
+
+    /**
+     * value: "HigherThanBaseline"
+     * @const
+     */
+    "HigherThanBaseline": "HigherThanBaseline",
+
+    /**
+     * value: "LowerThanBaseline"
+     * @const
+     */
+    "LowerThanBaseline": "LowerThanBaseline"
 };
 
 

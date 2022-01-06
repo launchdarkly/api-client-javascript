@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchFailedErrorRep model module.
  * @module model/PatchFailedErrorRep
- * @version 7.0.0
+ * @version 7.1.0
  */
 class PatchFailedErrorRep {
     /**

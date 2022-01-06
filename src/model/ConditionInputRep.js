@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ConditionInputRep model module.
  * @module model/ConditionInputRep
- * @version 7.0.0
+ * @version 7.1.0
  */
 class ConditionInputRep {
     /**

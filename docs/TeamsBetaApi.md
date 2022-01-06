@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**getTeams**](TeamsBetaApi.md#getTeams) | **GET** /api/v2/teams | List teams
 [**patchTeam**](TeamsBetaApi.md#patchTeam) | **PATCH** /api/v2/teams/{key} | Update team
 [**postTeam**](TeamsBetaApi.md#postTeam) | **POST** /api/v2/teams | Create team
+[**postTeamMembers**](TeamsBetaApi.md#postTeamMembers) | **POST** /api/v2/teams/{key}/members | Add members to team
 
 
 
@@ -65,7 +66,7 @@ null (empty response body)
 
 ## getTeam
 
-> TeamRep getTeam(key)
+> ExpandedTeamRep getTeam(key)
 
 Get team
 
@@ -102,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TeamRep**](TeamRep.md)
+[**ExpandedTeamRep**](ExpandedTeamRep.md)
 
 ### Authorization
 
@@ -173,7 +174,7 @@ Name | Type | Description  | Notes
 
 ## patchTeam
 
-> TeamCollectionRep patchTeam(key, teamPatchInput)
+> ExpandedTeamRep patchTeam(key, teamPatchInput)
 
 Update team
 
@@ -212,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TeamCollectionRep**](TeamCollectionRep.md)
+[**ExpandedTeamRep**](ExpandedTeamRep.md)
 
 ### Authorization
 
@@ -272,5 +273,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postTeamMembers
+
+> TeamImportsRep postTeamMembers(key, opts)
+
+Add members to team
+
+Add multiple members to an existing team by uploading a CSV file of member email addresses. Your CSV file must include email addresses in the first column. You can include data in additional columns, but LaunchDarkly ignores all data outside the first column. Headers are optional.  **Members are only added on a &#x60;201&#x60; response.** A &#x60;207&#x60; indicates the CSV file contains a combination of valid and invalid entries and will _not_ result in any members being added to the team.  On a &#x60;207&#x60; response, if an entry contains bad user input the &#x60;message&#x60; field will contain the row number as well as the reason for the error. The &#x60;message&#x60; field will be omitted if the entry is valid.  Example &#x60;207&#x60; response: &#x60;&#x60;&#x60;json {   \&quot;items\&quot;: [     {       \&quot;status\&quot;: \&quot;success\&quot;,       \&quot;value\&quot;: \&quot;a-valid-email@launchdarkly.com\&quot;     },     {       \&quot;message\&quot;: \&quot;Line 2: empty row\&quot;,       \&quot;status\&quot;: \&quot;error\&quot;,       \&quot;value\&quot;: \&quot;\&quot;     },     {       \&quot;message\&quot;: \&quot;Line 3: email already exists in the specified team\&quot;,       \&quot;status\&quot;: \&quot;error\&quot;,       \&quot;value\&quot;: \&quot;existing-team-member@launchdarkly.com\&quot;     },     {       \&quot;message\&quot;: \&quot;Line 4: invalid email formatting\&quot;,       \&quot;status\&quot;: \&quot;error\&quot;,       \&quot;value\&quot;: \&quot;invalid email format\&quot;     }   ] } &#x60;&#x60;&#x60;  Message | Resolution --- | --- Empty row | This line is blank. Add an email address and try again. Duplicate entry | This email address appears in the file twice. Remove the email from the file and try again. Email already exists in the specified team | This member is already on your team. Remove the email from the file and try again. Invalid formatting | This email address is not formatted correctly. Fix the formatting and try again. Email does not belong to a LaunchDarkly member | The email address doesn&#39;t belong to a LaunchDarkly account member. Invite them to LaunchDarkly, then re-add them to the team.  On a &#x60;400&#x60; response, the &#x60;message&#x60; field may contain errors specific to this endpoint.  Example &#x60;400&#x60; response: &#x60;&#x60;&#x60;json {   \&quot;code\&quot;: \&quot;invalid_request\&quot;,   \&quot;message\&quot;: \&quot;Unable to process file\&quot; } &#x60;&#x60;&#x60;  Message | Resolution --- | --- Unable to process file | LaunchDarkly could not process the file for an unspecified reason. Review your file for errors and try again. File exceeds 25mb | Break up your file into multiple files of less than 25mbs each. All emails have invalid formatting | None of the email addresses in the file are in the correct format. Fix the formatting and try again. All emails belong to existing team members | All listed members are already on this team. Populate the file with member emails that do not belong to the team and try again. File is empty | The CSV file does not contain any email addresses. Populate the file and try again. No emails belong to members of your LaunchDarkly organization | None of the email addresses belong to members of your LaunchDarkly account. Invite these members to LaunchDarkly, then re-add them to the team. 
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.TeamsBetaApi();
+let key = "key_example"; // String | The team key
+let opts = {
+  'file': "/path/to/file" // File | CSV file containing email addresses
+};
+apiInstance.postTeamMembers(key, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **key** | **String**| The team key | 
+ **file** | **File**| CSV file containing email addresses | [optional] 
+
+### Return type
+
+[**TeamImportsRep**](TeamImportsRep.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 

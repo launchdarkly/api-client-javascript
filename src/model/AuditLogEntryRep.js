@@ -25,7 +25,7 @@ import TokenDataRep from './TokenDataRep';
 /**
  * The AuditLogEntryRep model module.
  * @module model/AuditLogEntryRep
- * @version 7.0.0
+ * @version 7.1.0
  */
 class AuditLogEntryRep {
     /**
