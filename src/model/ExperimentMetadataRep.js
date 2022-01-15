@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ExperimentMetadataRep model module.
  * @module model/ExperimentMetadataRep
- * @version 7.1.0
+ * @version 7.1.1
  */
 class ExperimentMetadataRep {
     /**

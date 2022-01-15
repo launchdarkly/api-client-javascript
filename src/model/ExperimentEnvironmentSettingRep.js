@@ -17,7 +17,7 @@ import ExperimentEnabledPeriodRep from './ExperimentEnabledPeriodRep';
 /**
  * The ExperimentEnvironmentSettingRep model module.
  * @module model/ExperimentEnvironmentSettingRep
- * @version 7.1.0
+ * @version 7.1.1
  */
 class ExperimentEnvironmentSettingRep {
     /**

@@ -14,18 +14,19 @@
 import ApiClient from '../ApiClient';
 
 /**
- * The ResourceAccess model module.
- * @module model/ResourceAccess
+ * The MemberTeamsPostInput model module.
+ * @module model/MemberTeamsPostInput
  * @version 7.1.1
  */
-class ResourceAccess {
+class MemberTeamsPostInput {
     /**
-     * Constructs a new <code>ResourceAccess</code>.
-     * @alias module:model/ResourceAccess
+     * Constructs a new <code>MemberTeamsPostInput</code>.
+     * @alias module:model/MemberTeamsPostInput
+     * @param teamKeys {Array.<String>} List of team keys
      */
-    constructor() { 
+    constructor(teamKeys) { 
         
-        ResourceAccess.initialize(this);
+        MemberTeamsPostInput.initialize(this, teamKeys);
     }
 
     /**
@@ -33,25 +34,23 @@ class ResourceAccess {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, teamKeys) { 
+        obj['teamKeys'] = teamKeys;
     }
 
     /**
-     * Constructs a <code>ResourceAccess</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>MemberTeamsPostInput</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ResourceAccess} obj Optional instance to populate.
-     * @return {module:model/ResourceAccess} The populated <code>ResourceAccess</code> instance.
+     * @param {module:model/MemberTeamsPostInput} obj Optional instance to populate.
+     * @return {module:model/MemberTeamsPostInput} The populated <code>MemberTeamsPostInput</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new ResourceAccess();
+            obj = obj || new MemberTeamsPostInput();
 
-            if (data.hasOwnProperty('action')) {
-                obj['action'] = ApiClient.convertToType(data['action'], 'String');
-            }
-            if (data.hasOwnProperty('resource')) {
-                obj['resource'] = ApiClient.convertToType(data['resource'], Object);
+            if (data.hasOwnProperty('teamKeys')) {
+                obj['teamKeys'] = ApiClient.convertToType(data['teamKeys'], ['String']);
             }
         }
         return obj;
@@ -61,19 +60,15 @@ class ResourceAccess {
 }
 
 /**
- * @member {String} action
+ * List of team keys
+ * @member {Array.<String>} teamKeys
  */
-ResourceAccess.prototype['action'] = undefined;
-
-/**
- * @member {Object} resource
- */
-ResourceAccess.prototype['resource'] = undefined;
+MemberTeamsPostInput.prototype['teamKeys'] = undefined;
 
 
 
 
 
 
-export default ResourceAccess;
+export default MemberTeamsPostInput;
 

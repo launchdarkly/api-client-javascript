@@ -17,7 +17,7 @@ import AccessDeniedReasonRep from './AccessDeniedReasonRep';
 /**
  * The AccessDeniedRep model module.
  * @module model/AccessDeniedRep
- * @version 7.1.0
+ * @version 7.1.1
  */
 class AccessDeniedRep {
     /**

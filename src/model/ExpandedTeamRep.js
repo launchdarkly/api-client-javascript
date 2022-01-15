@@ -21,7 +21,7 @@ import PermissionGrantRep from './PermissionGrantRep';
 /**
  * The ExpandedTeamRep model module.
  * @module model/ExpandedTeamRep
- * @version 7.1.0
+ * @version 7.1.1
  */
 class ExpandedTeamRep {
     /**

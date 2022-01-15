@@ -20,7 +20,7 @@ import StatementRep from './StatementRep';
 /**
  * The Integration model module.
  * @module model/Integration
- * @version 7.1.0
+ * @version 7.1.1
  */
 class Integration {
     /**

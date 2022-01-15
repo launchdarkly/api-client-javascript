@@ -244,7 +244,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new LaunchDarklyApi.IntegrationAuditLogSubscriptionsApi();
 let integrationKey = "integrationKey_example"; // String | The integration key
 let id = "id_example"; // String | The ID of the audit log subscription
-let patchOperation = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | 
+let patchOperation = [{"op":"replace","path":"/on","value":false}]; // [PatchOperation] | 
 apiInstance.updateSubscription(integrationKey, id, patchOperation, (error, data, response) => {
   if (error) {
     console.error(error);

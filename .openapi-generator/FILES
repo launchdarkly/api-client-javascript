@@ -123,7 +123,7 @@ docs/MemberImportItemRep.md
 docs/MemberPermissionGrantSummaryRep.md
 docs/MemberSummaryRep.md
 docs/MemberTeamSummaryRep.md
-docs/MemberTeamsFormPost.md
+docs/MemberTeamsPostInput.md
 docs/Members.md
 docs/MethodNotAllowedErrorRep.md
 docs/MetricCollectionRep.md
@@ -376,7 +376,7 @@ src/model/MemberImportItemRep.js
 src/model/MemberPermissionGrantSummaryRep.js
 src/model/MemberSummaryRep.js
 src/model/MemberTeamSummaryRep.js
-src/model/MemberTeamsFormPost.js
+src/model/MemberTeamsPostInput.js
 src/model/Members.js
 src/model/MethodNotAllowedErrorRep.js
 src/model/MetricCollectionRep.js
@@ -612,7 +612,7 @@ test/model/MemberImportItemRep.spec.js
 test/model/MemberPermissionGrantSummaryRep.spec.js
 test/model/MemberSummaryRep.spec.js
 test/model/MemberTeamSummaryRep.spec.js
-test/model/MemberTeamsFormPost.spec.js
+test/model/MemberTeamsPostInput.spec.js
 test/model/Members.spec.js
 test/model/MethodNotAllowedErrorRep.spec.js
 test/model/MetricCollectionRep.spec.js

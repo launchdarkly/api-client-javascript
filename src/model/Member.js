@@ -21,7 +21,7 @@ import MemberTeamSummaryRep from './MemberTeamSummaryRep';
 /**
  * The Member model module.
  * @module model/Member
- * @version 7.1.0
+ * @version 7.1.1
  */
 class Member {
     /**

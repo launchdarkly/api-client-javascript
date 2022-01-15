@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RateLimitedErrorRep model module.
  * @module model/RateLimitedErrorRep
- * @version 7.1.0
+ * @version 7.1.1
  */
 class RateLimitedErrorRep {
     /**

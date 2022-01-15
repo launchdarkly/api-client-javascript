@@ -17,7 +17,7 @@ import ReviewOutputRep from './ReviewOutputRep';
 /**
  * The ApprovalConditionOutputRep model module.
  * @module model/ApprovalConditionOutputRep
- * @version 7.1.0
+ * @version 7.1.1
  */
 class ApprovalConditionOutputRep {
     /**

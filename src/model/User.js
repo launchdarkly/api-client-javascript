@@ -17,7 +17,7 @@ import DerivedAttribute from './DerivedAttribute';
 /**
  * The User model module.
  * @module model/User
- * @version 7.1.0
+ * @version 7.1.1
  */
 class User {
     /**

@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 Update metric
 
-Patch a environment by key.
+Patch a metric by key.
 
 ### Example
 
@@ -191,7 +191,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new LaunchDarklyApi.MetricsApi();
 let projectKey = "projectKey_example"; // String | The project key
 let key = "key_example"; // String | The metric key
-let patchOperation = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | 
+let patchOperation = [{"op":"replace","path":"/name","value":"my-updated-metric"}]; // [PatchOperation] | 
 apiInstance.patchMetric(projectKey, key, patchOperation, (error, data, response) => {
   if (error) {
     console.error(error);

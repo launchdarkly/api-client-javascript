@@ -119,7 +119,7 @@ import MemberImportItemRep from './model/MemberImportItemRep';
 import MemberPermissionGrantSummaryRep from './model/MemberPermissionGrantSummaryRep';
 import MemberSummaryRep from './model/MemberSummaryRep';
 import MemberTeamSummaryRep from './model/MemberTeamSummaryRep';
-import MemberTeamsFormPost from './model/MemberTeamsFormPost';
+import MemberTeamsPostInput from './model/MemberTeamsPostInput';
 import Members from './model/Members';
 import MethodNotAllowedErrorRep from './model/MethodNotAllowedErrorRep';
 import MetricCollectionRep from './model/MetricCollectionRep';
@@ -280,7 +280,7 @@ import WorkflowsBetaApi from './api/WorkflowsBetaApi';
 * </pre>
 * </p>
 * @module index
-* @version 7.1.0
+* @version 7.1.1
 */
 export {
     /**
@@ -926,10 +926,10 @@ export {
     MemberTeamSummaryRep,
 
     /**
-     * The MemberTeamsFormPost model constructor.
-     * @property {module:model/MemberTeamsFormPost}
+     * The MemberTeamsPostInput model constructor.
+     * @property {module:model/MemberTeamsPostInput}
      */
-    MemberTeamsFormPost,
+    MemberTeamsPostInput,
 
     /**
      * The Members model constructor.

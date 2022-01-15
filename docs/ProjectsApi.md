@@ -182,7 +182,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ProjectsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let patchOperation = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | 
+let patchOperation = [{"op":"add","path":"/tags/0","value":"another-tag"}]; // [PatchOperation] | 
 apiInstance.patchProject(projectKey, patchOperation, (error, data, response) => {
   if (error) {
     console.error(error);

@@ -18,7 +18,7 @@ import MetricListingRep from './MetricListingRep';
 /**
  * The ExperimentRep model module.
  * @module model/ExperimentRep
- * @version 7.1.0
+ * @version 7.1.1
  */
 class ExperimentRep {
     /**

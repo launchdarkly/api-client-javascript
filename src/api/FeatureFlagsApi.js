@@ -34,7 +34,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * FeatureFlags service.
 * @module api/FeatureFlagsApi
-* @version 7.1.0
+* @version 7.1.1
 */
 export default class FeatureFlagsApi {
 

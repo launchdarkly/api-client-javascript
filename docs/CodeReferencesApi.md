@@ -530,7 +530,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.CodeReferencesApi();
 let repo = "repo_example"; // String | The repository name
-let patchOperation = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | 
+let patchOperation = [{"op":"replace","path":"/defaultBranch","value":"main"}]; // [PatchOperation] | 
 apiInstance.patchRepository(repo, patchOperation, (error, data, response) => {
   if (error) {
     console.error(error);

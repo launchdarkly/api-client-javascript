@@ -16,7 +16,7 @@ import ApiClient from "../ApiClient";
 import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
 import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
 import Member from '../model/Member';
-import MemberTeamsFormPost from '../model/MemberTeamsFormPost';
+import MemberTeamsPostInput from '../model/MemberTeamsPostInput';
 import Members from '../model/Members';
 import NewMemberForm from '../model/NewMemberForm';
 import NotFoundErrorRep from '../model/NotFoundErrorRep';
@@ -28,7 +28,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * AccountMembers service.
 * @module api/AccountMembersApi
-* @version 7.1.0
+* @version 7.1.1
 */
 export default class AccountMembersApi {
 
@@ -236,19 +236,19 @@ export default class AccountMembersApi {
      * Add member to teams
      * Add member to team(s)
      * @param {String} id The member ID
-     * @param {module:model/MemberTeamsFormPost} memberTeamsFormPost 
+     * @param {module:model/MemberTeamsPostInput} memberTeamsPostInput 
      * @param {module:api/AccountMembersApi~postMemberTeamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Member}
      */
-    postMemberTeams(id, memberTeamsFormPost, callback) {
-      let postBody = memberTeamsFormPost;
+    postMemberTeams(id, memberTeamsPostInput, callback) {
+      let postBody = memberTeamsPostInput;
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
         throw new Error("Missing the required parameter 'id' when calling postMemberTeams");
       }
-      // verify the required parameter 'memberTeamsFormPost' is set
-      if (memberTeamsFormPost === undefined || memberTeamsFormPost === null) {
-        throw new Error("Missing the required parameter 'memberTeamsFormPost' when calling postMemberTeams");
+      // verify the required parameter 'memberTeamsPostInput' is set
+      if (memberTeamsPostInput === undefined || memberTeamsPostInput === null) {
+        throw new Error("Missing the required parameter 'memberTeamsPostInput' when calling postMemberTeams");
       }
 
       let pathParams = {

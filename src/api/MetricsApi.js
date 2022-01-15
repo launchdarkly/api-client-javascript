@@ -27,7 +27,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * Metrics service.
 * @module api/MetricsApi
-* @version 7.1.0
+* @version 7.1.1
 */
 export default class MetricsApi {
 
@@ -193,7 +193,7 @@ export default class MetricsApi {
 
     /**
      * Update metric
-     * Patch a environment by key.
+     * Patch a metric by key.
      * @param {String} projectKey The project key
      * @param {String} key The metric key
      * @param {Array.<module:model/PatchOperation>} patchOperation 

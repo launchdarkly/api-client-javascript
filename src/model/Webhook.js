@@ -19,7 +19,7 @@ import StatementRep from './StatementRep';
 /**
  * The Webhook model module.
  * @module model/Webhook
- * @version 7.1.0
+ * @version 7.1.1
  */
 class Webhook {
     /**

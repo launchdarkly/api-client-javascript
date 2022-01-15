@@ -195,7 +195,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.AccountMembersApi();
 let id = "id_example"; // String | The member ID
-let patchOperation = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | 
+let patchOperation = [{"op":"add","path":"/role","value":"writer"}]; // [PatchOperation] | 
 apiInstance.patchMember(id, patchOperation, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 ## postMemberTeams
 
-> Member postMemberTeams(id, memberTeamsFormPost)
+> Member postMemberTeams(id, memberTeamsPostInput)
 
 Add member to teams
 
@@ -248,8 +248,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.AccountMembersApi();
 let id = "id_example"; // String | The member ID
-let memberTeamsFormPost = new LaunchDarklyApi.MemberTeamsFormPost(); // MemberTeamsFormPost | 
-apiInstance.postMemberTeams(id, memberTeamsFormPost, (error, data, response) => {
+let memberTeamsPostInput = new LaunchDarklyApi.MemberTeamsPostInput(); // MemberTeamsPostInput | 
+apiInstance.postMemberTeams(id, memberTeamsPostInput, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -264,7 +264,7 @@ apiInstance.postMemberTeams(id, memberTeamsFormPost, (error, data, response) => 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The member ID | 
- **memberTeamsFormPost** | [**MemberTeamsFormPost**](MemberTeamsFormPost.md)|  | 
+ **memberTeamsPostInput** | [**MemberTeamsPostInput**](MemberTeamsPostInput.md)|  | 
 
 ### Return type
 

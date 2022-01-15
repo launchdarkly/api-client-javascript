@@ -11,69 +11,55 @@
  *
  */
 
-import ApiClient from '../ApiClient';
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD.
+    define(['expect.js', process.cwd()+'/src/index'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    // CommonJS-like environments that support module.exports, like Node.
+    factory(require('expect.js'), require(process.cwd()+'/src/index'));
+  } else {
+    // Browser globals (root is window)
+    factory(root.expect, root.LaunchDarklyApi);
+  }
+}(this, function(expect, LaunchDarklyApi) {
+  'use strict';
 
-/**
- * The ResourceAccess model module.
- * @module model/ResourceAccess
- * @version 7.1.1
- */
-class ResourceAccess {
-    /**
-     * Constructs a new <code>ResourceAccess</code>.
-     * @alias module:model/ResourceAccess
-     */
-    constructor() { 
-        
-        ResourceAccess.initialize(this);
-    }
+  var instance;
 
-    /**
-     * Initializes the fields of this object.
-     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
-     * Only for internal use.
-     */
-    static initialize(obj) { 
-    }
+  beforeEach(function() {
+    instance = new LaunchDarklyApi.MemberTeamsPostInput();
+  });
 
-    /**
-     * Constructs a <code>ResourceAccess</code> from a plain JavaScript object, optionally creating a new instance.
-     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
-     * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/ResourceAccess} obj Optional instance to populate.
-     * @return {module:model/ResourceAccess} The populated <code>ResourceAccess</code> instance.
-     */
-    static constructFromObject(data, obj) {
-        if (data) {
-            obj = obj || new ResourceAccess();
+  var getProperty = function(object, getter, property) {
+    // Use getter method if present; otherwise, get the property directly.
+    if (typeof object[getter] === 'function')
+      return object[getter]();
+    else
+      return object[property];
+  }
 
-            if (data.hasOwnProperty('action')) {
-                obj['action'] = ApiClient.convertToType(data['action'], 'String');
-            }
-            if (data.hasOwnProperty('resource')) {
-                obj['resource'] = ApiClient.convertToType(data['resource'], Object);
-            }
-        }
-        return obj;
-    }
+  var setProperty = function(object, setter, property, value) {
+    // Use setter method if present; otherwise, set the property directly.
+    if (typeof object[setter] === 'function')
+      object[setter](value);
+    else
+      object[property] = value;
+  }
 
+  describe('MemberTeamsPostInput', function() {
+    it('should create an instance of MemberTeamsPostInput', function() {
+      // uncomment below and update the code to test MemberTeamsPostInput
+      //var instance = new LaunchDarklyApi.MemberTeamsPostInput();
+      //expect(instance).to.be.a(LaunchDarklyApi.MemberTeamsPostInput);
+    });
 
-}
+    it('should have the property teamKeys (base name: "teamKeys")', function() {
+      // uncomment below and update the code to test the property teamKeys
+      //var instance = new LaunchDarklyApi.MemberTeamsPostInput();
+      //expect(instance).to.be();
+    });
 
-/**
- * @member {String} action
- */
-ResourceAccess.prototype['action'] = undefined;
+  });
 
-/**
- * @member {Object} resource
- */
-ResourceAccess.prototype['resource'] = undefined;
-
-
-
-
-
-
-export default ResourceAccess;
-
+}));

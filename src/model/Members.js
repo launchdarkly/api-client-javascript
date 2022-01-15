@@ -18,7 +18,7 @@ import Member from './Member';
 /**
  * The Members model module.
  * @module model/Members
- * @version 7.1.0
+ * @version 7.1.1
  */
 class Members {
     /**

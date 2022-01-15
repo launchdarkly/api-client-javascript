@@ -182,7 +182,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.WebhooksApi();
 let id = "id_example"; // String | The ID of the webhook to update
-let patchOperation = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | 
+let patchOperation = [{"op":"replace","path":"/on","value":false}]; // [PatchOperation] | 
 apiInstance.patchWebhook(id, patchOperation, (error, data, response) => {
   if (error) {
     console.error(error);
