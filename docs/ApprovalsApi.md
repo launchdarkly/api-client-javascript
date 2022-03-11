@@ -35,7 +35,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ApprovalsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The feature flag approval request ID
 apiInstance.deleteApprovalRequest(projectKey, featureFlagKey, environmentKey, id, (error, data, response) => {
@@ -53,7 +53,7 @@ apiInstance.deleteApprovalRequest(projectKey, featureFlagKey, environmentKey, id
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **id** | **String**| The feature flag approval request ID | 
 
@@ -92,7 +92,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ApprovalsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The feature flag approval request ID
 apiInstance.getApproval(projectKey, featureFlagKey, environmentKey, id, (error, data, response) => {
@@ -110,7 +110,7 @@ apiInstance.getApproval(projectKey, featureFlagKey, environmentKey, id, (error, 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **id** | **String**| The feature flag approval request ID | 
 
@@ -149,7 +149,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ApprovalsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 apiInstance.getApprovals(projectKey, featureFlagKey, environmentKey, (error, data, response) => {
   if (error) {
@@ -166,7 +166,7 @@ apiInstance.getApprovals(projectKey, featureFlagKey, environmentKey, (error, dat
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
 
 ### Return type
@@ -204,7 +204,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ApprovalsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let createFlagConfigApprovalRequestRequest = new LaunchDarklyApi.CreateFlagConfigApprovalRequestRequest(); // CreateFlagConfigApprovalRequestRequest | 
 apiInstance.postApprovalRequest(projectKey, featureFlagKey, environmentKey, createFlagConfigApprovalRequestRequest, (error, data, response) => {
@@ -222,7 +222,7 @@ apiInstance.postApprovalRequest(projectKey, featureFlagKey, environmentKey, crea
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **createFlagConfigApprovalRequestRequest** | [**CreateFlagConfigApprovalRequestRequest**](CreateFlagConfigApprovalRequestRequest.md)|  | 
 
@@ -261,7 +261,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ApprovalsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The feature flag approval request ID
 let postApprovalRequestApplyRequest = new LaunchDarklyApi.PostApprovalRequestApplyRequest(); // PostApprovalRequestApplyRequest | 
@@ -280,7 +280,7 @@ apiInstance.postApprovalRequestApplyRequest(projectKey, featureFlagKey, environm
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **id** | **String**| The feature flag approval request ID | 
  **postApprovalRequestApplyRequest** | [**PostApprovalRequestApplyRequest**](PostApprovalRequestApplyRequest.md)|  | 
@@ -320,7 +320,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ApprovalsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The feature flag approval request ID
 let postApprovalRequestReviewRequest = new LaunchDarklyApi.PostApprovalRequestReviewRequest(); // PostApprovalRequestReviewRequest | 
@@ -339,7 +339,7 @@ apiInstance.postApprovalRequestReview(projectKey, featureFlagKey, environmentKey
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **id** | **String**| The feature flag approval request ID | 
  **postApprovalRequestReviewRequest** | [**PostApprovalRequestReviewRequest**](PostApprovalRequestReviewRequest.md)|  | 
@@ -379,7 +379,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ApprovalsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let createCopyFlagConfigApprovalRequestRequest = new LaunchDarklyApi.CreateCopyFlagConfigApprovalRequestRequest(); // CreateCopyFlagConfigApprovalRequestRequest | 
 apiInstance.postFlagCopyConfigApprovalRequest(projectKey, featureFlagKey, environmentKey, createCopyFlagConfigApprovalRequestRequest, (error, data, response) => {
@@ -397,7 +397,7 @@ apiInstance.postFlagCopyConfigApprovalRequest(projectKey, featureFlagKey, enviro
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **createCopyFlagConfigApprovalRequestRequest** | [**CreateCopyFlagConfigApprovalRequestRequest**](CreateCopyFlagConfigApprovalRequestRequest.md)|  | 
 

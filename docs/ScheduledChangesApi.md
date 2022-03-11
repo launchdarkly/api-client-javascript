@@ -33,7 +33,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ScheduledChangesApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The scheduled change id
 apiInstance.deleteFlagConfigScheduledChanges(projectKey, featureFlagKey, environmentKey, id, (error, data, response) => {
@@ -51,7 +51,7 @@ apiInstance.deleteFlagConfigScheduledChanges(projectKey, featureFlagKey, environ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **id** | **String**| The scheduled change id | 
 
@@ -90,7 +90,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ScheduledChangesApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The scheduled change id
 apiInstance.getFeatureFlagScheduledChange(projectKey, featureFlagKey, environmentKey, id, (error, data, response) => {
@@ -108,7 +108,7 @@ apiInstance.getFeatureFlagScheduledChange(projectKey, featureFlagKey, environmen
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **id** | **String**| The scheduled change id | 
 
@@ -147,7 +147,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ScheduledChangesApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 apiInstance.getFlagConfigScheduledChanges(projectKey, featureFlagKey, environmentKey, (error, data, response) => {
   if (error) {
@@ -164,7 +164,7 @@ apiInstance.getFlagConfigScheduledChanges(projectKey, featureFlagKey, environmen
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
 
 ### Return type
@@ -202,7 +202,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ScheduledChangesApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The scheduled change ID
 let flagScheduledChangesInput = new LaunchDarklyApi.FlagScheduledChangesInput(); // FlagScheduledChangesInput | 
@@ -224,7 +224,7 @@ apiInstance.patchFlagConfigScheduledChange(projectKey, featureFlagKey, environme
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **id** | **String**| The scheduled change ID | 
  **flagScheduledChangesInput** | [**FlagScheduledChangesInput**](FlagScheduledChangesInput.md)|  | 
@@ -265,7 +265,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ScheduledChangesApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let postFlagScheduledChangesInput = new LaunchDarklyApi.PostFlagScheduledChangesInput(); // PostFlagScheduledChangesInput | 
 let opts = {
@@ -286,7 +286,7 @@ apiInstance.postFlagConfigScheduledChanges(projectKey, featureFlagKey, environme
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **postFlagScheduledChangesInput** | [**PostFlagScheduledChangesInput**](PostFlagScheduledChangesInput.md)|  | 
  **ignoreConflicts** | **Boolean**| Whether or not to succeed or fail when the new instructions conflict with existing scheduled changes | [optional] 

@@ -4,17 +4,17 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteMetric**](MetricsApi.md#deleteMetric) | **DELETE** /api/v2/metrics/{projectKey}/{key} | Delete metric
-[**getMetric**](MetricsApi.md#getMetric) | **GET** /api/v2/metrics/{projectKey}/{key} | Get metric
+[**deleteMetric**](MetricsApi.md#deleteMetric) | **DELETE** /api/v2/metrics/{projectKey}/{metricKey} | Delete metric
+[**getMetric**](MetricsApi.md#getMetric) | **GET** /api/v2/metrics/{projectKey}/{metricKey} | Get metric
 [**getMetrics**](MetricsApi.md#getMetrics) | **GET** /api/v2/metrics/{projectKey} | List metrics
-[**patchMetric**](MetricsApi.md#patchMetric) | **PATCH** /api/v2/metrics/{projectKey}/{key} | Update metric
+[**patchMetric**](MetricsApi.md#patchMetric) | **PATCH** /api/v2/metrics/{projectKey}/{metricKey} | Update metric
 [**postMetric**](MetricsApi.md#postMetric) | **POST** /api/v2/metrics/{projectKey} | Create metric
 
 
 
 ## deleteMetric
 
-> deleteMetric(projectKey, key)
+> deleteMetric(projectKey, metricKey)
 
 Delete metric
 
@@ -33,8 +33,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.MetricsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let key = "key_example"; // String | The metric key
-apiInstance.deleteMetric(projectKey, key, (error, data, response) => {
+let metricKey = "metricKey_example"; // String | The metric key
+apiInstance.deleteMetric(projectKey, metricKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -49,7 +49,7 @@ apiInstance.deleteMetric(projectKey, key, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **key** | **String**| The metric key | 
+ **metricKey** | **String**| The metric key | 
 
 ### Return type
 
@@ -67,7 +67,7 @@ null (empty response body)
 
 ## getMetric
 
-> MetricRep getMetric(projectKey, key)
+> MetricRep getMetric(projectKey, metricKey)
 
 Get metric
 
@@ -86,8 +86,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.MetricsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let key = "key_example"; // String | The metric key
-apiInstance.getMetric(projectKey, key, (error, data, response) => {
+let metricKey = "metricKey_example"; // String | The metric key
+apiInstance.getMetric(projectKey, metricKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -102,7 +102,7 @@ apiInstance.getMetric(projectKey, key, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **key** | **String**| The metric key | 
+ **metricKey** | **String**| The metric key | 
 
 ### Return type
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 ## patchMetric
 
-> MetricRep patchMetric(projectKey, key, patchOperation)
+> MetricRep patchMetric(projectKey, metricKey, patchOperation)
 
 Update metric
 
@@ -190,9 +190,9 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.MetricsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let key = "key_example"; // String | The metric key
+let metricKey = "metricKey_example"; // String | The metric key
 let patchOperation = [{"op":"replace","path":"/name","value":"my-updated-metric"}]; // [PatchOperation] | 
-apiInstance.patchMetric(projectKey, key, patchOperation, (error, data, response) => {
+apiInstance.patchMetric(projectKey, metricKey, patchOperation, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -207,7 +207,7 @@ apiInstance.patchMetric(projectKey, key, patchOperation, (error, data, response)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **key** | **String**| The metric key | 
+ **metricKey** | **String**| The metric key | 
  **patchOperation** | [**[PatchOperation]**](PatchOperation.md)|  | 
 
 ### Return type

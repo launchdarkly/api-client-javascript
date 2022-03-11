@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
 **links** | [**{String: Link}**](Link.md) |  | 
-**access** | [**AccessRep**](AccessRep.md) |  | [optional] 
+**access** | [**Access**](Access.md) |  | [optional] 
 **description** | **String** |  | [optional] 
 **key** | **String** |  | 
 **name** | **String** |  | 

@@ -4,21 +4,21 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteSegment**](SegmentsApi.md#deleteSegment) | **DELETE** /api/v2/segments/{projKey}/{envKey}/{key} | Delete segment
-[**getExpiringUserTargetsForSegment**](SegmentsApi.md#getExpiringUserTargetsForSegment) | **GET** /api/v2/segments/{projKey}/{segmentKey}/expiring-user-targets/{envKey} | Get expiring user targets for segment
-[**getSegment**](SegmentsApi.md#getSegment) | **GET** /api/v2/segments/{projKey}/{envKey}/{key} | Get segment
-[**getSegmentMembershipForUser**](SegmentsApi.md#getSegmentMembershipForUser) | **GET** /api/v2/segments/{projKey}/{envKey}/{key}/users/{userKey} | Get Big Segment membership for user
-[**getSegments**](SegmentsApi.md#getSegments) | **GET** /api/v2/segments/{projKey}/{envKey} | List segments
-[**patchExpiringUserTargetsForSegment**](SegmentsApi.md#patchExpiringUserTargetsForSegment) | **PATCH** /api/v2/segments/{projKey}/{segmentKey}/expiring-user-targets/{envKey} | Update expiring user targets for segment
-[**patchSegment**](SegmentsApi.md#patchSegment) | **PATCH** /api/v2/segments/{projKey}/{envKey}/{key} | Patch segment
-[**postSegment**](SegmentsApi.md#postSegment) | **POST** /api/v2/segments/{projKey}/{envKey} | Create segment
-[**updateBigSegmentTargets**](SegmentsApi.md#updateBigSegmentTargets) | **POST** /api/v2/segments/{projKey}/{envKey}/{key}/users | Update targets on a Big Segment
+[**deleteSegment**](SegmentsApi.md#deleteSegment) | **DELETE** /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey} | Delete segment
+[**getExpiringUserTargetsForSegment**](SegmentsApi.md#getExpiringUserTargetsForSegment) | **GET** /api/v2/segments/{projectKey}/{segmentKey}/expiring-user-targets/{environmentKey} | Get expiring user targets for segment
+[**getSegment**](SegmentsApi.md#getSegment) | **GET** /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey} | Get segment
+[**getSegmentMembershipForUser**](SegmentsApi.md#getSegmentMembershipForUser) | **GET** /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}/users/{userKey} | Get Big Segment membership for user
+[**getSegments**](SegmentsApi.md#getSegments) | **GET** /api/v2/segments/{projectKey}/{environmentKey} | List segments
+[**patchExpiringUserTargetsForSegment**](SegmentsApi.md#patchExpiringUserTargetsForSegment) | **PATCH** /api/v2/segments/{projectKey}/{segmentKey}/expiring-user-targets/{environmentKey} | Update expiring user targets for segment
+[**patchSegment**](SegmentsApi.md#patchSegment) | **PATCH** /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey} | Patch segment
+[**postSegment**](SegmentsApi.md#postSegment) | **POST** /api/v2/segments/{projectKey}/{environmentKey} | Create segment
+[**updateBigSegmentTargets**](SegmentsApi.md#updateBigSegmentTargets) | **POST** /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}/users | Update targets on a Big Segment
 
 
 
 ## deleteSegment
 
-> deleteSegment(projKey, envKey, key)
+> deleteSegment(projectKey, environmentKey, segmentKey)
 
 Delete segment
 
@@ -36,10 +36,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.SegmentsApi();
-let projKey = "projKey_example"; // String | The project key.
-let envKey = "envKey_example"; // String | The environment key.
-let key = "key_example"; // String | The user segment key.
-apiInstance.deleteSegment(projKey, envKey, key, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let segmentKey = "segmentKey_example"; // String | The segment key
+apiInstance.deleteSegment(projectKey, environmentKey, segmentKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -53,9 +53,9 @@ apiInstance.deleteSegment(projKey, envKey, key, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key. | 
- **envKey** | **String**| The environment key. | 
- **key** | **String**| The user segment key. | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **segmentKey** | **String**| The segment key | 
 
 ### Return type
 
@@ -73,7 +73,7 @@ null (empty response body)
 
 ## getExpiringUserTargetsForSegment
 
-> ExpiringUserTargetGetResponse getExpiringUserTargetsForSegment(projKey, envKey, segmentKey)
+> ExpiringUserTargetGetResponse getExpiringUserTargetsForSegment(projectKey, environmentKey, segmentKey)
 
 Get expiring user targets for segment
 
@@ -91,10 +91,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.SegmentsApi();
-let projKey = "projKey_example"; // String | The project key.
-let envKey = "envKey_example"; // String | The environment key.
-let segmentKey = "segmentKey_example"; // String | The segment key.
-apiInstance.getExpiringUserTargetsForSegment(projKey, envKey, segmentKey, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let segmentKey = "segmentKey_example"; // String | The segment key
+apiInstance.getExpiringUserTargetsForSegment(projectKey, environmentKey, segmentKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -108,9 +108,9 @@ apiInstance.getExpiringUserTargetsForSegment(projKey, envKey, segmentKey, (error
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key. | 
- **envKey** | **String**| The environment key. | 
- **segmentKey** | **String**| The segment key. | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **segmentKey** | **String**| The segment key | 
 
 ### Return type
 
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
 
 ## getSegment
 
-> UserSegment getSegment(projKey, envKey, key)
+> UserSegment getSegment(projectKey, environmentKey, segmentKey)
 
 Get segment
 
@@ -146,10 +146,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.SegmentsApi();
-let projKey = "projKey_example"; // String | The project key.
-let envKey = "envKey_example"; // String | The environment key.
-let key = "key_example"; // String | The segment key
-apiInstance.getSegment(projKey, envKey, key, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let segmentKey = "segmentKey_example"; // String | The segment key
+apiInstance.getSegment(projectKey, environmentKey, segmentKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -163,9 +163,9 @@ apiInstance.getSegment(projKey, envKey, key, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key. | 
- **envKey** | **String**| The environment key. | 
- **key** | **String**| The segment key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **segmentKey** | **String**| The segment key | 
 
 ### Return type
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 
 ## getSegmentMembershipForUser
 
-> BigSegmentTarget getSegmentMembershipForUser(projKey, envKey, key, userKey)
+> BigSegmentTarget getSegmentMembershipForUser(projectKey, environmentKey, segmentKey, userKey)
 
 Get Big Segment membership for user
 
@@ -201,11 +201,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.SegmentsApi();
-let projKey = "projKey_example"; // String | The project key.
-let envKey = "envKey_example"; // String | The environment key.
-let key = "key_example"; // String | The segment key.
-let userKey = "userKey_example"; // String | The user key.
-apiInstance.getSegmentMembershipForUser(projKey, envKey, key, userKey, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let segmentKey = "segmentKey_example"; // String | The segment key
+let userKey = "userKey_example"; // String | The user key
+apiInstance.getSegmentMembershipForUser(projectKey, environmentKey, segmentKey, userKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -219,10 +219,10 @@ apiInstance.getSegmentMembershipForUser(projKey, envKey, key, userKey, (error, d
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key. | 
- **envKey** | **String**| The environment key. | 
- **key** | **String**| The segment key. | 
- **userKey** | **String**| The user key. | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **segmentKey** | **String**| The segment key | 
+ **userKey** | **String**| The user key | 
 
 ### Return type
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ## getSegments
 
-> UserSegments getSegments(projKey, envKey)
+> UserSegments getSegments(projectKey, environmentKey)
 
 List segments
 
@@ -258,9 +258,9 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.SegmentsApi();
-let projKey = "projKey_example"; // String | The project key.
-let envKey = "envKey_example"; // String | The environment key.
-apiInstance.getSegments(projKey, envKey, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+apiInstance.getSegments(projectKey, environmentKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -274,8 +274,8 @@ apiInstance.getSegments(projKey, envKey, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key. | 
- **envKey** | **String**| The environment key. | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
 
 ### Return type
 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ## patchExpiringUserTargetsForSegment
 
-> ExpiringUserTargetPatchResponse patchExpiringUserTargetsForSegment(projKey, envKey, segmentKey, patchSegmentRequest)
+> ExpiringUserTargetPatchResponse patchExpiringUserTargetsForSegment(projectKey, environmentKey, segmentKey, patchSegmentRequest)
 
 Update expiring user targets for segment
 
@@ -311,11 +311,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.SegmentsApi();
-let projKey = "projKey_example"; // String | The project key.
-let envKey = "envKey_example"; // String | The environment key.
-let segmentKey = "segmentKey_example"; // String | The user segment key.
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let segmentKey = "segmentKey_example"; // String | The segment key
 let patchSegmentRequest = new LaunchDarklyApi.PatchSegmentRequest(); // PatchSegmentRequest | 
-apiInstance.patchExpiringUserTargetsForSegment(projKey, envKey, segmentKey, patchSegmentRequest, (error, data, response) => {
+apiInstance.patchExpiringUserTargetsForSegment(projectKey, environmentKey, segmentKey, patchSegmentRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -329,9 +329,9 @@ apiInstance.patchExpiringUserTargetsForSegment(projKey, envKey, segmentKey, patc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key. | 
- **envKey** | **String**| The environment key. | 
- **segmentKey** | **String**| The user segment key. | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **segmentKey** | **String**| The segment key | 
  **patchSegmentRequest** | [**PatchSegmentRequest**](PatchSegmentRequest.md)|  | 
 
 ### Return type
@@ -350,11 +350,11 @@ Name | Type | Description  | Notes
 
 ## patchSegment
 
-> UserSegment patchSegment(projKey, envKey, key, patchWithComment)
+> UserSegment patchSegment(projectKey, environmentKey, segmentKey, patchWithComment)
 
 Patch segment
 
-Update a user segment. The request body must be a valid JSON patch or JSON merge patch document. To learn more about semantic patches, read [Updates](/#section/Overview/Updates).
+Update a user segment. The request body must be a valid JSON patch, JSON merge patch, or semantic patch.  ## Using semantic patches on a segment  To use a [semantic patch](/reference#updates-via-semantic-patches) on a segment resource, you must include a header in the request. If you call a semantic patch resource without this header, you will receive a &#x60;400&#x60; response because your semantic patch will be interpreted as a JSON patch.  Use this header:  &#x60;&#x60;&#x60; Content-Type: application/json; domain-model&#x3D;launchdarkly.semanticpatch &#x60;&#x60;&#x60;  The body of a semantic patch request takes the following three properties:  1. &#x60;comment&#x60; (string): (Optional) A description of the update. 1. &#x60;environmentKey&#x60; (string): (Required) The key of the LaunchDarkly environment. 1. &#x60;instructions&#x60; (array): (Required) The list of actions to be performed by the update. Each action in the list must be an object/hash table with a &#x60;kind&#x60; property that indicates the instruction. Depending on the &#x60;kind&#x60;, the API may require other parameters. When this is the case, add the parameters as additional fields to the instruction object. Read below for more information on the specific supported semantic patch instructions.  If any instruction in the patch encounters an error, the error will be returned and the segment will not be changed. In general, instructions will silently do nothing if the segment is already in the state requested by the patch instruction. For example, &#x60;addIncludedUsers&#x60; does nothing when the targets have already been included. Specific error conditions are noted in the instruction descriptions.  ### Instructions  #### &#x60;addIncludedUsers&#x60;  Adds the user keys in &#x60;values&#x60; to the individual user targets included in the segment. Returns an error if this causes the same user key to be both included and excluded.  ##### Parameters  - &#x60;values&#x60;: list of user keys  #### &#x60;addExcludedUsers&#x60;  Adds the user keys in &#x60;values&#x60; to the individual user targets excluded from the segment. Returns an error if this causes the same user key to be both included and excluded.  ##### Parameters  - &#x60;values&#x60;: list of user keys  #### &#x60;removeIncludedUsers&#x60;  Removes the user keys in &#x60;values&#x60; from the individual user targets included in the segment.  ##### Parameters  - &#x60;values&#x60;: list of user keys  #### &#x60;removeExcludedUsers&#x60;  Removes the user keys in &#x60;values&#x60; from the individual user targets excluded from the segment.  ##### Parameters  - &#x60;values&#x60;: list of user keys  #### &#x60;updateName&#x60;  Updates the name of the segment to the string provided in &#x60;value&#x60;.  ##### Parameters  - &#x60;value&#x60;: string  ## Using JSON patches on a segment  If you do not include the header described above, you can use [JSON patch](/reference#updates-via-json-patch).  For example, to update the description for a segment, use the following request body:  &#x60;&#x60;&#x60;json {   \&quot;patch\&quot;: [     {       \&quot;op\&quot;: \&quot;replace\&quot;,       \&quot;path\&quot;: \&quot;/description\&quot;,       \&quot;value\&quot;: \&quot;new description\&quot;     }   ] } &#x60;&#x60;&#x60;  To update fields in the segment that are arrays, set the &#x60;path&#x60; to the name of the field and then append &#x60;/&lt;array index&gt;&#x60;. Using &#x60;/0&#x60; adds the new entry to the beginning of the array.  For example, to add a rule to a segment, use the following request body:  &#x60;&#x60;&#x60;json {   \&quot;patch\&quot;:[     {       \&quot;op\&quot;: \&quot;add\&quot;,       \&quot;path\&quot;: \&quot;/rules/0\&quot;,       \&quot;value\&quot;: {         \&quot;clauses\&quot;: [{ \&quot;attribute\&quot;: \&quot;email\&quot;, \&quot;op\&quot;: \&quot;endsWith\&quot;, \&quot;values\&quot;: [\&quot;.edu\&quot;], \&quot;negate\&quot;: false }]       }     }   ] } &#x60;&#x60;&#x60;  To add or remove users from segments, we recommend using semantic patch. Semantic patch for segments includes specific &#x60;instructions&#x60; for adding and removing both included and excluded users. 
 
 ### Example
 
@@ -368,11 +368,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.SegmentsApi();
-let projKey = "projKey_example"; // String | The project key.
-let envKey = "envKey_example"; // String | The environment key.
-let key = "key_example"; // String | The user segment key.
-let patchWithComment = new LaunchDarklyApi.PatchWithComment(); // PatchWithComment | 
-apiInstance.patchSegment(projKey, envKey, key, patchWithComment, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let segmentKey = "segmentKey_example"; // String | The segment key
+let patchWithComment = {"patch":[{"op":"replace","path":"/description","value":"New description for this segment"},{"op":"add","path":"/tags/0","value":"example"}]}; // PatchWithComment | 
+apiInstance.patchSegment(projectKey, environmentKey, segmentKey, patchWithComment, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -386,9 +386,9 @@ apiInstance.patchSegment(projKey, envKey, key, patchWithComment, (error, data, r
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key. | 
- **envKey** | **String**| The environment key. | 
- **key** | **String**| The user segment key. | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **segmentKey** | **String**| The segment key | 
  **patchWithComment** | [**PatchWithComment**](PatchWithComment.md)|  | 
 
 ### Return type
@@ -407,7 +407,7 @@ Name | Type | Description  | Notes
 
 ## postSegment
 
-> UserSegment postSegment(projKey, envKey, segmentBody)
+> UserSegment postSegment(projectKey, environmentKey, segmentBody)
 
 Create segment
 
@@ -425,10 +425,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.SegmentsApi();
-let projKey = "projKey_example"; // String | The project key.
-let envKey = "envKey_example"; // String | The environment key.
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
 let segmentBody = new LaunchDarklyApi.SegmentBody(); // SegmentBody | 
-apiInstance.postSegment(projKey, envKey, segmentBody, (error, data, response) => {
+apiInstance.postSegment(projectKey, environmentKey, segmentBody, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -442,8 +442,8 @@ apiInstance.postSegment(projKey, envKey, segmentBody, (error, data, response) =>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key. | 
- **envKey** | **String**| The environment key. | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
  **segmentBody** | [**SegmentBody**](SegmentBody.md)|  | 
 
 ### Return type
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
 
 ## updateBigSegmentTargets
 
-> updateBigSegmentTargets(projKey, envKey, key, segmentUserState)
+> updateBigSegmentTargets(projectKey, environmentKey, segmentKey, segmentUserState)
 
 Update targets on a Big Segment
 
@@ -480,11 +480,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.SegmentsApi();
-let projKey = "projKey_example"; // String | The project key.
-let envKey = "envKey_example"; // String | The environment key.
-let key = "key_example"; // String | The segment key.
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let segmentKey = "segmentKey_example"; // String | The segment key
 let segmentUserState = new LaunchDarklyApi.SegmentUserState(); // SegmentUserState | 
-apiInstance.updateBigSegmentTargets(projKey, envKey, key, segmentUserState, (error, data, response) => {
+apiInstance.updateBigSegmentTargets(projectKey, environmentKey, segmentKey, segmentUserState, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -498,9 +498,9 @@ apiInstance.updateBigSegmentTargets(projKey, envKey, key, segmentUserState, (err
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key. | 
- **envKey** | **String**| The environment key. | 
- **key** | **String**| The segment key. | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **segmentKey** | **String**| The segment key | 
  **segmentUserState** | [**SegmentUserState**](SegmentUserState.md)|  | 
 
 ### Return type

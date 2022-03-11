@@ -4,17 +4,17 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteCustomRole**](CustomRolesApi.md#deleteCustomRole) | **DELETE** /api/v2/roles/{key} | Delete custom role
-[**getCustomRole**](CustomRolesApi.md#getCustomRole) | **GET** /api/v2/roles/{key} | Get custom role
+[**deleteCustomRole**](CustomRolesApi.md#deleteCustomRole) | **DELETE** /api/v2/roles/{customRoleKey} | Delete custom role
+[**getCustomRole**](CustomRolesApi.md#getCustomRole) | **GET** /api/v2/roles/{customRoleKey} | Get custom role
 [**getCustomRoles**](CustomRolesApi.md#getCustomRoles) | **GET** /api/v2/roles | List custom roles
-[**patchCustomRole**](CustomRolesApi.md#patchCustomRole) | **PATCH** /api/v2/roles/{key} | Update custom role
+[**patchCustomRole**](CustomRolesApi.md#patchCustomRole) | **PATCH** /api/v2/roles/{customRoleKey} | Update custom role
 [**postCustomRole**](CustomRolesApi.md#postCustomRole) | **POST** /api/v2/roles | Create custom role
 
 
 
 ## deleteCustomRole
 
-> deleteCustomRole(key)
+> deleteCustomRole(customRoleKey)
 
 Delete custom role
 
@@ -32,8 +32,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.CustomRolesApi();
-let key = "key_example"; // String | The key of the custom role to delete
-apiInstance.deleteCustomRole(key, (error, data, response) => {
+let customRoleKey = "customRoleKey_example"; // String | The custom role key
+apiInstance.deleteCustomRole(customRoleKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -47,7 +47,7 @@ apiInstance.deleteCustomRole(key, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **String**| The key of the custom role to delete | 
+ **customRoleKey** | **String**| The custom role key | 
 
 ### Return type
 
@@ -65,7 +65,7 @@ null (empty response body)
 
 ## getCustomRole
 
-> CustomRole getCustomRole(key)
+> CustomRole getCustomRole(customRoleKey)
 
 Get custom role
 
@@ -83,8 +83,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.CustomRolesApi();
-let key = "key_example"; // String | The custom role's key or ID
-apiInstance.getCustomRole(key, (error, data, response) => {
+let customRoleKey = "customRoleKey_example"; // String | The custom role key or ID
+apiInstance.getCustomRole(customRoleKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -98,7 +98,7 @@ apiInstance.getCustomRole(key, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **String**| The custom role&#39;s key or ID | 
+ **customRoleKey** | **String**| The custom role key or ID | 
 
 ### Return type
 
@@ -163,11 +163,11 @@ This endpoint does not need any parameter.
 
 ## patchCustomRole
 
-> CustomRole patchCustomRole(key, patchWithComment)
+> CustomRole patchCustomRole(customRoleKey, patchWithComment)
 
 Update custom role
 
-Update a single custom role. The request must be a valid JSON Patch document describing the changes to be made to the custom role.
+Update a single custom role. The request must be a valid JSON Patch document describing the changes to be made to the custom role. To add an element to the &#x60;policy&#x60; array, set the &#x60;path&#x60; to &#x60;/policy&#x60; and then append &#x60;/&lt;array index&gt;&#x60;. Using &#x60;/0&#x60; adds to the beginning of the array.
 
 ### Example
 
@@ -181,9 +181,9 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.CustomRolesApi();
-let key = "key_example"; // String | The key of the custom role to update
-let patchWithComment = new LaunchDarklyApi.PatchWithComment(); // PatchWithComment | 
-apiInstance.patchCustomRole(key, patchWithComment, (error, data, response) => {
+let customRoleKey = "customRoleKey_example"; // String | The custom role key
+let patchWithComment = {"patch":[{"op":"add","path":"/policy/0","value":{"actions":["updateOn"],"effect":"allow","resources":["proj/*:env/qa:flag/*"]}}]}; // PatchWithComment | 
+apiInstance.patchCustomRole(customRoleKey, patchWithComment, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -197,7 +197,7 @@ apiInstance.patchCustomRole(key, patchWithComment, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **String**| The key of the custom role to update | 
+ **customRoleKey** | **String**| The custom role key | 
  **patchWithComment** | [**PatchWithComment**](PatchWithComment.md)|  | 
 
 ### Return type
@@ -234,7 +234,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.CustomRolesApi();
-let customRolePost = new LaunchDarklyApi.CustomRolePost(); // CustomRolePost | 
+let customRolePost = {"basePermissions":"reader","description":"A role for members of the ops team","key":"ops-team","name":"Ops team","policy":[{"actions":["updateOn"],"effect":"allow","resources":["proj/*:env/production:flag/*"]}]}; // CustomRolePost | 
 apiInstance.postCustomRole(customRolePost, (error, data, response) => {
   if (error) {
     console.error(error);

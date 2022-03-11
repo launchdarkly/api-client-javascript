@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **version** | **Number** |  | [optional] 
 **config** | **Object** |  | [optional] 
 **on** | **Boolean** |  | [optional] 
-**access** | [**AccessRep**](AccessRep.md) |  | [optional] 
+**access** | [**Access**](Access.md) |  | [optional] 
 
 
 

@@ -183,7 +183,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
 let id = "id_example"; // String | The relay auto config id
-let patchWithComment = new LaunchDarklyApi.PatchWithComment(); // PatchWithComment | 
+let patchWithComment = {"patch":[{"op":"replace","path":"/policy/0","value":{"actions":["*"],"effect":"allow","resources":["proj/*:env/qa"]}}]}; // PatchWithComment | 
 apiInstance.patchRelayAutoConfig(id, patchWithComment, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -235,7 +235,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.RelayProxyConfigurationsApi();
-let relayAutoConfigPost = new LaunchDarklyApi.RelayAutoConfigPost(); // RelayAutoConfigPost | 
+let relayAutoConfigPost = {"name":"Sample Relay Proxy config for all proj and env","policy":[{"actions":["*"],"effect":"allow","resources":["proj/*:env/*"]}]}; // RelayAutoConfigPost | 
 apiInstance.postRelayAutoConfig(relayAutoConfigPost, (error, data, response) => {
   if (error) {
     console.error(error);

@@ -4,17 +4,17 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getExpiringFlagsForUser**](UserSettingsApi.md#getExpiringFlagsForUser) | **GET** /api/v2/users/{projKey}/{userKey}/expiring-user-targets/{envKey} | Get expiring dates on flags for user
-[**getUserFlagSetting**](UserSettingsApi.md#getUserFlagSetting) | **GET** /api/v2/users/{projKey}/{envKey}/{key}/flags/{featureKey} | Get flag setting for user
-[**getUserFlagSettings**](UserSettingsApi.md#getUserFlagSettings) | **GET** /api/v2/users/{projKey}/{envKey}/{key}/flags | List flag settings for user
-[**patchExpiringFlagsForUser**](UserSettingsApi.md#patchExpiringFlagsForUser) | **PATCH** /api/v2/users/{projKey}/{userKey}/expiring-user-targets/{envKey} | Update expiring user target for flags
-[**putFlagSetting**](UserSettingsApi.md#putFlagSetting) | **PUT** /api/v2/users/{projKey}/{envKey}/{key}/flags/{featureKey} | Update flag settings for user
+[**getExpiringFlagsForUser**](UserSettingsApi.md#getExpiringFlagsForUser) | **GET** /api/v2/users/{projectKey}/{userKey}/expiring-user-targets/{environmentKey} | Get expiring dates on flags for user
+[**getUserFlagSetting**](UserSettingsApi.md#getUserFlagSetting) | **GET** /api/v2/users/{projectKey}/{environmentKey}/{userKey}/flags/{featureFlagKey} | Get flag setting for user
+[**getUserFlagSettings**](UserSettingsApi.md#getUserFlagSettings) | **GET** /api/v2/users/{projectKey}/{environmentKey}/{userKey}/flags | List flag settings for user
+[**patchExpiringFlagsForUser**](UserSettingsApi.md#patchExpiringFlagsForUser) | **PATCH** /api/v2/users/{projectKey}/{userKey}/expiring-user-targets/{environmentKey} | Update expiring user target for flags
+[**putFlagSetting**](UserSettingsApi.md#putFlagSetting) | **PUT** /api/v2/users/{projectKey}/{environmentKey}/{userKey}/flags/{featureFlagKey} | Update flag settings for user
 
 
 
 ## getExpiringFlagsForUser
 
-> ExpiringUserTargetGetResponse getExpiringFlagsForUser(projKey, userKey, envKey)
+> ExpiringUserTargetGetResponse getExpiringFlagsForUser(projectKey, userKey, environmentKey)
 
 Get expiring dates on flags for user
 
@@ -32,10 +32,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.UserSettingsApi();
-let projKey = "projKey_example"; // String | The project key.
-let userKey = "userKey_example"; // String | The user key.
-let envKey = "envKey_example"; // String | The environment key.
-apiInstance.getExpiringFlagsForUser(projKey, userKey, envKey, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let userKey = "userKey_example"; // String | The user key
+let environmentKey = "environmentKey_example"; // String | The environment key
+apiInstance.getExpiringFlagsForUser(projectKey, userKey, environmentKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -49,9 +49,9 @@ apiInstance.getExpiringFlagsForUser(projKey, userKey, envKey, (error, data, resp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key. | 
- **userKey** | **String**| The user key. | 
- **envKey** | **String**| The environment key. | 
+ **projectKey** | **String**| The project key | 
+ **userKey** | **String**| The user key | 
+ **environmentKey** | **String**| The environment key | 
 
 ### Return type
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ## getUserFlagSetting
 
-> UserFlagSetting getUserFlagSetting(projKey, envKey, key, featureKey)
+> UserFlagSetting getUserFlagSetting(projectKey, environmentKey, userKey, featureFlagKey)
 
 Get flag setting for user
 
@@ -87,11 +87,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.UserSettingsApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
-let key = "key_example"; // String | The user key
-let featureKey = "featureKey_example"; // String | The feature flag key
-apiInstance.getUserFlagSetting(projKey, envKey, key, featureKey, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let userKey = "userKey_example"; // String | The user key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
+apiInstance.getUserFlagSetting(projectKey, environmentKey, userKey, featureFlagKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -105,10 +105,10 @@ apiInstance.getUserFlagSetting(projKey, envKey, key, featureKey, (error, data, r
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
- **key** | **String**| The user key | 
- **featureKey** | **String**| The feature flag key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **userKey** | **String**| The user key | 
+ **featureFlagKey** | **String**| The feature flag key | 
 
 ### Return type
 
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ## getUserFlagSettings
 
-> UserFlagSettings getUserFlagSettings(projKey, envKey, key)
+> UserFlagSettings getUserFlagSettings(projectKey, environmentKey, userKey)
 
 List flag settings for user
 
@@ -144,10 +144,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.UserSettingsApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
-let key = "key_example"; // String | The user key
-apiInstance.getUserFlagSettings(projKey, envKey, key, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let userKey = "userKey_example"; // String | The user key
+apiInstance.getUserFlagSettings(projectKey, environmentKey, userKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -161,9 +161,9 @@ apiInstance.getUserFlagSettings(projKey, envKey, key, (error, data, response) =>
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
- **key** | **String**| The user key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **userKey** | **String**| The user key | 
 
 ### Return type
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 ## patchExpiringFlagsForUser
 
-> ExpiringUserTargetPatchResponse patchExpiringFlagsForUser(projKey, userKey, envKey, patchWithComment)
+> ExpiringUserTargetPatchResponse patchExpiringFlagsForUser(projectKey, userKey, environmentKey, patchWithComment)
 
 Update expiring user target for flags
 
@@ -199,11 +199,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.UserSettingsApi();
-let projKey = "projKey_example"; // String | The project key.
-let userKey = "userKey_example"; // String | The user key.
-let envKey = "envKey_example"; // String | The environment key.
+let projectKey = "projectKey_example"; // String | The project key
+let userKey = "userKey_example"; // String | The user key
+let environmentKey = "environmentKey_example"; // String | The environment key
 let patchWithComment = new LaunchDarklyApi.PatchWithComment(); // PatchWithComment | 
-apiInstance.patchExpiringFlagsForUser(projKey, userKey, envKey, patchWithComment, (error, data, response) => {
+apiInstance.patchExpiringFlagsForUser(projectKey, userKey, environmentKey, patchWithComment, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -217,9 +217,9 @@ apiInstance.patchExpiringFlagsForUser(projKey, userKey, envKey, patchWithComment
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key. | 
- **userKey** | **String**| The user key. | 
- **envKey** | **String**| The environment key. | 
+ **projectKey** | **String**| The project key | 
+ **userKey** | **String**| The user key | 
+ **environmentKey** | **String**| The environment key | 
  **patchWithComment** | [**PatchWithComment**](PatchWithComment.md)|  | 
 
 ### Return type
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ## putFlagSetting
 
-> putFlagSetting(projKey, envKey, key, featureKey, valuePut)
+> putFlagSetting(projectKey, environmentKey, userKey, featureFlagKey, valuePut)
 
 Update flag settings for user
 
@@ -256,12 +256,12 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.UserSettingsApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
-let key = "key_example"; // String | The user key
-let featureKey = "featureKey_example"; // String | The feature flag key
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let userKey = "userKey_example"; // String | The user key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let valuePut = new LaunchDarklyApi.ValuePut(); // ValuePut | 
-apiInstance.putFlagSetting(projKey, envKey, key, featureKey, valuePut, (error, data, response) => {
+apiInstance.putFlagSetting(projectKey, environmentKey, userKey, featureFlagKey, valuePut, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -275,10 +275,10 @@ apiInstance.putFlagSetting(projKey, envKey, key, featureKey, valuePut, (error, d
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
- **key** | **String**| The user key | 
- **featureKey** | **String**| The feature flag key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **userKey** | **String**| The user key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **valuePut** | [**ValuePut**](ValuePut.md)|  | 
 
 ### Return type

@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**getEnvironment**](EnvironmentsApi.md#getEnvironment) | **GET** /api/v2/projects/{projectKey}/environments/{environmentKey} | Get environment
 [**patchEnvironment**](EnvironmentsApi.md#patchEnvironment) | **PATCH** /api/v2/projects/{projectKey}/environments/{environmentKey} | Update environment
 [**postEnvironment**](EnvironmentsApi.md#postEnvironment) | **POST** /api/v2/projects/{projectKey}/environments | Create environment
-[**resetEnvironmentMobileKey**](EnvironmentsApi.md#resetEnvironmentMobileKey) | **POST** /api/v2/projects/{projectKey}/environments/{envKey}/mobileKey | Reset environment mobile SDK key
-[**resetEnvironmentSDKKey**](EnvironmentsApi.md#resetEnvironmentSDKKey) | **POST** /api/v2/projects/{projectKey}/environments/{envKey}/apiKey | Reset environment SDK key
+[**resetEnvironmentMobileKey**](EnvironmentsApi.md#resetEnvironmentMobileKey) | **POST** /api/v2/projects/{projectKey}/environments/{environmentKey}/mobileKey | Reset environment mobile SDK key
+[**resetEnvironmentSDKKey**](EnvironmentsApi.md#resetEnvironmentSDKKey) | **POST** /api/v2/projects/{projectKey}/environments/{environmentKey}/apiKey | Reset environment SDK key
 
 
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 ## resetEnvironmentMobileKey
 
-> Environment resetEnvironmentMobileKey(projectKey, envKey)
+> Environment resetEnvironmentMobileKey(projectKey, environmentKey)
 
 Reset environment mobile SDK key
 
@@ -248,8 +248,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.EnvironmentsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
-apiInstance.resetEnvironmentMobileKey(projectKey, envKey, (error, data, response) => {
+let environmentKey = "environmentKey_example"; // String | The environment key
+apiInstance.resetEnvironmentMobileKey(projectKey, environmentKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -264,7 +264,7 @@ apiInstance.resetEnvironmentMobileKey(projectKey, envKey, (error, data, response
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
+ **environmentKey** | **String**| The environment key | 
 
 ### Return type
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 
 ## resetEnvironmentSDKKey
 
-> Environment resetEnvironmentSDKKey(projectKey, envKey, opts)
+> Environment resetEnvironmentSDKKey(projectKey, environmentKey, opts)
 
 Reset environment SDK key
 
@@ -301,11 +301,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.EnvironmentsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
+let environmentKey = "environmentKey_example"; // String | The environment key
 let opts = {
   'expiry': 789 // Number | The time at which you want the old SDK key to expire, in UNIX milliseconds. By default, the key expires immediately.
 };
-apiInstance.resetEnvironmentSDKKey(projectKey, envKey, opts, (error, data, response) => {
+apiInstance.resetEnvironmentSDKKey(projectKey, environmentKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -320,7 +320,7 @@ apiInstance.resetEnvironmentSDKKey(projectKey, envKey, opts, (error, data, respo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
+ **environmentKey** | **String**| The environment key | 
  **expiry** | **Number**| The time at which you want the old SDK key to expire, in UNIX milliseconds. By default, the key expires immediately. | [optional] 
 
 ### Return type

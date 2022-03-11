@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **name** | **String** |  | [optional] 
 **anonymous** | **Boolean** |  | [optional] 
 **custom** | **{String: Object}** |  | [optional] 
-**derived** | [**{String: DerivedAttribute}**](DerivedAttribute.md) |  | [optional] 
 **privateAttrs** | **[String]** |  | [optional] 
 
 

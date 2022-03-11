@@ -4,17 +4,17 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteDestination**](DataExportDestinationsApi.md#deleteDestination) | **DELETE** /api/v2/destinations/{projKey}/{envKey}/{id} | Delete Data Export destination
-[**getDestination**](DataExportDestinationsApi.md#getDestination) | **GET** /api/v2/destinations/{projKey}/{envKey}/{id} | Get destination
+[**deleteDestination**](DataExportDestinationsApi.md#deleteDestination) | **DELETE** /api/v2/destinations/{projectKey}/{environmentKey}/{id} | Delete Data Export destination
+[**getDestination**](DataExportDestinationsApi.md#getDestination) | **GET** /api/v2/destinations/{projectKey}/{environmentKey}/{id} | Get destination
 [**getDestinations**](DataExportDestinationsApi.md#getDestinations) | **GET** /api/v2/destinations | List destinations
-[**patchDestination**](DataExportDestinationsApi.md#patchDestination) | **PATCH** /api/v2/destinations/{projKey}/{envKey}/{id} | Update Data Export destination
-[**postDestination**](DataExportDestinationsApi.md#postDestination) | **POST** /api/v2/destinations/{projKey}/{envKey} | Create data export destination
+[**patchDestination**](DataExportDestinationsApi.md#patchDestination) | **PATCH** /api/v2/destinations/{projectKey}/{environmentKey}/{id} | Update Data Export destination
+[**postDestination**](DataExportDestinationsApi.md#postDestination) | **POST** /api/v2/destinations/{projectKey}/{environmentKey} | Create data export destination
 
 
 
 ## deleteDestination
 
-> deleteDestination(projKey, envKey, id)
+> deleteDestination(projectKey, environmentKey, id)
 
 Delete Data Export destination
 
@@ -32,10 +32,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The Data Export destination ID
-apiInstance.deleteDestination(projKey, envKey, id, (error, data, response) => {
+apiInstance.deleteDestination(projectKey, environmentKey, id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -49,8 +49,8 @@ apiInstance.deleteDestination(projKey, envKey, id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
  **id** | **String**| The Data Export destination ID | 
 
 ### Return type
@@ -69,7 +69,7 @@ null (empty response body)
 
 ## getDestination
 
-> Destination getDestination(projKey, envKey, id)
+> Destination getDestination(projectKey, environmentKey, id)
 
 Get destination
 
@@ -87,10 +87,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The Data Export destination ID
-apiInstance.getDestination(projKey, envKey, id, (error, data, response) => {
+apiInstance.getDestination(projectKey, environmentKey, id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -104,8 +104,8 @@ apiInstance.getDestination(projKey, envKey, id, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
  **id** | **String**| The Data Export destination ID | 
 
 ### Return type
@@ -171,7 +171,7 @@ This endpoint does not need any parameter.
 
 ## patchDestination
 
-> Destination patchDestination(projKey, envKey, id, patchOperation)
+> Destination patchDestination(projectKey, environmentKey, id, patchOperation)
 
 Update Data Export destination
 
@@ -189,11 +189,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The Data Export destination ID
 let patchOperation = [{"op":"replace","path":"/config/topic","value":"ld-pubsub-test-192302"}]; // [PatchOperation] | 
-apiInstance.patchDestination(projKey, envKey, id, patchOperation, (error, data, response) => {
+apiInstance.patchDestination(projectKey, environmentKey, id, patchOperation, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -207,8 +207,8 @@ apiInstance.patchDestination(projKey, envKey, id, patchOperation, (error, data, 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
  **id** | **String**| The Data Export destination ID | 
  **patchOperation** | [**[PatchOperation]**](PatchOperation.md)|  | 
 
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ## postDestination
 
-> Destination postDestination(projKey, envKey, destinationPost)
+> Destination postDestination(projectKey, environmentKey, destinationPost)
 
 Create data export destination
 
@@ -246,10 +246,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
 let destinationPost = {"config":{"project":"test-prod","topic":"ld-pubsub-test-192301"},"kind":"google-pubsub"}; // DestinationPost | 
-apiInstance.postDestination(projKey, envKey, destinationPost, (error, data, response) => {
+apiInstance.postDestination(projectKey, environmentKey, destinationPost, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -263,8 +263,8 @@ apiInstance.postDestination(projKey, envKey, destinationPost, (error, data, resp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
  **destinationPost** | [**DestinationPost**](DestinationPost.md)|  | 
 
 ### Return type

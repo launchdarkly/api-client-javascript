@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**getRepositories**](CodeReferencesApi.md#getRepositories) | **GET** /api/v2/code-refs/repositories | List repositories
 [**getRepository**](CodeReferencesApi.md#getRepository) | **GET** /api/v2/code-refs/repositories/{repo} | Get repository
 [**getRootStatistic**](CodeReferencesApi.md#getRootStatistic) | **GET** /api/v2/code-refs/statistics | Get links to code reference repositories for each project
-[**getStatistics**](CodeReferencesApi.md#getStatistics) | **GET** /api/v2/code-refs/statistics/{projKey} | Get number of code references for flags
+[**getStatistics**](CodeReferencesApi.md#getStatistics) | **GET** /api/v2/code-refs/statistics/{projectKey} | Get number of code references for flags
 [**patchRepository**](CodeReferencesApi.md#patchRepository) | **PATCH** /api/v2/code-refs/repositories/{repo} | Update repository
 [**postExtinction**](CodeReferencesApi.md#postExtinction) | **POST** /api/v2/code-refs/repositories/{repo}/branches/{branch}/extinction-events | Create extinction
 [**postRepository**](CodeReferencesApi.md#postRepository) | **POST** /api/v2/code-refs/repositories | Create repository
@@ -456,7 +456,7 @@ This endpoint does not need any parameter.
 
 ## getStatistics
 
-> StatisticCollectionRep getStatistics(projKey, opts)
+> StatisticCollectionRep getStatistics(projectKey, opts)
 
 Get number of code references for flags
 
@@ -474,11 +474,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.CodeReferencesApi();
-let projKey = "projKey_example"; // String | The project key
+let projectKey = "projectKey_example"; // String | The project key
 let opts = {
   'flagKey': "flagKey_example" // String | Filter results to a specific flag key
 };
-apiInstance.getStatistics(projKey, opts, (error, data, response) => {
+apiInstance.getStatistics(projectKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -492,7 +492,7 @@ apiInstance.getStatistics(projKey, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
+ **projectKey** | **String**| The project key | 
  **flagKey** | **String**| Filter results to a specific flag key | [optional] 
 
 ### Return type

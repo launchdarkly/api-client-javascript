@@ -4,17 +4,17 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createTriggerWorkflow**](FlagTriggersApi.md#createTriggerWorkflow) | **POST** /api/v2/flags/{projKey}/{flagKey}/triggers/{envKey} | Create flag trigger
-[**deleteTriggerWorkflow**](FlagTriggersApi.md#deleteTriggerWorkflow) | **DELETE** /api/v2/flags/{projKey}/{flagKey}/triggers/{envKey}/{id} | Delete flag trigger
-[**getTriggerWorkflowById**](FlagTriggersApi.md#getTriggerWorkflowById) | **GET** /api/v2/flags/{projKey}/{flagKey}/triggers/{envKey}/{id} | Get flag trigger by ID
-[**getTriggerWorkflows**](FlagTriggersApi.md#getTriggerWorkflows) | **GET** /api/v2/flags/{projKey}/{flagKey}/triggers/{envKey} | List flag triggers
-[**patchTriggerWorkflow**](FlagTriggersApi.md#patchTriggerWorkflow) | **PATCH** /api/v2/flags/{projKey}/{flagKey}/triggers/{envKey}/{id} | Update flag trigger
+[**createTriggerWorkflow**](FlagTriggersApi.md#createTriggerWorkflow) | **POST** /api/v2/flags/{projectKey}/{featureFlagKey}/triggers/{environmentKey} | Create flag trigger
+[**deleteTriggerWorkflow**](FlagTriggersApi.md#deleteTriggerWorkflow) | **DELETE** /api/v2/flags/{projectKey}/{featureFlagKey}/triggers/{environmentKey}/{id} | Delete flag trigger
+[**getTriggerWorkflowById**](FlagTriggersApi.md#getTriggerWorkflowById) | **GET** /api/v2/flags/{projectKey}/{featureFlagKey}/triggers/{environmentKey}/{id} | Get flag trigger by ID
+[**getTriggerWorkflows**](FlagTriggersApi.md#getTriggerWorkflows) | **GET** /api/v2/flags/{projectKey}/{featureFlagKey}/triggers/{environmentKey} | List flag triggers
+[**patchTriggerWorkflow**](FlagTriggersApi.md#patchTriggerWorkflow) | **PATCH** /api/v2/flags/{projectKey}/{featureFlagKey}/triggers/{environmentKey}/{id} | Update flag trigger
 
 
 
 ## createTriggerWorkflow
 
-> TriggerWorkflowRep createTriggerWorkflow(projKey, envKey, flagKey, triggerPost)
+> TriggerWorkflowRep createTriggerWorkflow(projectKey, environmentKey, featureFlagKey, triggerPost)
 
 Create flag trigger
 
@@ -32,11 +32,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.FlagTriggersApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
-let flagKey = "flagKey_example"; // String | The flag key
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let triggerPost = new LaunchDarklyApi.TriggerPost(); // TriggerPost | 
-apiInstance.createTriggerWorkflow(projKey, envKey, flagKey, triggerPost, (error, data, response) => {
+apiInstance.createTriggerWorkflow(projectKey, environmentKey, featureFlagKey, triggerPost, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -50,9 +50,9 @@ apiInstance.createTriggerWorkflow(projKey, envKey, flagKey, triggerPost, (error,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
- **flagKey** | **String**| The flag key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **triggerPost** | [**TriggerPost**](TriggerPost.md)|  | 
 
 ### Return type
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ## deleteTriggerWorkflow
 
-> deleteTriggerWorkflow(projKey, envKey, flagKey, id)
+> deleteTriggerWorkflow(projectKey, environmentKey, featureFlagKey, id)
 
 Delete flag trigger
 
@@ -89,11 +89,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.FlagTriggersApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
-let flagKey = "flagKey_example"; // String | The flag key
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let id = "id_example"; // String | The flag trigger ID
-apiInstance.deleteTriggerWorkflow(projKey, envKey, flagKey, id, (error, data, response) => {
+apiInstance.deleteTriggerWorkflow(projectKey, environmentKey, featureFlagKey, id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -107,9 +107,9 @@ apiInstance.deleteTriggerWorkflow(projKey, envKey, flagKey, id, (error, data, re
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
- **flagKey** | **String**| The flag key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **id** | **String**| The flag trigger ID | 
 
 ### Return type
@@ -128,7 +128,7 @@ null (empty response body)
 
 ## getTriggerWorkflowById
 
-> TriggerWorkflowRep getTriggerWorkflowById(projKey, flagKey, envKey, id)
+> TriggerWorkflowRep getTriggerWorkflowById(projectKey, featureFlagKey, environmentKey, id)
 
 Get flag trigger by ID
 
@@ -146,11 +146,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.FlagTriggersApi();
-let projKey = "projKey_example"; // String | The project key
-let flagKey = "flagKey_example"; // String | The flag key
-let envKey = "envKey_example"; // String | The environment key
+let projectKey = "projectKey_example"; // String | The project key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
+let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The flag trigger ID
-apiInstance.getTriggerWorkflowById(projKey, flagKey, envKey, id, (error, data, response) => {
+apiInstance.getTriggerWorkflowById(projectKey, featureFlagKey, environmentKey, id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -164,9 +164,9 @@ apiInstance.getTriggerWorkflowById(projKey, flagKey, envKey, id, (error, data, r
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **flagKey** | **String**| The flag key | 
- **envKey** | **String**| The environment key | 
+ **projectKey** | **String**| The project key | 
+ **featureFlagKey** | **String**| The feature flag key | 
+ **environmentKey** | **String**| The environment key | 
  **id** | **String**| The flag trigger ID | 
 
 ### Return type
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 ## getTriggerWorkflows
 
-> TriggerWorkflowCollectionRep getTriggerWorkflows(projKey, envKey, flagKey)
+> TriggerWorkflowCollectionRep getTriggerWorkflows(projectKey, environmentKey, featureFlagKey)
 
 List flag triggers
 
@@ -203,10 +203,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.FlagTriggersApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
-let flagKey = "flagKey_example"; // String | The flag key
-apiInstance.getTriggerWorkflows(projKey, envKey, flagKey, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
+apiInstance.getTriggerWorkflows(projectKey, environmentKey, featureFlagKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -220,9 +220,9 @@ apiInstance.getTriggerWorkflows(projKey, envKey, flagKey, (error, data, response
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
- **flagKey** | **String**| The flag key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **featureFlagKey** | **String**| The feature flag key | 
 
 ### Return type
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ## patchTriggerWorkflow
 
-> TriggerWorkflowRep patchTriggerWorkflow(projKey, envKey, flagKey, id, flagTriggerInput)
+> TriggerWorkflowRep patchTriggerWorkflow(projectKey, environmentKey, featureFlagKey, id, flagTriggerInput)
 
 Update flag trigger
 
@@ -258,12 +258,12 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.FlagTriggersApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
-let flagKey = "flagKey_example"; // String | The flag key
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let id = "id_example"; // String | The flag trigger ID
 let flagTriggerInput = new LaunchDarklyApi.FlagTriggerInput(); // FlagTriggerInput | 
-apiInstance.patchTriggerWorkflow(projKey, envKey, flagKey, id, flagTriggerInput, (error, data, response) => {
+apiInstance.patchTriggerWorkflow(projectKey, environmentKey, featureFlagKey, id, flagTriggerInput, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -277,9 +277,9 @@ apiInstance.patchTriggerWorkflow(projKey, envKey, flagKey, id, flagTriggerInput,
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
- **flagKey** | **String**| The flag key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **id** | **String**| The flag trigger ID | 
  **flagTriggerInput** | [**FlagTriggerInput**](FlagTriggerInput.md)|  | 
 

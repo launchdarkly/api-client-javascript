@@ -4,18 +4,20 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteTeam**](TeamsBetaApi.md#deleteTeam) | **DELETE** /api/v2/teams/{key} | Delete team
-[**getTeam**](TeamsBetaApi.md#getTeam) | **GET** /api/v2/teams/{key} | Get team
+[**deleteTeam**](TeamsBetaApi.md#deleteTeam) | **DELETE** /api/v2/teams/{teamKey} | Delete team
+[**getTeam**](TeamsBetaApi.md#getTeam) | **GET** /api/v2/teams/{teamKey} | Get team
+[**getTeamMaintainers**](TeamsBetaApi.md#getTeamMaintainers) | **GET** /api/v2/teams/{teamKey}/maintainers | Get team maintainers
+[**getTeamRoles**](TeamsBetaApi.md#getTeamRoles) | **GET** /api/v2/teams/{teamKey}/roles | Get team custom roles
 [**getTeams**](TeamsBetaApi.md#getTeams) | **GET** /api/v2/teams | List teams
-[**patchTeam**](TeamsBetaApi.md#patchTeam) | **PATCH** /api/v2/teams/{key} | Update team
+[**patchTeam**](TeamsBetaApi.md#patchTeam) | **PATCH** /api/v2/teams/{teamKey} | Update team
 [**postTeam**](TeamsBetaApi.md#postTeam) | **POST** /api/v2/teams | Create team
-[**postTeamMembers**](TeamsBetaApi.md#postTeamMembers) | **POST** /api/v2/teams/{key}/members | Add members to team
+[**postTeamMembers**](TeamsBetaApi.md#postTeamMembers) | **POST** /api/v2/teams/{teamKey}/members | Add members to team
 
 
 
 ## deleteTeam
 
-> deleteTeam(key)
+> deleteTeam(teamKey)
 
 Delete team
 
@@ -33,8 +35,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.TeamsBetaApi();
-let key = "key_example"; // String | The team key
-apiInstance.deleteTeam(key, (error, data, response) => {
+let teamKey = "teamKey_example"; // String | The team key
+apiInstance.deleteTeam(teamKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -48,7 +50,7 @@ apiInstance.deleteTeam(key, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **String**| The team key | 
+ **teamKey** | **String**| The team key | 
 
 ### Return type
 
@@ -66,7 +68,7 @@ null (empty response body)
 
 ## getTeam
 
-> ExpandedTeamRep getTeam(key)
+> Team getTeam(teamKey)
 
 Get team
 
@@ -84,8 +86,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.TeamsBetaApi();
-let key = "key_example"; // String | The team key
-apiInstance.getTeam(key, (error, data, response) => {
+let teamKey = "teamKey_example"; // String | The team key
+apiInstance.getTeam(teamKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -99,11 +101,125 @@ apiInstance.getTeam(key, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **String**| The team key | 
+ **teamKey** | **String**| The team key | 
 
 ### Return type
 
-[**ExpandedTeamRep**](ExpandedTeamRep.md)
+[**Team**](Team.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getTeamMaintainers
+
+> TeamMaintainers getTeamMaintainers(teamKey, opts)
+
+Get team maintainers
+
+Fetch the maintainers that have been assigned to the team.
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.TeamsBetaApi();
+let teamKey = "teamKey_example"; // String | The team key
+let opts = {
+  'limit': 789, // Number | The number of maintainers to return in the response. Defaults to 20.
+  'offset': 789 // Number | Where to start in the list. This is for use with pagination. For example, an offset of 10 would skip the first ten items and then return the next `limit` items.
+};
+apiInstance.getTeamMaintainers(teamKey, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **teamKey** | **String**| The team key | 
+ **limit** | **Number**| The number of maintainers to return in the response. Defaults to 20. | [optional] 
+ **offset** | **Number**| Where to start in the list. This is for use with pagination. For example, an offset of 10 would skip the first ten items and then return the next &#x60;limit&#x60; items. | [optional] 
+
+### Return type
+
+[**TeamMaintainers**](TeamMaintainers.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getTeamRoles
+
+> TeamCustomRoles getTeamRoles(teamKey, opts)
+
+Get team custom roles
+
+Fetch the custom roles that have been assigned to the team.
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.TeamsBetaApi();
+let teamKey = "teamKey_example"; // String | The team key
+let opts = {
+  'limit': 789, // Number | The number of roles to return in the response. Defaults to 20.
+  'offset': 789 // Number | Where to start in the list. This is for use with pagination. For example, an offset of 10 would skip the first ten items and then return the next `limit` items.
+};
+apiInstance.getTeamRoles(teamKey, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **teamKey** | **String**| The team key | 
+ **limit** | **Number**| The number of roles to return in the response. Defaults to 20. | [optional] 
+ **offset** | **Number**| Where to start in the list. This is for use with pagination. For example, an offset of 10 would skip the first ten items and then return the next &#x60;limit&#x60; items. | [optional] 
+
+### Return type
+
+[**TeamCustomRoles**](TeamCustomRoles.md)
 
 ### Authorization
 
@@ -117,7 +233,7 @@ Name | Type | Description  | Notes
 
 ## getTeams
 
-> TeamCollectionRep getTeams(opts)
+> Teams getTeams(opts)
 
 List teams
 
@@ -160,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TeamCollectionRep**](TeamCollectionRep.md)
+[**Teams**](Teams.md)
 
 ### Authorization
 
@@ -174,7 +290,7 @@ Name | Type | Description  | Notes
 
 ## patchTeam
 
-> ExpandedTeamRep patchTeam(key, teamPatchInput)
+> Team patchTeam(teamKey, teamPatchInput)
 
 Update team
 
@@ -192,9 +308,9 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.TeamsBetaApi();
-let key = "key_example"; // String | The team key
+let teamKey = "teamKey_example"; // String | The team key
 let teamPatchInput = new LaunchDarklyApi.TeamPatchInput(); // TeamPatchInput | 
-apiInstance.patchTeam(key, teamPatchInput, (error, data, response) => {
+apiInstance.patchTeam(teamKey, teamPatchInput, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -208,12 +324,12 @@ apiInstance.patchTeam(key, teamPatchInput, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **String**| The team key | 
+ **teamKey** | **String**| The team key | 
  **teamPatchInput** | [**TeamPatchInput**](TeamPatchInput.md)|  | 
 
 ### Return type
 
-[**ExpandedTeamRep**](ExpandedTeamRep.md)
+[**Team**](Team.md)
 
 ### Authorization
 
@@ -227,7 +343,7 @@ Name | Type | Description  | Notes
 
 ## postTeam
 
-> TeamRep postTeam(teamPostInput)
+> Team postTeam(teamPostInput)
 
 Create team
 
@@ -245,7 +361,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.TeamsBetaApi();
-let teamPostInput = new LaunchDarklyApi.TeamPostInput(); // TeamPostInput | 
+let teamPostInput = {"customRoleKeys":["example-role1","example-role2"],"description":"An example team","key":"example-team","memberIDs":[],"name":"Example team","permissionGrants":[]}; // TeamPostInput | 
 apiInstance.postTeam(teamPostInput, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -264,7 +380,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TeamRep**](TeamRep.md)
+[**Team**](Team.md)
 
 ### Authorization
 
@@ -278,7 +394,7 @@ Name | Type | Description  | Notes
 
 ## postTeamMembers
 
-> TeamImportsRep postTeamMembers(key, opts)
+> TeamImportsRep postTeamMembers(teamKey, opts)
 
 Add members to team
 
@@ -296,11 +412,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.TeamsBetaApi();
-let key = "key_example"; // String | The team key
+let teamKey = "teamKey_example"; // String | The team key
 let opts = {
   'file': "/path/to/file" // File | CSV file containing email addresses
 };
-apiInstance.postTeamMembers(key, opts, (error, data, response) => {
+apiInstance.postTeamMembers(teamKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -314,7 +430,7 @@ apiInstance.postTeamMembers(key, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **key** | **String**| The team key | 
+ **teamKey** | **String**| The team key | 
  **file** | **File**| CSV file containing email addresses | [optional] 
 
 ### Return type

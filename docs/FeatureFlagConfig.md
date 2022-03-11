@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **offVariation** | **Number** |  | [optional] 
 **prerequisites** | [**[Prerequisite]**](Prerequisite.md) |  | 
 **site** | [**Link**](Link.md) |  | 
-**access** | [**AccessRep**](AccessRep.md) |  | [optional] 
+**access** | [**Access**](Access.md) |  | [optional] 
 **environmentName** | **String** |  | 
 **trackEvents** | **Boolean** |  | 
 **trackEventsFallthrough** | **Boolean** |  | 

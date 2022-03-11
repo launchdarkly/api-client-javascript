@@ -32,7 +32,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.WorkflowsBetaApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let workflowId = "workflowId_example"; // String | The workflow id
 apiInstance.deleteWorkflow(projectKey, featureFlagKey, environmentKey, workflowId, (error, data, response) => {
@@ -50,7 +50,7 @@ apiInstance.deleteWorkflow(projectKey, featureFlagKey, environmentKey, workflowI
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **workflowId** | **String**| The workflow id | 
 
@@ -89,7 +89,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.WorkflowsBetaApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let workflowId = "workflowId_example"; // String | The workflow ID
 apiInstance.getCustomWorkflow(projectKey, featureFlagKey, environmentKey, workflowId, (error, data, response) => {
@@ -107,7 +107,7 @@ apiInstance.getCustomWorkflow(projectKey, featureFlagKey, environmentKey, workfl
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **workflowId** | **String**| The workflow ID | 
 
@@ -146,7 +146,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.WorkflowsBetaApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 apiInstance.getWorkflows(projectKey, featureFlagKey, environmentKey, (error, data, response) => {
   if (error) {
@@ -163,7 +163,7 @@ apiInstance.getWorkflows(projectKey, featureFlagKey, environmentKey, (error, dat
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
 
 ### Return type
@@ -201,7 +201,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.WorkflowsBetaApi();
 let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag's key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let customWorkflowInputRep = new LaunchDarklyApi.CustomWorkflowInputRep(); // CustomWorkflowInputRep | 
 apiInstance.postWorkflow(projectKey, featureFlagKey, environmentKey, customWorkflowInputRep, (error, data, response) => {
@@ -219,7 +219,7 @@ apiInstance.postWorkflow(projectKey, featureFlagKey, environmentKey, customWorkf
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag&#39;s key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **customWorkflowInputRep** | [**CustomWorkflowInputRep**](CustomWorkflowInputRep.md)|  | 
 

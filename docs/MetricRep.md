@@ -11,12 +11,12 @@ Name | Type | Description | Notes
 **attachedFlagCount** | **Number** |  | [optional] 
 **links** | [**{String: Link}**](Link.md) |  | 
 **site** | [**Link**](Link.md) |  | [optional] 
-**access** | [**AccessRep**](AccessRep.md) |  | [optional] 
+**access** | [**Access**](Access.md) |  | [optional] 
 **tags** | **[String]** |  | 
 **creationDate** | **Number** |  | 
 **lastModified** | [**Modification**](Modification.md) |  | [optional] 
 **maintainerId** | **String** |  | [optional] 
-**maintainer** | [**MemberSummaryRep**](MemberSummaryRep.md) |  | [optional] 
+**maintainer** | [**MemberSummary**](MemberSummary.md) |  | [optional] 
 **description** | **String** |  | [optional] 
 **isNumeric** | **Boolean** |  | [optional] 
 **successCriteria** | **String** |  | [optional] 

@@ -4,14 +4,14 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getDependentFlags**](FeatureFlagsBetaApi.md#getDependentFlags) | **GET** /api/v2/flags/{projKey}/{flagKey}/dependent-flags | List dependent feature flags
-[**getDependentFlagsByEnv**](FeatureFlagsBetaApi.md#getDependentFlagsByEnv) | **GET** /api/v2/flags/{projKey}/{envKey}/{flagKey}/dependent-flags | List dependent feature flags by environment
+[**getDependentFlags**](FeatureFlagsBetaApi.md#getDependentFlags) | **GET** /api/v2/flags/{projectKey}/{featureFlagKey}/dependent-flags | List dependent feature flags
+[**getDependentFlagsByEnv**](FeatureFlagsBetaApi.md#getDependentFlagsByEnv) | **GET** /api/v2/flags/{projectKey}/{environmentKey}/{featureFlagKey}/dependent-flags | List dependent feature flags by environment
 
 
 
 ## getDependentFlags
 
-> MultiEnvironmentDependentFlags getDependentFlags(projKey, flagKey)
+> MultiEnvironmentDependentFlags getDependentFlags(projectKey, featureFlagKey)
 
 List dependent feature flags
 
@@ -29,9 +29,9 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.FeatureFlagsBetaApi();
-let projKey = "projKey_example"; // String | The project key
-let flagKey = "flagKey_example"; // String | The flag key
-apiInstance.getDependentFlags(projKey, flagKey, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
+apiInstance.getDependentFlags(projectKey, featureFlagKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -45,8 +45,8 @@ apiInstance.getDependentFlags(projKey, flagKey, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **flagKey** | **String**| The flag key | 
+ **projectKey** | **String**| The project key | 
+ **featureFlagKey** | **String**| The feature flag key | 
 
 ### Return type
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ## getDependentFlagsByEnv
 
-> DependentFlagsByEnvironment getDependentFlagsByEnv(projKey, envKey, flagKey)
+> DependentFlagsByEnvironment getDependentFlagsByEnv(projectKey, environmentKey, featureFlagKey)
 
 List dependent feature flags by environment
 
@@ -82,10 +82,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.FeatureFlagsBetaApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
-let flagKey = "flagKey_example"; // String | The flag key
-apiInstance.getDependentFlagsByEnv(projKey, envKey, flagKey, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
+apiInstance.getDependentFlagsByEnv(projectKey, environmentKey, featureFlagKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -99,9 +99,9 @@ apiInstance.getDependentFlagsByEnv(projKey, envKey, flagKey, (error, data, respo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
- **flagKey** | **String**| The flag key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **featureFlagKey** | **String**| The feature flag key | 
 
 ### Return type
 

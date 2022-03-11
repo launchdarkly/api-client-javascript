@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **description** | **String** | Description of the feature flag | [optional] 
 **includeInSnippet** | **Boolean** | Deprecated, use clientSideAvailability. Whether or not this flag should be made available to the client-side JavaScript SDK | [optional] 
 **clientSideAvailability** | [**ClientSideAvailabilityPost**](ClientSideAvailabilityPost.md) |  | [optional] 
-**variations** | [**[Variation]**](Variation.md) | An array of possible variations for the flag | [optional] 
+**variations** | [**[Variation]**](Variation.md) | An array of possible variations for the flag. The variation values must be unique. | [optional] 
 **variationJsonSchema** | **Object** |  | [optional] 
 **temporary** | **Boolean** | Whether or not the flag is a temporary flag | [optional] 
 **tags** | **[String]** | Tags for the feature flag | [optional] 

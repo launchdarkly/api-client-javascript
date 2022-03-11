@@ -4,7 +4,7 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getEvaluationsUsage**](AccountUsageBetaApi.md#getEvaluationsUsage) | **GET** /api/v2/usage/evaluations/{projKey}/{envKey}/{flagKey} | Get evaluations usage
+[**getEvaluationsUsage**](AccountUsageBetaApi.md#getEvaluationsUsage) | **GET** /api/v2/usage/evaluations/{projectKey}/{environmentKey}/{featureFlagKey} | Get evaluations usage
 [**getEventsUsage**](AccountUsageBetaApi.md#getEventsUsage) | **GET** /api/v2/usage/events/{type} | Get events usage
 [**getMauSdksByType**](AccountUsageBetaApi.md#getMauSdksByType) | **GET** /api/v2/usage/mau/sdks | Get MAU SDKs by type
 [**getMauUsage**](AccountUsageBetaApi.md#getMauUsage) | **GET** /api/v2/usage/mau | Get MAU usage
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## getEvaluationsUsage
 
-> SeriesListRep getEvaluationsUsage(projKey, envKey, flagKey, opts)
+> SeriesListRep getEvaluationsUsage(projectKey, environmentKey, featureFlagKey, opts)
 
 Get evaluations usage
 
@@ -35,15 +35,15 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.AccountUsageBetaApi();
-let projKey = "projKey_example"; // String | The project key.
-let envKey = "envKey_example"; // String | The environment key.
-let flagKey = "flagKey_example"; // String | The feature flag's key.
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let opts = {
   'from': "from_example", // String | The series of data returned starts from this timestamp. Defaults to 30 days ago.
   'to': "to_example", // String | The series of data returned ends at this timestamp. Defaults to the current time.
   'tz': "tz_example" // String | The timezone to use for breaks between days when returning daily data.
 };
-apiInstance.getEvaluationsUsage(projKey, envKey, flagKey, opts, (error, data, response) => {
+apiInstance.getEvaluationsUsage(projectKey, environmentKey, featureFlagKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -57,9 +57,9 @@ apiInstance.getEvaluationsUsage(projKey, envKey, flagKey, opts, (error, data, re
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key. | 
- **envKey** | **String**| The environment key. | 
- **flagKey** | **String**| The feature flag&#39;s key. | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **featureFlagKey** | **String**| The feature flag key | 
  **from** | **String**| The series of data returned starts from this timestamp. Defaults to 30 days ago. | [optional] 
  **to** | **String**| The series of data returned ends at this timestamp. Defaults to the current time. | [optional] 
  **tz** | **String**| The timezone to use for breaks between days when returning daily data. | [optional] 

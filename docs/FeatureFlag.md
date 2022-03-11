@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **tags** | **[String]** | Tags for the feature flag | 
 **links** | [**{String: Link}**](Link.md) |  | 
 **maintainerId** | **String** | Associated maintainerId for the feature flag | [optional] 
-**maintainer** | [**MemberSummaryRep**](MemberSummaryRep.md) |  | [optional] 
+**maintainer** | [**MemberSummary**](MemberSummary.md) |  | [optional] 
 **goalIds** | **[String]** |  | [optional] 
 **experiments** | [**ExperimentInfoRep**](ExperimentInfoRep.md) |  | 
 **customProperties** | [**{String: CustomProperty}**](CustomProperty.md) |  | 

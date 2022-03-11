@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**[MemberImportItemRep]**](MemberImportItemRep.md) |  | [optional] 
+**items** | [**[MemberImportItem]**](MemberImportItem.md) |  | [optional] 
 
 

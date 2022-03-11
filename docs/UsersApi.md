@@ -4,16 +4,16 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /api/v2/users/{projKey}/{envKey}/{key} | Delete user
-[**getSearchUsers**](UsersApi.md#getSearchUsers) | **GET** /api/v2/user-search/{projKey}/{envKey} | Find users
-[**getUser**](UsersApi.md#getUser) | **GET** /api/v2/users/{projKey}/{envKey}/{key} | Get user
-[**getUsers**](UsersApi.md#getUsers) | **GET** /api/v2/users/{projKey}/{envKey} | List users
+[**deleteUser**](UsersApi.md#deleteUser) | **DELETE** /api/v2/users/{projectKey}/{environmentKey}/{userKey} | Delete user
+[**getSearchUsers**](UsersApi.md#getSearchUsers) | **GET** /api/v2/user-search/{projectKey}/{environmentKey} | Find users
+[**getUser**](UsersApi.md#getUser) | **GET** /api/v2/users/{projectKey}/{environmentKey}/{userKey} | Get user
+[**getUsers**](UsersApi.md#getUsers) | **GET** /api/v2/users/{projectKey}/{environmentKey} | List users
 
 
 
 ## deleteUser
 
-> deleteUser(projKey, envKey, key)
+> deleteUser(projectKey, environmentKey, userKey)
 
 Delete user
 
@@ -31,10 +31,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.UsersApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
-let key = "key_example"; // String | The user key
-apiInstance.deleteUser(projKey, envKey, key, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let userKey = "userKey_example"; // String | The user key
+apiInstance.deleteUser(projectKey, environmentKey, userKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -48,9 +48,9 @@ apiInstance.deleteUser(projKey, envKey, key, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
- **key** | **String**| The user key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **userKey** | **String**| The user key | 
 
 ### Return type
 
@@ -68,11 +68,11 @@ null (empty response body)
 
 ## getSearchUsers
 
-> Users getSearchUsers(projKey, envKey, opts)
+> Users getSearchUsers(projectKey, environmentKey, opts)
 
 Find users
 
-Search users in LaunchDarkly based on their last active date, a user attribute filter set, or a search query. Do not use to list all users in LaunchDarkly. Instead, use the [List users](getUsers) API resource.  An example user attribute filter set is &#x60;filter&#x3D;firstName:Anna,activeTrial:false&#x60;. This matches users that have the user attribute &#x60;firstName&#x60; set to &#x60;Anna&#x60;, that also have the attribute &#x60;activeTrial&#x60; set to &#x60;false&#x60;.  &gt; ### &#x60;offset&#x60; is deprecated &gt; &gt; &#x60;offset&#x60; is deprecated and will be removed in a future API version. You can still use &#x60;offset&#x60; and &#x60;limit&#x60; for pagination, but we recommend you use &#x60;sort&#x60; and &#x60;searchAfter&#x60; instead. &#x60;searchAfter&#x60; allows you to page through more than 10,000 users, but &#x60;offset&#x60; and &#x60;limit&#x60; do not. 
+Search users in LaunchDarkly based on their last active date, a user attribute filter set, or a search query.  An example user attribute filter set is &#x60;filter&#x3D;firstName:Anna,activeTrial:false&#x60;. This matches users that have the user attribute &#x60;firstName&#x60; set to &#x60;Anna&#x60;, that also have the attribute &#x60;activeTrial&#x60; set to &#x60;false&#x60;.  To paginate through results, follow the &#x60;next&#x60; link in the &#x60;_links&#x60; object. To learn more, read [Representations](/#section/Representations).  &gt; ### &#x60;offset&#x60; is deprecated &gt; &gt; &#x60;offset&#x60; is deprecated and will be removed in a future API version. You can still use &#x60;offset&#x60; and &#x60;limit&#x60; for pagination, but we recommend you use &#x60;sort&#x60; and &#x60;searchAfter&#x60; instead. &#x60;searchAfter&#x60; allows you to page through more than 10,000 users, but &#x60;offset&#x60; and &#x60;limit&#x60; do not. 
 
 ### Example
 
@@ -86,8 +86,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.UsersApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
 let opts = {
   'q': "q_example", // String | Full-text search for users based on name, first name, last name, e-mail address, or key
   'limit': 789, // Number | Specifies the maximum number of items in the collection to return (max: 50, default: 20)
@@ -97,7 +97,7 @@ let opts = {
   'searchAfter': "searchAfter_example", // String | Limits results to users with sort values after the value you specify. You can use this for pagination, but we recommend using the `next` link we provide instead.
   'filter': "filter_example" // String | A comma-separated list of user attribute filters. Each filter is in the form of attributeKey:attributeValue
 };
-apiInstance.getSearchUsers(projKey, envKey, opts, (error, data, response) => {
+apiInstance.getSearchUsers(projectKey, environmentKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -111,8 +111,8 @@ apiInstance.getSearchUsers(projKey, envKey, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
  **q** | **String**| Full-text search for users based on name, first name, last name, e-mail address, or key | [optional] 
  **limit** | **Number**| Specifies the maximum number of items in the collection to return (max: 50, default: 20) | [optional] 
  **offset** | **Number**| Specifies the first item to return in the collection | [optional] 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ## getUser
 
-> UserRecord getUser(projKey, envKey, key)
+> UserRecord getUser(projectKey, environmentKey, userKey)
 
 Get user
 
@@ -155,10 +155,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.UsersApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
-let key = "key_example"; // String | The user key
-apiInstance.getUser(projKey, envKey, key, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let userKey = "userKey_example"; // String | The user key
+apiInstance.getUser(projectKey, environmentKey, userKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -172,9 +172,9 @@ apiInstance.getUser(projKey, envKey, key, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
- **key** | **String**| The user key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **userKey** | **String**| The user key | 
 
 ### Return type
 
@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ## getUsers
 
-> Users getUsers(projKey, envKey, opts)
+> Users getUsers(projectKey, environmentKey, opts)
 
 List users
 
@@ -210,13 +210,13 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.UsersApi();
-let projKey = "projKey_example"; // String | The project key
-let envKey = "envKey_example"; // String | The environment key
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
 let opts = {
   'limit': 789, // Number | The number of elements to return per page
   'searchAfter': "searchAfter_example" // String | Limits results to users with sort values after the value you specify. You can use this for pagination, but we recommend using the `next` link we provide instead.
 };
-apiInstance.getUsers(projKey, envKey, opts, (error, data, response) => {
+apiInstance.getUsers(projectKey, environmentKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -230,8 +230,8 @@ apiInstance.getUsers(projKey, envKey, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projKey** | **String**| The project key | 
- **envKey** | **String**| The environment key | 
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
  **limit** | **Number**| The number of elements to return per page | [optional] 
  **searchAfter** | **String**| Limits results to users with sort values after the value you specify. You can use this for pagination, but we recommend using the &#x60;next&#x60; link we provide instead. | [optional] 
 

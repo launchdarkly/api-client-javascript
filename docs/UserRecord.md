@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **user** | [**User**](User.md) |  | [optional] 
 **sortValue** | **Object** |  | [optional] 
 **links** | [**{String: Link}**](Link.md) |  | [optional] 
-**access** | [**AccessRep**](AccessRep.md) |  | [optional] 
+**access** | [**Access**](Access.md) |  | [optional] 
 
 
