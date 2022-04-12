@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**instruction** | **{String: Object}** |  | [optional] 
+**instruction** | **Object** |  | [optional] 
 **reason** | **String** | Reason why the conflict exists | [optional] 
 
 

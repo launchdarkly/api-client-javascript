@@ -68,7 +68,7 @@ null (empty response body)
 
 ## createBigSegmentImport
 
-> createBigSegmentImport(projectKey, environmentKey, segmentKey)
+> createBigSegmentImport(projectKey, environmentKey, segmentKey, opts)
 
 Create Big Segment import
 
@@ -89,7 +89,11 @@ let apiInstance = new LaunchDarklyApi.SegmentsBetaApi();
 let projectKey = "projectKey_example"; // String | The project key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let segmentKey = "segmentKey_example"; // String | The segment key
-apiInstance.createBigSegmentImport(projectKey, environmentKey, segmentKey, (error, data, response) => {
+let opts = {
+  'file': "/path/to/file", // File | CSV file containing keys
+  'mode': "mode_example" // String | Import mode. Use either `merge` or `replace`
+};
+apiInstance.createBigSegmentImport(projectKey, environmentKey, segmentKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -106,6 +110,8 @@ Name | Type | Description  | Notes
  **projectKey** | **String**| The project key | 
  **environmentKey** | **String**| The environment key | 
  **segmentKey** | **String**| The segment key | 
+ **file** | **File**| CSV file containing keys | [optional] 
+ **mode** | **String**| Import mode. Use either &#x60;merge&#x60; or &#x60;replace&#x60; | [optional] 
 
 ### Return type
 
@@ -117,7 +123,7 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 

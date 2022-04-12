@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **enabled** | **Boolean** |  | 
 **version** | **Number** |  | 
 **hunkCount** | **Number** |  | 
+**fileCount** | **Number** |  | 
 **links** | [**{String: Link}**](Link.md) |  | 
 
 
