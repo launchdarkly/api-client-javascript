@@ -17,7 +17,7 @@ import ResolvedUIBlockElement from './ResolvedUIBlockElement';
 /**
  * The ResolvedTitle model module.
  * @module model/ResolvedTitle
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ResolvedTitle {
     /**

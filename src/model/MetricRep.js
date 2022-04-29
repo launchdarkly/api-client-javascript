@@ -12,24 +12,32 @@
  */
 
 import ApiClient from '../ApiClient';
+import Access from './Access';
+import FlagListingRep from './FlagListingRep';
 import Link from './Link';
+import MemberSummary from './MemberSummary';
+import Modification from './Modification';
 
 /**
  * The MetricRep model module.
  * @module model/MetricRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class MetricRep {
     /**
      * Constructs a new <code>MetricRep</code>.
      * @alias module:model/MetricRep
+     * @param id {String} 
      * @param key {String} 
      * @param name {String} 
+     * @param kind {module:model/MetricRep.KindEnum} 
      * @param links {Object.<String, module:model/Link>} 
+     * @param tags {Array.<String>} 
+     * @param creationDate {Number} 
      */
-    constructor(key, name, links) { 
+    constructor(id, key, name, kind, links, tags, creationDate) { 
         
-        MetricRep.initialize(this, key, name, links);
+        MetricRep.initialize(this, id, key, name, kind, links, tags, creationDate);
     }
 
     /**
@@ -37,10 +45,14 @@ class MetricRep {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, key, name, links) { 
+    static initialize(obj, id, key, name, kind, links, tags, creationDate) { 
+        obj['_id'] = id;
         obj['key'] = key;
         obj['name'] = name;
+        obj['kind'] = kind;
         obj['_links'] = links;
+        obj['tags'] = tags;
+        obj['_creationDate'] = creationDate;
     }
 
     /**
@@ -54,14 +66,74 @@ class MetricRep {
         if (data) {
             obj = obj || new MetricRep();
 
+            if (data.hasOwnProperty('_id')) {
+                obj['_id'] = ApiClient.convertToType(data['_id'], 'String');
+            }
             if (data.hasOwnProperty('key')) {
                 obj['key'] = ApiClient.convertToType(data['key'], 'String');
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('kind')) {
+                obj['kind'] = ApiClient.convertToType(data['kind'], 'String');
+            }
+            if (data.hasOwnProperty('_attachedFlagCount')) {
+                obj['_attachedFlagCount'] = ApiClient.convertToType(data['_attachedFlagCount'], 'Number');
+            }
             if (data.hasOwnProperty('_links')) {
                 obj['_links'] = ApiClient.convertToType(data['_links'], {'String': Link});
+            }
+            if (data.hasOwnProperty('_site')) {
+                obj['_site'] = Link.constructFromObject(data['_site']);
+            }
+            if (data.hasOwnProperty('_access')) {
+                obj['_access'] = Access.constructFromObject(data['_access']);
+            }
+            if (data.hasOwnProperty('tags')) {
+                obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
+            }
+            if (data.hasOwnProperty('_creationDate')) {
+                obj['_creationDate'] = ApiClient.convertToType(data['_creationDate'], 'Number');
+            }
+            if (data.hasOwnProperty('lastModified')) {
+                obj['lastModified'] = Modification.constructFromObject(data['lastModified']);
+            }
+            if (data.hasOwnProperty('maintainerId')) {
+                obj['maintainerId'] = ApiClient.convertToType(data['maintainerId'], 'String');
+            }
+            if (data.hasOwnProperty('_maintainer')) {
+                obj['_maintainer'] = MemberSummary.constructFromObject(data['_maintainer']);
+            }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
+            if (data.hasOwnProperty('isNumeric')) {
+                obj['isNumeric'] = ApiClient.convertToType(data['isNumeric'], 'Boolean');
+            }
+            if (data.hasOwnProperty('successCriteria')) {
+                obj['successCriteria'] = ApiClient.convertToType(data['successCriteria'], 'String');
+            }
+            if (data.hasOwnProperty('unit')) {
+                obj['unit'] = ApiClient.convertToType(data['unit'], 'String');
+            }
+            if (data.hasOwnProperty('eventKey')) {
+                obj['eventKey'] = ApiClient.convertToType(data['eventKey'], 'String');
+            }
+            if (data.hasOwnProperty('isActive')) {
+                obj['isActive'] = ApiClient.convertToType(data['isActive'], 'Boolean');
+            }
+            if (data.hasOwnProperty('_attachedFeatures')) {
+                obj['_attachedFeatures'] = ApiClient.convertToType(data['_attachedFeatures'], [FlagListingRep]);
+            }
+            if (data.hasOwnProperty('_version')) {
+                obj['_version'] = ApiClient.convertToType(data['_version'], 'Number');
+            }
+            if (data.hasOwnProperty('selector')) {
+                obj['selector'] = ApiClient.convertToType(data['selector'], 'String');
+            }
+            if (data.hasOwnProperty('urls')) {
+                obj['urls'] = ApiClient.convertToType(data['urls'], [Object]);
             }
         }
         return obj;
@@ -69,6 +141,11 @@ class MetricRep {
 
 
 }
+
+/**
+ * @member {String} _id
+ */
+MetricRep.prototype['_id'] = undefined;
 
 /**
  * @member {String} key
@@ -81,12 +158,155 @@ MetricRep.prototype['key'] = undefined;
 MetricRep.prototype['name'] = undefined;
 
 /**
+ * @member {module:model/MetricRep.KindEnum} kind
+ */
+MetricRep.prototype['kind'] = undefined;
+
+/**
+ * @member {Number} _attachedFlagCount
+ */
+MetricRep.prototype['_attachedFlagCount'] = undefined;
+
+/**
  * @member {Object.<String, module:model/Link>} _links
  */
 MetricRep.prototype['_links'] = undefined;
 
+/**
+ * @member {module:model/Link} _site
+ */
+MetricRep.prototype['_site'] = undefined;
+
+/**
+ * @member {module:model/Access} _access
+ */
+MetricRep.prototype['_access'] = undefined;
+
+/**
+ * @member {Array.<String>} tags
+ */
+MetricRep.prototype['tags'] = undefined;
+
+/**
+ * @member {Number} _creationDate
+ */
+MetricRep.prototype['_creationDate'] = undefined;
+
+/**
+ * @member {module:model/Modification} lastModified
+ */
+MetricRep.prototype['lastModified'] = undefined;
+
+/**
+ * @member {String} maintainerId
+ */
+MetricRep.prototype['maintainerId'] = undefined;
+
+/**
+ * @member {module:model/MemberSummary} _maintainer
+ */
+MetricRep.prototype['_maintainer'] = undefined;
+
+/**
+ * @member {String} description
+ */
+MetricRep.prototype['description'] = undefined;
+
+/**
+ * @member {Boolean} isNumeric
+ */
+MetricRep.prototype['isNumeric'] = undefined;
+
+/**
+ * @member {module:model/MetricRep.SuccessCriteriaEnum} successCriteria
+ */
+MetricRep.prototype['successCriteria'] = undefined;
+
+/**
+ * @member {String} unit
+ */
+MetricRep.prototype['unit'] = undefined;
+
+/**
+ * @member {String} eventKey
+ */
+MetricRep.prototype['eventKey'] = undefined;
+
+/**
+ * @member {Boolean} isActive
+ */
+MetricRep.prototype['isActive'] = undefined;
+
+/**
+ * @member {Array.<module:model/FlagListingRep>} _attachedFeatures
+ */
+MetricRep.prototype['_attachedFeatures'] = undefined;
+
+/**
+ * @member {Number} _version
+ */
+MetricRep.prototype['_version'] = undefined;
+
+/**
+ * @member {String} selector
+ */
+MetricRep.prototype['selector'] = undefined;
+
+/**
+ * @member {Array.<Object>} urls
+ */
+MetricRep.prototype['urls'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>kind</code> property.
+ * @enum {String}
+ * @readonly
+ */
+MetricRep['KindEnum'] = {
+
+    /**
+     * value: "pageview"
+     * @const
+     */
+    "pageview": "pageview",
+
+    /**
+     * value: "click"
+     * @const
+     */
+    "click": "click",
+
+    /**
+     * value: "custom"
+     * @const
+     */
+    "custom": "custom"
+};
+
+
+/**
+ * Allowed values for the <code>successCriteria</code> property.
+ * @enum {String}
+ * @readonly
+ */
+MetricRep['SuccessCriteriaEnum'] = {
+
+    /**
+     * value: "HigherThanBaseline"
+     * @const
+     */
+    "HigherThanBaseline": "HigherThanBaseline",
+
+    /**
+     * value: "LowerThanBaseline"
+     * @const
+     */
+    "LowerThanBaseline": "LowerThanBaseline"
+};
 
 
 

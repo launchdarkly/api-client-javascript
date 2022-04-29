@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The ExtinctionCollectionRep model module.
  * @module model/ExtinctionCollectionRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ExtinctionCollectionRep {
     /**

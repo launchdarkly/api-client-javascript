@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property winningReason (base name: "winningReason")', function() {
+      // uncomment below and update the code to test the property winningReason
+      //var instance = new LaunchDarklyApi.IterationRep();
+      //expect(instance).to.be();
+    });
+
     it('should have the property canReshuffleTraffic (base name: "canReshuffleTraffic")', function() {
       // uncomment below and update the code to test the property canReshuffleTraffic
       //var instance = new LaunchDarklyApi.IterationRep();

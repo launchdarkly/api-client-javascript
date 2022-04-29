@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The StatisticRep model module.
  * @module model/StatisticRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class StatisticRep {
     /**

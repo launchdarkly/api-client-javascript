@@ -53,7 +53,6 @@ import CustomWorkflowMeta from './model/CustomWorkflowMeta';
 import CustomWorkflowOutputRep from './model/CustomWorkflowOutputRep';
 import CustomWorkflowStageMeta from './model/CustomWorkflowStageMeta';
 import CustomWorkflowsListingOutputRep from './model/CustomWorkflowsListingOutputRep';
-import Decimal from './model/Decimal';
 import DefaultClientSideAvailabilityPost from './model/DefaultClientSideAvailabilityPost';
 import Defaults from './model/Defaults';
 import DependentFlag from './model/DependentFlag';
@@ -66,15 +65,16 @@ import Environment from './model/Environment';
 import EnvironmentPost from './model/EnvironmentPost';
 import EvaluationReason from './model/EvaluationReason';
 import ExecutionOutputRep from './model/ExecutionOutputRep';
+import Experiment from './model/Experiment';
 import ExperimentAllocationRep from './model/ExperimentAllocationRep';
 import ExperimentCollectionRep from './model/ExperimentCollectionRep';
 import ExperimentEnabledPeriodRep from './model/ExperimentEnabledPeriodRep';
 import ExperimentEnvironmentSettingRep from './model/ExperimentEnvironmentSettingRep';
+import ExperimentExpandableProperties from './model/ExperimentExpandableProperties';
 import ExperimentInfoRep from './model/ExperimentInfoRep';
 import ExperimentMetadataRep from './model/ExperimentMetadataRep';
 import ExperimentPatchInput from './model/ExperimentPatchInput';
 import ExperimentPost from './model/ExperimentPost';
-import ExperimentRep from './model/ExperimentRep';
 import ExperimentResults from './model/ExperimentResults';
 import ExperimentStatsRep from './model/ExperimentStatsRep';
 import ExperimentTimeSeriesSlice from './model/ExperimentTimeSeriesSlice';
@@ -135,6 +135,7 @@ import IterationExpandableProperties from './model/IterationExpandableProperties
 import IterationInput from './model/IterationInput';
 import IterationRep from './model/IterationRep';
 import LastSeenMetadata from './model/LastSeenMetadata';
+import LegacyExperimentRep from './model/LegacyExperimentRep';
 import Link from './model/Link';
 import Member from './model/Member';
 import MemberDataRep from './model/MemberDataRep';
@@ -151,12 +152,12 @@ import MetricListingRep from './model/MetricListingRep';
 import MetricPost from './model/MetricPost';
 import MetricRep from './model/MetricRep';
 import MetricSeen from './model/MetricSeen';
+import MetricV2Rep from './model/MetricV2Rep';
 import Modification from './model/Modification';
 import MultiEnvironmentDependentFlag from './model/MultiEnvironmentDependentFlag';
 import MultiEnvironmentDependentFlags from './model/MultiEnvironmentDependentFlags';
 import NewMemberForm from './model/NewMemberForm';
 import NotFoundErrorRep from './model/NotFoundErrorRep';
-import NullDecimal from './model/NullDecimal';
 import ParameterRep from './model/ParameterRep';
 import ParentResourceRep from './model/ParentResourceRep';
 import PatchFailedErrorRep from './model/PatchFailedErrorRep';
@@ -216,6 +217,7 @@ import StatementPostData from './model/StatementPostData';
 import StatementRep from './model/StatementRep';
 import StatisticCollectionRep from './model/StatisticCollectionRep';
 import StatisticRep from './model/StatisticRep';
+import StatisticsRep from './model/StatisticsRep';
 import StatisticsRoot from './model/StatisticsRoot';
 import StatusConflictErrorRep from './model/StatusConflictErrorRep';
 import SubjectDataRep from './model/SubjectDataRep';
@@ -255,6 +257,7 @@ import UserSegment from './model/UserSegment';
 import UserSegmentRule from './model/UserSegmentRule';
 import UserSegments from './model/UserSegments';
 import Users from './model/Users';
+import UsersRep from './model/UsersRep';
 import ValuePut from './model/ValuePut';
 import Variation from './model/Variation';
 import VariationOrRolloutRep from './model/VariationOrRolloutRep';
@@ -325,7 +328,7 @@ import WorkflowsBetaApi from './api/WorkflowsBetaApi';
 * </pre>
 * </p>
 * @module index
-* @version 9.0.0
+* @version 9.0.1
 */
 export {
     /**
@@ -575,12 +578,6 @@ export {
     CustomWorkflowsListingOutputRep,
 
     /**
-     * The Decimal model constructor.
-     * @property {module:model/Decimal}
-     */
-    Decimal,
-
-    /**
      * The DefaultClientSideAvailabilityPost model constructor.
      * @property {module:model/DefaultClientSideAvailabilityPost}
      */
@@ -653,6 +650,12 @@ export {
     ExecutionOutputRep,
 
     /**
+     * The Experiment model constructor.
+     * @property {module:model/Experiment}
+     */
+    Experiment,
+
+    /**
      * The ExperimentAllocationRep model constructor.
      * @property {module:model/ExperimentAllocationRep}
      */
@@ -677,6 +680,12 @@ export {
     ExperimentEnvironmentSettingRep,
 
     /**
+     * The ExperimentExpandableProperties model constructor.
+     * @property {module:model/ExperimentExpandableProperties}
+     */
+    ExperimentExpandableProperties,
+
+    /**
      * The ExperimentInfoRep model constructor.
      * @property {module:model/ExperimentInfoRep}
      */
@@ -699,12 +708,6 @@ export {
      * @property {module:model/ExperimentPost}
      */
     ExperimentPost,
-
-    /**
-     * The ExperimentRep model constructor.
-     * @property {module:model/ExperimentRep}
-     */
-    ExperimentRep,
 
     /**
      * The ExperimentResults model constructor.
@@ -1067,6 +1070,12 @@ export {
     LastSeenMetadata,
 
     /**
+     * The LegacyExperimentRep model constructor.
+     * @property {module:model/LegacyExperimentRep}
+     */
+    LegacyExperimentRep,
+
+    /**
      * The Link model constructor.
      * @property {module:model/Link}
      */
@@ -1163,6 +1172,12 @@ export {
     MetricSeen,
 
     /**
+     * The MetricV2Rep model constructor.
+     * @property {module:model/MetricV2Rep}
+     */
+    MetricV2Rep,
+
+    /**
      * The Modification model constructor.
      * @property {module:model/Modification}
      */
@@ -1191,12 +1206,6 @@ export {
      * @property {module:model/NotFoundErrorRep}
      */
     NotFoundErrorRep,
-
-    /**
-     * The NullDecimal model constructor.
-     * @property {module:model/NullDecimal}
-     */
-    NullDecimal,
 
     /**
      * The ParameterRep model constructor.
@@ -1553,6 +1562,12 @@ export {
     StatisticRep,
 
     /**
+     * The StatisticsRep model constructor.
+     * @property {module:model/StatisticsRep}
+     */
+    StatisticsRep,
+
+    /**
      * The StatisticsRoot model constructor.
      * @property {module:model/StatisticsRoot}
      */
@@ -1785,6 +1800,12 @@ export {
      * @property {module:model/Users}
      */
     Users,
+
+    /**
+     * The UsersRep model constructor.
+     * @property {module:model/UsersRep}
+     */
+    UsersRep,
 
     /**
      * The ValuePut model constructor.

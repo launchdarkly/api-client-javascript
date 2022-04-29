@@ -23,7 +23,7 @@ import VersionsRep from '../model/VersionsRep';
 /**
 * Other service.
 * @module api/OtherApi
-* @version 9.0.0
+* @version 9.0.1
 */
 export default class OtherApi {
 
@@ -49,7 +49,7 @@ export default class OtherApi {
 
     /**
      * Gets the public IP list
-     * Get a list of IP ranges the LaunchDarkly service uses. You can use this list to allow LaunchDarkly through your firewall.<br /><br />This endpoint returns a JSON object with two attributes: `addresses` and `outboundAddresses`. The `addresses` element contains the IP addresses LaunchDarkly's service uses. The `outboundAddresses` element contains the IP addresses outgoing webhook notifications use.<br /><br />We post upcoming changes to this list in advance on our [status page](https://status.launchdarkly.com/).
+     * Get a list of IP ranges the LaunchDarkly service uses. You can use this list to allow LaunchDarkly through your firewall.<br /><br />This endpoint returns a JSON object with two attributes: `addresses` and `outboundAddresses`. The `addresses` element contains the IP addresses LaunchDarkly's service uses. The `outboundAddresses` element contains the IP addresses outgoing webhook notifications use. To learn more, read [Public IP list](https://docs.launchdarkly.com/home/advanced/public-ip-list).<br /><br />We post upcoming changes to this list in advance on our [status page](https://status.launchdarkly.com/).
      * @param {module:api/OtherApi~getIpsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/IpList}
      */

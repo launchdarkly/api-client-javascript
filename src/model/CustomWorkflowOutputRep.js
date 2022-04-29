@@ -20,7 +20,7 @@ import StageOutputRep from './StageOutputRep';
 /**
  * The CustomWorkflowOutputRep model module.
  * @module model/CustomWorkflowOutputRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class CustomWorkflowOutputRep {
     /**

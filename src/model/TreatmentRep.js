@@ -12,20 +12,19 @@
  */
 
 import ApiClient from '../ApiClient';
-import NullDecimal from './NullDecimal';
 import ParameterRep from './ParameterRep';
 
 /**
  * The TreatmentRep model module.
  * @module model/TreatmentRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class TreatmentRep {
     /**
      * Constructs a new <code>TreatmentRep</code>.
      * @alias module:model/TreatmentRep
      * @param name {String} 
-     * @param allocationPercent {module:model/NullDecimal} 
+     * @param allocationPercent {String} 
      */
     constructor(name, allocationPercent) { 
         
@@ -60,7 +59,7 @@ class TreatmentRep {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
             if (data.hasOwnProperty('allocationPercent')) {
-                obj['allocationPercent'] = NullDecimal.constructFromObject(data['allocationPercent']);
+                obj['allocationPercent'] = ApiClient.convertToType(data['allocationPercent'], 'String');
             }
             if (data.hasOwnProperty('baseline')) {
                 obj['baseline'] = ApiClient.convertToType(data['baseline'], 'Boolean');
@@ -86,7 +85,7 @@ TreatmentRep.prototype['_id'] = undefined;
 TreatmentRep.prototype['name'] = undefined;
 
 /**
- * @member {module:model/NullDecimal} allocationPercent
+ * @member {String} allocationPercent
  */
 TreatmentRep.prototype['allocationPercent'] = undefined;
 

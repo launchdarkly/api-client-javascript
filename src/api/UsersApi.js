@@ -21,11 +21,12 @@ import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
 import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 import UserRecord from '../model/UserRecord';
 import Users from '../model/Users';
+import UsersRep from '../model/UsersRep';
 
 /**
 * Users service.
 * @module api/UsersApi
-* @version 9.0.0
+* @version 9.0.1
 */
 export default class UsersApi {
 
@@ -219,7 +220,7 @@ export default class UsersApi {
      * Callback function to receive the result of the getUsers operation.
      * @callback module:api/UsersApi~getUsersCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/Users} data The data returned by the service call.
+     * @param {module:model/UsersRep} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -232,7 +233,7 @@ export default class UsersApi {
      * @param {Number} opts.limit The number of elements to return per page
      * @param {String} opts.searchAfter Limits results to users with sort values after the value you specify. You can use this for pagination, but we recommend using the `next` link we provide instead.
      * @param {module:api/UsersApi~getUsersCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/Users}
+     * data is of type: {@link module:model/UsersRep}
      */
     getUsers(projectKey, environmentKey, opts, callback) {
       opts = opts || {};
@@ -262,7 +263,7 @@ export default class UsersApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = Users;
+      let returnType = UsersRep;
       return this.apiClient.callApi(
         '/api/v2/users/{projectKey}/{environmentKey}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,

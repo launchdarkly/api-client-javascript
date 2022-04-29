@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Variation model module.
  * @module model/Variation
- * @version 9.0.0
+ * @version 9.0.1
  */
 class Variation {
     /**

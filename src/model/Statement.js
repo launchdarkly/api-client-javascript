@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Statement model module.
  * @module model/Statement
- * @version 9.0.0
+ * @version 9.0.1
  */
 class Statement {
     /**

@@ -18,7 +18,7 @@ import WeightedVariation from './WeightedVariation';
 /**
  * The Rollout model module.
  * @module model/Rollout
- * @version 9.0.0
+ * @version 9.0.1
  */
 class Rollout {
     /**

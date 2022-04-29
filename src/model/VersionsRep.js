@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The VersionsRep model module.
  * @module model/VersionsRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class VersionsRep {
     /**

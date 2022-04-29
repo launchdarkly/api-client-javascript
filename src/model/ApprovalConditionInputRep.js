@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ApprovalConditionInputRep model module.
  * @module model/ApprovalConditionInputRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ApprovalConditionInputRep {
     /**

@@ -18,7 +18,7 @@ import TeamCustomRole from './TeamCustomRole';
 /**
  * The TeamCustomRoles model module.
  * @module model/TeamCustomRoles
- * @version 9.0.0
+ * @version 9.0.1
  */
 class TeamCustomRoles {
     /**

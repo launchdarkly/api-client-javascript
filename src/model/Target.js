@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Target model module.
  * @module model/Target
- * @version 9.0.0
+ * @version 9.0.1
  */
 class Target {
     /**

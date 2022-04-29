@@ -10,10 +10,11 @@ Name | Type | Description | Notes
 **startedAt** | **Number** |  | [optional] 
 **endedAt** | **Number** |  | [optional] 
 **winningTreatmentId** | **String** |  | [optional] 
+**winningReason** | **String** |  | [optional] 
 **canReshuffleTraffic** | **Boolean** |  | [optional] 
 **flags** | [**{String: FlagRep}**](FlagRep.md) |  | [optional] 
-**primaryMetric** | [**MetricRep**](MetricRep.md) |  | [optional] 
+**primaryMetric** | [**MetricV2Rep**](MetricV2Rep.md) |  | [optional] 
 **treatments** | [**[TreatmentRep]**](TreatmentRep.md) |  | [optional] 
-**secondaryMetrics** | [**[MetricRep]**](MetricRep.md) |  | [optional] 
+**secondaryMetrics** | [**[MetricV2Rep]**](MetricV2Rep.md) |  | [optional] 
 
 

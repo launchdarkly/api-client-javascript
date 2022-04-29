@@ -13,10 +13,10 @@
 
 
 import ApiClient from "../ApiClient";
+import Experiment from '../model/Experiment';
 import ExperimentCollectionRep from '../model/ExperimentCollectionRep';
 import ExperimentPatchInput from '../model/ExperimentPatchInput';
 import ExperimentPost from '../model/ExperimentPost';
-import ExperimentRep from '../model/ExperimentRep';
 import ExperimentResults from '../model/ExperimentResults';
 import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
 import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
@@ -30,7 +30,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * ExperimentsBeta service.
 * @module api/ExperimentsBetaApi
-* @version 9.0.0
+* @version 9.0.1
 */
 export default class ExperimentsBetaApi {
 
@@ -50,7 +50,7 @@ export default class ExperimentsBetaApi {
      * Callback function to receive the result of the createExperiment operation.
      * @callback module:api/ExperimentsBetaApi~createExperimentCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ExperimentRep} data The data returned by the service call.
+     * @param {module:model/Experiment} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -61,7 +61,7 @@ export default class ExperimentsBetaApi {
      * @param {String} environmentKey The environment key
      * @param {module:model/ExperimentPost} experimentPost 
      * @param {module:api/ExperimentsBetaApi~createExperimentCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ExperimentRep}
+     * data is of type: {@link module:model/Experiment}
      */
     createExperiment(projectKey, environmentKey, experimentPost, callback) {
       let postBody = experimentPost;
@@ -92,7 +92,7 @@ export default class ExperimentsBetaApi {
       let authNames = ['ApiKey'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = ExperimentRep;
+      let returnType = Experiment;
       return this.apiClient.callApi(
         '/api/v2/projects/{projectKey}/environments/{environmentKey}/experiments', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -164,7 +164,7 @@ export default class ExperimentsBetaApi {
      * Callback function to receive the result of the getExperiment operation.
      * @callback module:api/ExperimentsBetaApi~getExperimentCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ExperimentRep} data The data returned by the service call.
+     * @param {module:model/Experiment} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -175,7 +175,7 @@ export default class ExperimentsBetaApi {
      * @param {String} environmentKey The environment key
      * @param {String} experimentKey The experiment key
      * @param {module:api/ExperimentsBetaApi~getExperimentCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ExperimentRep}
+     * data is of type: {@link module:model/Experiment}
      */
     getExperiment(projectKey, environmentKey, experimentKey, callback) {
       let postBody = null;
@@ -207,7 +207,7 @@ export default class ExperimentsBetaApi {
       let authNames = ['ApiKey'];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = ExperimentRep;
+      let returnType = Experiment;
       return this.apiClient.callApi(
         '/api/v2/projects/{projectKey}/environments/{environmentKey}/experiments/{experimentKey}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -396,7 +396,7 @@ export default class ExperimentsBetaApi {
      * Callback function to receive the result of the patchExperiment operation.
      * @callback module:api/ExperimentsBetaApi~patchExperimentCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/ExperimentRep} data The data returned by the service call.
+     * @param {module:model/Experiment} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -408,7 +408,7 @@ export default class ExperimentsBetaApi {
      * @param {String} experimentKey The experiment key
      * @param {module:model/ExperimentPatchInput} experimentPatchInput 
      * @param {module:api/ExperimentsBetaApi~patchExperimentCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ExperimentRep}
+     * data is of type: {@link module:model/Experiment}
      */
     patchExperiment(projectKey, environmentKey, experimentKey, experimentPatchInput, callback) {
       let postBody = experimentPatchInput;
@@ -444,7 +444,7 @@ export default class ExperimentsBetaApi {
       let authNames = ['ApiKey'];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = ExperimentRep;
+      let returnType = Experiment;
       return this.apiClient.callApi(
         '/api/v2/projects/{projectKey}/environments/{environmentKey}/experiments/{experimentKey}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,

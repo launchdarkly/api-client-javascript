@@ -17,7 +17,7 @@ import ConfidenceIntervalRep from './ConfidenceIntervalRep';
 /**
  * The ExperimentTimeSeriesVariationSlice model module.
  * @module model/ExperimentTimeSeriesVariationSlice
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ExperimentTimeSeriesVariationSlice {
     /**

@@ -27,7 +27,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * Metrics service.
 * @module api/MetricsApi
-* @version 9.0.0
+* @version 9.0.1
 */
 export default class MetricsApi {
 

@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The TagCollection model module.
  * @module model/TagCollection
- * @version 9.0.0
+ * @version 9.0.1
  */
 class TagCollection {
     /**

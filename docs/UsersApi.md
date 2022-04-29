@@ -192,7 +192,7 @@ Name | Type | Description  | Notes
 
 ## getUsers
 
-> Users getUsers(projectKey, environmentKey, opts)
+> UsersRep getUsers(projectKey, environmentKey, opts)
 
 List users
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Users**](Users.md)
+[**UsersRep**](UsersRep.md)
 
 ### Authorization
 

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ConfidenceIntervalRep model module.
  * @module model/ConfidenceIntervalRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ConfidenceIntervalRep {
     /**

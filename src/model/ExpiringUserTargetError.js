@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ExpiringUserTargetError model module.
  * @module model/ExpiringUserTargetError
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ExpiringUserTargetError {
     /**

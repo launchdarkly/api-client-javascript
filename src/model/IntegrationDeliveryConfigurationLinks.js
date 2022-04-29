@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The IntegrationDeliveryConfigurationLinks model module.
  * @module model/IntegrationDeliveryConfigurationLinks
- * @version 9.0.0
+ * @version 9.0.1
  */
 class IntegrationDeliveryConfigurationLinks {
     /**

@@ -12,19 +12,19 @@
  */
 
 import ApiClient from '../ApiClient';
-import ExperimentRep from './ExperimentRep';
+import LegacyExperimentRep from './LegacyExperimentRep';
 
 /**
  * The ExperimentInfoRep model module.
  * @module model/ExperimentInfoRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ExperimentInfoRep {
     /**
      * Constructs a new <code>ExperimentInfoRep</code>.
      * @alias module:model/ExperimentInfoRep
      * @param baselineIdx {Number} 
-     * @param items {Array.<module:model/ExperimentRep>} 
+     * @param items {Array.<module:model/LegacyExperimentRep>} 
      */
     constructor(baselineIdx, items) { 
         
@@ -56,7 +56,7 @@ class ExperimentInfoRep {
                 obj['baselineIdx'] = ApiClient.convertToType(data['baselineIdx'], 'Number');
             }
             if (data.hasOwnProperty('items')) {
-                obj['items'] = ApiClient.convertToType(data['items'], [ExperimentRep]);
+                obj['items'] = ApiClient.convertToType(data['items'], [LegacyExperimentRep]);
             }
         }
         return obj;
@@ -71,7 +71,7 @@ class ExperimentInfoRep {
 ExperimentInfoRep.prototype['baselineIdx'] = undefined;
 
 /**
- * @member {Array.<module:model/ExperimentRep>} items
+ * @member {Array.<module:model/LegacyExperimentRep>} items
  */
 ExperimentInfoRep.prototype['items'] = undefined;
 

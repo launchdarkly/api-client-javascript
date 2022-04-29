@@ -19,7 +19,7 @@ import ResolvedTitle from './ResolvedTitle';
 /**
  * The ResolvedUIBlocks model module.
  * @module model/ResolvedUIBlocks
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ResolvedUIBlocks {
     /**

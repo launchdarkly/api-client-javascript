@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The TargetResourceRep model module.
  * @module model/TargetResourceRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class TargetResourceRep {
     /**

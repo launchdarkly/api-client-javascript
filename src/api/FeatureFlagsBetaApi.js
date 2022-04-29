@@ -23,7 +23,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * FeatureFlagsBeta service.
 * @module api/FeatureFlagsBetaApi
-* @version 9.0.0
+* @version 9.0.1
 */
 export default class FeatureFlagsBetaApi {
 
@@ -49,7 +49,7 @@ export default class FeatureFlagsBetaApi {
 
     /**
      * List dependent feature flags
-     * List dependent flags across all environments for the flag specified in the path parameters. A dependent flag is a flag that uses another flag as a prerequisite.
+     * > ### Flag prerequisites is an Enterprise feature > > Flag prerequisites is available to customers on an Enterprise plan. To learn more, [read about our pricing](https://launchdarkly.com/pricing/). To upgrade your plan, [contact Sales](https://launchdarkly.com/contact-sales/).  > ### This feature is in beta > > To use this feature, pass in a header including the `LD-API-Version` key with value set to `beta`. Use this header with each call. To learn more, read [Beta resources](/#section/Overview/Beta-resources).  List dependent flags across all environments for the flag specified in the path parameters. A dependent flag is a flag that uses another flag as a prerequisite. To learn more, read [Flag prerequisites](https://docs.launchdarkly.com/home/flags/prerequisites). 
      * @param {String} projectKey The project key
      * @param {String} featureFlagKey The feature flag key
      * @param {module:api/FeatureFlagsBetaApi~getDependentFlagsCallback} callback The callback function, accepting three arguments: error, data, response
@@ -98,7 +98,7 @@ export default class FeatureFlagsBetaApi {
 
     /**
      * List dependent feature flags by environment
-     * List dependent flags across all environments for the flag specified in the path parameters. A dependent flag is a flag that uses another flag as a prerequisite.
+     * > ### Flag prerequisites is an Enterprise feature > > Flag prerequisites is available to customers on an Enterprise plan. To learn more, [read about our pricing](https://launchdarkly.com/pricing/). To upgrade your plan, [contact Sales](https://launchdarkly.com/contact-sales/).  > ### This feature is in beta > > To use this feature, pass in a header including the `LD-API-Version` key with value set to `beta`. Use this header with each call. To learn more, read [Beta resources](/#section/Overview/Beta-resources).  List dependent flags across all environments for the flag specified in the path parameters. A dependent flag is a flag that uses another flag as a prerequisite. To learn more, read [Flag prerequisites](https://docs.launchdarkly.com/home/flags/prerequisites). 
      * @param {String} projectKey The project key
      * @param {String} environmentKey The environment key
      * @param {String} featureFlagKey The feature flag key

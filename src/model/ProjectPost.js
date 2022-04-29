@@ -18,7 +18,7 @@ import EnvironmentPost from './EnvironmentPost';
 /**
  * The ProjectPost model module.
  * @module model/ProjectPost
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ProjectPost {
     /**

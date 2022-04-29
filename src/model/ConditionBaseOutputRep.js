@@ -17,7 +17,7 @@ import ExecutionOutputRep from './ExecutionOutputRep';
 /**
  * The ConditionBaseOutputRep model module.
  * @module model/ConditionBaseOutputRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ConditionBaseOutputRep {
     /**

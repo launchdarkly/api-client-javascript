@@ -23,7 +23,7 @@ import Variation from './Variation';
 /**
  * The FlagGlobalAttributesRep model module.
  * @module model/FlagGlobalAttributesRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class FlagGlobalAttributesRep {
     /**

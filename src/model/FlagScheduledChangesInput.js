@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FlagScheduledChangesInput model module.
  * @module model/FlagScheduledChangesInput
- * @version 9.0.0
+ * @version 9.0.1
  */
 class FlagScheduledChangesInput {
     /**

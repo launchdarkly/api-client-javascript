@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FileRep model module.
  * @module model/FileRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class FileRep {
     /**

@@ -17,7 +17,7 @@ import AccessAllowedReason from './AccessAllowedReason';
 /**
  * The AccessAllowedRep model module.
  * @module model/AccessAllowedRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class AccessAllowedRep {
     /**

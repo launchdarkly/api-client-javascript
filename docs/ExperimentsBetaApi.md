@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## createExperiment
 
-> ExperimentRep createExperiment(projectKey, environmentKey, experimentPost)
+> Experiment createExperiment(projectKey, environmentKey, experimentPost)
 
 Create experiment
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExperimentRep**](ExperimentRep.md)
+[**Experiment**](Experiment.md)
 
 ### Authorization
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ## getExperiment
 
-> ExperimentRep getExperiment(projectKey, environmentKey, experimentKey)
+> Experiment getExperiment(projectKey, environmentKey, experimentKey)
 
 Get experiment
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExperimentRep**](ExperimentRep.md)
+[**Experiment**](Experiment.md)
 
 ### Authorization
 
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 ## patchExperiment
 
-> ExperimentRep patchExperiment(projectKey, environmentKey, experimentKey, experimentPatchInput)
+> Experiment patchExperiment(projectKey, environmentKey, experimentKey, experimentPatchInput)
 
 Patch experiment
 
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExperimentRep**](ExperimentRep.md)
+[**Experiment**](Experiment.md)
 
 ### Authorization
 

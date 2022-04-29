@@ -18,7 +18,7 @@ import ReviewOutputRep from './ReviewOutputRep';
 /**
  * The ConditionOutputRep model module.
  * @module model/ConditionOutputRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ConditionOutputRep {
     /**

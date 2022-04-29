@@ -19,7 +19,7 @@ import ExecutionOutputRep from './ExecutionOutputRep';
 /**
  * The StageOutputRep model module.
  * @module model/StageOutputRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class StageOutputRep {
     /**

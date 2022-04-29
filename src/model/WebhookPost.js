@@ -17,7 +17,7 @@ import StatementPost from './StatementPost';
 /**
  * The WebhookPost model module.
  * @module model/WebhookPost
- * @version 9.0.0
+ * @version 9.0.1
  */
 class WebhookPost {
     /**

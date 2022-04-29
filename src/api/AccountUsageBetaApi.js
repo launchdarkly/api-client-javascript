@@ -25,7 +25,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * AccountUsageBeta service.
 * @module api/AccountUsageBetaApi
-* @version 9.0.0
+* @version 9.0.1
 */
 export default class AccountUsageBetaApi {
 

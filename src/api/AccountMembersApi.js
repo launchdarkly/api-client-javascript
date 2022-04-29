@@ -28,7 +28,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * AccountMembers service.
 * @module api/AccountMembersApi
-* @version 9.0.0
+* @version 9.0.1
 */
 export default class AccountMembersApi {
 
@@ -96,7 +96,7 @@ export default class AccountMembersApi {
 
     /**
      * Get account member
-     * Get a single account member by ID
+     * Get a single account member by ID.  `me` is a reserved value for the `id` parameter and returns the caller's member information. 
      * @param {String} id The member ID
      * @param {module:api/AccountMembersApi~getMemberCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Member}
@@ -233,8 +233,8 @@ export default class AccountMembersApi {
      */
 
     /**
-     * Add member to teams
-     * Add member to team(s)
+     * Add a member to teams
+     * Add one member to one or more teams.
      * @param {String} id The member ID
      * @param {module:model/MemberTeamsPostInput} memberTeamsPostInput 
      * @param {module:api/AccountMembersApi~postMemberTeamsCallback} callback The callback function, accepting three arguments: error, data, response

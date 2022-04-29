@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostFlagScheduledChangesInput model module.
  * @module model/PostFlagScheduledChangesInput
- * @version 9.0.0
+ * @version 9.0.1
  */
 class PostFlagScheduledChangesInput {
     /**

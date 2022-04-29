@@ -12,13 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
-import MetricRep from './MetricRep';
+import MetricV2Rep from './MetricV2Rep';
 import TreatmentRep from './TreatmentRep';
 
 /**
  * The IterationExpandableProperties model module.
  * @module model/IterationExpandableProperties
- * @version 9.0.0
+ * @version 9.0.1
  */
 class IterationExpandableProperties {
     /**
@@ -53,7 +53,7 @@ class IterationExpandableProperties {
                 obj['treatments'] = ApiClient.convertToType(data['treatments'], [TreatmentRep]);
             }
             if (data.hasOwnProperty('secondaryMetrics')) {
-                obj['secondaryMetrics'] = ApiClient.convertToType(data['secondaryMetrics'], [MetricRep]);
+                obj['secondaryMetrics'] = ApiClient.convertToType(data['secondaryMetrics'], [MetricV2Rep]);
             }
         }
         return obj;
@@ -68,7 +68,7 @@ class IterationExpandableProperties {
 IterationExpandableProperties.prototype['treatments'] = undefined;
 
 /**
- * @member {Array.<module:model/MetricRep>} secondaryMetrics
+ * @member {Array.<module:model/MetricV2Rep>} secondaryMetrics
  */
 IterationExpandableProperties.prototype['secondaryMetrics'] = undefined;
 

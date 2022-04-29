@@ -13,13 +13,13 @@
 
 import ApiClient from '../ApiClient';
 import FlagRep from './FlagRep';
-import MetricRep from './MetricRep';
+import MetricV2Rep from './MetricV2Rep';
 import TreatmentRep from './TreatmentRep';
 
 /**
  * The IterationRep model module.
  * @module model/IterationRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class IterationRep {
     /**
@@ -72,6 +72,9 @@ class IterationRep {
             if (data.hasOwnProperty('winningTreatmentId')) {
                 obj['winningTreatmentId'] = ApiClient.convertToType(data['winningTreatmentId'], 'String');
             }
+            if (data.hasOwnProperty('winningReason')) {
+                obj['winningReason'] = ApiClient.convertToType(data['winningReason'], 'String');
+            }
             if (data.hasOwnProperty('canReshuffleTraffic')) {
                 obj['canReshuffleTraffic'] = ApiClient.convertToType(data['canReshuffleTraffic'], 'Boolean');
             }
@@ -79,13 +82,13 @@ class IterationRep {
                 obj['flags'] = ApiClient.convertToType(data['flags'], {'String': FlagRep});
             }
             if (data.hasOwnProperty('primaryMetric')) {
-                obj['primaryMetric'] = MetricRep.constructFromObject(data['primaryMetric']);
+                obj['primaryMetric'] = MetricV2Rep.constructFromObject(data['primaryMetric']);
             }
             if (data.hasOwnProperty('treatments')) {
                 obj['treatments'] = ApiClient.convertToType(data['treatments'], [TreatmentRep]);
             }
             if (data.hasOwnProperty('secondaryMetrics')) {
-                obj['secondaryMetrics'] = ApiClient.convertToType(data['secondaryMetrics'], [MetricRep]);
+                obj['secondaryMetrics'] = ApiClient.convertToType(data['secondaryMetrics'], [MetricV2Rep]);
             }
         }
         return obj;
@@ -125,6 +128,11 @@ IterationRep.prototype['endedAt'] = undefined;
 IterationRep.prototype['winningTreatmentId'] = undefined;
 
 /**
+ * @member {String} winningReason
+ */
+IterationRep.prototype['winningReason'] = undefined;
+
+/**
  * @member {Boolean} canReshuffleTraffic
  */
 IterationRep.prototype['canReshuffleTraffic'] = undefined;
@@ -135,7 +143,7 @@ IterationRep.prototype['canReshuffleTraffic'] = undefined;
 IterationRep.prototype['flags'] = undefined;
 
 /**
- * @member {module:model/MetricRep} primaryMetric
+ * @member {module:model/MetricV2Rep} primaryMetric
  */
 IterationRep.prototype['primaryMetric'] = undefined;
 
@@ -145,7 +153,7 @@ IterationRep.prototype['primaryMetric'] = undefined;
 IterationRep.prototype['treatments'] = undefined;
 
 /**
- * @member {Array.<module:model/MetricRep>} secondaryMetrics
+ * @member {Array.<module:model/MetricV2Rep>} secondaryMetrics
  */
 IterationRep.prototype['secondaryMetrics'] = undefined;
 

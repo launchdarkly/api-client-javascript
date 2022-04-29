@@ -4,8 +4,52 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **String** |  | 
 **key** | **String** |  | 
 **name** | **String** |  | 
+**kind** | **String** |  | 
+**attachedFlagCount** | **Number** |  | [optional] 
 **links** | [**{String: Link}**](Link.md) |  | 
+**site** | [**Link**](Link.md) |  | [optional] 
+**access** | [**Access**](Access.md) |  | [optional] 
+**tags** | **[String]** |  | 
+**creationDate** | **Number** |  | 
+**lastModified** | [**Modification**](Modification.md) |  | [optional] 
+**maintainerId** | **String** |  | [optional] 
+**maintainer** | [**MemberSummary**](MemberSummary.md) |  | [optional] 
+**description** | **String** |  | [optional] 
+**isNumeric** | **Boolean** |  | [optional] 
+**successCriteria** | **String** |  | [optional] 
+**unit** | **String** |  | [optional] 
+**eventKey** | **String** |  | [optional] 
+**isActive** | **Boolean** |  | [optional] 
+**attachedFeatures** | [**[FlagListingRep]**](FlagListingRep.md) |  | [optional] 
+**version** | **Number** |  | [optional] 
+**selector** | **String** |  | [optional] 
+**urls** | **[Object]** |  | [optional] 
+
+
+
+## Enum: KindEnum
+
+
+* `pageview` (value: `"pageview"`)
+
+* `click` (value: `"click"`)
+
+* `custom` (value: `"custom"`)
+
+
+
+
+
+## Enum: SuccessCriteriaEnum
+
+
+* `HigherThanBaseline` (value: `"HigherThanBaseline"`)
+
+* `LowerThanBaseline` (value: `"LowerThanBaseline"`)
+
+
 
 

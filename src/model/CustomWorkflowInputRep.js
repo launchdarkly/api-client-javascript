@@ -17,7 +17,7 @@ import StageInputRep from './StageInputRep';
 /**
  * The CustomWorkflowInputRep model module.
  * @module model/CustomWorkflowInputRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class CustomWorkflowInputRep {
     /**

@@ -12,13 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
-import ExperimentRep from './ExperimentRep';
+import Experiment from './Experiment';
 import Link from './Link';
 
 /**
  * The ExperimentCollectionRep model module.
  * @module model/ExperimentCollectionRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ExperimentCollectionRep {
     /**
@@ -50,7 +50,7 @@ class ExperimentCollectionRep {
             obj = obj || new ExperimentCollectionRep();
 
             if (data.hasOwnProperty('items')) {
-                obj['items'] = ApiClient.convertToType(data['items'], [ExperimentRep]);
+                obj['items'] = ApiClient.convertToType(data['items'], [Experiment]);
             }
             if (data.hasOwnProperty('total_count')) {
                 obj['total_count'] = ApiClient.convertToType(data['total_count'], 'Number');
@@ -66,7 +66,7 @@ class ExperimentCollectionRep {
 }
 
 /**
- * @member {Array.<module:model/ExperimentRep>} items
+ * @member {Array.<module:model/Experiment>} items
  */
 ExperimentCollectionRep.prototype['items'] = undefined;
 

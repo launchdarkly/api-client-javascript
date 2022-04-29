@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UnauthorizedErrorRep model module.
  * @module model/UnauthorizedErrorRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class UnauthorizedErrorRep {
     /**

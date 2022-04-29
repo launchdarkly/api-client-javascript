@@ -54,6 +54,12 @@
       //expect(instance).to.be.a(LaunchDarklyApi.MetricRep);
     });
 
+    it('should have the property id (base name: "_id")', function() {
+      // uncomment below and update the code to test the property id
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
     it('should have the property key (base name: "key")', function() {
       // uncomment below and update the code to test the property key
       //var instance = new LaunchDarklyApi.MetricRep();
@@ -66,8 +72,122 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property kind (base name: "kind")', function() {
+      // uncomment below and update the code to test the property kind
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property attachedFlagCount (base name: "_attachedFlagCount")', function() {
+      // uncomment below and update the code to test the property attachedFlagCount
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
     it('should have the property links (base name: "_links")', function() {
       // uncomment below and update the code to test the property links
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property site (base name: "_site")', function() {
+      // uncomment below and update the code to test the property site
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property access (base name: "_access")', function() {
+      // uncomment below and update the code to test the property access
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property tags (base name: "tags")', function() {
+      // uncomment below and update the code to test the property tags
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property creationDate (base name: "_creationDate")', function() {
+      // uncomment below and update the code to test the property creationDate
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastModified (base name: "lastModified")', function() {
+      // uncomment below and update the code to test the property lastModified
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property maintainerId (base name: "maintainerId")', function() {
+      // uncomment below and update the code to test the property maintainerId
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property maintainer (base name: "_maintainer")', function() {
+      // uncomment below and update the code to test the property maintainer
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property description (base name: "description")', function() {
+      // uncomment below and update the code to test the property description
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property isNumeric (base name: "isNumeric")', function() {
+      // uncomment below and update the code to test the property isNumeric
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property successCriteria (base name: "successCriteria")', function() {
+      // uncomment below and update the code to test the property successCriteria
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property unit (base name: "unit")', function() {
+      // uncomment below and update the code to test the property unit
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property eventKey (base name: "eventKey")', function() {
+      // uncomment below and update the code to test the property eventKey
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property isActive (base name: "isActive")', function() {
+      // uncomment below and update the code to test the property isActive
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property attachedFeatures (base name: "_attachedFeatures")', function() {
+      // uncomment below and update the code to test the property attachedFeatures
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property version (base name: "_version")', function() {
+      // uncomment below and update the code to test the property version
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property selector (base name: "selector")', function() {
+      // uncomment below and update the code to test the property selector
+      //var instance = new LaunchDarklyApi.MetricRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property urls (base name: "urls")', function() {
+      // uncomment below and update the code to test the property urls
       //var instance = new LaunchDarklyApi.MetricRep();
       //expect(instance).to.be();
     });

@@ -28,7 +28,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * RelayProxyConfigurations service.
 * @module api/RelayProxyConfigurationsApi
-* @version 9.0.0
+* @version 9.0.1
 */
 export default class RelayProxyConfigurationsApi {
 

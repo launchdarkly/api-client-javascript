@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AccessDeniedReason model module.
  * @module model/AccessDeniedReason
- * @version 9.0.0
+ * @version 9.0.1
  */
 class AccessDeniedReason {
     /**

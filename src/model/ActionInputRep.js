@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ActionInputRep model module.
  * @module model/ActionInputRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class ActionInputRep {
     /**

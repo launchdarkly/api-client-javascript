@@ -24,7 +24,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * AuditLog service.
 * @module api/AuditLogApi
-* @version 9.0.0
+* @version 9.0.1
 */
 export default class AuditLogApi {
 

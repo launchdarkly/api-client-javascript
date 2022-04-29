@@ -18,7 +18,7 @@ import ConditionInputRep from './ConditionInputRep';
 /**
  * The StageInputRep model module.
  * @module model/StageInputRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class StageInputRep {
     /**

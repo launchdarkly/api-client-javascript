@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **baselineIdx** | **Number** |  | 
-**items** | [**[ExperimentRep]**](ExperimentRep.md) |  | 
+**items** | [**[LegacyExperimentRep]**](LegacyExperimentRep.md) |  | 
 
 

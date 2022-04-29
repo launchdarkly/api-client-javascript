@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The HunkRep model module.
  * @module model/HunkRep
- * @version 9.0.0
+ * @version 9.0.1
  */
 class HunkRep {
     /**
