@@ -230,7 +230,7 @@ Name | Type | Description  | Notes
 
 Create metric
 
-Create a new metric in the specified project. Note that the expected POST body differs depending on the specified kind property.
+Create a new metric in the specified project. The expected &#x60;POST&#x60; body differs depending on the specified &#x60;kind&#x60; property.
 
 ### Example
 
@@ -245,7 +245,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.MetricsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let metricPost = {"key":"my-metric","kind":"pageview","urls":[{"kind":"substring","substring":"foo"}]}; // MetricPost | 
+let metricPost = {"eventKey":"trackedClick","isActive":true,"isNumeric":false,"key":"my-metric","kind":"custom"}; // MetricPost | 
 apiInstance.postMetric(projectKey, metricPost, (error, data, response) => {
   if (error) {
     console.error(error);

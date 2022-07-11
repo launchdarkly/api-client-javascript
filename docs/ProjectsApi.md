@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Delete project
 
-Delete a project by key. Caution: deleting a project will delete all associated environments and feature flags. You cannot delete the last project in an account.
+Delete a project by key. Use this endpoint with caution. Deleting a project will delete all associated environments and feature flags. You cannot delete the last project in an account.
 
 ### Example
 
@@ -65,11 +65,11 @@ null (empty response body)
 
 ## getProject
 
-> Project getProject(projectKey)
+> Project getProject(projectKey, opts)
 
 Get project
 
-Get a single project by key.
+Get a single project by key.  ### Expanding the project response  LaunchDarkly supports one field for expanding the \&quot;Get project\&quot; response. By default, these fields are **not** included in the response.  To expand the response, append the &#x60;expand&#x60; query parameter and add a comma-separated list with any of the following fields: * &#x60;environments&#x60; includes a paginated list of the project environments.  For example, &#x60;expand&#x3D;environments&#x60; includes the &#x60;environments&#x60; field for the project in the response. 
 
 ### Example
 
@@ -83,8 +83,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.ProjectsApi();
-let projectKey = "projectKey_example"; // String | The project key
-apiInstance.getProject(projectKey, (error, data, response) => {
+let projectKey = "projectKey_example"; // String | The project key.
+let opts = {
+  'expand': "expand_example" // String | A comma-separated list of properties that can reveal additional information in the response.
+};
+apiInstance.getProject(projectKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -98,7 +101,8 @@ apiInstance.getProject(projectKey, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key | 
+ **projectKey** | **String**| The project key. | 
+ **expand** | **String**| A comma-separated list of properties that can reveal additional information in the response. | [optional] 
 
 ### Return type
 
@@ -116,11 +120,11 @@ Name | Type | Description  | Notes
 
 ## getProjects
 
-> Projects getProjects()
+> Projects getProjects(opts)
 
 List projects
 
-Get a list of all projects in the account.
+Return a list of projects.  By default, this returns the first 20 projects. Page through this list with the &#x60;limit&#x60; parameter and by following the &#x60;first&#x60;, &#x60;prev&#x60;, &#x60;next&#x60;, and &#x60;last&#x60; links in the &#x60;_links&#x60; field that returns. If those links do not appear, the pages they refer to don&#39;t exist. For example, the &#x60;first&#x60; and &#x60;prev&#x60; links will be missing from the response on the first page, because there is no previous page and you cannot return to the first page when you are already on the first page.  ### Filtering projects  LaunchDarkly supports two fields for filters: - &#x60;query&#x60; is a string that matches against the projects&#39; names and keys. It is not case sensitive. - &#x60;tags&#x60; is a &#x60;+&#x60; separate list of project tags. It filters the list of projects that have all of the tags in the list.  For example, the filter &#x60;query:abc,tags:tag-1+tag-2&#x60; matches projects with the string &#x60;abc&#x60; in their name or key and also are tagged with &#x60;tag-1&#x60; and &#x60;tag-2&#x60;. The filter is not case-sensitive.  ### Sorting projects  LaunchDarkly supports two fields for sorting: - &#x60;name&#x60; sorts by project name. - &#x60;createdOn&#x60; sorts by the creation date of the project.  For example, &#x60;sort&#x3D;name&#x60; sorts the response by project name in ascending order.  ### Expanding the projects response  LaunchDarkly supports one field for expanding the \&quot;List projects\&quot; response. By default, these fields are **not** included in the response.  To expand the response, append the &#x60;expand&#x60; query parameter and add a comma-separated list with the &#x60;environments&#x60; field.  &#x60;Environments&#x60; includes a paginated list of the project environments. * &#x60;environments&#x60; includes a paginated list of the project environments.  For example, &#x60;expand&#x3D;environments&#x60; includes the &#x60;environments&#x60; field for each project in the response. 
 
 ### Example
 
@@ -134,7 +138,13 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.ProjectsApi();
-apiInstance.getProjects((error, data, response) => {
+let opts = {
+  'limit': 789, // Number | The number of projects to return in the response. Defaults to 20.
+  'offset': 789, // Number | Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and returns the next `limit` items.
+  'filter': "filter_example", // String | A comma-separated list of filters. Each filter is constructed as `field:value`.
+  'expand': "expand_example" // String | A comma-separated list of properties that can reveal additional information in the response.
+};
+apiInstance.getProjects(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -145,7 +155,13 @@ apiInstance.getProjects((error, data, response) => {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The number of projects to return in the response. Defaults to 20. | [optional] 
+ **offset** | **Number**| Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and returns the next &#x60;limit&#x60; items. | [optional] 
+ **filter** | **String**| A comma-separated list of filters. Each filter is constructed as &#x60;field:value&#x60;. | [optional] 
+ **expand** | **String**| A comma-separated list of properties that can reveal additional information in the response. | [optional] 
 
 ### Return type
 
@@ -163,7 +179,7 @@ This endpoint does not need any parameter.
 
 ## patchProject
 
-> Project patchProject(projectKey, patchOperation)
+> ProjectRep patchProject(projectKey, patchOperation)
 
 Update project
 
@@ -202,7 +218,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Project**](Project.md)
+[**ProjectRep**](ProjectRep.md)
 
 ### Authorization
 
@@ -216,7 +232,7 @@ Name | Type | Description  | Notes
 
 ## postProject
 
-> Project postProject(projectPost)
+> ProjectRep postProject(projectPost)
 
 Create project
 
@@ -253,7 +269,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Project**](Project.md)
+[**ProjectRep**](ProjectRep.md)
 
 ### Authorization
 

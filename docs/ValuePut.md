@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**setting** | **Object** | The variation value to set for the user | [optional] 
-**comment** | **String** |  | [optional] 
+**setting** | **Object** | The variation value to set for the user. Must match the flag&#39;s variation type. | [optional] 
+**comment** | **String** | Optional comment describing the change | [optional] 
 
 

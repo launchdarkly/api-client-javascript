@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 Delete approval request
 
-Delete an approval request for a feature flag
+Delete an approval request for a feature flag.
 
 ### Example
 
@@ -77,7 +77,7 @@ null (empty response body)
 
 Get approval request
 
-Get a single approval request for a feature flag
+Get a single approval request for a feature flag.
 
 ### Example
 
@@ -134,7 +134,7 @@ Name | Type | Description  | Notes
 
 List all approval requests
 
-Get all approval requests for a feature flag
+Get all approval requests for a feature flag.
 
 ### Example
 
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 Create approval request
 
-Create an approval request for a feature flag
+Create an approval request for a feature flag.
 
 ### Example
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 Apply approval request
 
-Apply approval request by either approving or declining changes.
+Apply an approval request that has been approved.
 
 ### Example
 
@@ -305,7 +305,7 @@ Name | Type | Description  | Notes
 
 Review approval request
 
-Review approval request by either approving or declining changes.
+Review an approval request by approving or denying changes.
 
 ### Example
 
@@ -380,7 +380,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new LaunchDarklyApi.ApprovalsApi();
 let projectKey = "projectKey_example"; // String | The project key
 let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
-let environmentKey = "environmentKey_example"; // String | The environment key
+let environmentKey = "environmentKey_example"; // String | The environment key for the target environment
 let createCopyFlagConfigApprovalRequestRequest = new LaunchDarklyApi.CreateCopyFlagConfigApprovalRequestRequest(); // CreateCopyFlagConfigApprovalRequestRequest | 
 apiInstance.postFlagCopyConfigApprovalRequest(projectKey, featureFlagKey, environmentKey, createCopyFlagConfigApprovalRequestRequest, (error, data, response) => {
   if (error) {
@@ -398,7 +398,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
  **featureFlagKey** | **String**| The feature flag key | 
- **environmentKey** | **String**| The environment key | 
+ **environmentKey** | **String**| The environment key for the target environment | 
  **createCopyFlagConfigApprovalRequestRequest** | [**CreateCopyFlagConfigApprovalRequestRequest**](CreateCopyFlagConfigApprovalRequestRequest.md)|  | 
 
 ### Return type

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**getRepositories**](CodeReferencesApi.md#getRepositories) | **GET** /api/v2/code-refs/repositories | List repositories
 [**getRepository**](CodeReferencesApi.md#getRepository) | **GET** /api/v2/code-refs/repositories/{repo} | Get repository
 [**getRootStatistic**](CodeReferencesApi.md#getRootStatistic) | **GET** /api/v2/code-refs/statistics | Get links to code reference repositories for each project
-[**getStatistics**](CodeReferencesApi.md#getStatistics) | **GET** /api/v2/code-refs/statistics/{projectKey} | Get number of code references for flags
+[**getStatistics**](CodeReferencesApi.md#getStatistics) | **GET** /api/v2/code-refs/statistics/{projectKey} | Get code references statistics for flags
 [**patchRepository**](CodeReferencesApi.md#patchRepository) | **PATCH** /api/v2/code-refs/repositories/{repo} | Update repository
 [**postExtinction**](CodeReferencesApi.md#postExtinction) | **POST** /api/v2/code-refs/repositories/{repo}/branches/{branch}/extinction-events | Create extinction
 [**postRepository**](CodeReferencesApi.md#postRepository) | **POST** /api/v2/code-refs/repositories | Create repository
@@ -41,7 +41,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.CodeReferencesApi();
 let repo = "repo_example"; // String | The repository name to delete branches for.
-let requestBody = ["null"]; // [String] | 
+let requestBody = ["branch-to-be-deleted","another-branch-to-be-deleted"]; // [String] | 
 apiInstance.deleteBranches(repo, requestBody, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -79,7 +79,7 @@ null (empty response body)
 
 Delete repository
 
-Delete a repository with the specified name
+Delete a repository with the specified name.
 
 ### Example
 
@@ -130,7 +130,7 @@ null (empty response body)
 
 Get branch
 
-Get a specific branch in a repository
+Get a specific branch in a repository.
 
 ### Example
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 List extinctions
 
-Get a list of all extinctions.
+Get a list of all extinctions. LaunchDarkly creates an extinction event after you remove all code references to a flag. To learn more, read [Understanding extinction events](https://docs.launchdarkly.com/home/code/code-references#understanding-extinction-events).
 
 ### Example
 
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 Get links to code reference repositories for each project
 
-Get links for all projects that have Code References.
+Get links for all projects that have code references.
 
 ### Example
 
@@ -458,9 +458,9 @@ This endpoint does not need any parameter.
 
 > StatisticCollectionRep getStatistics(projectKey, opts)
 
-Get number of code references for flags
+Get code references statistics for flags
 
-Get the number of code references across repositories for all flags in your project that have code references in the default branch (for example: master). You can optionally include the &#x60;flagKey&#x60; query parameter to get the number of code references across repositories for a single flag. This endpoint returns the number of times your flag keys are referenced in your repositories. You can filter to a single flag with by passing in a flag key.
+Get statistics about all the code references across repositories for all flags in your project that have code references in the default branch, for example, &#x60;main&#x60;. Optionally, you can include the &#x60;flagKey&#x60; query parameter to limit your request to statistics about code references for a single flag. This endpoint returns the number of references to your flag keys in your repositories, as well as a link to each repository.
 
 ### Example
 
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 
 Create extinction
 
-Create a new extinction
+Create a new extinction.
 
 ### Example
 
@@ -583,7 +583,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.CodeReferencesApi();
 let repo = "repo_example"; // String | The repository name
-let branch = "branch_example"; // String | The url-encoded branch name
+let branch = "branch_example"; // String | The URL-encoded branch name
 let extinction = [new LaunchDarklyApi.Extinction()]; // [Extinction] | 
 apiInstance.postExtinction(repo, branch, extinction, (error, data, response) => {
   if (error) {
@@ -600,7 +600,7 @@ apiInstance.postExtinction(repo, branch, extinction, (error, data, response) => 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **repo** | **String**| The repository name | 
- **branch** | **String**| The url-encoded branch name | 
+ **branch** | **String**| The URL-encoded branch name | 
  **extinction** | [**[Extinction]**](Extinction.md)|  | 
 
 ### Return type
@@ -674,7 +674,7 @@ Name | Type | Description  | Notes
 
 Upsert branch
 
-Create a new branch if it doesn&#39;t exist, or updates the branch if it already exists.
+Create a new branch if it doesn&#39;t exist, or update the branch if it already exists.
 
 ### Example
 
@@ -689,7 +689,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.CodeReferencesApi();
 let repo = "repo_example"; // String | The repository name
-let branch = "branch_example"; // String | The url-encoded branch name
+let branch = "branch_example"; // String | The URL-encoded branch name
 let putBranch = new LaunchDarklyApi.PutBranch(); // PutBranch | 
 apiInstance.putBranch(repo, branch, putBranch, (error, data, response) => {
   if (error) {
@@ -706,7 +706,7 @@ apiInstance.putBranch(repo, branch, putBranch, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **repo** | **String**| The repository name | 
- **branch** | **String**| The url-encoded branch name | 
+ **branch** | **String**| The URL-encoded branch name | 
  **putBranch** | [**PutBranch**](PutBranch.md)|  | 
 
 ### Return type

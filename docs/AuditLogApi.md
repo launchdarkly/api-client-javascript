@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 Get audit log entry
 
-Fetch a detailed audit log entry representation. The detailed representation includes several fields that are not present in the summary representation:  - &#x60;delta&#x60;: the JSON patch body that was used in the request to update the entity - &#x60;previousVersion&#x60;: a JSON representation of the previous version of the entity - &#x60;currentVersion&#x60;: a JSON representation of the current version of the entity 
+Fetch a detailed audit log entry representation. The detailed representation includes several fields that are not present in the summary representation, including:  - &#x60;delta&#x60;: the JSON patch body that was used in the request to update the entity - &#x60;previousVersion&#x60;: a JSON representation of the previous version of the entity - &#x60;currentVersion&#x60;: a JSON representation of the current version of the entity 
 
 ### Example
 

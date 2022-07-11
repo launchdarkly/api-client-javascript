@@ -37,7 +37,7 @@ let apiInstance = new LaunchDarklyApi.IntegrationDeliveryConfigurationsBetaApi()
 let projectKey = "projectKey_example"; // String | The project key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let integrationKey = "integrationKey_example"; // String | The integration key
-let integrationDeliveryConfigurationPost = new LaunchDarklyApi.IntegrationDeliveryConfigurationPost(); // IntegrationDeliveryConfigurationPost | 
+let integrationDeliveryConfigurationPost = {"config":{"optional":"example value for optional formVariables property for sample-integration","required":"example value for required formVariables property for sample-integration"},"name":"Sample integration","on":false,"tags":["example-tag"]}; // IntegrationDeliveryConfigurationPost | 
 apiInstance.createIntegrationDeliveryConfiguration(projectKey, environmentKey, integrationKey, integrationDeliveryConfigurationPost, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 Delete delivery configuration
 
-Delete a delivery configuration
+Delete a delivery configuration.
 
 ### Example
 

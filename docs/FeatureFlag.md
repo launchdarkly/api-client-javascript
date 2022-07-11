@@ -10,11 +10,10 @@ Name | Type | Description | Notes
 **key** | **String** | A unique key used to reference the flag in your code | 
 **version** | **Number** | Version of the feature flag | 
 **creationDate** | **Number** |  | 
-**includeInSnippet** | **Boolean** | Deprecated, use clientSideAvailability. Whether or not this flag should be made available to the client-side JavaScript SDK | [optional] 
+**includeInSnippet** | **Boolean** | Deprecated, use &lt;code&gt;clientSideAvailability&lt;/code&gt;. Whether this flag should be made available to the client-side JavaScript SDK | [optional] 
 **clientSideAvailability** | [**ClientSideAvailability**](ClientSideAvailability.md) |  | [optional] 
 **variations** | [**[Variation]**](Variation.md) | An array of possible variations for the flag | 
-**variationJsonSchema** | **Object** |  | [optional] 
-**temporary** | **Boolean** | Whether or not the flag is a temporary flag | 
+**temporary** | **Boolean** | Whether the flag is a temporary flag | 
 **tags** | **[String]** | Tags for the feature flag | 
 **links** | [**{String: Link}**](Link.md) |  | 
 **maintainerId** | **String** | Associated maintainerId for the feature flag | [optional] 

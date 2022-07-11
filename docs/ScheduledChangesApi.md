@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Delete scheduled changes workflow
 
-Delete a scheduled changes workflow
+Delete a scheduled changes workflow.
 
 ### Example
 
@@ -75,7 +75,7 @@ null (empty response body)
 
 Get a scheduled change
 
-Get a scheduled change that will be applied to the feature flag by ID
+Get a scheduled change that will be applied to the feature flag by ID.
 
 ### Example
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 Update scheduled changes workflow
 
-Update a scheduled change, overriding existing instructions with the new ones.&lt;br /&gt;&lt;br /&gt;Requires a semantic patch representation of the desired changes to the resource. To learn more about semantic patches, read [Updates](/reference#updates-via-semantic-patches).
+ Update a scheduled change, overriding existing instructions with the new ones. Updating a scheduled change uses the semantic patch format.  To make a semantic patch request, you must append &#x60;domain-model&#x3D;launchdarkly.semanticpatch&#x60; to your &#x60;Content-Type&#x60; header. To learn more, read [Updates using semantic patch](/reference#updates-using-semantic-patch).  ### Instructions  Semantic patch requests support the following &#x60;kind&#x60; instructions for updating scheduled changes.  #### deleteScheduledChange  Removes the scheduled change.  #### replaceScheduledChangesInstructions  Removes the existing scheduled changes and replaces them with the new instructions.  ##### Parameters  - &#x60;value&#x60;: An array of the new actions to perform when the execution date for these scheduled changes arrives. Supported scheduled actions are &#x60;turnFlagOn&#x60; and &#x60;turnFlagOff&#x60;.  For example, to replace the scheduled changes, use this request body:  &#x60;&#x60;&#x60;json {   \&quot;comment\&quot;: \&quot;optional comment\&quot;,   \&quot;instructions\&quot;: [     {       \&quot;kind\&quot;: \&quot;replaceScheduledChangesInstructions\&quot;,       \&quot;value\&quot;: [ {\&quot;kind\&quot;: \&quot;turnFlagOff\&quot;} ]     }   ] } &#x60;&#x60;&#x60;  #### updateScheduledChangesExecutionDate  Updates the execution date for the scheduled changes.  ##### Parameters  - &#x60;value&#x60;: the new execution date, in Unix milliseconds. 
 
 ### Example
 
@@ -205,9 +205,9 @@ let projectKey = "projectKey_example"; // String | The project key
 let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The scheduled change ID
-let flagScheduledChangesInput = new LaunchDarklyApi.FlagScheduledChangesInput(); // FlagScheduledChangesInput | 
+let flagScheduledChangesInput = {"comment":"Optional comment describing the update to the scheduled changes","instructions":[{"kind":"replaceScheduledChangesInstructions","value":[{"kind":"turnFlagOff"}]}]}; // FlagScheduledChangesInput | 
 let opts = {
-  'ignoreConflicts': true // Boolean | Whether or not to succeed or fail when the new instructions conflict with existing scheduled changes
+  'ignoreConflicts': true // Boolean | Whether to succeed (`true`) or fail (`false`) when these new instructions conflict with existing scheduled changes
 };
 apiInstance.patchFlagConfigScheduledChange(projectKey, featureFlagKey, environmentKey, id, flagScheduledChangesInput, opts, (error, data, response) => {
   if (error) {
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
  **environmentKey** | **String**| The environment key | 
  **id** | **String**| The scheduled change ID | 
  **flagScheduledChangesInput** | [**FlagScheduledChangesInput**](FlagScheduledChangesInput.md)|  | 
- **ignoreConflicts** | **Boolean**| Whether or not to succeed or fail when the new instructions conflict with existing scheduled changes | [optional] 
+ **ignoreConflicts** | **Boolean**| Whether to succeed (&#x60;true&#x60;) or fail (&#x60;false&#x60;) when these new instructions conflict with existing scheduled changes | [optional] 
 
 ### Return type
 
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 Create scheduled changes workflow
 
-Create scheduled changes for a feature flag. If the ignoreConficts query parameter is false and the new instructions would conflict with the current state of the feature flag or any existing scheduled changes, the request will fail. If the parameter is true and there are conflicts, the request will succeed as normal.
+Create scheduled changes for a feature flag. If the &#x60;ignoreConficts&#x60; query parameter is false and there are conflicts between these instructions and existing scheduled changes, the request will fail. If the parameter is true and there are conflicts, the request will succeed.
 
 ### Example
 
@@ -267,9 +267,9 @@ let apiInstance = new LaunchDarklyApi.ScheduledChangesApi();
 let projectKey = "projectKey_example"; // String | The project key
 let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
-let postFlagScheduledChangesInput = new LaunchDarklyApi.PostFlagScheduledChangesInput(); // PostFlagScheduledChangesInput | 
+let postFlagScheduledChangesInput = {"comment":"Optional comment describing the scheduled changes","executionDate":1718467200000,"instructions":[{"kind":"turnFlagOn"}]}; // PostFlagScheduledChangesInput | 
 let opts = {
-  'ignoreConflicts': true // Boolean | Whether or not to succeed or fail when the new instructions conflict with existing scheduled changes
+  'ignoreConflicts': true // Boolean | Whether to succeed (`true`) or fail (`false`) when these instructions conflict with existing scheduled changes
 };
 apiInstance.postFlagConfigScheduledChanges(projectKey, featureFlagKey, environmentKey, postFlagScheduledChangesInput, opts, (error, data, response) => {
   if (error) {
@@ -289,7 +289,7 @@ Name | Type | Description  | Notes
  **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
  **postFlagScheduledChangesInput** | [**PostFlagScheduledChangesInput**](PostFlagScheduledChangesInput.md)|  | 
- **ignoreConflicts** | **Boolean**| Whether or not to succeed or fail when the new instructions conflict with existing scheduled changes | [optional] 
+ **ignoreConflicts** | **Boolean**| Whether to succeed (&#x60;true&#x60;) or fail (&#x60;false&#x60;) when these instructions conflict with existing scheduled changes | [optional] 
 
 ### Return type
 

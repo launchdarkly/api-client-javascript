@@ -8,6 +8,6 @@ Name | Type | Description | Notes
 **key** | **String** | A unique key used to reference the segment | 
 **description** | **String** | A description of the segment&#39;s purpose | [optional] 
 **tags** | **[String]** | Tags for the segment | [optional] 
-**unbounded** | **Boolean** |  | [optional] 
+**unbounded** | **Boolean** | Whether to create a standard segment (false) or a Big Segment (true). Only use a Big Segment if you need to add more than 15,000 users. | [optional] 
 
 

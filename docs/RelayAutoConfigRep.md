@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **creator** | [**MemberSummary**](MemberSummary.md) |  | [optional] 
 **access** | [**Access**](Access.md) |  | [optional] 
 **name** | **String** |  | 
-**policy** | [**[StatementRep]**](StatementRep.md) |  | 
+**policy** | [**[Statement]**](Statement.md) |  | 
 **fullKey** | **String** |  | 
 **displayKey** | **String** |  | 
 **creationDate** | **Number** |  | 

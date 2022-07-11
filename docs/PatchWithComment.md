@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **patch** | [**[PatchOperation]**](PatchOperation.md) |  | 
-**comment** | **String** |  | [optional] 
+**comment** | **String** | Optional comment | [optional] 
 
 

@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **String** |  | [optional] 
+**comment** | **String** | Optional comment about the approval request | [optional] 
 
 

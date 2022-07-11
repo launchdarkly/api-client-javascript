@@ -11,6 +11,6 @@ Name | Type | Description | Notes
 **defaultClientSideAvailability** | [**ClientSideAvailability**](ClientSideAvailability.md) |  | [optional] 
 **name** | **String** |  | 
 **tags** | **[String]** |  | 
-**environments** | [**[Environment]**](Environment.md) |  | 
+**environments** | [**Environments**](Environments.md) |  | [optional] 
 
 

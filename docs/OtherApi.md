@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Gets the public IP list
 
-Get a list of IP ranges the LaunchDarkly service uses. You can use this list to allow LaunchDarkly through your firewall.&lt;br /&gt;&lt;br /&gt;This endpoint returns a JSON object with two attributes: &#x60;addresses&#x60; and &#x60;outboundAddresses&#x60;. The &#x60;addresses&#x60; element contains the IP addresses LaunchDarkly&#39;s service uses. The &#x60;outboundAddresses&#x60; element contains the IP addresses outgoing webhook notifications use. To learn more, read [Public IP list](https://docs.launchdarkly.com/home/advanced/public-ip-list).&lt;br /&gt;&lt;br /&gt;We post upcoming changes to this list in advance on our [status page](https://status.launchdarkly.com/).
+Get a list of IP ranges the LaunchDarkly service uses. You can use this list to allow LaunchDarkly through your firewall. &lt;br /&gt;&lt;br /&gt;This endpoint returns a JSON object with two attributes: &#x60;addresses&#x60; and &#x60;outboundAddresses&#x60;. The &#x60;addresses&#x60; element contains the IP addresses LaunchDarkly&#39;s service uses. The &#x60;outboundAddresses&#x60; element contains the IP addresses outgoing webhook notifications use.&lt;br /&gt;&lt;br /&gt;We post upcoming changes to this list in advance on our [status page](https://status.launchdarkly.com/). &lt;br /&gt;&lt;br /&gt;In the sandbox, click &#39;Try it&#39; and enter any string in the &#39;Authorization&#39; field to test this endpoint.
 
 ### Example
 
@@ -64,7 +64,7 @@ This endpoint does not need any parameter.
 
 Gets the OpenAPI spec in json
 
-The OpenAPI spec endpoint serves the latest version of the OpenAPI specification for LaunchDarkly&#39;s API in json format.
+Get the latest version of the OpenAPI specification for LaunchDarkly&#39;s API in JSON format. In the sandbox, click &#39;Try it&#39; and enter any string in the &#39;Authorization&#39; field to test this endpoint.
 
 ### Example
 
@@ -111,7 +111,7 @@ null (empty response body)
 
 Root resource
 
-Issue a &#x60;GET&#x60; request to the root resource to find all of the resource categories supported by the API
+Get all of the resource categories the API supports. In the sandbox, click &#39;Try it&#39; and enter any string in the &#39;Authorization&#39; field to test this endpoint.
 
 ### Example
 

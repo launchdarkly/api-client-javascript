@@ -10,11 +10,11 @@ Name | Type | Description | Notes
 **sel** | **String** |  | 
 **lastModified** | **Number** |  | 
 **version** | **Number** |  | 
-**targets** | [**[Target]**](Target.md) |  | 
-**rules** | [**[Rule]**](Rule.md) |  | 
-**fallthrough** | [**VariationOrRolloutRep**](VariationOrRolloutRep.md) |  | 
+**targets** | [**[Target]**](Target.md) |  | [optional] 
+**rules** | [**[Rule]**](Rule.md) |  | [optional] 
+**fallthrough** | [**VariationOrRolloutRep**](VariationOrRolloutRep.md) |  | [optional] 
 **offVariation** | **Number** |  | [optional] 
-**prerequisites** | [**[Prerequisite]**](Prerequisite.md) |  | 
+**prerequisites** | [**[Prerequisite]**](Prerequisite.md) |  | [optional] 
 **site** | [**Link**](Link.md) |  | 
 **access** | [**Access**](Access.md) |  | [optional] 
 **environmentName** | **String** |  | 

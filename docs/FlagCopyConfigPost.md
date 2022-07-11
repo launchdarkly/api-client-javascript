@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **source** | [**FlagCopyConfigEnvironment**](FlagCopyConfigEnvironment.md) |  | 
 **target** | [**FlagCopyConfigEnvironment**](FlagCopyConfigEnvironment.md) |  | 
-**comment** | **String** |  | [optional] 
-**includedActions** | **[String]** |  | [optional] 
-**excludedActions** | **[String]** |  | [optional] 
+**comment** | **String** | Optional comment | [optional] 
+**includedActions** | **[String]** | Optional list of the flag changes to copy from the source environment to the target environment. You may include either &lt;code&gt;includedActions&lt;/code&gt; or &lt;code&gt;excludedActions&lt;/code&gt;, but not both. If you include neither, then all flag changes will be copied. | [optional] 
+**excludedActions** | **[String]** | Optional list of the flag changes NOT to copy from the source environment to the target environment. You may include either  &lt;code&gt;includedActions&lt;/code&gt; or &lt;code&gt;excludedActions&lt;/code&gt;, but not both. If you include neither, then all flag changes will be copied. | [optional] 
 
 
 

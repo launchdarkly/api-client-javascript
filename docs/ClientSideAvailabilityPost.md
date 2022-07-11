@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**usingEnvironmentId** | **Boolean** |  | 
-**usingMobileKey** | **Boolean** |  | 
+**usingEnvironmentId** | **Boolean** | Whether to enable availability for client-side SDKs. | 
+**usingMobileKey** | **Boolean** | Whether to enable availability for mobile SDKs. | 
 
 

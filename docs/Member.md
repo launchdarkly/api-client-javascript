@@ -15,12 +15,13 @@ Name | Type | Description | Notes
 **pendingEmail** | **String** |  | [optional] 
 **customRoles** | **[String]** | The set of custom roles (as keys) assigned to the member | 
 **mfa** | **String** | Whether or not multi-factor authentication is enabled for this member | 
-**excludedDashboards** | **[String]** | Default dashboards that the member has chosen to ignore | 
+**excludedDashboards** | **[String]** | Default dashboards that the member has chosen to ignore | [optional] 
 **lastSeen** | **Number** |  | 
 **lastSeenMetadata** | [**LastSeenMetadata**](LastSeenMetadata.md) |  | [optional] 
 **integrationMetadata** | [**IntegrationMetadata**](IntegrationMetadata.md) |  | [optional] 
 **teams** | [**[MemberTeamSummaryRep]**](MemberTeamSummaryRep.md) |  | [optional] 
 **permissionGrants** | [**[MemberPermissionGrantSummaryRep]**](MemberPermissionGrantSummaryRep.md) |  | [optional] 
 **creationDate** | **Number** |  | 
+**oauthProviders** | **[String]** |  | [optional] 
 
 

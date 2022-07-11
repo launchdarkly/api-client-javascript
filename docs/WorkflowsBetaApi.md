@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Delete workflow
 
-Delete a workflow from a feature flag
+Delete a workflow from a feature flag.
 
 ### Example
 
@@ -74,7 +74,7 @@ null (empty response body)
 
 Get custom workflow
 
-Get a specific workflow by ID
+Get a specific workflow by ID.
 
 ### Example
 
@@ -131,7 +131,7 @@ Name | Type | Description  | Notes
 
 Get workflows
 
-Get workflows from a feature flag
+Display workflows associated with a feature flag.
 
 ### Example
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 Create workflow
 
-Create a workflow for a feature flag
+Create a workflow for a feature flag.
 
 ### Example
 
@@ -203,7 +203,7 @@ let apiInstance = new LaunchDarklyApi.WorkflowsBetaApi();
 let projectKey = "projectKey_example"; // String | The project key
 let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
-let customWorkflowInputRep = new LaunchDarklyApi.CustomWorkflowInputRep(); // CustomWorkflowInputRep | 
+let customWorkflowInputRep = {"description":"Turn flag on for 10% of users each day","name":"Progressive rollout starting in two days","stages":[{"action":{"instructions":[{"kind":"turnFlagOn"},{"kind":"updateFallthroughVariationOrRollout","rolloutWeights":{"452f5fb5-7320-4ba3-81a1-8f4324f79d49":90000,"fc15f6a4-05d3-4aa4-a997-446be461345d":10000}}]},"conditions":[{"kind":"schedule","scheduleKind":"relative","waitDuration":2,"waitDurationUnit":"calendarDay"}],"name":"10% rollout on day 1"}]}; // CustomWorkflowInputRep | 
 apiInstance.postWorkflow(projectKey, featureFlagKey, environmentKey, customWorkflowInputRep, (error, data, response) => {
   if (error) {
     console.error(error);

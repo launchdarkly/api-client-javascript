@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **creationDate** | **Number** |  | 
 **lastModified** | **Number** |  | 
 **customRoleIds** | **[String]** |  | [optional] 
-**inlineRole** | [**[StatementRep]**](StatementRep.md) |  | [optional] 
+**inlineRole** | [**[Statement]**](Statement.md) |  | [optional] 
 **role** | **String** |  | [optional] 
 **token** | **String** |  | [optional] 
 **serviceToken** | **Boolean** |  | [optional] 

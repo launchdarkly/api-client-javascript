@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **String** |  | [optional] 
 **hypothesis** | **String** |  | 
 **status** | **String** |  | 
+**createdAt** | **Number** |  | 
 **startedAt** | **Number** |  | [optional] 
 **endedAt** | **Number** |  | [optional] 
 **winningTreatmentId** | **String** |  | [optional] 

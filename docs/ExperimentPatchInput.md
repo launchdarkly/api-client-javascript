@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **String** |  | [optional] 
-**instructions** | **[Object]** |  | [optional] 
+**comment** | **String** | Optional comment describing the update | [optional] 
+**instructions** | **[Object]** |  | 
 
 

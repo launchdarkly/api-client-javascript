@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Create audit log subscription
 
-Create an audit log subscription.
+Create an audit log subscription.&lt;br /&gt;&lt;br /&gt;For each subscription, you must specify the set of resources you wish to subscribe to audit log notifications for. You can describe these resources using a custom role policy. To learn more, read [Custom role concepts](https://docs.launchdarkly.com/home/members/role-concepts).
 
 ### Example
 
@@ -33,7 +33,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.IntegrationAuditLogSubscriptionsApi();
 let integrationKey = "integrationKey_example"; // String | The integration key
-let subscriptionPost = new LaunchDarklyApi.SubscriptionPost(); // SubscriptionPost | 
+let subscriptionPost = {"config":{"optional":"an optional property","required":"the required property","url":"https://example.com"},"name":"Example audit log subscription.","on":false,"statements":[{"actions":["*"],"effect":"allow","resources":["proj/*:env/*:flag/*;testing-tag"]}],"tags":["testing-tag"]}; // SubscriptionPost | 
 apiInstance.createSubscription(integrationKey, subscriptionPost, (error, data, response) => {
   if (error) {
     console.error(error);

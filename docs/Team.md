@@ -12,5 +12,9 @@ Name | Type | Description | Notes
 **links** | [**{String: Link}**](Link.md) |  | [optional] 
 **lastModified** | **Number** |  | [optional] 
 **version** | **Number** |  | [optional] 
+**roles** | [**TeamCustomRoles**](TeamCustomRoles.md) |  | [optional] 
+**members** | [**TeamMembers**](TeamMembers.md) |  | [optional] 
+**projects** | [**TeamProjects**](TeamProjects.md) |  | [optional] 
+**maintainers** | [**TeamMaintainers**](TeamMaintainers.md) |  | [optional] 
 
 

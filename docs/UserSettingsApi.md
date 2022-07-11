@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 Get flag setting for user
 
-Get a single flag setting for a user by key. The most important attribute in the response is the &#x60;_value&#x60;. The &#x60;_value&#x60; is the current setting that the user sees. For a boolean feature toggle, this is &#x60;true&#x60;, &#x60;false&#x60;, or &#x60;null&#x60;. &#x60;null&#x60; returns if there is no defined fallback value. The example response indicates that the user &#x60;Abbie_Braun&#x60; has the &#x60;sort.order&#x60; flag enabled.&lt;br /&gt;&lt;br /&gt;The setting attribute indicates whether you&#39;ve explicitly targeted a user to receive a particular variation. For example, if you have turned off a feature flag for a user, this setting will be &#x60;false&#x60;. A setting of &#x60;null&#x60; means that you haven&#39;t assigned that user to a specific variation.
+Get a single flag setting for a user by flag key. &lt;br /&gt;&lt;br /&gt;The &#x60;_value&#x60; is the flag variation that the user receives. The &#x60;setting&#x60; indicates whether you&#39;ve explicitly targeted a user to receive a particular variation. For example, if you have turned off a feature flag for a user, this setting will be &#x60;false&#x60;. The example response indicates that the user &#x60;Abbie_Braun&#x60; has the &#x60;sort.order&#x60; flag enabled.
 
 ### Example
 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 List flag settings for user
 
-Get the current flag settings for a given user. The most important attribute in the response is the &#x60;_value&#x60;. The &#x60;_value&#x60; is the setting that the user sees. For a boolean feature toggle, this is &#x60;true&#x60;, &#x60;false&#x60;, or &#x60;null&#x60;. &#x60;null&#x60; returns if there is no defined fallthrough value. The example response indicates that the user &#x60;Abbie_Braun&#x60; has the &#x60;sort.order&#x60; flag enabled and the &#x60;alternate.page&#x60; flag disabled.&lt;br /&gt;&lt;br /&gt;The setting attribute indicates whether you&#39;ve explicitly targeted a user to receive a particular variation. For example, if you have turned off a feature flag for a user, this setting will be &#x60;false&#x60;. A setting of &#x60;null&#x60; means that you haven&#39;t assigned that user to a specific variation.
+Get the current flag settings for a given user. &lt;br /&gt;&lt;br /&gt;The &#x60;_value&#x60; is the flag variation that the user receives. The &#x60;setting&#x60; indicates whether you&#39;ve explicitly targeted a user to receive a particular variation. For example, if you have turned off a feature flag for a user, this setting will be &#x60;false&#x60;. The example response indicates that the user &#x60;Abbie_Braun&#x60; has the &#x60;sort.order&#x60; flag enabled and the &#x60;alternate.page&#x60; flag disabled, and that the user has not been explicitly targeted to receive a particular variation.
 
 ### Example
 
@@ -181,11 +181,11 @@ Name | Type | Description  | Notes
 
 ## patchExpiringFlagsForUser
 
-> ExpiringUserTargetPatchResponse patchExpiringFlagsForUser(projectKey, userKey, environmentKey, patchWithComment)
+> ExpiringUserTargetPatchResponse patchExpiringFlagsForUser(projectKey, userKey, environmentKey, patchUsersRequest)
 
 Update expiring user target for flags
 
-Schedule the specified user for removal from individual user targeting on one or more flags. You can only schedule a user for removal on a single variation per flag.  To learn more about semantic patches, read [Updates](/#section/Updates).  If you previously patched the flag, and the patch included the user&#39;s data, LaunchDarkly continues to use that data. If LaunchDarkly has never encountered the user&#39;s key before, it calculates the flag values based on the user key alone. 
+Schedule the specified user for removal from individual targeting on one or more flags. The user must already be individually targeted for each flag.  You can add, update, or remove a scheduled removal date. You can only schedule a user for removal on a single variation per flag.  This request only supports semantic patches. To make a semantic patch request, you must append &#x60;domain-model&#x3D;launchdarkly.semanticpatch&#x60; to your &#x60;Content-Type&#x60; header. To learn more, read [Updates using semantic patch](/reference#updates-using-semantic-patch).  ### Instructions  #### addExpireUserTargetDate  Adds a date and time that LaunchDarkly will remove the user from the flag&#39;s individual targeting.  ##### Parameters  * &#x60;value&#x60;: The time, in Unix milliseconds, when LaunchDarkly should remove the user from individual targeting for this flag.  #### updateExpireUserTargetDate  Updates the date and time that LaunchDarkly will remove the user from the flag&#39;s individual targeting.  ##### Parameters  * &#x60;value&#x60;: The time, in Unix milliseconds, when LaunchDarkly should remove the user from individual targeting for this flag. * &#x60;version&#x60;: The version of the flag variation to update. You can retrieve this by making a GET request for the flag.  #### removeExpireUserTargetDate  Removes the scheduled removal of the user from the flag&#39;s individual targeting. The user will remain part of the flag&#39;s individual targeting until explicitly removed, or until another removal is scheduled. 
 
 ### Example
 
@@ -202,8 +202,8 @@ let apiInstance = new LaunchDarklyApi.UserSettingsApi();
 let projectKey = "projectKey_example"; // String | The project key
 let userKey = "userKey_example"; // String | The user key
 let environmentKey = "environmentKey_example"; // String | The environment key
-let patchWithComment = new LaunchDarklyApi.PatchWithComment(); // PatchWithComment | 
-apiInstance.patchExpiringFlagsForUser(projectKey, userKey, environmentKey, patchWithComment, (error, data, response) => {
+let patchUsersRequest = new LaunchDarklyApi.PatchUsersRequest(); // PatchUsersRequest | 
+apiInstance.patchExpiringFlagsForUser(projectKey, userKey, environmentKey, patchUsersRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
  **projectKey** | **String**| The project key | 
  **userKey** | **String**| The user key | 
  **environmentKey** | **String**| The environment key | 
- **patchWithComment** | [**PatchWithComment**](PatchWithComment.md)|  | 
+ **patchUsersRequest** | [**PatchUsersRequest**](PatchUsersRequest.md)|  | 
 
 ### Return type
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 Update flag settings for user
 
-Enable or disable a feature flag for a user based on their key.  To change the setting, send a &#x60;PUT&#x60; request to this URL with a request body containing the flag value. For example, to disable the sort.order flag for the user &#x60;test@test.com&#x60;, send a &#x60;PUT&#x60; to &#x60;https://app.launchdarkly.com/api/v2/users/default/production/test@test.com/flags/sort.order&#x60; with the following body:  &#x60;&#x60;&#x60;json {   \&quot;setting\&quot;: false } &#x60;&#x60;&#x60;  Omitting the setting attribute, or a setting of null, in your &#x60;PUT&#x60; \&quot;clears\&quot; the current setting for a user.  If you previously patched the flag, and the patch included the user&#39;s data, LaunchDarkly continues to use that data. If LaunchDarkly has never encountered the user&#39;s key before, it calculates the flag values based on the user key alone. 
+Enable or disable a feature flag for a user based on their key.  Omitting the &#x60;setting&#x60; attribute from the request body, or including a &#x60;setting&#x60; of &#x60;null&#x60;, erases the current setting for a user.  If you previously patched the flag, and the patch included the user&#39;s data, LaunchDarkly continues to use that data. If LaunchDarkly has never encountered the user&#39;s key before, it calculates the flag values based on the user key alone. 
 
 ### Example
 

@@ -220,7 +220,7 @@ Name | Type | Description  | Notes
 
 Creates a webhook
 
-Create a new webhook
+Create a new webhook.
 
 ### Example
 
@@ -234,7 +234,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.WebhooksApi();
-let webhookPost = {"name":"apidocs test webhook","on":true,"sign":false,"statements":[{"actions":["*"],"effect":"allow","resources":["proj/test"]}],"tags":[],"url":"https://example.com"}; // WebhookPost | 
+let webhookPost = {"name":"apidocs test webhook","on":true,"sign":false,"statements":[{"actions":["*"],"effect":"allow","resources":["proj/test"]}],"tags":["example-tag"],"url":"https://example.com"}; // WebhookPost | 
 apiInstance.postWebhook(webhookPost, (error, data, response) => {
   if (error) {
     console.error(error);

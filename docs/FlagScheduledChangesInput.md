@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**comment** | **String** |  | [optional] 
+**comment** | **String** | Optional comment describing the update to the scheduled changes | [optional] 
 **instructions** | **[Object]** |  | 
 
 
