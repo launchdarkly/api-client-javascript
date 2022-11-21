@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**{String: Link}**](Link.md) |  | [optional] 
-**items** | [**[CustomRole]**](CustomRole.md) |  | [optional] 
+**links** | [**{String: Link}**](Link.md) | The location and content type of related resources | [optional] 
+**items** | [**[CustomRole]**](CustomRole.md) | An array of custom roles | [optional] 
 
 

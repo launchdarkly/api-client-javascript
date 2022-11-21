@@ -5,8 +5,8 @@ All URIs are relative to *https://app.launchdarkly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteApprovalRequest**](ApprovalsApi.md#deleteApprovalRequest) | **DELETE** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id} | Delete approval request
-[**getApproval**](ApprovalsApi.md#getApproval) | **GET** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id} | Get approval request
-[**getApprovals**](ApprovalsApi.md#getApprovals) | **GET** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests | List all approval requests
+[**getApprovalForFlag**](ApprovalsApi.md#getApprovalForFlag) | **GET** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id} | Get approval request for a flag
+[**getApprovalsForFlag**](ApprovalsApi.md#getApprovalsForFlag) | **GET** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests | List approval requests for a flag
 [**postApprovalRequest**](ApprovalsApi.md#postApprovalRequest) | **POST** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests | Create approval request
 [**postApprovalRequestApplyRequest**](ApprovalsApi.md#postApprovalRequestApplyRequest) | **POST** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}/apply | Apply approval request
 [**postApprovalRequestReview**](ApprovalsApi.md#postApprovalRequestReview) | **POST** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}/reviews | Review approval request
@@ -71,11 +71,11 @@ null (empty response body)
 - **Accept**: application/json
 
 
-## getApproval
+## getApprovalForFlag
 
-> FlagConfigApprovalRequestResponse getApproval(projectKey, featureFlagKey, environmentKey, id)
+> FlagConfigApprovalRequestResponse getApprovalForFlag(projectKey, featureFlagKey, environmentKey, id)
 
-Get approval request
+Get approval request for a flag
 
 Get a single approval request for a feature flag.
 
@@ -95,7 +95,7 @@ let projectKey = "projectKey_example"; // String | The project key
 let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The feature flag approval request ID
-apiInstance.getApproval(projectKey, featureFlagKey, environmentKey, id, (error, data, response) => {
+apiInstance.getApprovalForFlag(projectKey, featureFlagKey, environmentKey, id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -128,11 +128,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## getApprovals
+## getApprovalsForFlag
 
-> FlagConfigApprovalRequestsResponse getApprovals(projectKey, featureFlagKey, environmentKey)
+> FlagConfigApprovalRequestsResponse getApprovalsForFlag(projectKey, featureFlagKey, environmentKey)
 
-List all approval requests
+List approval requests for a flag
 
 Get all approval requests for a feature flag.
 
@@ -151,7 +151,7 @@ let apiInstance = new LaunchDarklyApi.ApprovalsApi();
 let projectKey = "projectKey_example"; // String | The project key
 let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
-apiInstance.getApprovals(projectKey, featureFlagKey, environmentKey, (error, data, response) => {
+apiInstance.getApprovalsForFlag(projectKey, featureFlagKey, environmentKey, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

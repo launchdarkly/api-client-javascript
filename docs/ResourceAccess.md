@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **action** | **String** |  | [optional] 
-**resource** | **{String: Object}** |  | [optional] 
+**resource** | **String** |  | [optional] 
 
 

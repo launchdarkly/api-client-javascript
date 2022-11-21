@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**{String: Link}**](Link.md) | Links to related resources. | 
+**links** | [**{String: Link}**](Link.md) | The location and content type of related resources | 
 **name** | **String** | Client name | 
 **description** | **String** | Client description | [optional] 
 **accountId** | **String** | The account ID the client is registered under | 

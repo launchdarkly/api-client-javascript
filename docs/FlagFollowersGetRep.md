@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**{String: Link}**](Link.md) |  | 
-**items** | [**[FollowFlagMember]**](FollowFlagMember.md) |  | [optional] 
+**links** | [**{String: Link}**](Link.md) | The location and content type of related resources | 
+**items** | [**[FollowFlagMember]**](FollowFlagMember.md) | An array of members who are following this flag | [optional] 
 
 

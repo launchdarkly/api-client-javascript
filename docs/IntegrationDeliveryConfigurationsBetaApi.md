@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 Validate delivery configuration
 
-Validate the saved delivery configuration.
+Validate the saved delivery configuration, using the &#x60;validationRequest&#x60; in the integration&#39;s &#x60;manifest.json&#x60; file.
 
 ### Example
 

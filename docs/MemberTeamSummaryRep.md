@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**customRoleKeys** | **[String]** |  | 
-**key** | **String** |  | 
-**name** | **String** |  | 
+**customRoleKeys** | **[String]** | A list of keys of the custom roles this team has access to | 
+**key** | **String** | The team key | 
+**name** | **String** | The team name | 
 
 

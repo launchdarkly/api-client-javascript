@@ -67,11 +67,11 @@ null (empty response body)
 
 ## getMetric
 
-> MetricRep getMetric(projectKey, metricKey)
+> MetricRep getMetric(projectKey, metricKey, opts)
 
 Get metric
 
-Get information for a single metric from the specific project.
+Get information for a single metric from the specific project.  ### Expanding the metric response LaunchDarkly supports two fields for expanding the \&quot;Get metric\&quot; response. By default, these fields are **not** included in the response.  To expand the response, append the &#x60;expand&#x60; query parameter and add a comma-separated list with any of the following fields:  - &#x60;experiments&#x60; includes all experiments from the specific project that use the metric - &#x60;experimentCount&#x60; includes the number of experiments from the specific project that use the metric  For example, &#x60;expand&#x3D;experiments&#x60; includes the &#x60;experiments&#x60; field in the response. 
 
 ### Example
 
@@ -87,7 +87,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new LaunchDarklyApi.MetricsApi();
 let projectKey = "projectKey_example"; // String | The project key
 let metricKey = "metricKey_example"; // String | The metric key
-apiInstance.getMetric(projectKey, metricKey, (error, data, response) => {
+let opts = {
+  'expand': "expand_example" // String | A comma-separated list of properties that can reveal additional information in the response.
+};
+apiInstance.getMetric(projectKey, metricKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -103,6 +106,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
  **metricKey** | **String**| The metric key | 
+ **expand** | **String**| A comma-separated list of properties that can reveal additional information in the response. | [optional] 
 
 ### Return type
 
@@ -120,11 +124,11 @@ Name | Type | Description  | Notes
 
 ## getMetrics
 
-> MetricCollectionRep getMetrics(projectKey)
+> MetricCollectionRep getMetrics(projectKey, opts)
 
 List metrics
 
-Get a list of all metrics for the specified project.
+Get a list of all metrics for the specified project.  ### Expanding the metric list response LaunchDarkly supports expanding the \&quot;List metrics\&quot; response. By default, the expandable field is **not** included in the response.  To expand the response, append the &#x60;expand&#x60; query parameter and add the following supported field:  - &#x60;experimentCount&#x60; includes the number of experiments from the specific project that use the metric  For example, &#x60;expand&#x3D;experimentCount&#x60; includes the &#x60;experimentCount&#x60; field for each metric in the response. 
 
 ### Example
 
@@ -139,7 +143,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.MetricsApi();
 let projectKey = "projectKey_example"; // String | The project key
-apiInstance.getMetrics(projectKey, (error, data, response) => {
+let opts = {
+  'expand': "expand_example" // String | A comma-separated list of properties that can reveal additional information in the response.
+};
+apiInstance.getMetrics(projectKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -154,6 +161,7 @@ apiInstance.getMetrics(projectKey, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
+ **expand** | **String**| A comma-separated list of properties that can reveal additional information in the response. | [optional] 
 
 ### Return type
 

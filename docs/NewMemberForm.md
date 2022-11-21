@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **lastName** | **String** | The member&#39;s last name | [optional] 
 **role** | **String** | The member&#39;s built-in role | [optional] 
 **customRoles** | **[String]** | An array of the member&#39;s custom roles | [optional] 
+**teamKeys** | **[String]** | An array of the member&#39;s teams | [optional] 
 
 
 

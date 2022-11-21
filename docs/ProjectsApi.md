@@ -5,10 +5,13 @@ All URIs are relative to *https://app.launchdarkly.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**deleteProject**](ProjectsApi.md#deleteProject) | **DELETE** /api/v2/projects/{projectKey} | Delete project
+[**getFlagDefaultsByProject**](ProjectsApi.md#getFlagDefaultsByProject) | **GET** /api/v2/projects/{projectKey}/flag-defaults | Get flag defaults for project
 [**getProject**](ProjectsApi.md#getProject) | **GET** /api/v2/projects/{projectKey} | Get project
 [**getProjects**](ProjectsApi.md#getProjects) | **GET** /api/v2/projects | List projects
+[**patchFlagDefaultsByProject**](ProjectsApi.md#patchFlagDefaultsByProject) | **PATCH** /api/v2/projects/{projectKey}/flag-defaults | Update flag default for project
 [**patchProject**](ProjectsApi.md#patchProject) | **PATCH** /api/v2/projects/{projectKey} | Update project
 [**postProject**](ProjectsApi.md#postProject) | **POST** /api/v2/projects | Create project
+[**putFlagDefaultsByProject**](ProjectsApi.md#putFlagDefaultsByProject) | **PUT** /api/v2/projects/{projectKey}/flag-defaults | Create or update flag defaults for project
 
 
 
@@ -52,6 +55,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getFlagDefaultsByProject
+
+> FlagDefaultsRep getFlagDefaultsByProject(projectKey)
+
+Get flag defaults for project
+
+Get the flag defaults for a specific project.
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.ProjectsApi();
+let projectKey = "projectKey_example"; // String | The project key
+apiInstance.getFlagDefaultsByProject(projectKey, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectKey** | **String**| The project key | 
+
+### Return type
+
+[**FlagDefaultsRep**](FlagDefaultsRep.md)
 
 ### Authorization
 
@@ -142,6 +196,7 @@ let opts = {
   'limit': 789, // Number | The number of projects to return in the response. Defaults to 20.
   'offset': 789, // Number | Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and returns the next `limit` items.
   'filter': "filter_example", // String | A comma-separated list of filters. Each filter is constructed as `field:value`.
+  'sort': "sort_example", // String | A comma-separated list of fields to sort by. Fields prefixed by a dash ( - ) sort in descending order.
   'expand': "expand_example" // String | A comma-separated list of properties that can reveal additional information in the response.
 };
 apiInstance.getProjects(opts, (error, data, response) => {
@@ -161,6 +216,7 @@ Name | Type | Description  | Notes
  **limit** | **Number**| The number of projects to return in the response. Defaults to 20. | [optional] 
  **offset** | **Number**| Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and returns the next &#x60;limit&#x60; items. | [optional] 
  **filter** | **String**| A comma-separated list of filters. Each filter is constructed as &#x60;field:value&#x60;. | [optional] 
+ **sort** | **String**| A comma-separated list of fields to sort by. Fields prefixed by a dash ( - ) sort in descending order. | [optional] 
  **expand** | **String**| A comma-separated list of properties that can reveal additional information in the response. | [optional] 
 
 ### Return type
@@ -174,6 +230,59 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## patchFlagDefaultsByProject
+
+> UpsertPayloadRep patchFlagDefaultsByProject(projectKey, patchOperation)
+
+Update flag default for project
+
+Update a flag default. Requires a [JSON Patch](https://datatracker.ietf.org/doc/html/rfc6902) representation of the desired changes to the flag default.
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.ProjectsApi();
+let projectKey = "projectKey_example"; // String | The project key
+let patchOperation = [new LaunchDarklyApi.PatchOperation()]; // [PatchOperation] | 
+apiInstance.patchFlagDefaultsByProject(projectKey, patchOperation, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectKey** | **String**| The project key | 
+ **patchOperation** | [**[PatchOperation]**](PatchOperation.md)|  | 
+
+### Return type
+
+[**UpsertPayloadRep**](UpsertPayloadRep.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -270,6 +379,59 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ProjectRep**](ProjectRep.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## putFlagDefaultsByProject
+
+> UpsertPayloadRep putFlagDefaultsByProject(projectKey, upsertFlagDefaultsPayload)
+
+Create or update flag defaults for project
+
+Create or update flag defaults for a project.
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.ProjectsApi();
+let projectKey = "projectKey_example"; // String | The project key
+let upsertFlagDefaultsPayload = new LaunchDarklyApi.UpsertFlagDefaultsPayload(); // UpsertFlagDefaultsPayload | 
+apiInstance.putFlagDefaultsByProject(projectKey, upsertFlagDefaultsPayload, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectKey** | **String**| The project key | 
+ **upsertFlagDefaultsPayload** | [**UpsertFlagDefaultsPayload**](UpsertFlagDefaultsPayload.md)|  | 
+
+### Return type
+
+[**UpsertPayloadRep**](UpsertPayloadRep.md)
 
 ### Authorization
 

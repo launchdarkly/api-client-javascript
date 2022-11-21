@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **status** | **String** | Current status of the approval request | 
 **instructions** | **[Object]** |  | 
 **conflicts** | [**[Conflict]**](Conflict.md) | Details on any conflicting approval requests | 
-**links** | [**{String: Link}**](Link.md) | Links to other resources within the API. Includes the URL and content type of those resources. | 
+**links** | [**{String: Link}**](Link.md) | The location and content type of related resources | 
 **executionDate** | **Number** |  | [optional] 
 **operatingOnId** | **String** | ID of scheduled change to edit or delete | [optional] 
 **integrationMetadata** | [**IntegrationMetadata**](IntegrationMetadata.md) |  | [optional] 

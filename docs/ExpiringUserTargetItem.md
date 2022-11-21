@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**version** | **Number** |  | 
+**id** | **String** | The ID of this expiring user target | 
+**version** | **Number** | The version of this expiring user target | 
 **expirationDate** | **Number** |  | 
 **userKey** | **String** | A unique key used to represent the user | 
 **targetType** | **String** | A segment&#39;s target type. Included when expiring user targets are updated on a user segment. | [optional] 

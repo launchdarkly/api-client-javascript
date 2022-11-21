@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ever** | **Boolean** |  | [optional] 
-**timestamp** | **Number** |  | [optional] 
+**ever** | **Boolean** | Whether the metric has received an event for this iteration | [optional] 
+**timestamp** | **Number** | Timestamp of when the metric most recently received an event for this iteration | [optional] 
 
 

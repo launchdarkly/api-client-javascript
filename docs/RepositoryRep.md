@@ -21,11 +21,13 @@ Name | Type | Description | Notes
 ## Enum: TypeEnum
 
 
-* `github` (value: `"github"`)
-
 * `bitbucket` (value: `"bitbucket"`)
 
 * `custom` (value: `"custom"`)
+
+* `github` (value: `"github"`)
+
+* `gitlab` (value: `"gitlab"`)
 
 
 

@@ -156,9 +156,9 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.AccountUsageBetaApi();
 let opts = {
-  'from': "from_example", // String | The series of data returned starts from this timestamp. Defaults to seven days ago.
-  'to': "to_example", // String | The series of data returned ends at this timestamp. Defaults to the current time.
-  'sdktype': "sdktype_example" // String | The type of SDK with monthly active users (MAU) to list. Must be either `client` or `server`
+  'from': "from_example", // String | The data returned starts from this timestamp. Defaults to seven days ago. The timestamp is in Unix milliseconds, for example, 1656694800000.
+  'to': "to_example", // String | The data returned ends at this timestamp. Defaults to the current time. The timestamp is in Unix milliseconds, for example, 1657904400000.
+  'sdktype': "sdktype_example" // String | The type of SDK with monthly active users (MAU) to list. Must be either `client` or `server`.
 };
 apiInstance.getMauSdksByType(opts, (error, data, response) => {
   if (error) {
@@ -174,9 +174,9 @@ apiInstance.getMauSdksByType(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **String**| The series of data returned starts from this timestamp. Defaults to seven days ago. | [optional] 
- **to** | **String**| The series of data returned ends at this timestamp. Defaults to the current time. | [optional] 
- **sdktype** | **String**| The type of SDK with monthly active users (MAU) to list. Must be either &#x60;client&#x60; or &#x60;server&#x60; | [optional] 
+ **from** | **String**| The data returned starts from this timestamp. Defaults to seven days ago. The timestamp is in Unix milliseconds, for example, 1656694800000. | [optional] 
+ **to** | **String**| The data returned ends at this timestamp. Defaults to the current time. The timestamp is in Unix milliseconds, for example, 1657904400000. | [optional] 
+ **sdktype** | **String**| The type of SDK with monthly active users (MAU) to list. Must be either &#x60;client&#x60; or &#x60;server&#x60;. | [optional] 
 
 ### Return type
 

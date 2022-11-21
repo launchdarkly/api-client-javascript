@@ -15,10 +15,10 @@ Name | Type | Description | Notes
 **variations** | [**[Variation]**](Variation.md) | An array of possible variations for the flag | 
 **temporary** | **Boolean** | Whether the flag is a temporary flag | 
 **tags** | **[String]** | Tags for the feature flag | 
-**links** | [**{String: Link}**](Link.md) |  | 
+**links** | [**{String: Link}**](Link.md) | The location and content type of related resources | 
 **maintainerId** | **String** | Associated maintainerId for the feature flag | [optional] 
 **maintainer** | [**MemberSummary**](MemberSummary.md) |  | [optional] 
-**goalIds** | **[String]** |  | [optional] 
+**goalIds** | **[String]** | Deprecated | [optional] 
 **experiments** | [**ExperimentInfoRep**](ExperimentInfoRep.md) |  | 
 **customProperties** | [**{String: CustomProperty}**](CustomProperty.md) |  | 
 **archived** | **Boolean** | Boolean indicating if the feature flag is archived | 
