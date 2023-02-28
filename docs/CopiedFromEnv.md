@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | **String** | Key of feature flag copied | 
-**version** | **Number** |  | [optional] 
+**version** | **Number** | Version of feature flag copied | [optional] 
 
 

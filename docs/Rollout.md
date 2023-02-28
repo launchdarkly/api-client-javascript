@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **experimentAllocation** | [**ExperimentAllocationRep**](ExperimentAllocationRep.md) |  | [optional] 
 **seed** | **Number** |  | [optional] 
 **bucketBy** | **String** |  | [optional] 
+**contextKind** | **String** |  | [optional] 
 
 

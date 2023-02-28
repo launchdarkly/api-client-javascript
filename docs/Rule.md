@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**variation** | **Number** |  | [optional] 
+**id** | **String** | The flag rule ID | [optional] 
+**variation** | **Number** | The index of the variation, from the array of variations for this flag | [optional] 
 **rollout** | [**Rollout**](Rollout.md) |  | [optional] 
-**clauses** | [**[Clause]**](Clause.md) |  | 
-**trackEvents** | **Boolean** |  | 
-**description** | **String** |  | [optional] 
+**clauses** | [**[Clause]**](Clause.md) | An array of clauses used for individual targeting based on attributes | 
+**trackEvents** | **Boolean** | Whether LaunchDarkly tracks events for this rule | 
+**description** | **String** | The rule description | [optional] 
 **ref** | **String** |  | [optional] 
 
 

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **attribute** | **String** |  | 
 **op** | **String** |  | 
 **values** | **[Object]** |  | 
+**contextKind** | **String** |  | [optional] 
 **negate** | **Boolean** |  | 
 
 

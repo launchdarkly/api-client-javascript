@@ -4,21 +4,21 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteApprovalRequest**](ApprovalsApi.md#deleteApprovalRequest) | **DELETE** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id} | Delete approval request
+[**deleteApprovalRequestForFlag**](ApprovalsApi.md#deleteApprovalRequestForFlag) | **DELETE** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id} | Delete approval request for a flag
 [**getApprovalForFlag**](ApprovalsApi.md#getApprovalForFlag) | **GET** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id} | Get approval request for a flag
 [**getApprovalsForFlag**](ApprovalsApi.md#getApprovalsForFlag) | **GET** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests | List approval requests for a flag
-[**postApprovalRequest**](ApprovalsApi.md#postApprovalRequest) | **POST** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests | Create approval request
-[**postApprovalRequestApplyRequest**](ApprovalsApi.md#postApprovalRequestApplyRequest) | **POST** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}/apply | Apply approval request
-[**postApprovalRequestReview**](ApprovalsApi.md#postApprovalRequestReview) | **POST** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}/reviews | Review approval request
+[**postApprovalRequestApplyForFlag**](ApprovalsApi.md#postApprovalRequestApplyForFlag) | **POST** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}/apply | Apply approval request for a flag
+[**postApprovalRequestForFlag**](ApprovalsApi.md#postApprovalRequestForFlag) | **POST** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests | Create approval request for a flag
+[**postApprovalRequestReviewForFlag**](ApprovalsApi.md#postApprovalRequestReviewForFlag) | **POST** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}/reviews | Review approval request for a flag
 [**postFlagCopyConfigApprovalRequest**](ApprovalsApi.md#postFlagCopyConfigApprovalRequest) | **POST** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests-flag-copy | Create approval request to copy flag configurations across environments
 
 
 
-## deleteApprovalRequest
+## deleteApprovalRequestForFlag
 
-> deleteApprovalRequest(projectKey, featureFlagKey, environmentKey, id)
+> deleteApprovalRequestForFlag(projectKey, featureFlagKey, environmentKey, id)
 
-Delete approval request
+Delete approval request for a flag
 
 Delete an approval request for a feature flag.
 
@@ -38,7 +38,7 @@ let projectKey = "projectKey_example"; // String | The project key
 let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The feature flag approval request ID
-apiInstance.deleteApprovalRequest(projectKey, featureFlagKey, environmentKey, id, (error, data, response) => {
+apiInstance.deleteApprovalRequestForFlag(projectKey, featureFlagKey, environmentKey, id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -183,68 +183,11 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## postApprovalRequest
+## postApprovalRequestApplyForFlag
 
-> FlagConfigApprovalRequestResponse postApprovalRequest(projectKey, featureFlagKey, environmentKey, createFlagConfigApprovalRequestRequest)
+> FlagConfigApprovalRequestResponse postApprovalRequestApplyForFlag(projectKey, featureFlagKey, environmentKey, id, postApprovalRequestApplyRequest)
 
-Create approval request
-
-Create an approval request for a feature flag.
-
-### Example
-
-```javascript
-import LaunchDarklyApi from 'launchdarkly-api';
-let defaultClient = LaunchDarklyApi.ApiClient.instance;
-// Configure API key authorization: ApiKey
-let ApiKey = defaultClient.authentications['ApiKey'];
-ApiKey.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.apiKeyPrefix = 'Token';
-
-let apiInstance = new LaunchDarklyApi.ApprovalsApi();
-let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
-let environmentKey = "environmentKey_example"; // String | The environment key
-let createFlagConfigApprovalRequestRequest = new LaunchDarklyApi.CreateFlagConfigApprovalRequestRequest(); // CreateFlagConfigApprovalRequestRequest | 
-apiInstance.postApprovalRequest(projectKey, featureFlagKey, environmentKey, createFlagConfigApprovalRequestRequest, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag key | 
- **environmentKey** | **String**| The environment key | 
- **createFlagConfigApprovalRequestRequest** | [**CreateFlagConfigApprovalRequestRequest**](CreateFlagConfigApprovalRequestRequest.md)|  | 
-
-### Return type
-
-[**FlagConfigApprovalRequestResponse**](FlagConfigApprovalRequestResponse.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## postApprovalRequestApplyRequest
-
-> FlagConfigApprovalRequestResponse postApprovalRequestApplyRequest(projectKey, featureFlagKey, environmentKey, id, postApprovalRequestApplyRequest)
-
-Apply approval request
+Apply approval request for a flag
 
 Apply an approval request that has been approved.
 
@@ -265,7 +208,7 @@ let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The feature flag approval request ID
 let postApprovalRequestApplyRequest = new LaunchDarklyApi.PostApprovalRequestApplyRequest(); // PostApprovalRequestApplyRequest | 
-apiInstance.postApprovalRequestApplyRequest(projectKey, featureFlagKey, environmentKey, id, postApprovalRequestApplyRequest, (error, data, response) => {
+apiInstance.postApprovalRequestApplyForFlag(projectKey, featureFlagKey, environmentKey, id, postApprovalRequestApplyRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -299,11 +242,68 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## postApprovalRequestReview
+## postApprovalRequestForFlag
 
-> FlagConfigApprovalRequestResponse postApprovalRequestReview(projectKey, featureFlagKey, environmentKey, id, postApprovalRequestReviewRequest)
+> FlagConfigApprovalRequestResponse postApprovalRequestForFlag(projectKey, featureFlagKey, environmentKey, createFlagConfigApprovalRequestRequest)
 
-Review approval request
+Create approval request for a flag
+
+Create an approval request for a feature flag.
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.ApprovalsApi();
+let projectKey = "projectKey_example"; // String | The project key
+let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let createFlagConfigApprovalRequestRequest = new LaunchDarklyApi.CreateFlagConfigApprovalRequestRequest(); // CreateFlagConfigApprovalRequestRequest | 
+apiInstance.postApprovalRequestForFlag(projectKey, featureFlagKey, environmentKey, createFlagConfigApprovalRequestRequest, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectKey** | **String**| The project key | 
+ **featureFlagKey** | **String**| The feature flag key | 
+ **environmentKey** | **String**| The environment key | 
+ **createFlagConfigApprovalRequestRequest** | [**CreateFlagConfigApprovalRequestRequest**](CreateFlagConfigApprovalRequestRequest.md)|  | 
+
+### Return type
+
+[**FlagConfigApprovalRequestResponse**](FlagConfigApprovalRequestResponse.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postApprovalRequestReviewForFlag
+
+> FlagConfigApprovalRequestResponse postApprovalRequestReviewForFlag(projectKey, featureFlagKey, environmentKey, id, postApprovalRequestReviewRequest)
+
+Review approval request for a flag
 
 Review an approval request by approving or denying changes.
 
@@ -324,7 +324,7 @@ let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let id = "id_example"; // String | The feature flag approval request ID
 let postApprovalRequestReviewRequest = new LaunchDarklyApi.PostApprovalRequestReviewRequest(); // PostApprovalRequestReviewRequest | 
-apiInstance.postApprovalRequestReview(projectKey, featureFlagKey, environmentKey, id, postApprovalRequestReviewRequest, (error, data, response) => {
+apiInstance.postApprovalRequestReviewForFlag(projectKey, featureFlagKey, environmentKey, id, postApprovalRequestReviewRequest, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

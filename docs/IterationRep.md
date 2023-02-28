@@ -10,11 +10,12 @@ Name | Type | Description | Notes
 **createdAt** | **Number** |  | 
 **startedAt** | **Number** |  | [optional] 
 **endedAt** | **Number** |  | [optional] 
-**winningTreatmentId** | **String** | The ID of the treatment with the probability to be best | [optional] 
+**winningTreatmentId** | **String** | The ID of the treatment chosen when the experiment stopped | [optional] 
 **winningReason** | **String** | The reason you stopped the experiment | [optional] 
-**canReshuffleTraffic** | **Boolean** | Whether the experiment is allowed to reassign users to different variations (true) or must keep users assigned to their initial variation (false). | [optional] 
+**canReshuffleTraffic** | **Boolean** | Whether the experiment may reassign traffic to different variations when the experiment audience changes (true) or must keep all traffic assigned to its initial variation (false). | [optional] 
 **flags** | [**{String: FlagRep}**](FlagRep.md) | Details on the flag used in this experiment | [optional] 
 **primaryMetric** | [**MetricV2Rep**](MetricV2Rep.md) |  | [optional] 
+**randomizationUnit** | **String** | The unit of randomization for this iteration | [optional] 
 **treatments** | [**[TreatmentRep]**](TreatmentRep.md) | Details on the variations you are testing in the experiment | [optional] 
 **secondaryMetrics** | [**[MetricV2Rep]**](MetricV2Rep.md) | Details on the secondary metrics for this experiment | [optional] 
 

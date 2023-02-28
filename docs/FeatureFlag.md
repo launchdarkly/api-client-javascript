@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **links** | [**{String: Link}**](Link.md) | The location and content type of related resources | 
 **maintainerId** | **String** | Associated maintainerId for the feature flag | [optional] 
 **maintainer** | [**MemberSummary**](MemberSummary.md) |  | [optional] 
+**maintainerTeamKey** | **String** | The key of the associated team that maintains this feature flag | [optional] 
+**maintainerTeam** | [**MaintainerTeam**](MaintainerTeam.md) |  | [optional] 
 **goalIds** | **[String]** | Deprecated | [optional] 
 **experiments** | [**ExperimentInfoRep**](ExperimentInfoRep.md) |  | 
 **customProperties** | [**{String: CustomProperty}**](CustomProperty.md) |  | 

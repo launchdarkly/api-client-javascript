@@ -133,6 +133,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.WorkflowTemplatesBetaApi();
 let opts = {
+  'summary': true, // Boolean | Whether the entire template object or just a summary should be returned
   'search': "search_example" // String | The substring in either the name or description of a template
 };
 apiInstance.getWorkflowTemplates(opts, (error, data, response) => {
@@ -149,6 +150,7 @@ apiInstance.getWorkflowTemplates(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **summary** | **Boolean**| Whether the entire template object or just a summary should be returned | [optional] 
  **search** | **String**| The substring in either the name or description of a template | [optional] 
 
 ### Return type

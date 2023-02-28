@@ -9,8 +9,10 @@ Name | Type | Description | Notes
 **tags** | **[String]** | Tags for the segment. Defaults to an empty array. | 
 **creationDate** | **Number** |  | 
 **key** | **String** | A unique key used to reference the segment | 
-**included** | **[String]** | An array of user keys for included users. Included users are always segment members, regardless of segment rules. For Big Segments this array is either empty or omitted. | [optional] 
-**excluded** | **[String]** | An array of user keys for excluded users. Segment rules bypass excluded users, so they will never be included based on rules. Excluded users may still be included explicitly. This value is omitted for Big Segments. | [optional] 
+**included** | **[String]** | An array of keys for included targets. Included individual targets are always segment members, regardless of segment rules. For Big Segments this array is either empty or omitted. | [optional] 
+**excluded** | **[String]** | An array of keys for excluded targets. Segment rules bypass individual excluded targets, so they will never be included based on rules. Excluded targets may still be included explicitly. This value is omitted for Big Segments. | [optional] 
+**includedContexts** | [**[SegmentTarget]**](SegmentTarget.md) |  | [optional] 
+**excludedContexts** | [**[SegmentTarget]**](SegmentTarget.md) |  | [optional] 
 **links** | [**{String: Link}**](Link.md) | The location and content type of related resources | 
 **rules** | [**[UserSegmentRule]**](UserSegmentRule.md) | An array of the targeting rules for this segment. | 
 **version** | **Number** | Version of the segment | 
@@ -18,6 +20,7 @@ Name | Type | Description | Notes
 **access** | [**Access**](Access.md) |  | [optional] 
 **flags** | [**[FlagListingRep]**](FlagListingRep.md) |  | [optional] 
 **unbounded** | **Boolean** | Whether this is a standard segment (&lt;code&gt;false&lt;/code&gt;) or a Big Segment (&lt;code&gt;true&lt;/code&gt;). If omitted, the segment is a standard segment. | [optional] 
+**unboundedContextKind** | **String** |  | [optional] 
 **generation** | **Number** | For Big Segments, how many times this segment has been created | 
 **unboundedMetadata** | [**SegmentMetadata**](SegmentMetadata.md) |  | [optional] 
 **external** | **String** | The external data store backing this segment. Only applies to Big Segments. | [optional] 

@@ -92,7 +92,7 @@ let opts = {
   'q': "q_example", // String | Full-text search for users based on name, first name, last name, e-mail address, or key
   'limit': 789, // Number | Specifies the maximum number of items in the collection to return (max: 50, default: 20)
   'offset': 789, // Number | Specifies the first item to return in the collection
-  'after': 789, // Number | A unix epoch time in milliseconds specifying the maximum last time a user requested a feature flag from LaunchDarkly
+  'after': 789, // Number | A Unix epoch time in milliseconds specifying the maximum last time a user requested a feature flag from LaunchDarkly
   'sort': "sort_example", // String | Specifies a field by which to sort. LaunchDarkly supports the `userKey` and `lastSeen` fields. Fields prefixed by a dash ( - ) sort in descending order.
   'searchAfter': "searchAfter_example", // String | Limits results to users with sort values after the value you specify. You can use this for pagination, but we recommend using the `next` link we provide instead.
   'filter': "filter_example" // String | A comma-separated list of user attribute filters. Each filter is in the form of attributeKey:attributeValue
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
  **q** | **String**| Full-text search for users based on name, first name, last name, e-mail address, or key | [optional] 
  **limit** | **Number**| Specifies the maximum number of items in the collection to return (max: 50, default: 20) | [optional] 
  **offset** | **Number**| Specifies the first item to return in the collection | [optional] 
- **after** | **Number**| A unix epoch time in milliseconds specifying the maximum last time a user requested a feature flag from LaunchDarkly | [optional] 
+ **after** | **Number**| A Unix epoch time in milliseconds specifying the maximum last time a user requested a feature flag from LaunchDarkly | [optional] 
  **sort** | **String**| Specifies a field by which to sort. LaunchDarkly supports the &#x60;userKey&#x60; and &#x60;lastSeen&#x60; fields. Fields prefixed by a dash ( - ) sort in descending order. | [optional] 
  **searchAfter** | **String**| Limits results to users with sort values after the value you specify. You can use this for pagination, but we recommend using the &#x60;next&#x60; link we provide instead. | [optional] 
  **filter** | **String**| A comma-separated list of user attribute filters. Each filter is in the form of attributeKey:attributeValue | [optional] 

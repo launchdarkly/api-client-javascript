@@ -1,4 +1,4 @@
-# LaunchDarklyApi.IterationExpandableProperties
+# LaunchDarklyApi.DesignExpandableProperties
 
 ## Properties
 

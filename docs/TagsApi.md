@@ -30,7 +30,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new LaunchDarklyApi.TagsApi();
 let opts = {
   'kind': "kind_example", // String | Fetch tags associated with the specified resource type. Options are `flag`, `project`, `environment`, `segment`. Returns all types by default.
-  'pre': "pre_example" // String | Return tags with the specified prefix
+  'pre': "pre_example", // String | Return tags with the specified prefix
+  'archived': true // Boolean | Whether or not to return archived flags
 };
 apiInstance.getTags(opts, (error, data, response) => {
   if (error) {
@@ -48,6 +49,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **kind** | **String**| Fetch tags associated with the specified resource type. Options are &#x60;flag&#x60;, &#x60;project&#x60;, &#x60;environment&#x60;, &#x60;segment&#x60;. Returns all types by default. | [optional] 
  **pre** | **String**| Return tags with the specified prefix | [optional] 
+ **archived** | **Boolean**| Whether or not to return archived flags | [optional] 
 
 ### Return type
 
