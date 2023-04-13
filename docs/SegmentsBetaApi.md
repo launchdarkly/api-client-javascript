@@ -264,7 +264,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new LaunchDarklyApi.SegmentsBetaApi();
 let projectKey = "projectKey_example"; // String | The project key
 let environmentKey = "environmentKey_example"; // String | The environment key
-let requestBody = {"key":"someuser","kind":"user","moreComplex":{"morethanone":[1,2,3],"yes":"please"},"name":"Some User","something":true}; // {String: Object} | 
+let requestBody = {"key":"context-key-123abc","kind":"user","moreComplex":{"morethanone":[1,2,3],"yes":"please"},"name":"Some User","something":true}; // {String: Object} | 
 apiInstance.getContextInstanceSegmentsMembershipByEnv(projectKey, environmentKey, requestBody, (error, data, response) => {
   if (error) {
     console.error(error);

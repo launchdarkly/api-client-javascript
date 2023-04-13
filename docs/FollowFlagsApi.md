@@ -34,7 +34,7 @@ let apiInstance = new LaunchDarklyApi.FollowFlagsApi();
 let projectKey = "projectKey_example"; // String | The project key
 let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
-let memberId = "memberId_example"; // String | The memberId of the member to remove as a follower of the flag
+let memberId = "memberId_example"; // String | The memberId of the member to remove as a follower of the flag. Reader roles can only remove themselves.
 apiInstance.deleteFlagFollowers(projectKey, featureFlagKey, environmentKey, memberId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
  **projectKey** | **String**| The project key | 
  **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
- **memberId** | **String**| The memberId of the member to remove as a follower of the flag | 
+ **memberId** | **String**| The memberId of the member to remove as a follower of the flag. Reader roles can only remove themselves. | 
 
 ### Return type
 
@@ -199,7 +199,7 @@ let apiInstance = new LaunchDarklyApi.FollowFlagsApi();
 let projectKey = "projectKey_example"; // String | The project key
 let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
-let memberId = "memberId_example"; // String | The memberId of the member to add as a follower of the flag
+let memberId = "memberId_example"; // String | The memberId of the member to add as a follower of the flag. Reader roles can only add themselves.
 apiInstance.putFlagFollowers(projectKey, featureFlagKey, environmentKey, memberId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
  **projectKey** | **String**| The project key | 
  **featureFlagKey** | **String**| The feature flag key | 
  **environmentKey** | **String**| The environment key | 
- **memberId** | **String**| The memberId of the member to add as a follower of the flag | 
+ **memberId** | **String**| The memberId of the member to add as a follower of the flag. Reader roles can only add themselves. | 
 
 ### Return type
 

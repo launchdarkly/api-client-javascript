@@ -33,7 +33,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new LaunchDarklyApi.FlagLinksBetaApi();
 let projectKey = "projectKey_example"; // String | The project key
 let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
-let flagLinkPost = {"deepLink":"https://example.com/archives/123123123","description":"Example link description","key":"example-flag-link","title":"Example link title"}; // FlagLinkPost | 
+let flagLinkPost = {"deepLink":"https://example.com/archives/123123123","description":"Example link description","key":"flag-link-key-123abc","title":"Example link title"}; // FlagLinkPost | 
 apiInstance.createFlagLink(projectKey, featureFlagKey, flagLinkPost, (error, data, response) => {
   if (error) {
     console.error(error);

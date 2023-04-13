@@ -234,7 +234,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.CustomRolesApi();
-let customRolePost = {"basePermissions":"reader","description":"An example role for members of the ops team","key":"ops-team","name":"Ops team","policy":[{"actions":["updateOn"],"effect":"allow","resources":["proj/*:env/production:flag/*"]}]}; // CustomRolePost | 
+let customRolePost = {"basePermissions":"reader","description":"An example role for members of the ops team","key":"role-key-123abc","name":"Ops team","policy":[{"actions":["updateOn"],"effect":"allow","resources":["proj/*:env/production:flag/*"]}]}; // CustomRolePost | 
 apiInstance.postCustomRole(customRolePost, (error, data, response) => {
   if (error) {
     console.error(error);

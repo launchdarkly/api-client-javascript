@@ -359,7 +359,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.ProjectsApi();
-let projectPost = {"key":"my-project","name":"My Project"}; // ProjectPost | 
+let projectPost = {"key":"project-key-123abc","name":"My Project"}; // ProjectPost | 
 apiInstance.postProject(projectPost, (error, data, response) => {
   if (error) {
     console.error(error);

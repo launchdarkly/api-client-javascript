@@ -68,6 +68,7 @@ docs/ContextSettingsBetaApi.md
 docs/Contexts.md
 docs/ContextsBetaApi.md
 docs/CopiedFromEnv.md
+docs/CreateApprovalRequestRequest.md
 docs/CreateCopyFlagConfigApprovalRequestRequest.md
 docs/CreateFlagConfigApprovalRequestRequest.md
 docs/CreateWorkflowTemplateInput.md
@@ -76,6 +77,7 @@ docs/CustomProperty.md
 docs/CustomRole.md
 docs/CustomRolePost.md
 docs/CustomRolePostData.md
+docs/CustomRoleSummary.md
 docs/CustomRoles.md
 docs/CustomRolesApi.md
 docs/CustomWorkflowInput.md
@@ -479,6 +481,7 @@ src/model/ContextRecord.js
 src/model/ContextSearch.js
 src/model/Contexts.js
 src/model/CopiedFromEnv.js
+src/model/CreateApprovalRequestRequest.js
 src/model/CreateCopyFlagConfigApprovalRequestRequest.js
 src/model/CreateFlagConfigApprovalRequestRequest.js
 src/model/CreateWorkflowTemplateInput.js
@@ -487,6 +490,7 @@ src/model/CustomProperty.js
 src/model/CustomRole.js
 src/model/CustomRolePost.js
 src/model/CustomRolePostData.js
+src/model/CustomRoleSummary.js
 src/model/CustomRoles.js
 src/model/CustomWorkflowInput.js
 src/model/CustomWorkflowMeta.js
@@ -857,6 +861,7 @@ test/model/ContextRecord.spec.js
 test/model/ContextSearch.spec.js
 test/model/Contexts.spec.js
 test/model/CopiedFromEnv.spec.js
+test/model/CreateApprovalRequestRequest.spec.js
 test/model/CreateCopyFlagConfigApprovalRequestRequest.spec.js
 test/model/CreateFlagConfigApprovalRequestRequest.spec.js
 test/model/CreateWorkflowTemplateInput.spec.js
@@ -865,6 +870,7 @@ test/model/CustomProperty.spec.js
 test/model/CustomRole.spec.js
 test/model/CustomRolePost.spec.js
 test/model/CustomRolePostData.spec.js
+test/model/CustomRoleSummary.spec.js
 test/model/CustomRoles.spec.js
 test/model/CustomWorkflowInput.spec.js
 test/model/CustomWorkflowMeta.spec.js

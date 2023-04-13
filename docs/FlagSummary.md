@@ -5,6 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **variations** | [**{String: VariationSummary}**](VariationSummary.md) |  | 
-**prerequisites** | **Number** |  | 
+**prerequisites** | **Number** | The number of prerequisites for this flag | 
 
 

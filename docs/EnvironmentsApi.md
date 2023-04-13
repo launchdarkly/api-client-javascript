@@ -257,7 +257,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.EnvironmentsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let environmentPost = {"color":"DADBEE","key":"my-environment","name":"My Environment"}; // EnvironmentPost | 
+let environmentPost = {"color":"DADBEE","key":"environment-key-123abc","name":"My Environment"}; // EnvironmentPost | 
 apiInstance.postEnvironment(projectKey, environmentPost, (error, data, response) => {
   if (error) {
     console.error(error);

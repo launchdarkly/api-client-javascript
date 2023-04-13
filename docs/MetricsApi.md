@@ -253,7 +253,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.MetricsApi();
 let projectKey = "projectKey_example"; // String | The project key
-let metricPost = {"eventKey":"trackedClick","isActive":true,"isNumeric":false,"key":"my-metric","kind":"custom"}; // MetricPost | 
+let metricPost = {"eventKey":"trackedClick","isActive":true,"isNumeric":false,"key":"metric-key-123abc","kind":"custom"}; // MetricPost | 
 apiInstance.postMetric(projectKey, metricPost, (error, data, response) => {
   if (error) {
     console.error(error);
