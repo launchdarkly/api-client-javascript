@@ -17,7 +17,7 @@ import PatchOperation from './PatchOperation';
 /**
  * The PatchWithComment model module.
  * @module model/PatchWithComment
- * @version 12.1.0
+ * @version 13.0.0
  */
 class PatchWithComment {
     /**

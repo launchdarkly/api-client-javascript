@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ParameterRep model module.
  * @module model/ParameterRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ParameterRep {
     /**

@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The ParentResourceRep model module.
  * @module model/ParentResourceRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ParentResourceRep {
     /**

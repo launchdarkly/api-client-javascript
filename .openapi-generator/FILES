@@ -64,8 +64,9 @@ docs/ContextKindRep.md
 docs/ContextKindsCollectionRep.md
 docs/ContextRecord.md
 docs/ContextSearch.md
-docs/ContextSettingsBetaApi.md
+docs/ContextSettingsApi.md
 docs/Contexts.md
+docs/ContextsApi.md
 docs/ContextsBetaApi.md
 docs/CopiedFromEnv.md
 docs/CreateApprovalRequestRequest.md
@@ -395,7 +396,8 @@ src/api/ApprovalsApi.js
 src/api/ApprovalsBetaApi.js
 src/api/AuditLogApi.js
 src/api/CodeReferencesApi.js
-src/api/ContextSettingsBetaApi.js
+src/api/ContextSettingsApi.js
+src/api/ContextsApi.js
 src/api/ContextsBetaApi.js
 src/api/CustomRolesApi.js
 src/api/DataExportDestinationsApi.js
@@ -776,7 +778,8 @@ test/api/ApprovalsApi.spec.js
 test/api/ApprovalsBetaApi.spec.js
 test/api/AuditLogApi.spec.js
 test/api/CodeReferencesApi.spec.js
-test/api/ContextSettingsBetaApi.spec.js
+test/api/ContextSettingsApi.spec.js
+test/api/ContextsApi.spec.js
 test/api/ContextsBetaApi.spec.js
 test/api/CustomRolesApi.spec.js
 test/api/DataExportDestinationsApi.spec.js

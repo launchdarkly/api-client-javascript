@@ -17,7 +17,7 @@ import ExecutionOutput from './ExecutionOutput';
 /**
  * The ConditionBaseOutput model module.
  * @module model/ConditionBaseOutput
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ConditionBaseOutput {
     /**

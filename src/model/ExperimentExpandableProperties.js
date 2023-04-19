@@ -17,7 +17,7 @@ import IterationRep from './IterationRep';
 /**
  * The ExperimentExpandableProperties model module.
  * @module model/ExperimentExpandableProperties
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ExperimentExpandableProperties {
     /**

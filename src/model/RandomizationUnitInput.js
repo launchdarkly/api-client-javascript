@@ -16,13 +16,13 @@ import ApiClient from '../ApiClient';
 /**
  * The RandomizationUnitInput model module.
  * @module model/RandomizationUnitInput
- * @version 12.1.0
+ * @version 13.0.0
  */
 class RandomizationUnitInput {
     /**
      * Constructs a new <code>RandomizationUnitInput</code>.
      * @alias module:model/RandomizationUnitInput
-     * @param randomizationUnit {String} The unit of randomization.
+     * @param randomizationUnit {String} The unit of randomization. Must match the key of an existing context kind in this project.
      * @param _default {Boolean} If true, any experiment iterations created within this project will default to using this randomization unit. A project can only have one default randomization unit.
      * @param standardRandomizationUnit {module:model/RandomizationUnitInput.StandardRandomizationUnitEnum} One of LaunchDarkly's fixed set of standard randomization units.
      */
@@ -70,7 +70,7 @@ class RandomizationUnitInput {
 }
 
 /**
- * The unit of randomization.
+ * The unit of randomization. Must match the key of an existing context kind in this project.
  * @member {String} randomizationUnit
  */
 RandomizationUnitInput.prototype['randomizationUnit'] = undefined;

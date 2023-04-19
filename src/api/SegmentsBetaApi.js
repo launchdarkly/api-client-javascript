@@ -13,7 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import ContextInstanceSegmentMemberships from '../model/ContextInstanceSegmentMemberships';
 import Export from '../model/Export';
 import Import from '../model/Import';
 import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
@@ -25,7 +24,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * SegmentsBeta service.
 * @module api/SegmentsBetaApi
-* @version 12.1.0
+* @version 13.0.0
 */
 export default class SegmentsBetaApi {
 
@@ -272,60 +271,6 @@ export default class SegmentsBetaApi {
       let returnType = Import;
       return this.apiClient.callApi(
         '/api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}/imports/{importID}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getContextInstanceSegmentsMembershipByEnv operation.
-     * @callback module:api/SegmentsBetaApi~getContextInstanceSegmentsMembershipByEnvCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/ContextInstanceSegmentMemberships} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * List segment memberships for context instance
-     * For a given context instance with attributes, get membership details for all segments
-     * @param {String} projectKey The project key
-     * @param {String} environmentKey The environment key
-     * @param {Object.<String, {String: Object}>} requestBody 
-     * @param {module:api/SegmentsBetaApi~getContextInstanceSegmentsMembershipByEnvCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/ContextInstanceSegmentMemberships}
-     */
-    getContextInstanceSegmentsMembershipByEnv(projectKey, environmentKey, requestBody, callback) {
-      let postBody = requestBody;
-      // verify the required parameter 'projectKey' is set
-      if (projectKey === undefined || projectKey === null) {
-        throw new Error("Missing the required parameter 'projectKey' when calling getContextInstanceSegmentsMembershipByEnv");
-      }
-      // verify the required parameter 'environmentKey' is set
-      if (environmentKey === undefined || environmentKey === null) {
-        throw new Error("Missing the required parameter 'environmentKey' when calling getContextInstanceSegmentsMembershipByEnv");
-      }
-      // verify the required parameter 'requestBody' is set
-      if (requestBody === undefined || requestBody === null) {
-        throw new Error("Missing the required parameter 'requestBody' when calling getContextInstanceSegmentsMembershipByEnv");
-      }
-
-      let pathParams = {
-        'projectKey': projectKey,
-        'environmentKey': environmentKey
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['ApiKey'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = ContextInstanceSegmentMemberships;
-      return this.apiClient.callApi(
-        '/api/v2/projects/{projectKey}/environments/{environmentKey}/segments/evaluate', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

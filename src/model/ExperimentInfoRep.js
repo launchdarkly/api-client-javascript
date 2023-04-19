@@ -17,7 +17,7 @@ import LegacyExperimentRep from './LegacyExperimentRep';
 /**
  * The ExperimentInfoRep model module.
  * @module model/ExperimentInfoRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ExperimentInfoRep {
     /**

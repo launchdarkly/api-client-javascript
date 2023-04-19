@@ -17,7 +17,7 @@ import ContextAttributeValues from './ContextAttributeValues';
 /**
  * The ContextAttributeValuesCollection model module.
  * @module model/ContextAttributeValuesCollection
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ContextAttributeValuesCollection {
     /**

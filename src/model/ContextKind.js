@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContextKind model module.
  * @module model/ContextKind
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ContextKind {
     /**

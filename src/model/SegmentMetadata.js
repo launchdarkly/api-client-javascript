@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SegmentMetadata model module.
  * @module model/SegmentMetadata
- * @version 12.1.0
+ * @version 13.0.0
  */
 class SegmentMetadata {
     /**

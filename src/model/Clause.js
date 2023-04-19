@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Clause model module.
  * @module model/Clause
- * @version 12.1.0
+ * @version 13.0.0
  */
 class Clause {
     /**

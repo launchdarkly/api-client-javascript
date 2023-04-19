@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ResourceIDResponse model module.
  * @module model/ResourceIDResponse
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ResourceIDResponse {
     /**

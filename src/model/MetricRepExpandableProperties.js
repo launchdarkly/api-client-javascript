@@ -17,7 +17,7 @@ import DependentExperimentRep from './DependentExperimentRep';
 /**
  * The MetricRepExpandableProperties model module.
  * @module model/MetricRepExpandableProperties
- * @version 12.1.0
+ * @version 13.0.0
  */
 class MetricRepExpandableProperties {
     /**

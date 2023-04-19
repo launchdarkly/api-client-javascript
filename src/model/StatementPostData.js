@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StatementPostData model module.
  * @module model/StatementPostData
- * @version 12.1.0
+ * @version 13.0.0
  */
 class StatementPostData {
     /**

@@ -17,7 +17,7 @@ import FlagCopyConfigEnvironment from './FlagCopyConfigEnvironment';
 /**
  * The FlagCopyConfigPost model module.
  * @module model/FlagCopyConfigPost
- * @version 12.1.0
+ * @version 13.0.0
  */
 class FlagCopyConfigPost {
     /**

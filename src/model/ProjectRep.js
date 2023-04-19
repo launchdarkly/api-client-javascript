@@ -19,7 +19,7 @@ import Link from './Link';
 /**
  * The ProjectRep model module.
  * @module model/ProjectRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ProjectRep {
     /**

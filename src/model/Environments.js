@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The Environments model module.
  * @module model/Environments
- * @version 12.1.0
+ * @version 13.0.0
  */
 class Environments {
     /**

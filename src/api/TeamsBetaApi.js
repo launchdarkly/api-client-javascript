@@ -24,7 +24,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * TeamsBeta service.
 * @module api/TeamsBetaApi
-* @version 12.1.0
+* @version 13.0.0
 */
 export default class TeamsBetaApi {
 

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ActionOutput model module.
  * @module model/ActionOutput
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ActionOutput {
     /**

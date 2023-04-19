@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ResolvedUIBlockElement model module.
  * @module model/ResolvedUIBlockElement
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ResolvedUIBlockElement {
     /**

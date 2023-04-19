@@ -18,7 +18,7 @@ import StageOutput from './StageOutput';
 /**
  * The WorkflowTemplateOutput model module.
  * @module model/WorkflowTemplateOutput
- * @version 12.1.0
+ * @version 13.0.0
  */
 class WorkflowTemplateOutput {
     /**

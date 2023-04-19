@@ -17,7 +17,7 @@ import ParameterRep from './ParameterRep';
 /**
  * The TreatmentRep model module.
  * @module model/TreatmentRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class TreatmentRep {
     /**

@@ -17,7 +17,7 @@ import ResolvedUIBlockElement from './ResolvedUIBlockElement';
 /**
  * The ResolvedContext model module.
  * @module model/ResolvedContext
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ResolvedContext {
     /**

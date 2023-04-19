@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NotFoundErrorRep model module.
  * @module model/NotFoundErrorRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class NotFoundErrorRep {
     /**

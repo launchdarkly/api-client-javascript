@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The ContextInstanceSegmentMemberships model module.
  * @module model/ContextInstanceSegmentMemberships
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ContextInstanceSegmentMemberships {
     /**

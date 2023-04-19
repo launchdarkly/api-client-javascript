@@ -17,7 +17,7 @@ import Clause from './Clause';
 /**
  * The UserSegmentRule model module.
  * @module model/UserSegmentRule
- * @version 12.1.0
+ * @version 13.0.0
  */
 class UserSegmentRule {
     /**

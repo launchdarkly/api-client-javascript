@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MemberTeamSummaryRep model module.
  * @module model/MemberTeamSummaryRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class MemberTeamSummaryRep {
     /**

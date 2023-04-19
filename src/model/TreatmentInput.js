@@ -17,7 +17,7 @@ import TreatmentParameterInput from './TreatmentParameterInput';
 /**
  * The TreatmentInput model module.
  * @module model/TreatmentInput
- * @version 12.1.0
+ * @version 13.0.0
  */
 class TreatmentInput {
     /**

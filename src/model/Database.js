@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Database model module.
  * @module model/Database
- * @version 12.1.0
+ * @version 13.0.0
  */
 class Database {
     /**

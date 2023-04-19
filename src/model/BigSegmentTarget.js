@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BigSegmentTarget model module.
  * @module model/BigSegmentTarget
- * @version 12.1.0
+ * @version 13.0.0
  */
 class BigSegmentTarget {
     /**

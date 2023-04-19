@@ -363,7 +363,8 @@ import ApprovalsApi from './api/ApprovalsApi';
 import ApprovalsBetaApi from './api/ApprovalsBetaApi';
 import AuditLogApi from './api/AuditLogApi';
 import CodeReferencesApi from './api/CodeReferencesApi';
-import ContextSettingsBetaApi from './api/ContextSettingsBetaApi';
+import ContextSettingsApi from './api/ContextSettingsApi';
+import ContextsApi from './api/ContextsApi';
 import ContextsBetaApi from './api/ContextsBetaApi';
 import CustomRolesApi from './api/CustomRolesApi';
 import DataExportDestinationsApi from './api/DataExportDestinationsApi';
@@ -424,7 +425,7 @@ import WorkflowsBetaApi from './api/WorkflowsBetaApi';
 * </pre>
 * </p>
 * @module index
-* @version 12.1.0
+* @version 13.0.0
 */
 export {
     /**
@@ -2534,10 +2535,16 @@ export {
     CodeReferencesApi,
 
     /**
-    * The ContextSettingsBetaApi service constructor.
-    * @property {module:api/ContextSettingsBetaApi}
+    * The ContextSettingsApi service constructor.
+    * @property {module:api/ContextSettingsApi}
     */
-    ContextSettingsBetaApi,
+    ContextSettingsApi,
+
+    /**
+    * The ContextsApi service constructor.
+    * @property {module:api/ContextsApi}
+    */
+    ContextsApi,
 
     /**
     * The ContextsBetaApi service constructor.

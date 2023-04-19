@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StatusConflictErrorRep model module.
  * @module model/StatusConflictErrorRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class StatusConflictErrorRep {
     /**

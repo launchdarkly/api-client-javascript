@@ -25,7 +25,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * OAuth2ClientsBeta service.
 * @module api/OAuth2ClientsBetaApi
-* @version 12.1.0
+* @version 13.0.0
 */
 export default class OAuth2ClientsBetaApi {
 

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Variate model module.
  * @module model/Variate
- * @version 12.1.0
+ * @version 13.0.0
  */
 class Variate {
     /**

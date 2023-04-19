@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ValuePut model module.
  * @module model/ValuePut
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ValuePut {
     /**

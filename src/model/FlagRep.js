@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The FlagRep model module.
  * @module model/FlagRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class FlagRep {
     /**

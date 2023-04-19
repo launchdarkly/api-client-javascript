@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PubNubDetailRep model module.
  * @module model/PubNubDetailRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class PubNubDetailRep {
     /**

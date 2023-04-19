@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The Contexts model module.
  * @module model/Contexts
- * @version 12.1.0
+ * @version 13.0.0
  */
 class Contexts {
     /**

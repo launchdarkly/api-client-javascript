@@ -1,10 +1,10 @@
-# LaunchDarklyApi.ContextSettingsBetaApi
+# LaunchDarklyApi.ContextSettingsApi
 
 All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**putContextFlagSetting**](ContextSettingsBetaApi.md#putContextFlagSetting) | **PUT** /api/v2/projects/{projectKey}/environments/{environmentKey}/contexts/{contextKind}/{contextKey}/flags/{featureFlagKey} | Update flag settings for context
+[**putContextFlagSetting**](ContextSettingsApi.md#putContextFlagSetting) | **PUT** /api/v2/projects/{projectKey}/environments/{environmentKey}/contexts/{contextKind}/{contextKey}/flags/{featureFlagKey} | Update flag settings for context
 
 
 
@@ -27,7 +27,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 
-let apiInstance = new LaunchDarklyApi.ContextSettingsBetaApi();
+let apiInstance = new LaunchDarklyApi.ContextSettingsApi();
 let projectKey = "projectKey_example"; // String | The project key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let contextKind = "contextKind_example"; // String | The context kind

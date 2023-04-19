@@ -25,7 +25,7 @@ import ReviewResponse from './ReviewResponse';
 /**
  * The ExpandableApprovalRequestResponse model module.
  * @module model/ExpandableApprovalRequestResponse
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ExpandableApprovalRequestResponse {
     /**

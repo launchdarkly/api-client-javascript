@@ -17,7 +17,7 @@ import ResourceId from './ResourceId';
 /**
  * The ExpiringTarget model module.
  * @module model/ExpiringTarget
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ExpiringTarget {
     /**

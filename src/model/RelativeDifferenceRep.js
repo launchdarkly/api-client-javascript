@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RelativeDifferenceRep model module.
  * @module model/RelativeDifferenceRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class RelativeDifferenceRep {
     /**

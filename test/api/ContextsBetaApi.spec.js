@@ -48,56 +48,6 @@
   }
 
   describe('ContextsBetaApi', function() {
-    describe('deleteContextInstances', function() {
-      it('should call deleteContextInstances successfully', function(done) {
-        //uncomment below and update the code to test deleteContextInstances
-        //instance.deleteContextInstances(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('evaluateContextInstance', function() {
-      it('should call evaluateContextInstance successfully', function(done) {
-        //uncomment below and update the code to test evaluateContextInstance
-        //instance.evaluateContextInstance(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getContextAttributeNames', function() {
-      it('should call getContextAttributeNames successfully', function(done) {
-        //uncomment below and update the code to test getContextAttributeNames
-        //instance.getContextAttributeNames(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getContextAttributeValues', function() {
-      it('should call getContextAttributeValues successfully', function(done) {
-        //uncomment below and update the code to test getContextAttributeValues
-        //instance.getContextAttributeValues(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('getContextInstances', function() {
-      it('should call getContextInstances successfully', function(done) {
-        //uncomment below and update the code to test getContextInstances
-        //instance.getContextInstances(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('getContextKindsByProjectKey', function() {
       it('should call getContextKindsByProjectKey successfully', function(done) {
         //uncomment below and update the code to test getContextKindsByProjectKey
@@ -108,40 +58,10 @@
         done();
       });
     });
-    describe('getContexts', function() {
-      it('should call getContexts successfully', function(done) {
-        //uncomment below and update the code to test getContexts
-        //instance.getContexts(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('putContextKind', function() {
       it('should call putContextKind successfully', function(done) {
         //uncomment below and update the code to test putContextKind
         //instance.putContextKind(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('searchContextInstances', function() {
-      it('should call searchContextInstances successfully', function(done) {
-        //uncomment below and update the code to test searchContextInstances
-        //instance.searchContextInstances(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('searchContexts', function() {
-      it('should call searchContexts successfully', function(done) {
-        //uncomment below and update the code to test searchContexts
-        //instance.searchContexts(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

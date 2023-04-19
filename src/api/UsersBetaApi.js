@@ -22,7 +22,7 @@ import UserAttributeNamesRep from '../model/UserAttributeNamesRep';
 /**
 * UsersBeta service.
 * @module api/UsersBetaApi
-* @version 12.1.0
+* @version 13.0.0
 */
 export default class UsersBetaApi {
 

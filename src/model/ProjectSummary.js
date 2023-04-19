@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The ProjectSummary model module.
  * @module model/ProjectSummary
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ProjectSummary {
     /**

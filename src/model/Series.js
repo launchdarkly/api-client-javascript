@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Series model module.
  * @module model/Series
- * @version 12.1.0
+ * @version 13.0.0
  */
 class Series {
     /**

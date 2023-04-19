@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The FlagDefaultsApiBaseRep model module.
  * @module model/FlagDefaultsApiBaseRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class FlagDefaultsApiBaseRep {
     /**

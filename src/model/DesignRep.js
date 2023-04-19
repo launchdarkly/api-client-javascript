@@ -19,7 +19,7 @@ import TreatmentRep from './TreatmentRep';
 /**
  * The DesignRep model module.
  * @module model/DesignRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class DesignRep {
     /**

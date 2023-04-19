@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TimestampRep model module.
  * @module model/TimestampRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class TimestampRep {
     /**

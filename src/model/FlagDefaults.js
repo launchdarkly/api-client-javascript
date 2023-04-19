@@ -18,7 +18,7 @@ import ClientSideAvailability from './ClientSideAvailability';
 /**
  * The FlagDefaults model module.
  * @module model/FlagDefaults
- * @version 12.1.0
+ * @version 13.0.0
  */
 class FlagDefaults {
     /**

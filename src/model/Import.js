@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The Import model module.
  * @module model/Import
- * @version 12.1.0
+ * @version 13.0.0
  */
 class Import {
     /**

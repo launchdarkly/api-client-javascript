@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DestinationPost model module.
  * @module model/DestinationPost
- * @version 12.1.0
+ * @version 13.0.0
  */
 class DestinationPost {
     /**

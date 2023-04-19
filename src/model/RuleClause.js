@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RuleClause model module.
  * @module model/RuleClause
- * @version 12.1.0
+ * @version 13.0.0
  */
 class RuleClause {
     /**

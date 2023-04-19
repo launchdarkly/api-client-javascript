@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StatusServiceUnavailable model module.
  * @module model/StatusServiceUnavailable
- * @version 12.1.0
+ * @version 13.0.0
  */
 class StatusServiceUnavailable {
     /**

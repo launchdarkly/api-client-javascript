@@ -17,7 +17,7 @@ import RandomizationUnitInput from './RandomizationUnitInput';
 /**
  * The ExperimentationSettingsPut model module.
  * @module model/ExperimentationSettingsPut
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ExperimentationSettingsPut {
     /**

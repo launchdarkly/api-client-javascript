@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EvaluationReason model module.
  * @module model/EvaluationReason
- * @version 12.1.0
+ * @version 13.0.0
  */
 class EvaluationReason {
     /**

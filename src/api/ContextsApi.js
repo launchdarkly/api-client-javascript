@@ -13,23 +13,29 @@
 
 
 import ApiClient from "../ApiClient";
+import ContextAttributeNamesCollection from '../model/ContextAttributeNamesCollection';
+import ContextAttributeValuesCollection from '../model/ContextAttributeValuesCollection';
+import ContextInstanceEvaluations from '../model/ContextInstanceEvaluations';
+import ContextInstanceSearch from '../model/ContextInstanceSearch';
+import ContextInstances from '../model/ContextInstances';
+import ContextSearch from '../model/ContextSearch';
+import Contexts from '../model/Contexts';
 import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
 import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
 import NotFoundErrorRep from '../model/NotFoundErrorRep';
 import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
 import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
-import ValuePut from '../model/ValuePut';
 
 /**
-* ContextSettingsBeta service.
-* @module api/ContextSettingsBetaApi
-* @version 12.1.0
+* Contexts service.
+* @module api/ContextsApi
+* @version 13.0.0
 */
-export default class ContextSettingsBetaApi {
+export default class ContextsApi {
 
     /**
-    * Constructs a new ContextSettingsBetaApi. 
-    * @alias module:api/ContextSettingsBetaApi
+    * Constructs a new ContextsApi. 
+    * @alias module:api/ContextsApi
     * @class
     * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
     * default to {@link module:ApiClient#instance} if unspecified.
@@ -40,57 +46,40 @@ export default class ContextSettingsBetaApi {
 
 
     /**
-     * Callback function to receive the result of the putContextFlagSetting operation.
-     * @callback module:api/ContextSettingsBetaApi~putContextFlagSettingCallback
+     * Callback function to receive the result of the deleteContextInstances operation.
+     * @callback module:api/ContextsApi~deleteContextInstancesCallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Update flag settings for context
-     *  Enable or disable a feature flag for a context based on its context kind and key.  Omitting the `setting` attribute from the request body, or including a `setting` of `null`, erases the current setting for a context.  If you previously patched the flag, and the patch included the context's data, LaunchDarkly continues to use that data. If LaunchDarkly has never encountered the combination of the context's key and kind before, it calculates the flag values based on the context kind and key. 
+     * Delete context instances
+     * Delete context instances by ID.
      * @param {String} projectKey The project key
      * @param {String} environmentKey The environment key
-     * @param {String} contextKind The context kind
-     * @param {String} contextKey The context key
-     * @param {String} featureFlagKey The feature flag key
-     * @param {module:model/ValuePut} valuePut 
-     * @param {module:api/ContextSettingsBetaApi~putContextFlagSettingCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {String} id The context instance ID
+     * @param {module:api/ContextsApi~deleteContextInstancesCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    putContextFlagSetting(projectKey, environmentKey, contextKind, contextKey, featureFlagKey, valuePut, callback) {
-      let postBody = valuePut;
+    deleteContextInstances(projectKey, environmentKey, id, callback) {
+      let postBody = null;
       // verify the required parameter 'projectKey' is set
       if (projectKey === undefined || projectKey === null) {
-        throw new Error("Missing the required parameter 'projectKey' when calling putContextFlagSetting");
+        throw new Error("Missing the required parameter 'projectKey' when calling deleteContextInstances");
       }
       // verify the required parameter 'environmentKey' is set
       if (environmentKey === undefined || environmentKey === null) {
-        throw new Error("Missing the required parameter 'environmentKey' when calling putContextFlagSetting");
+        throw new Error("Missing the required parameter 'environmentKey' when calling deleteContextInstances");
       }
-      // verify the required parameter 'contextKind' is set
-      if (contextKind === undefined || contextKind === null) {
-        throw new Error("Missing the required parameter 'contextKind' when calling putContextFlagSetting");
-      }
-      // verify the required parameter 'contextKey' is set
-      if (contextKey === undefined || contextKey === null) {
-        throw new Error("Missing the required parameter 'contextKey' when calling putContextFlagSetting");
-      }
-      // verify the required parameter 'featureFlagKey' is set
-      if (featureFlagKey === undefined || featureFlagKey === null) {
-        throw new Error("Missing the required parameter 'featureFlagKey' when calling putContextFlagSetting");
-      }
-      // verify the required parameter 'valuePut' is set
-      if (valuePut === undefined || valuePut === null) {
-        throw new Error("Missing the required parameter 'valuePut' when calling putContextFlagSetting");
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteContextInstances");
       }
 
       let pathParams = {
         'projectKey': projectKey,
         'environmentKey': environmentKey,
-        'contextKind': contextKind,
-        'contextKey': contextKey,
-        'featureFlagKey': featureFlagKey
+        'id': id
       };
       let queryParams = {
       };
@@ -100,11 +89,459 @@ export default class ContextSettingsBetaApi {
       };
 
       let authNames = ['ApiKey'];
-      let contentTypes = ['application/json'];
+      let contentTypes = [];
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(
-        '/api/v2/projects/{projectKey}/environments/{environmentKey}/contexts/{contextKind}/{contextKey}/flags/{featureFlagKey}', 'PUT',
+        '/api/v2/projects/{projectKey}/environments/{environmentKey}/context-instances/{id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the evaluateContextInstance operation.
+     * @callback module:api/ContextsApi~evaluateContextInstanceCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ContextInstanceEvaluations} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Evaluate flags for context instance
+     * Evaluate flags for a context instance, for example, to determine the expected flag variation. **Do not use this API instead of an SDK.** The LaunchDarkly SDKs are specialized for the tasks of evaluating feature flags in your application at scale and generating analytics events based on those evaluations. This API is not designed for that use case. Any evaluations you perform with this API will not be reflected in features such as flag statuses and flag insights. Context instances evaluated by this API will not appear in the Contexts list. To learn more, read [Comparing LaunchDarkly's SDKs and REST API](https://docs.launchdarkly.com/guide/api/comparing-sdk-rest-api).
+     * @param {String} projectKey The project key
+     * @param {String} environmentKey The environment key
+     * @param {Object.<String, {String: Object}>} requestBody 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit The number of feature flags to return. Defaults to -1, which returns all flags
+     * @param {Number} opts.offset Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and then returns the next items in the list, up to the query `limit`.
+     * @param {String} opts.sort A comma-separated list of fields to sort by. Fields prefixed by a dash ( - ) sort in descending order
+     * @param {String} opts.filter A comma-separated list of filters. Each filter is of the form field:value. Supports the same filters as the List Feature Flags API.
+     * @param {module:api/ContextsApi~evaluateContextInstanceCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ContextInstanceEvaluations}
+     */
+    evaluateContextInstance(projectKey, environmentKey, requestBody, opts, callback) {
+      opts = opts || {};
+      let postBody = requestBody;
+      // verify the required parameter 'projectKey' is set
+      if (projectKey === undefined || projectKey === null) {
+        throw new Error("Missing the required parameter 'projectKey' when calling evaluateContextInstance");
+      }
+      // verify the required parameter 'environmentKey' is set
+      if (environmentKey === undefined || environmentKey === null) {
+        throw new Error("Missing the required parameter 'environmentKey' when calling evaluateContextInstance");
+      }
+      // verify the required parameter 'requestBody' is set
+      if (requestBody === undefined || requestBody === null) {
+        throw new Error("Missing the required parameter 'requestBody' when calling evaluateContextInstance");
+      }
+
+      let pathParams = {
+        'projectKey': projectKey,
+        'environmentKey': environmentKey
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'sort': opts['sort'],
+        'filter': opts['filter']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = ContextInstanceEvaluations;
+      return this.apiClient.callApi(
+        '/api/v2/projects/{projectKey}/environments/{environmentKey}/flags/evaluate', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getContextAttributeNames operation.
+     * @callback module:api/ContextsApi~getContextAttributeNamesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ContextAttributeNamesCollection} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get context attribute names
+     * Get context attribute names.
+     * @param {String} projectKey The project key
+     * @param {String} environmentKey The environment key
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.filter A comma-separated list of context filters. This endpoint only accepts `kind` filters, with the `equals` operator, and `name` filters, with the `startsWith` operator. To learn more about the filter syntax, read [Filtering contexts and context instances](/tag/Contexts-(beta)#filtering-contexts-and-context-instances).
+     * @param {module:api/ContextsApi~getContextAttributeNamesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ContextAttributeNamesCollection}
+     */
+    getContextAttributeNames(projectKey, environmentKey, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'projectKey' is set
+      if (projectKey === undefined || projectKey === null) {
+        throw new Error("Missing the required parameter 'projectKey' when calling getContextAttributeNames");
+      }
+      // verify the required parameter 'environmentKey' is set
+      if (environmentKey === undefined || environmentKey === null) {
+        throw new Error("Missing the required parameter 'environmentKey' when calling getContextAttributeNames");
+      }
+
+      let pathParams = {
+        'projectKey': projectKey,
+        'environmentKey': environmentKey
+      };
+      let queryParams = {
+        'filter': opts['filter']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ContextAttributeNamesCollection;
+      return this.apiClient.callApi(
+        '/api/v2/projects/{projectKey}/environments/{environmentKey}/context-attributes', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getContextAttributeValues operation.
+     * @callback module:api/ContextsApi~getContextAttributeValuesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ContextAttributeValuesCollection} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get context attribute values
+     * Get context attribute values.
+     * @param {String} projectKey The project key
+     * @param {String} environmentKey The environment key
+     * @param {String} attributeName The attribute name
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.filter A comma-separated list of context filters. This endpoint only accepts `kind` filters, with the `equals` operator, and `value` filters, with the `startsWith` operator. To learn more about the filter syntax, read [Filtering contexts and context instances](/tag/Contexts-(beta)#filtering-contexts-and-context-instances).
+     * @param {module:api/ContextsApi~getContextAttributeValuesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ContextAttributeValuesCollection}
+     */
+    getContextAttributeValues(projectKey, environmentKey, attributeName, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'projectKey' is set
+      if (projectKey === undefined || projectKey === null) {
+        throw new Error("Missing the required parameter 'projectKey' when calling getContextAttributeValues");
+      }
+      // verify the required parameter 'environmentKey' is set
+      if (environmentKey === undefined || environmentKey === null) {
+        throw new Error("Missing the required parameter 'environmentKey' when calling getContextAttributeValues");
+      }
+      // verify the required parameter 'attributeName' is set
+      if (attributeName === undefined || attributeName === null) {
+        throw new Error("Missing the required parameter 'attributeName' when calling getContextAttributeValues");
+      }
+
+      let pathParams = {
+        'projectKey': projectKey,
+        'environmentKey': environmentKey,
+        'attributeName': attributeName
+      };
+      let queryParams = {
+        'filter': opts['filter']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ContextAttributeValuesCollection;
+      return this.apiClient.callApi(
+        '/api/v2/projects/{projectKey}/environments/{environmentKey}/context-attributes/{attributeName}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getContextInstances operation.
+     * @callback module:api/ContextsApi~getContextInstancesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ContextInstances} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get context instances
+     * Get context instances by ID.
+     * @param {String} projectKey The project key
+     * @param {String} environmentKey The environment key
+     * @param {String} id The context instance ID
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit Specifies the maximum number of context instances to return (max: 50, default: 20)
+     * @param {String} opts.continuationToken Limits results to context instances with sort values after the value specified. You can use this for pagination, however, we recommend using the `next` link we provide instead.
+     * @param {String} opts.sort Specifies a field by which to sort. LaunchDarkly supports sorting by timestamp in ascending order by specifying `ts` for this value, or descending order by specifying `-ts`.
+     * @param {String} opts.filter A comma-separated list of context filters. This endpoint only accepts an `applicationId` filter. To learn more about the filter syntax, read [Filtering contexts and context instances](/tag/Contexts-(beta)#filtering-contexts-and-context-instances).
+     * @param {Boolean} opts.includeTotalCount Specifies whether to include or omit the total count of matching context instances. Defaults to true.
+     * @param {module:api/ContextsApi~getContextInstancesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ContextInstances}
+     */
+    getContextInstances(projectKey, environmentKey, id, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'projectKey' is set
+      if (projectKey === undefined || projectKey === null) {
+        throw new Error("Missing the required parameter 'projectKey' when calling getContextInstances");
+      }
+      // verify the required parameter 'environmentKey' is set
+      if (environmentKey === undefined || environmentKey === null) {
+        throw new Error("Missing the required parameter 'environmentKey' when calling getContextInstances");
+      }
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getContextInstances");
+      }
+
+      let pathParams = {
+        'projectKey': projectKey,
+        'environmentKey': environmentKey,
+        'id': id
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'continuationToken': opts['continuationToken'],
+        'sort': opts['sort'],
+        'filter': opts['filter'],
+        'includeTotalCount': opts['includeTotalCount']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = ContextInstances;
+      return this.apiClient.callApi(
+        '/api/v2/projects/{projectKey}/environments/{environmentKey}/context-instances/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getContexts operation.
+     * @callback module:api/ContextsApi~getContextsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Contexts} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get contexts
+     * Get contexts based on kind and key.
+     * @param {String} projectKey The project key
+     * @param {String} environmentKey The environment key
+     * @param {String} kind The context kind
+     * @param {String} key The context key
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit Specifies the maximum number of items in the collection to return (max: 50, default: 20)
+     * @param {String} opts.continuationToken Limits results to contexts with sort values after the value specified. You can use this for pagination, however, we recommend using the `next` link we provide instead.
+     * @param {String} opts.sort Specifies a field by which to sort. LaunchDarkly supports sorting by timestamp in ascending order by specifying `ts` for this value, or descending order by specifying `-ts`.
+     * @param {String} opts.filter A comma-separated list of context filters. This endpoint only accepts an `applicationId` filter. To learn more about the filter syntax, read [Filtering contexts and context instances](/tag/Contexts-(beta)#filtering-contexts-and-context-instances).
+     * @param {Boolean} opts.includeTotalCount Specifies whether to include or omit the total count of matching contexts. Defaults to true.
+     * @param {module:api/ContextsApi~getContextsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Contexts}
+     */
+    getContexts(projectKey, environmentKey, kind, key, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'projectKey' is set
+      if (projectKey === undefined || projectKey === null) {
+        throw new Error("Missing the required parameter 'projectKey' when calling getContexts");
+      }
+      // verify the required parameter 'environmentKey' is set
+      if (environmentKey === undefined || environmentKey === null) {
+        throw new Error("Missing the required parameter 'environmentKey' when calling getContexts");
+      }
+      // verify the required parameter 'kind' is set
+      if (kind === undefined || kind === null) {
+        throw new Error("Missing the required parameter 'kind' when calling getContexts");
+      }
+      // verify the required parameter 'key' is set
+      if (key === undefined || key === null) {
+        throw new Error("Missing the required parameter 'key' when calling getContexts");
+      }
+
+      let pathParams = {
+        'projectKey': projectKey,
+        'environmentKey': environmentKey,
+        'kind': kind,
+        'key': key
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'continuationToken': opts['continuationToken'],
+        'sort': opts['sort'],
+        'filter': opts['filter'],
+        'includeTotalCount': opts['includeTotalCount']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Contexts;
+      return this.apiClient.callApi(
+        '/api/v2/projects/{projectKey}/environments/{environmentKey}/contexts/{kind}/{key}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the searchContextInstances operation.
+     * @callback module:api/ContextsApi~searchContextInstancesCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/ContextInstances} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Search for context instances
+     *  Search for context instances.  You can use either the query parameters or the request body parameters. If both are provided, there is an error.  To learn more about the filter syntax, read [Filtering contexts and context instances](/tag/Contexts-(beta)#filtering-contexts-and-context-instances). To learn more about context instances, read [Understanding context instances](https://docs.launchdarkly.com/home/contexts#understanding-context-instances). 
+     * @param {String} projectKey The project key
+     * @param {String} environmentKey The environment key
+     * @param {module:model/ContextInstanceSearch} contextInstanceSearch 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit Specifies the maximum number of items in the collection to return (max: 50, default: 20)
+     * @param {String} opts.continuationToken Limits results to context instances with sort values after the value specified. You can use this for pagination, however, we recommend using the `next` link we provide instead.
+     * @param {String} opts.sort Specifies a field by which to sort. LaunchDarkly supports sorting by timestamp in ascending order by specifying `ts` for this value, or descending order by specifying `-ts`.
+     * @param {String} opts.filter A comma-separated list of context filters. This endpoint only accepts an `applicationId` filter. To learn more about the filter syntax, read [Filtering contexts and context instances](/tag/Contexts-(beta)#filtering-contexts-and-context-instances).
+     * @param {Boolean} opts.includeTotalCount Specifies whether to include or omit the total count of matching context instances. Defaults to true.
+     * @param {module:api/ContextsApi~searchContextInstancesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/ContextInstances}
+     */
+    searchContextInstances(projectKey, environmentKey, contextInstanceSearch, opts, callback) {
+      opts = opts || {};
+      let postBody = contextInstanceSearch;
+      // verify the required parameter 'projectKey' is set
+      if (projectKey === undefined || projectKey === null) {
+        throw new Error("Missing the required parameter 'projectKey' when calling searchContextInstances");
+      }
+      // verify the required parameter 'environmentKey' is set
+      if (environmentKey === undefined || environmentKey === null) {
+        throw new Error("Missing the required parameter 'environmentKey' when calling searchContextInstances");
+      }
+      // verify the required parameter 'contextInstanceSearch' is set
+      if (contextInstanceSearch === undefined || contextInstanceSearch === null) {
+        throw new Error("Missing the required parameter 'contextInstanceSearch' when calling searchContextInstances");
+      }
+
+      let pathParams = {
+        'projectKey': projectKey,
+        'environmentKey': environmentKey
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'continuationToken': opts['continuationToken'],
+        'sort': opts['sort'],
+        'filter': opts['filter'],
+        'includeTotalCount': opts['includeTotalCount']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = ContextInstances;
+      return this.apiClient.callApi(
+        '/api/v2/projects/{projectKey}/environments/{environmentKey}/context-instances/search', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the searchContexts operation.
+     * @callback module:api/ContextsApi~searchContextsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Contexts} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Search for contexts
+     *  Search for contexts.  You can use either the query parameters or the request body parameters. If both are provided, there is an error.  To learn more about the filter syntax, read [Filtering contexts and context instances](/tag/Contexts-(beta)#filtering-contexts-and-context-instances). To learn more about contexts, read [Understanding contexts and context kinds](https://docs.launchdarkly.com/home/contexts#understanding-contexts-and-context-kinds). 
+     * @param {String} projectKey The project key
+     * @param {String} environmentKey The environment key
+     * @param {module:model/ContextSearch} contextSearch 
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit Specifies the maximum number of items in the collection to return (max: 50, default: 20)
+     * @param {String} opts.continuationToken Limits results to contexts with sort values after the value specified. You can use this for pagination, however, we recommend using the `next` link we provide instead.
+     * @param {String} opts.sort Specifies a field by which to sort. LaunchDarkly supports sorting by timestamp in ascending order by specifying `ts` for this value, or descending order by specifying `-ts`.
+     * @param {String} opts.filter A comma-separated list of context filters. To learn more about the filter syntax, read [Filtering contexts and context instances](/tag/Contexts-(beta)#filtering-contexts-and-context-instances).
+     * @param {Boolean} opts.includeTotalCount Specifies whether to include or omit the total count of matching contexts. Defaults to true.
+     * @param {module:api/ContextsApi~searchContextsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Contexts}
+     */
+    searchContexts(projectKey, environmentKey, contextSearch, opts, callback) {
+      opts = opts || {};
+      let postBody = contextSearch;
+      // verify the required parameter 'projectKey' is set
+      if (projectKey === undefined || projectKey === null) {
+        throw new Error("Missing the required parameter 'projectKey' when calling searchContexts");
+      }
+      // verify the required parameter 'environmentKey' is set
+      if (environmentKey === undefined || environmentKey === null) {
+        throw new Error("Missing the required parameter 'environmentKey' when calling searchContexts");
+      }
+      // verify the required parameter 'contextSearch' is set
+      if (contextSearch === undefined || contextSearch === null) {
+        throw new Error("Missing the required parameter 'contextSearch' when calling searchContexts");
+      }
+
+      let pathParams = {
+        'projectKey': projectKey,
+        'environmentKey': environmentKey
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'continuationToken': opts['continuationToken'],
+        'sort': opts['sort'],
+        'filter': opts['filter'],
+        'includeTotalCount': opts['includeTotalCount']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = Contexts;
+      return this.apiClient.callApi(
+        '/api/v2/projects/{projectKey}/environments/{environmentKey}/contexts/search', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

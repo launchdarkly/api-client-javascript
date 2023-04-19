@@ -17,7 +17,7 @@ import ReferenceRep from './ReferenceRep';
 /**
  * The BranchRep model module.
  * @module model/BranchRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class BranchRep {
     /**

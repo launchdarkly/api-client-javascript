@@ -17,7 +17,7 @@ import ParameterDefaultInput from './ParameterDefaultInput';
 /**
  * The WorkflowTemplateParameterInput model module.
  * @module model/WorkflowTemplateParameterInput
- * @version 12.1.0
+ * @version 13.0.0
  */
 class WorkflowTemplateParameterInput {
     /**

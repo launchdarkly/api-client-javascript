@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MetricListingRepExpandableProperties model module.
  * @module model/MetricListingRepExpandableProperties
- * @version 12.1.0
+ * @version 13.0.0
  */
 class MetricListingRepExpandableProperties {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The OauthClientPost model module.
  * @module model/OauthClientPost
- * @version 12.1.0
+ * @version 13.0.0
  */
 class OauthClientPost {
     /**

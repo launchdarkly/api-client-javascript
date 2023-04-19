@@ -19,7 +19,7 @@ import TreatmentResultRep from './TreatmentResultRep';
 /**
  * The ExperimentBayesianResultsRep model module.
  * @module model/ExperimentBayesianResultsRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class ExperimentBayesianResultsRep {
     /**

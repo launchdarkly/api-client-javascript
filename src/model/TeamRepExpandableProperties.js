@@ -20,7 +20,7 @@ import TeamProjects from './TeamProjects';
 /**
  * The TeamRepExpandableProperties model module.
  * @module model/TeamRepExpandableProperties
- * @version 12.1.0
+ * @version 13.0.0
  */
 class TeamRepExpandableProperties {
     /**

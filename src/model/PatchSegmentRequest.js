@@ -17,7 +17,7 @@ import PatchSegmentInstruction from './PatchSegmentInstruction';
 /**
  * The PatchSegmentRequest model module.
  * @module model/PatchSegmentRequest
- * @version 12.1.0
+ * @version 13.0.0
  */
 class PatchSegmentRequest {
     /**

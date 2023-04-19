@@ -58,6 +58,16 @@
         done();
       });
     });
+    describe('getContextInstanceSegmentsMembershipByEnv', function() {
+      it('should call getContextInstanceSegmentsMembershipByEnv successfully', function(done) {
+        //uncomment below and update the code to test getContextInstanceSegmentsMembershipByEnv
+        //instance.getContextInstanceSegmentsMembershipByEnv(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getExpiringTargetsForSegment', function() {
       it('should call getExpiringTargetsForSegment successfully', function(done) {
         //uncomment below and update the code to test getExpiringTargetsForSegment

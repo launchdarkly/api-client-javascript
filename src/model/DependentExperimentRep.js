@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The DependentExperimentRep model module.
  * @module model/DependentExperimentRep
- * @version 12.1.0
+ * @version 13.0.0
  */
 class DependentExperimentRep {
     /**
