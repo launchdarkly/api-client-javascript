@@ -107,7 +107,7 @@ null (empty response body)
 
 ## getRoot
 
-> {String: Link} getRoot()
+> RootResponse getRoot()
 
 Root resource
 
@@ -140,7 +140,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**{String: Link}**](Link.md)
+[**RootResponse**](RootResponse.md)
 
 ### Authorization
 

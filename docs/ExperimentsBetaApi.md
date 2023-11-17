@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**createIteration**](ExperimentsBetaApi.md#createIteration) | **POST** /api/v2/projects/{projectKey}/environments/{environmentKey}/experiments/{experimentKey}/iterations | Create iteration
 [**getExperiment**](ExperimentsBetaApi.md#getExperiment) | **GET** /api/v2/projects/{projectKey}/environments/{environmentKey}/experiments/{experimentKey} | Get experiment
 [**getExperimentResults**](ExperimentsBetaApi.md#getExperimentResults) | **GET** /api/v2/projects/{projectKey}/environments/{environmentKey}/experiments/{experimentKey}/metrics/{metricKey}/results | Get experiment results
+[**getExperimentResultsForMetricGroup**](ExperimentsBetaApi.md#getExperimentResultsForMetricGroup) | **GET** /api/v2/projects/{projectKey}/environments/{environmentKey}/experiments/{experimentKey}/metric-groups/{metricGroupKey}/results | Get experiment results for metric group
 [**getExperimentationSettings**](ExperimentsBetaApi.md#getExperimentationSettings) | **GET** /api/v2/projects/{projectKey}/experimentation-settings | Get experimentation settings
 [**getExperiments**](ExperimentsBetaApi.md#getExperiments) | **GET** /api/v2/projects/{projectKey}/environments/{environmentKey}/experiments | Get experiments
 [**getLegacyExperimentResults**](ExperimentsBetaApi.md#getLegacyExperimentResults) | **GET** /api/v2/flags/{projectKey}/{featureFlagKey}/experiments/{environmentKey}/{metricKey} | Get legacy experiment results (deprecated)
@@ -131,7 +132,7 @@ Name | Type | Description  | Notes
 
 ## getExperiment
 
-> Experiment getExperiment(projectKey, environmentKey, experimentKey)
+> Experiment getExperiment(projectKey, environmentKey, experimentKey, opts)
 
 Get experiment
 
@@ -152,7 +153,10 @@ let apiInstance = new LaunchDarklyApi.ExperimentsBetaApi();
 let projectKey = "projectKey_example"; // String | The project key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let experimentKey = "experimentKey_example"; // String | The experiment key
-apiInstance.getExperiment(projectKey, environmentKey, experimentKey, (error, data, response) => {
+let opts = {
+  'expand': "expand_example" // String | A comma-separated list of properties that can reveal additional information in the response. Supported fields are explained above.
+};
+apiInstance.getExperiment(projectKey, environmentKey, experimentKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -169,6 +173,7 @@ Name | Type | Description  | Notes
  **projectKey** | **String**| The project key | 
  **environmentKey** | **String**| The environment key | 
  **experimentKey** | **String**| The experiment key | 
+ **expand** | **String**| A comma-separated list of properties that can reveal additional information in the response. Supported fields are explained above. | [optional] 
 
 ### Return type
 
@@ -186,7 +191,7 @@ Name | Type | Description  | Notes
 
 ## getExperimentResults
 
-> ExperimentBayesianResultsRep getExperimentResults(projectKey, environmentKey, experimentKey, metricKey)
+> ExperimentBayesianResultsRep getExperimentResults(projectKey, environmentKey, experimentKey, metricKey, opts)
 
 Get experiment results
 
@@ -208,7 +213,10 @@ let projectKey = "projectKey_example"; // String | The project key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let experimentKey = "experimentKey_example"; // String | The experiment key
 let metricKey = "metricKey_example"; // String | The metric key
-apiInstance.getExperimentResults(projectKey, environmentKey, experimentKey, metricKey, (error, data, response) => {
+let opts = {
+  'iterationId': "iterationId_example" // String | The iteration ID
+};
+apiInstance.getExperimentResults(projectKey, environmentKey, experimentKey, metricKey, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -226,10 +234,72 @@ Name | Type | Description  | Notes
  **environmentKey** | **String**| The environment key | 
  **experimentKey** | **String**| The experiment key | 
  **metricKey** | **String**| The metric key | 
+ **iterationId** | **String**| The iteration ID | [optional] 
 
 ### Return type
 
 [**ExperimentBayesianResultsRep**](ExperimentBayesianResultsRep.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getExperimentResultsForMetricGroup
+
+> MetricGroupResultsRep getExperimentResultsForMetricGroup(projectKey, environmentKey, experimentKey, metricGroupKey, opts)
+
+Get experiment results for metric group
+
+Get results from an experiment for a particular metric group.
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.ExperimentsBetaApi();
+let projectKey = "projectKey_example"; // String | The project key
+let environmentKey = "environmentKey_example"; // String | The environment key
+let experimentKey = "experimentKey_example"; // String | The experiment key
+let metricGroupKey = "metricGroupKey_example"; // String | The metric group key
+let opts = {
+  'iterationId': "iterationId_example" // String | The iteration ID
+};
+apiInstance.getExperimentResultsForMetricGroup(projectKey, environmentKey, experimentKey, metricGroupKey, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectKey** | **String**| The project key | 
+ **environmentKey** | **String**| The environment key | 
+ **experimentKey** | **String**| The experiment key | 
+ **metricGroupKey** | **String**| The metric group key | 
+ **iterationId** | **String**| The iteration ID | [optional] 
+
+### Return type
+
+[**MetricGroupResultsRep**](MetricGroupResultsRep.md)
 
 ### Authorization
 
@@ -426,7 +496,7 @@ Name | Type | Description  | Notes
 
 Patch experiment
 
-Update an experiment. Updating an experiment uses the semantic patch format.  To make a semantic patch request, you must append &#x60;domain-model&#x3D;launchdarkly.semanticpatch&#x60; to your &#x60;Content-Type&#x60; header. To learn more, read [Updates using semantic patch](/reference#updates-using-semantic-patch).  ### Instructions  Semantic patch requests support the following &#x60;kind&#x60; instructions for updating experiments.  #### updateName  Updates the experiment name.  ##### Parameters  - &#x60;value&#x60;: The new name.  #### updateDescription  Updates the experiment description.  ##### Parameters  - &#x60;value&#x60;: The new description.  #### startIteration  Starts a new iteration for this experiment. You must [create a new iteration](/tag/Experiments-(beta)#operation/createIteration) before calling this instruction.  An iteration may not be started until it meets the following criteria:  * Its associated flag is toggled on and is not archived * Its &#x60;randomizationUnit&#x60; is set * At least one of its &#x60;treatments&#x60; has a non-zero &#x60;allocationPercent&#x60;  ##### Parameters  - &#x60;changeJustification&#x60;: The reason for starting a new iteration. Required when you call &#x60;startIteration&#x60; on an already running experiment, otherwise optional.  #### stopIteration  Stops the current iteration for this experiment.  ##### Parameters  - &#x60;winningTreatmentId&#x60;: The ID of the winning treatment - &#x60;winningReason&#x60;: The reason for the winner  #### archiveExperiment  Archives this experiment. Archived experiments are hidden by default in the LaunchDarkly user interface. You cannot start new iterations for archived experiments.  #### restoreExperiment  Restores an archived experiment. After restoring an experiment, you can start new iterations for it again. 
+Update an experiment. Updating an experiment uses the semantic patch format.  To make a semantic patch request, you must append &#x60;domain-model&#x3D;launchdarkly.semanticpatch&#x60; to your &#x60;Content-Type&#x60; header. To learn more, read [Updates using semantic patch](/reference#updates-using-semantic-patch).  ### Instructions  Semantic patch requests support the following &#x60;kind&#x60; instructions for updating experiments.  #### updateName  Updates the experiment name.  ##### Parameters  - &#x60;value&#x60;: The new name.  Here&#39;s an example:  &#x60;&#x60;&#x60;json {   \&quot;instructions\&quot;: [{     \&quot;kind\&quot;: \&quot;updateName\&quot;,     \&quot;value\&quot;: \&quot;Example updated experiment name\&quot;   }] } &#x60;&#x60;&#x60;  #### updateDescription  Updates the experiment description.  ##### Parameters  - &#x60;value&#x60;: The new description.  Here&#39;s an example:  &#x60;&#x60;&#x60;json {   \&quot;instructions\&quot;: [{     \&quot;kind\&quot;: \&quot;updateDescription\&quot;,     \&quot;value\&quot;: \&quot;Example updated description\&quot;   }] } &#x60;&#x60;&#x60;  #### startIteration  Starts a new iteration for this experiment. You must [create a new iteration](/tag/Experiments-(beta)#operation/createIteration) before calling this instruction.  An iteration may not be started until it meets the following criteria:  * Its associated flag is toggled on and is not archived * Its &#x60;randomizationUnit&#x60; is set * At least one of its &#x60;treatments&#x60; has a non-zero &#x60;allocationPercent&#x60;  ##### Parameters  - &#x60;changeJustification&#x60;: The reason for starting a new iteration. Required when you call &#x60;startIteration&#x60; on an already running experiment, otherwise optional.  Here&#39;s an example:  &#x60;&#x60;&#x60;json {   \&quot;instructions\&quot;: [{     \&quot;kind\&quot;: \&quot;startIteration\&quot;,     \&quot;changeJustification\&quot;: \&quot;It&#39;s time to start a new iteration\&quot;   }] } &#x60;&#x60;&#x60;  #### stopIteration  Stops the current iteration for this experiment.  ##### Parameters  - &#x60;winningTreatmentId&#x60;: The ID of the winning treatment. Treatment IDs are returned as part of the [Get experiment](/tag/Experiments-(beta)#operation/getExperiment) response. They are the &#x60;_id&#x60; of each element in the &#x60;treatments&#x60; array. - &#x60;winningReason&#x60;: The reason for the winner  Here&#39;s an example:  &#x60;&#x60;&#x60;json {   \&quot;instructions\&quot;: [{     \&quot;kind\&quot;: \&quot;stopIteration\&quot;,     \&quot;winningTreatmentId\&quot;: \&quot;3a548ec2-72ac-4e59-8518-5c24f5609ccf\&quot;,     \&quot;winningReason\&quot;: \&quot;Example reason to stop the iteration\&quot;   }] } &#x60;&#x60;&#x60;  #### archiveExperiment  Archives this experiment. Archived experiments are hidden by default in the LaunchDarkly user interface. You cannot start new iterations for archived experiments.  Here&#39;s an example:  &#x60;&#x60;&#x60;json {   \&quot;instructions\&quot;: [{ \&quot;kind\&quot;: \&quot;archiveExperiment\&quot; }] } &#x60;&#x60;&#x60;  #### restoreExperiment  Restores an archived experiment. After restoring an experiment, you can start new iterations for it again.  Here&#39;s an example:  &#x60;&#x60;&#x60;json {   \&quot;instructions\&quot;: [{ \&quot;kind\&quot;: \&quot;restoreExperiment\&quot; }] } &#x60;&#x60;&#x60; 
 
 ### Example
 

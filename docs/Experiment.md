@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **description** | **String** | The experiment description | [optional] 
 **maintainerId** | **String** | The ID of the member who maintains this experiment. | 
 **creationDate** | **Number** |  | 
+**environmentKey** | **String** |  | [optional] 
 **archivedDate** | **Number** |  | [optional] 
 **links** | [**{String: Link}**](Link.md) | The location and content type of related resources | 
 **currentIteration** | [**IterationRep**](IterationRep.md) |  | [optional] 

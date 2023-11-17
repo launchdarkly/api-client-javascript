@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 
 * `updateTargets` (value: `"updateTargets"`)
 
+* `updateFlagConfigMigrationSettings` (value: `"updateFlagConfigMigrationSettings"`)
+
 
 
 
@@ -45,6 +47,8 @@ Name | Type | Description | Notes
 * `updatePrerequisites` (value: `"updatePrerequisites"`)
 
 * `updateTargets` (value: `"updateTargets"`)
+
+* `updateFlagConfigMigrationSettings` (value: `"updateFlagConfigMigrationSettings"`)
 
 
 

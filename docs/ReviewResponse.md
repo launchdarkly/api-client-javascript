@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **creationDate** | **Number** |  | [optional] 
 **comment** | **String** | A comment describing the approval response | [optional] 
 **memberId** | **String** | ID of account member that reviewed request | [optional] 
+**serviceTokenId** | **String** | ID of account service token that reviewed request | [optional] 
 
 
 

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **notifyMemberIds** | **[String]** | An array of member IDs. These members are notified to review the approval request. | 
 **appliedDate** | **Number** |  | [optional] 
 **appliedByMemberId** | **String** | The member ID of the member who applied the approval request | [optional] 
+**appliedByServiceTokenId** | **String** | The service token ID of the service token which applied the approval request | [optional] 
 **status** | **String** | Current status of the approval request | 
 **instructions** | **[Object]** |  | 
 **conflicts** | [**[Conflict]**](Conflict.md) | Details on any conflicting approval requests | 

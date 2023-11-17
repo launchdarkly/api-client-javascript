@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **creationDate** | **Number** |  | [optional] 
 **comment** | **String** |  | [optional] 
 **memberId** | **String** |  | [optional] 
+**serviceTokenId** | **String** |  | [optional] 
 
 

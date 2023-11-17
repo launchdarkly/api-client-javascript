@@ -20,12 +20,14 @@ Name | Type | Description | Notes
 **maintainer** | [**MemberSummary**](MemberSummary.md) |  | [optional] 
 **maintainerTeamKey** | **String** | The key of the associated team that maintains this feature flag | [optional] 
 **maintainerTeam** | [**MaintainerTeam**](MaintainerTeam.md) |  | [optional] 
-**goalIds** | **[String]** | Deprecated | [optional] 
+**goalIds** | **[String]** | Deprecated, use &lt;code&gt;experiments&lt;/code&gt; instead | [optional] 
 **experiments** | [**ExperimentInfoRep**](ExperimentInfoRep.md) |  | 
 **customProperties** | [**{String: CustomProperty}**](CustomProperty.md) |  | 
 **archived** | **Boolean** | Boolean indicating if the feature flag is archived | 
 **archivedDate** | **Number** |  | [optional] 
 **defaults** | [**Defaults**](Defaults.md) |  | [optional] 
+**purpose** | **String** |  | [optional] 
+**migrationSettings** | [**FlagMigrationSettingsRep**](FlagMigrationSettingsRep.md) |  | [optional] 
 
 
 

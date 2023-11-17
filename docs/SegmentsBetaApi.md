@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Create Big Segment export
 
-Starts a new export process for a Big Segment
+Starts a new export process for a Big Segment. This is an export for a list-based segment that can include more than 15,000 entries.
 
 ### Example
 
@@ -72,7 +72,7 @@ null (empty response body)
 
 Create Big Segment import
 
-Start a new import process for a Big Segment.
+Start a new import process for a Big Segment. This is an import for a list-based segment that can include more than 15,000 entries.
 
 ### Example
 
@@ -133,7 +133,7 @@ null (empty response body)
 
 Get Big Segment export
 
-Returns info about a Big Segment export process.
+Returns information about a Big Segment export process. This is the export of a list-based segment that can include more than 15,000 entries.
 
 ### Example
 
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
 
 Get Big Segment import
 
-Returns info about a Big Segment import process.
+Returns information about a Big Segment import process. This is the import of a list-based segment that can include more than 15,000 entries.
 
 ### Example
 

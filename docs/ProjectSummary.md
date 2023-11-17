@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**{String: Link}**](Link.md) | The location and content type of related resources | [optional] 
-**key** | **String** | The project key | [optional] 
-**name** | **String** | The project name | [optional] 
+**id** | **String** | The ID of this project | 
+**links** | [**{String: Link}**](Link.md) | The location and content type of related resources | 
+**key** | **String** | The project key | 
+**name** | **String** | The project name | 
 
 
