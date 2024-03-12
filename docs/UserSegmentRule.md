@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **weight** | **Number** |  | [optional] 
 **rolloutContextKind** | **String** |  | [optional] 
 **bucketBy** | **String** |  | [optional] 
+**description** | **String** |  | [optional] 
 
 

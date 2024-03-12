@@ -136,7 +136,9 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.AccessTokensApi();
 let opts = {
-  'showAll': true // Boolean | If set to true, and the authentication access token has the 'Admin' role, personal access tokens for all members will be retrieved.
+  'showAll': true, // Boolean | If set to true, and the authentication access token has the 'Admin' role, personal access tokens for all members will be retrieved.
+  'limit': 789, // Number | The number of access tokens to return in the response. Defaults to 25.
+  'offset': 789 // Number | Where to start in the list. This is for use with pagination. For example, an offset of 10 skips the first ten items and then returns the next items in the list, up to the query `limit`.
 };
 apiInstance.getTokens(opts, (error, data, response) => {
   if (error) {
@@ -153,6 +155,8 @@ apiInstance.getTokens(opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **showAll** | **Boolean**| If set to true, and the authentication access token has the &#39;Admin&#39; role, personal access tokens for all members will be retrieved. | [optional] 
+ **limit** | **Number**| The number of access tokens to return in the response. Defaults to 25. | [optional] 
+ **offset** | **Number**| Where to start in the list. This is for use with pagination. For example, an offset of 10 skips the first ten items and then returns the next items in the list, up to the query &#x60;limit&#x60;. | [optional] 
 
 ### Return type
 

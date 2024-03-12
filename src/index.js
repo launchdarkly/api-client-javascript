@@ -1,6 +1,6 @@
 /**
  * LaunchDarkly REST API
- * # Overview  ## Authentication  All REST API resources are authenticated with either [personal or service access tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens), or session cookies. Other authentication mechanisms are not supported. You can manage personal access tokens on your [**Account settings**](https://app.launchdarkly.com/settings/tokens) page.  LaunchDarkly also has SDK keys, mobile keys, and client-side IDs that are used by our server-side SDKs, mobile SDKs, and JavaScript-based SDKs, respectively. **These keys cannot be used to access our REST API**. These keys are environment-specific, and can only perform read-only operations such as fetching feature flag settings.  | Auth mechanism                                                                                  | Allowed resources                                                                                     | Use cases                                          | | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------- | | [Personal or service access tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens) | Can be customized on a per-token basis                                                                | Building scripts, custom integrations, data export. | | SDK keys                                                                                        | Can only access read-only resources specific to server-side SDKs. Restricted to a single environment. | Server-side SDKs                     | | Mobile keys                                                                                     | Can only access read-only resources specific to mobile SDKs, and only for flags marked available to mobile keys. Restricted to a single environment.           | Mobile SDKs                                        | | Client-side ID                                                                                  | Can only access read-only resources specific to JavaScript-based client-side SDKs, and only for flags marked available to client-side. Restricted to a single environment.           | Client-side JavaScript                             |  > #### Keep your access tokens and SDK keys private > > Access tokens should _never_ be exposed in untrusted contexts. Never put an access token in client-side JavaScript, or embed it in a mobile application. LaunchDarkly has special mobile keys that you can embed in mobile apps. If you accidentally expose an access token or SDK key, you can reset it from your [**Account settings**](https://app.launchdarkly.com/settings/tokens) page. > > The client-side ID is safe to embed in untrusted contexts. It's designed for use in client-side JavaScript.  ### Authentication using request header  The preferred way to authenticate with the API is by adding an `Authorization` header containing your access token to your requests. The value of the `Authorization` header must be your access token.  Manage personal access tokens from the [**Account settings**](https://app.launchdarkly.com/settings/tokens) page.  ### Authentication using session cookie  For testing purposes, you can make API calls directly from your web browser. If you are logged in to the LaunchDarkly application, the API will use your existing session to authenticate calls.  If you have a [role](https://docs.launchdarkly.com/home/team/built-in-roles) other than Admin, or have a [custom role](https://docs.launchdarkly.com/home/team/custom-roles) defined, you may not have permission to perform some API calls. You will receive a `401` response code in that case.  > ### Modifying the Origin header causes an error > > LaunchDarkly validates that the Origin header for any API request authenticated by a session cookie matches the expected Origin header. The expected Origin header is `https://app.launchdarkly.com`. > > If the Origin header does not match what's expected, LaunchDarkly returns an error. This error can prevent the LaunchDarkly app from working correctly. > > Any browser extension that intentionally changes the Origin header can cause this problem. For example, the `Allow-Control-Allow-Origin: *` Chrome extension changes the Origin header to `http://evil.com` and causes the app to fail. > > To prevent this error, do not modify your Origin header. > > LaunchDarkly does not require origin matching when authenticating with an access token, so this issue does not affect normal API usage.  ## Representations  All resources expect and return JSON response bodies. Error responses also send a JSON body. To learn more about the error format of the API, read [Errors](/#section/Overview/Errors).  In practice this means that you always get a response with a `Content-Type` header set to `application/json`.  In addition, request bodies for `PATCH`, `POST`, and `PUT` requests must be encoded as JSON with a `Content-Type` header set to `application/json`.  ### Summary and detailed representations  When you fetch a list of resources, the response includes only the most important attributes of each resource. This is a _summary representation_ of the resource. When you fetch an individual resource, such as a single feature flag, you receive a _detailed representation_ of the resource.  The best way to find a detailed representation is to follow links. Every summary representation includes a link to its detailed representation.  ### Expanding responses  Sometimes the detailed representation of a resource does not include all of the attributes of the resource by default. If this is the case, the request method will clearly document this and describe which attributes you can include in an expanded response.  To include the additional attributes, append the `expand` request parameter to your request and add a comma-separated list of the attributes to include. For example, when you append `?expand=members,roles` to the [Get team](/tag/Teams#operation/getTeam) endpoint, the expanded response includes both of these attributes.  ### Links and addressability  The best way to navigate the API is by following links. These are attributes in representations that link to other resources. The API always uses the same format for links:  - Links to other resources within the API are encapsulated in a `_links` object - If the resource has a corresponding link to HTML content on the site, it is stored in a special `_site` link  Each link has two attributes:  - An `href`, which contains the URL - A `type`, which describes the content type  For example, a feature resource might return the following:  ```json {   \"_links\": {     \"parent\": {       \"href\": \"/api/features\",       \"type\": \"application/json\"     },     \"self\": {       \"href\": \"/api/features/sort.order\",       \"type\": \"application/json\"     }   },   \"_site\": {     \"href\": \"/features/sort.order\",     \"type\": \"text/html\"   } } ```  From this, you can navigate to the parent collection of features by following the `parent` link, or navigate to the site page for the feature by following the `_site` link.  Collections are always represented as a JSON object with an `items` attribute containing an array of representations. Like all other representations, collections have `_links` defined at the top level.  Paginated collections include `first`, `last`, `next`, and `prev` links containing a URL with the respective set of elements in the collection.  ## Updates  Resources that accept partial updates use the `PATCH` verb. Most resources support the [JSON patch](/reference#updates-using-json-patch) format. Some resources also support the [JSON merge patch](/reference#updates-using-json-merge-patch) format, and some resources support the [semantic patch](/reference#updates-using-semantic-patch) format, which is a way to specify the modifications to perform as a set of executable instructions. Each resource supports optional [comments](/reference#updates-with-comments) that you can submit with updates. Comments appear in outgoing webhooks, the audit log, and other integrations.  When a resource supports both JSON patch and semantic patch, we document both in the request method. However, the specific request body fields and descriptions included in our documentation only match one type of patch or the other.  ### Updates using JSON patch  [JSON patch](https://datatracker.ietf.org/doc/html/rfc6902) is a way to specify the modifications to perform on a resource. JSON patch uses paths and a limited set of operations to describe how to transform the current state of the resource into a new state. JSON patch documents are always arrays, where each element contains an operation, a path to the field to update, and the new value.  For example, in this feature flag representation:  ```json {     \"name\": \"New recommendations engine\",     \"key\": \"engine.enable\",     \"description\": \"This is the description\",     ... } ``` You can change the feature flag's description with the following patch document:  ```json [{ \"op\": \"replace\", \"path\": \"/description\", \"value\": \"This is the new description\" }] ```  You can specify multiple modifications to perform in a single request. You can also test that certain preconditions are met before applying the patch:  ```json [   { \"op\": \"test\", \"path\": \"/version\", \"value\": 10 },   { \"op\": \"replace\", \"path\": \"/description\", \"value\": \"The new description\" } ] ```  The above patch request tests whether the feature flag's `version` is `10`, and if so, changes the feature flag's description.  Attributes that are not editable, such as a resource's `_links`, have names that start with an underscore.  ### Updates using JSON merge patch  [JSON merge patch](https://datatracker.ietf.org/doc/html/rfc7386) is another format for specifying the modifications to perform on a resource. JSON merge patch is less expressive than JSON patch. However, in many cases it is simpler to construct a merge patch document. For example, you can change a feature flag's description with the following merge patch document:  ```json {   \"description\": \"New flag description\" } ```  ### Updates using semantic patch  Some resources support the semantic patch format. A semantic patch is a way to specify the modifications to perform on a resource as a set of executable instructions.  Semantic patch allows you to be explicit about intent using precise, custom instructions. In many cases, you can define semantic patch instructions independently of the current state of the resource. This can be useful when defining a change that may be applied at a future date.  To make a semantic patch request, you must append `domain-model=launchdarkly.semanticpatch` to your `Content-Type` header.  Here's how:  ``` Content-Type: application/json; domain-model=launchdarkly.semanticpatch ```  If you call a semantic patch resource without this header, you will receive a `400` response because your semantic patch will be interpreted as a JSON patch.  The body of a semantic patch request takes the following properties:  * `comment` (string): (Optional) A description of the update. * `environmentKey` (string): (Required for some resources only) The environment key. * `instructions` (array): (Required) A list of actions the update should perform. Each action in the list must be an object with a `kind` property that indicates the instruction. If the instruction requires parameters, you must include those parameters as additional fields in the object. The documentation for each resource that supports semantic patch includes the available instructions and any additional parameters.  For example:  ```json {   \"comment\": \"optional comment\",   \"instructions\": [ {\"kind\": \"turnFlagOn\"} ] } ```  If any instruction in the patch encounters an error, the endpoint returns an error and will not change the resource. In general, each instruction silently does nothing if the resource is already in the state you request.  ### Updates with comments  You can submit optional comments with `PATCH` changes.  To submit a comment along with a JSON patch document, use the following format:  ```json {   \"comment\": \"This is a comment string\",   \"patch\": [{ \"op\": \"replace\", \"path\": \"/description\", \"value\": \"The new description\" }] } ```  To submit a comment along with a JSON merge patch document, use the following format:  ```json {   \"comment\": \"This is a comment string\",   \"merge\": { \"description\": \"New flag description\" } } ```  To submit a comment along with a semantic patch, use the following format:  ```json {   \"comment\": \"This is a comment string\",   \"instructions\": [ {\"kind\": \"turnFlagOn\"} ] } ```  ## Errors  The API always returns errors in a common format. Here's an example:  ```json {   \"code\": \"invalid_request\",   \"message\": \"A feature with that key already exists\",   \"id\": \"30ce6058-87da-11e4-b116-123b93f75cba\" } ```  The `code` indicates the general class of error. The `message` is a human-readable explanation of what went wrong. The `id` is a unique identifier. Use it when you're working with LaunchDarkly Support to debug a problem with a specific API call.  ### HTTP status error response codes  | Code | Definition        | Description                                                                                       | Possible Solution                                                | | ---- | ----------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | | 400  | Invalid request       | The request cannot be understood.                                    | Ensure JSON syntax in request body is correct.                   | | 401  | Invalid access token      | Requestor is unauthorized or does not have permission for this API call.                                                | Ensure your API access token is valid and has the appropriate permissions.                                     | | 403  | Forbidden         | Requestor does not have access to this resource.                                                | Ensure that the account member or access token has proper permissions set. | | 404  | Invalid resource identifier | The requested resource is not valid. | Ensure that the resource is correctly identified by ID or key. | | 405  | Method not allowed | The request method is not allowed on this resource. | Ensure that the HTTP verb is correct. | | 409  | Conflict          | The API request can not be completed because it conflicts with a concurrent API request. | Retry your request.                                              | | 422  | Unprocessable entity | The API request can not be completed because the update description can not be understood. | Ensure that the request body is correct for the type of patch you are using, either JSON patch or semantic patch. | 429  | Too many requests | Read [Rate limiting](/#section/Overview/Rate-limiting).                                               | Wait and try again later.                                        |  ## CORS  The LaunchDarkly API supports Cross Origin Resource Sharing (CORS) for AJAX requests from any origin. If an `Origin` header is given in a request, it will be echoed as an explicitly allowed origin. Otherwise the request returns a wildcard, `Access-Control-Allow-Origin: *`. For more information on CORS, read the [CORS W3C Recommendation](http://www.w3.org/TR/cors). Example CORS headers might look like:  ```http Access-Control-Allow-Headers: Accept, Content-Type, Content-Length, Accept-Encoding, Authorization Access-Control-Allow-Methods: OPTIONS, GET, DELETE, PATCH Access-Control-Allow-Origin: * Access-Control-Max-Age: 300 ```  You can make authenticated CORS calls just as you would make same-origin calls, using either [token or session-based authentication](/#section/Overview/Authentication). If you are using session authentication, you should set the `withCredentials` property for your `xhr` request to `true`. You should never expose your access tokens to untrusted entities.  ## Rate limiting  We use several rate limiting strategies to ensure the availability of our APIs. Rate-limited calls to our APIs return a `429` status code. Calls to our APIs include headers indicating the current rate limit status. The specific headers returned depend on the API route being called. The limits differ based on the route, authentication mechanism, and other factors. Routes that are not rate limited may not contain any of the headers described below.  > ### Rate limiting and SDKs > > LaunchDarkly SDKs are never rate limited and do not use the API endpoints defined here. LaunchDarkly uses a different set of approaches, including streaming/server-sent events and a global CDN, to ensure availability to the routes used by LaunchDarkly SDKs.  ### Global rate limits  Authenticated requests are subject to a global limit. This is the maximum number of calls that your account can make to the API per ten seconds. All service and personal access tokens on the account share this limit, so exceeding the limit with one access token will impact other tokens. Calls that are subject to global rate limits may return the headers below:  | Header name                    | Description                                                                      | | ------------------------------ | -------------------------------------------------------------------------------- | | `X-Ratelimit-Global-Remaining` | The maximum number of requests the account is permitted to make per ten seconds. | | `X-Ratelimit-Reset`            | The time at which the current rate limit window resets in epoch milliseconds.    |  We do not publicly document the specific number of calls that can be made globally. This limit may change, and we encourage clients to program against the specification, relying on the two headers defined above, rather than hardcoding to the current limit.  ### Route-level rate limits  Some authenticated routes have custom rate limits. These also reset every ten seconds. Any service or personal access tokens hitting the same route share this limit, so exceeding the limit with one access token may impact other tokens. Calls that are subject to route-level rate limits return the headers below:  | Header name                   | Description                                                                                           | | ----------------------------- | ----------------------------------------------------------------------------------------------------- | | `X-Ratelimit-Route-Remaining` | The maximum number of requests to the current route the account is permitted to make per ten seconds. | | `X-Ratelimit-Reset`           | The time at which the current rate limit window resets in epoch milliseconds.                         |  A _route_ represents a specific URL pattern and verb. For example, the [Delete environment](/tag/Environments#operation/deleteEnvironment) endpoint is considered a single route, and each call to delete an environment counts against your route-level rate limit for that route.  We do not publicly document the specific number of calls that an account can make to each endpoint per ten seconds. These limits may change, and we encourage clients to program against the specification, relying on the two headers defined above, rather than hardcoding to the current limits.  ### IP-based rate limiting  We also employ IP-based rate limiting on some API routes. If you hit an IP-based rate limit, your API response will include a `Retry-After` header indicating how long to wait before re-trying the call. Clients must wait at least `Retry-After` seconds before making additional calls to our API, and should employ jitter and backoff strategies to avoid triggering rate limits again.  ## OpenAPI (Swagger) and client libraries  We have a [complete OpenAPI (Swagger) specification](https://app.launchdarkly.com/api/v2/openapi.json) for our API.  We auto-generate multiple client libraries based on our OpenAPI specification. To learn more, visit the [collection of client libraries on GitHub](https://github.com/search?q=topic%3Alaunchdarkly-api+org%3Alaunchdarkly&type=Repositories). You can also use this specification to generate client libraries to interact with our REST API in your language of choice.  Our OpenAPI specification is supported by several API-based tools such as Postman and Insomnia. In many cases, you can directly import our specification to explore our APIs.  ## Method overriding  Some firewalls and HTTP clients restrict the use of verbs other than `GET` and `POST`. In those environments, our API endpoints that use `DELETE`, `PATCH`, and `PUT` verbs are inaccessible.  To avoid this issue, our API supports the `X-HTTP-Method-Override` header, allowing clients to \"tunnel\" `DELETE`, `PATCH`, and `PUT` requests using a `POST` request.  For example, to call a `PATCH` endpoint using a `POST` request, you can include `X-HTTP-Method-Override:PATCH` as a header.  ## Beta resources  We sometimes release new API resources in **beta** status before we release them with general availability.  Resources that are in beta are still undergoing testing and development. They may change without notice, including becoming backwards incompatible.  We try to promote resources into general availability as quickly as possible. This happens after sufficient testing and when we're satisfied that we no longer need to make backwards-incompatible changes.  We mark beta resources with a \"Beta\" callout in our documentation, pictured below:  > ### This feature is in beta > > To use this feature, pass in a header including the `LD-API-Version` key with value set to `beta`. Use this header with each call. To learn more, read [Beta resources](/#section/Overview/Beta-resources). > > Resources that are in beta are still undergoing testing and development. They may change without notice, including becoming backwards incompatible.  ### Using beta resources  To use a beta resource, you must include a header in the request. If you call a beta resource without this header, you receive a `403` response.  Use this header:  ``` LD-API-Version: beta ```  ## Federal environments  The version of LaunchDarkly that is available on domains controlled by the United States government is different from the version of LaunchDarkly available to the general public. If you are an employee or contractor for a United States federal agency and use LaunchDarkly in your work, you likely use the federal instance of LaunchDarkly.  If you are working in the federal instance of LaunchDarkly, the base URI for each request is `https://app.launchdarkly.us`. In the \"Try it\" sandbox for each request, click the request path to view the complete resource path for the federal environment.  To learn more, read [LaunchDarkly in federal environments](https://docs.launchdarkly.com/home/advanced/federal).  ## Versioning  We try hard to keep our REST API backwards compatible, but we occasionally have to make backwards-incompatible changes in the process of shipping new features. These breaking changes can cause unexpected behavior if you don't prepare for them accordingly.  Updates to our REST API include support for the latest features in LaunchDarkly. We also release a new version of our REST API every time we make a breaking change. We provide simultaneous support for multiple API versions so you can migrate from your current API version to a new version at your own pace.  ### Setting the API version per request  You can set the API version on a specific request by sending an `LD-API-Version` header, as shown in the example below:  ``` LD-API-Version: 20220603 ```  The header value is the version number of the API version you would like to request. The number for each version corresponds to the date the version was released in `yyyymmdd` format. In the example above the version `20220603` corresponds to June 03, 2022.  ### Setting the API version per access token  When you create an access token, you must specify a specific version of the API to use. This ensures that integrations using this token cannot be broken by version changes.  Tokens created before versioning was released have their version set to `20160426`, which is the version of the API that existed before the current versioning scheme, so that they continue working the same way they did before versioning.  If you would like to upgrade your integration to use a new API version, you can explicitly set the header described above.  > ### Best practice: Set the header for every client or integration > > We recommend that you set the API version header explicitly in any client or integration you build. > > Only rely on the access token API version during manual testing.  ### API version changelog  |<div style=\"width:75px\">Version</div> | Changes | End of life (EOL) |---|---|---| | `20220603` | <ul><li>Changed the [list projects](/tag/Projects#operation/getProjects) return value:<ul><li>Response is now paginated with a default limit of `20`.</li><li>Added support for filter and sort.</li><li>The project `environments` field is now expandable. This field is omitted by default.</li></ul></li><li>Changed the [get project](/tag/Projects#operation/getProject) return value:<ul><li>The `environments` field is now expandable. This field is omitted by default.</li></ul></li></ul> | Current | | `20210729` | <ul><li>Changed the [create approval request](/tag/Approvals#operation/postApprovalRequest) return value. It now returns HTTP Status Code `201` instead of `200`.</li><li> Changed the [get users](/tag/Users#operation/getUser) return value. It now returns a user record, not a user. </li><li>Added additional optional fields to environment, segments, flags, members, and segments, including the ability to create Big Segments. </li><li> Added default values for flag variations when new environments are created. </li><li>Added filtering and pagination for getting flags and members, including `limit`, `number`, `filter`, and `sort` query parameters. </li><li>Added endpoints for expiring user targets for flags and segments, scheduled changes, access tokens, Relay Proxy configuration, integrations and subscriptions, and approvals. </li></ul> | 2023-06-03 | | `20191212` | <ul><li>[List feature flags](/tag/Feature-flags#operation/getFeatureFlags) now defaults to sending summaries of feature flag configurations, equivalent to setting the query parameter `summary=true`. Summaries omit flag targeting rules and individual user targets from the payload. </li><li> Added endpoints for flags, flag status, projects, environments, audit logs, members, users, custom roles, segments, usage, streams, events, and data export. </li></ul> | 2022-07-29 | | `20160426` | <ul><li>Initial versioning of API. Tokens created before versioning have their version set to this.</li></ul> | 2020-12-12 | 
+ * # Overview  ## Authentication  LaunchDarkly's REST API uses the HTTPS protocol with a minimum TLS version of 1.2.  All REST API resources are authenticated with either [personal or service access tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens), or session cookies. Other authentication mechanisms are not supported. You can manage personal access tokens on your [**Account settings**](https://app.launchdarkly.com/settings/tokens) page.  LaunchDarkly also has SDK keys, mobile keys, and client-side IDs that are used by our server-side SDKs, mobile SDKs, and JavaScript-based SDKs, respectively. **These keys cannot be used to access our REST API**. These keys are environment-specific, and can only perform read-only operations such as fetching feature flag settings.  | Auth mechanism                                                                                  | Allowed resources                                                                                     | Use cases                                          | | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------- | | [Personal or service access tokens](https://docs.launchdarkly.com/home/account-security/api-access-tokens) | Can be customized on a per-token basis                                                                | Building scripts, custom integrations, data export. | | SDK keys                                                                                        | Can only access read-only resources specific to server-side SDKs. Restricted to a single environment. | Server-side SDKs                     | | Mobile keys                                                                                     | Can only access read-only resources specific to mobile SDKs, and only for flags marked available to mobile keys. Restricted to a single environment.           | Mobile SDKs                                        | | Client-side ID                                                                                  | Can only access read-only resources specific to JavaScript-based client-side SDKs, and only for flags marked available to client-side. Restricted to a single environment.           | Client-side JavaScript                             |  > #### Keep your access tokens and SDK keys private > > Access tokens should _never_ be exposed in untrusted contexts. Never put an access token in client-side JavaScript, or embed it in a mobile application. LaunchDarkly has special mobile keys that you can embed in mobile apps. If you accidentally expose an access token or SDK key, you can reset it from your [**Account settings**](https://app.launchdarkly.com/settings/tokens) page. > > The client-side ID is safe to embed in untrusted contexts. It's designed for use in client-side JavaScript.  ### Authentication using request header  The preferred way to authenticate with the API is by adding an `Authorization` header containing your access token to your requests. The value of the `Authorization` header must be your access token.  Manage personal access tokens from the [**Account settings**](https://app.launchdarkly.com/settings/tokens) page.  ### Authentication using session cookie  For testing purposes, you can make API calls directly from your web browser. If you are logged in to the LaunchDarkly application, the API will use your existing session to authenticate calls.  If you have a [role](https://docs.launchdarkly.com/home/team/built-in-roles) other than Admin, or have a [custom role](https://docs.launchdarkly.com/home/team/custom-roles) defined, you may not have permission to perform some API calls. You will receive a `401` response code in that case.  > ### Modifying the Origin header causes an error > > LaunchDarkly validates that the Origin header for any API request authenticated by a session cookie matches the expected Origin header. The expected Origin header is `https://app.launchdarkly.com`. > > If the Origin header does not match what's expected, LaunchDarkly returns an error. This error can prevent the LaunchDarkly app from working correctly. > > Any browser extension that intentionally changes the Origin header can cause this problem. For example, the `Allow-Control-Allow-Origin: *` Chrome extension changes the Origin header to `http://evil.com` and causes the app to fail. > > To prevent this error, do not modify your Origin header. > > LaunchDarkly does not require origin matching when authenticating with an access token, so this issue does not affect normal API usage.  ## Representations  All resources expect and return JSON response bodies. Error responses also send a JSON body. To learn more about the error format of the API, read [Errors](/#section/Overview/Errors).  In practice this means that you always get a response with a `Content-Type` header set to `application/json`.  In addition, request bodies for `PATCH`, `POST`, and `PUT` requests must be encoded as JSON with a `Content-Type` header set to `application/json`.  ### Summary and detailed representations  When you fetch a list of resources, the response includes only the most important attributes of each resource. This is a _summary representation_ of the resource. When you fetch an individual resource, such as a single feature flag, you receive a _detailed representation_ of the resource.  The best way to find a detailed representation is to follow links. Every summary representation includes a link to its detailed representation.  ### Expanding responses  Sometimes the detailed representation of a resource does not include all of the attributes of the resource by default. If this is the case, the request method will clearly document this and describe which attributes you can include in an expanded response.  To include the additional attributes, append the `expand` request parameter to your request and add a comma-separated list of the attributes to include. For example, when you append `?expand=members,roles` to the [Get team](/tag/Teams#operation/getTeam) endpoint, the expanded response includes both of these attributes.  ### Links and addressability  The best way to navigate the API is by following links. These are attributes in representations that link to other resources. The API always uses the same format for links:  - Links to other resources within the API are encapsulated in a `_links` object - If the resource has a corresponding link to HTML content on the site, it is stored in a special `_site` link  Each link has two attributes:  - An `href`, which contains the URL - A `type`, which describes the content type  For example, a feature resource might return the following:  ```json {   \"_links\": {     \"parent\": {       \"href\": \"/api/features\",       \"type\": \"application/json\"     },     \"self\": {       \"href\": \"/api/features/sort.order\",       \"type\": \"application/json\"     }   },   \"_site\": {     \"href\": \"/features/sort.order\",     \"type\": \"text/html\"   } } ```  From this, you can navigate to the parent collection of features by following the `parent` link, or navigate to the site page for the feature by following the `_site` link.  Collections are always represented as a JSON object with an `items` attribute containing an array of representations. Like all other representations, collections have `_links` defined at the top level.  Paginated collections include `first`, `last`, `next`, and `prev` links containing a URL with the respective set of elements in the collection.  ## Updates  Resources that accept partial updates use the `PATCH` verb. Most resources support the [JSON patch](/reference#updates-using-json-patch) format. Some resources also support the [JSON merge patch](/reference#updates-using-json-merge-patch) format, and some resources support the [semantic patch](/reference#updates-using-semantic-patch) format, which is a way to specify the modifications to perform as a set of executable instructions. Each resource supports optional [comments](/reference#updates-with-comments) that you can submit with updates. Comments appear in outgoing webhooks, the audit log, and other integrations.  When a resource supports both JSON patch and semantic patch, we document both in the request method. However, the specific request body fields and descriptions included in our documentation only match one type of patch or the other.  ### Updates using JSON patch  [JSON patch](https://datatracker.ietf.org/doc/html/rfc6902) is a way to specify the modifications to perform on a resource. JSON patch uses paths and a limited set of operations to describe how to transform the current state of the resource into a new state. JSON patch documents are always arrays, where each element contains an operation, a path to the field to update, and the new value.  For example, in this feature flag representation:  ```json {     \"name\": \"New recommendations engine\",     \"key\": \"engine.enable\",     \"description\": \"This is the description\",     ... } ``` You can change the feature flag's description with the following patch document:  ```json [{ \"op\": \"replace\", \"path\": \"/description\", \"value\": \"This is the new description\" }] ```  You can specify multiple modifications to perform in a single request. You can also test that certain preconditions are met before applying the patch:  ```json [   { \"op\": \"test\", \"path\": \"/version\", \"value\": 10 },   { \"op\": \"replace\", \"path\": \"/description\", \"value\": \"The new description\" } ] ```  The above patch request tests whether the feature flag's `version` is `10`, and if so, changes the feature flag's description.  Attributes that are not editable, such as a resource's `_links`, have names that start with an underscore.  ### Updates using JSON merge patch  [JSON merge patch](https://datatracker.ietf.org/doc/html/rfc7386) is another format for specifying the modifications to perform on a resource. JSON merge patch is less expressive than JSON patch. However, in many cases it is simpler to construct a merge patch document. For example, you can change a feature flag's description with the following merge patch document:  ```json {   \"description\": \"New flag description\" } ```  ### Updates using semantic patch  Some resources support the semantic patch format. A semantic patch is a way to specify the modifications to perform on a resource as a set of executable instructions.  Semantic patch allows you to be explicit about intent using precise, custom instructions. In many cases, you can define semantic patch instructions independently of the current state of the resource. This can be useful when defining a change that may be applied at a future date.  To make a semantic patch request, you must append `domain-model=launchdarkly.semanticpatch` to your `Content-Type` header.  Here's how:  ``` Content-Type: application/json; domain-model=launchdarkly.semanticpatch ```  If you call a semantic patch resource without this header, you will receive a `400` response because your semantic patch will be interpreted as a JSON patch.  The body of a semantic patch request takes the following properties:  * `comment` (string): (Optional) A description of the update. * `environmentKey` (string): (Required for some resources only) The environment key. * `instructions` (array): (Required) A list of actions the update should perform. Each action in the list must be an object with a `kind` property that indicates the instruction. If the instruction requires parameters, you must include those parameters as additional fields in the object. The documentation for each resource that supports semantic patch includes the available instructions and any additional parameters.  For example:  ```json {   \"comment\": \"optional comment\",   \"instructions\": [ {\"kind\": \"turnFlagOn\"} ] } ```  If any instruction in the patch encounters an error, the endpoint returns an error and will not change the resource. In general, each instruction silently does nothing if the resource is already in the state you request.  ### Updates with comments  You can submit optional comments with `PATCH` changes.  To submit a comment along with a JSON patch document, use the following format:  ```json {   \"comment\": \"This is a comment string\",   \"patch\": [{ \"op\": \"replace\", \"path\": \"/description\", \"value\": \"The new description\" }] } ```  To submit a comment along with a JSON merge patch document, use the following format:  ```json {   \"comment\": \"This is a comment string\",   \"merge\": { \"description\": \"New flag description\" } } ```  To submit a comment along with a semantic patch, use the following format:  ```json {   \"comment\": \"This is a comment string\",   \"instructions\": [ {\"kind\": \"turnFlagOn\"} ] } ```  ## Errors  The API always returns errors in a common format. Here's an example:  ```json {   \"code\": \"invalid_request\",   \"message\": \"A feature with that key already exists\",   \"id\": \"30ce6058-87da-11e4-b116-123b93f75cba\" } ```  The `code` indicates the general class of error. The `message` is a human-readable explanation of what went wrong. The `id` is a unique identifier. Use it when you're working with LaunchDarkly Support to debug a problem with a specific API call.  ### HTTP status error response codes  | Code | Definition        | Description                                                                                       | Possible Solution                                                | | ---- | ----------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | | 400  | Invalid request       | The request cannot be understood.                                    | Ensure JSON syntax in request body is correct.                   | | 401  | Invalid access token      | Requestor is unauthorized or does not have permission for this API call.                                                | Ensure your API access token is valid and has the appropriate permissions.                                     | | 403  | Forbidden         | Requestor does not have access to this resource.                                                | Ensure that the account member or access token has proper permissions set. | | 404  | Invalid resource identifier | The requested resource is not valid. | Ensure that the resource is correctly identified by ID or key. | | 405  | Method not allowed | The request method is not allowed on this resource. | Ensure that the HTTP verb is correct. | | 409  | Conflict          | The API request can not be completed because it conflicts with a concurrent API request. | Retry your request.                                              | | 422  | Unprocessable entity | The API request can not be completed because the update description can not be understood. | Ensure that the request body is correct for the type of patch you are using, either JSON patch or semantic patch. | 429  | Too many requests | Read [Rate limiting](/#section/Overview/Rate-limiting).                                               | Wait and try again later.                                        |  ## CORS  The LaunchDarkly API supports Cross Origin Resource Sharing (CORS) for AJAX requests from any origin. If an `Origin` header is given in a request, it will be echoed as an explicitly allowed origin. Otherwise the request returns a wildcard, `Access-Control-Allow-Origin: *`. For more information on CORS, read the [CORS W3C Recommendation](http://www.w3.org/TR/cors). Example CORS headers might look like:  ```http Access-Control-Allow-Headers: Accept, Content-Type, Content-Length, Accept-Encoding, Authorization Access-Control-Allow-Methods: OPTIONS, GET, DELETE, PATCH Access-Control-Allow-Origin: * Access-Control-Max-Age: 300 ```  You can make authenticated CORS calls just as you would make same-origin calls, using either [token or session-based authentication](/#section/Overview/Authentication). If you are using session authentication, you should set the `withCredentials` property for your `xhr` request to `true`. You should never expose your access tokens to untrusted entities.  ## Rate limiting  We use several rate limiting strategies to ensure the availability of our APIs. Rate-limited calls to our APIs return a `429` status code. Calls to our APIs include headers indicating the current rate limit status. The specific headers returned depend on the API route being called. The limits differ based on the route, authentication mechanism, and other factors. Routes that are not rate limited may not contain any of the headers described below.  > ### Rate limiting and SDKs > > LaunchDarkly SDKs are never rate limited and do not use the API endpoints defined here. LaunchDarkly uses a different set of approaches, including streaming/server-sent events and a global CDN, to ensure availability to the routes used by LaunchDarkly SDKs.  ### Global rate limits  Authenticated requests are subject to a global limit. This is the maximum number of calls that your account can make to the API per ten seconds. All service and personal access tokens on the account share this limit, so exceeding the limit with one access token will impact other tokens. Calls that are subject to global rate limits may return the headers below:  | Header name                    | Description                                                                      | | ------------------------------ | -------------------------------------------------------------------------------- | | `X-Ratelimit-Global-Remaining` | The maximum number of requests the account is permitted to make per ten seconds. | | `X-Ratelimit-Reset`            | The time at which the current rate limit window resets in epoch milliseconds.    |  We do not publicly document the specific number of calls that can be made globally. This limit may change, and we encourage clients to program against the specification, relying on the two headers defined above, rather than hardcoding to the current limit.  ### Route-level rate limits  Some authenticated routes have custom rate limits. These also reset every ten seconds. Any service or personal access tokens hitting the same route share this limit, so exceeding the limit with one access token may impact other tokens. Calls that are subject to route-level rate limits return the headers below:  | Header name                   | Description                                                                                           | | ----------------------------- | ----------------------------------------------------------------------------------------------------- | | `X-Ratelimit-Route-Remaining` | The maximum number of requests to the current route the account is permitted to make per ten seconds. | | `X-Ratelimit-Reset`           | The time at which the current rate limit window resets in epoch milliseconds.                         |  A _route_ represents a specific URL pattern and verb. For example, the [Delete environment](/tag/Environments#operation/deleteEnvironment) endpoint is considered a single route, and each call to delete an environment counts against your route-level rate limit for that route.  We do not publicly document the specific number of calls that an account can make to each endpoint per ten seconds. These limits may change, and we encourage clients to program against the specification, relying on the two headers defined above, rather than hardcoding to the current limits.  ### IP-based rate limiting  We also employ IP-based rate limiting on some API routes. If you hit an IP-based rate limit, your API response will include a `Retry-After` header indicating how long to wait before re-trying the call. Clients must wait at least `Retry-After` seconds before making additional calls to our API, and should employ jitter and backoff strategies to avoid triggering rate limits again.  ## OpenAPI (Swagger) and client libraries  We have a [complete OpenAPI (Swagger) specification](https://app.launchdarkly.com/api/v2/openapi.json) for our API.  We auto-generate multiple client libraries based on our OpenAPI specification. To learn more, visit the [collection of client libraries on GitHub](https://github.com/search?q=topic%3Alaunchdarkly-api+org%3Alaunchdarkly&type=Repositories). You can also use this specification to generate client libraries to interact with our REST API in your language of choice.  Our OpenAPI specification is supported by several API-based tools such as Postman and Insomnia. In many cases, you can directly import our specification to explore our APIs.  ## Method overriding  Some firewalls and HTTP clients restrict the use of verbs other than `GET` and `POST`. In those environments, our API endpoints that use `DELETE`, `PATCH`, and `PUT` verbs are inaccessible.  To avoid this issue, our API supports the `X-HTTP-Method-Override` header, allowing clients to \"tunnel\" `DELETE`, `PATCH`, and `PUT` requests using a `POST` request.  For example, to call a `PATCH` endpoint using a `POST` request, you can include `X-HTTP-Method-Override:PATCH` as a header.  ## Beta resources  We sometimes release new API resources in **beta** status before we release them with general availability.  Resources that are in beta are still undergoing testing and development. They may change without notice, including becoming backwards incompatible.  We try to promote resources into general availability as quickly as possible. This happens after sufficient testing and when we're satisfied that we no longer need to make backwards-incompatible changes.  We mark beta resources with a \"Beta\" callout in our documentation, pictured below:  > ### This feature is in beta > > To use this feature, pass in a header including the `LD-API-Version` key with value set to `beta`. Use this header with each call. To learn more, read [Beta resources](/#section/Overview/Beta-resources). > > Resources that are in beta are still undergoing testing and development. They may change without notice, including becoming backwards incompatible.  ### Using beta resources  To use a beta resource, you must include a header in the request. If you call a beta resource without this header, you receive a `403` response.  Use this header:  ``` LD-API-Version: beta ```  ## Federal environments  The version of LaunchDarkly that is available on domains controlled by the United States government is different from the version of LaunchDarkly available to the general public. If you are an employee or contractor for a United States federal agency and use LaunchDarkly in your work, you likely use the federal instance of LaunchDarkly.  If you are working in the federal instance of LaunchDarkly, the base URI for each request is `https://app.launchdarkly.us`. In the \"Try it\" sandbox for each request, click the request path to view the complete resource path for the federal environment.  To learn more, read [LaunchDarkly in federal environments](https://docs.launchdarkly.com/home/advanced/federal).  ## Versioning  We try hard to keep our REST API backwards compatible, but we occasionally have to make backwards-incompatible changes in the process of shipping new features. These breaking changes can cause unexpected behavior if you don't prepare for them accordingly.  Updates to our REST API include support for the latest features in LaunchDarkly. We also release a new version of our REST API every time we make a breaking change. We provide simultaneous support for multiple API versions so you can migrate from your current API version to a new version at your own pace.  ### Setting the API version per request  You can set the API version on a specific request by sending an `LD-API-Version` header, as shown in the example below:  ``` LD-API-Version: 20220603 ```  The header value is the version number of the API version you would like to request. The number for each version corresponds to the date the version was released in `yyyymmdd` format. In the example above the version `20220603` corresponds to June 03, 2022.  ### Setting the API version per access token  When you create an access token, you must specify a specific version of the API to use. This ensures that integrations using this token cannot be broken by version changes.  Tokens created before versioning was released have their version set to `20160426`, which is the version of the API that existed before the current versioning scheme, so that they continue working the same way they did before versioning.  If you would like to upgrade your integration to use a new API version, you can explicitly set the header described above.  > ### Best practice: Set the header for every client or integration > > We recommend that you set the API version header explicitly in any client or integration you build. > > Only rely on the access token API version during manual testing.  ### API version changelog  |<div style=\"width:75px\">Version</div> | Changes | End of life (EOL) |---|---|---| | `20220603` | <ul><li>Changed the [list projects](/tag/Projects#operation/getProjects) return value:<ul><li>Response is now paginated with a default limit of `20`.</li><li>Added support for filter and sort.</li><li>The project `environments` field is now expandable. This field is omitted by default.</li></ul></li><li>Changed the [get project](/tag/Projects#operation/getProject) return value:<ul><li>The `environments` field is now expandable. This field is omitted by default.</li></ul></li></ul> | Current | | `20210729` | <ul><li>Changed the [create approval request](/tag/Approvals#operation/postApprovalRequest) return value. It now returns HTTP Status Code `201` instead of `200`.</li><li> Changed the [get users](/tag/Users#operation/getUser) return value. It now returns a user record, not a user. </li><li>Added additional optional fields to environment, segments, flags, members, and segments, including the ability to create big segments. </li><li> Added default values for flag variations when new environments are created. </li><li>Added filtering and pagination for getting flags and members, including `limit`, `number`, `filter`, and `sort` query parameters. </li><li>Added endpoints for expiring user targets for flags and segments, scheduled changes, access tokens, Relay Proxy configuration, integrations and subscriptions, and approvals. </li></ul> | 2023-06-03 | | `20191212` | <ul><li>[List feature flags](/tag/Feature-flags#operation/getFeatureFlags) now defaults to sending summaries of feature flag configurations, equivalent to setting the query parameter `summary=true`. Summaries omit flag targeting rules and individual user targets from the payload. </li><li> Added endpoints for flags, flag status, projects, environments, audit logs, members, users, custom roles, segments, usage, streams, events, and data export. </li></ul> | 2022-07-29 | | `20160426` | <ul><li>Initial versioning of API. Tokens created before versioning have their version set to this.</li></ul> | 2020-12-12 | 
  *
  * The version of the OpenAPI document: 2.0
  * Contact: support@launchdarkly.com
@@ -22,13 +22,10 @@ import AccessTokenPost from './model/AccessTokenPost';
 import ActionInput from './model/ActionInput';
 import ActionOutput from './model/ActionOutput';
 import ApplicationCollectionRep from './model/ApplicationCollectionRep';
-import ApplicationExpandableFields from './model/ApplicationExpandableFields';
 import ApplicationFlagCollectionRep from './model/ApplicationFlagCollectionRep';
 import ApplicationRep from './model/ApplicationRep';
 import ApplicationVersionRep from './model/ApplicationVersionRep';
 import ApplicationVersionsCollectionRep from './model/ApplicationVersionsCollectionRep';
-import ApprovalConditionInput from './model/ApprovalConditionInput';
-import ApprovalConditionOutput from './model/ApprovalConditionOutput';
 import ApprovalRequestResponse from './model/ApprovalRequestResponse';
 import ApprovalSettings from './model/ApprovalSettings';
 import Audience from './model/Audience';
@@ -37,6 +34,11 @@ import AuditLogEntryListingRep from './model/AuditLogEntryListingRep';
 import AuditLogEntryListingRepCollection from './model/AuditLogEntryListingRepCollection';
 import AuditLogEntryRep from './model/AuditLogEntryRep';
 import AuthorizedAppDataRep from './model/AuthorizedAppDataRep';
+import BigSegmentStoreIntegration from './model/BigSegmentStoreIntegration';
+import BigSegmentStoreIntegrationCollection from './model/BigSegmentStoreIntegrationCollection';
+import BigSegmentStoreIntegrationCollectionLinks from './model/BigSegmentStoreIntegrationCollectionLinks';
+import BigSegmentStoreIntegrationLinks from './model/BigSegmentStoreIntegrationLinks';
+import BigSegmentStoreStatus from './model/BigSegmentStoreStatus';
 import BigSegmentTarget from './model/BigSegmentTarget';
 import BooleanDefaults from './model/BooleanDefaults';
 import BooleanFlagDefaults from './model/BooleanFlagDefaults';
@@ -50,7 +52,6 @@ import ClientCollection from './model/ClientCollection';
 import ClientSideAvailability from './model/ClientSideAvailability';
 import ClientSideAvailabilityPost from './model/ClientSideAvailabilityPost';
 import CompletedBy from './model/CompletedBy';
-import ConditionBaseOutput from './model/ConditionBaseOutput';
 import ConditionInput from './model/ConditionInput';
 import ConditionOutput from './model/ConditionOutput';
 import ConfidenceIntervalRep from './model/ConfidenceIntervalRep';
@@ -70,15 +71,12 @@ import ContextInstanceSearch from './model/ContextInstanceSearch';
 import ContextInstanceSegmentMembership from './model/ContextInstanceSegmentMembership';
 import ContextInstanceSegmentMemberships from './model/ContextInstanceSegmentMemberships';
 import ContextInstances from './model/ContextInstances';
-import ContextKind from './model/ContextKind';
 import ContextKindRep from './model/ContextKindRep';
 import ContextKindsCollectionRep from './model/ContextKindsCollectionRep';
 import ContextRecord from './model/ContextRecord';
 import ContextSearch from './model/ContextSearch';
 import Contexts from './model/Contexts';
 import CopiedFromEnv from './model/CopiedFromEnv';
-import CreateApplicationInput from './model/CreateApplicationInput';
-import CreateApplicationVersionInput from './model/CreateApplicationVersionInput';
 import CreateApprovalRequestRequest from './model/CreateApprovalRequestRequest';
 import CreateCopyFlagConfigApprovalRequestRequest from './model/CreateCopyFlagConfigApprovalRequestRequest';
 import CreateFlagConfigApprovalRequestRequest from './model/CreateFlagConfigApprovalRequestRequest';
@@ -89,15 +87,12 @@ import CredibleIntervalRep from './model/CredibleIntervalRep';
 import CustomProperty from './model/CustomProperty';
 import CustomRole from './model/CustomRole';
 import CustomRolePost from './model/CustomRolePost';
-import CustomRolePostData from './model/CustomRolePostData';
-import CustomRoleSummary from './model/CustomRoleSummary';
 import CustomRoles from './model/CustomRoles';
 import CustomWorkflowInput from './model/CustomWorkflowInput';
 import CustomWorkflowMeta from './model/CustomWorkflowMeta';
 import CustomWorkflowOutput from './model/CustomWorkflowOutput';
 import CustomWorkflowStageMeta from './model/CustomWorkflowStageMeta';
 import CustomWorkflowsListingOutput from './model/CustomWorkflowsListingOutput';
-import Database from './model/Database';
 import DefaultClientSideAvailability from './model/DefaultClientSideAvailability';
 import DefaultClientSideAvailabilityPost from './model/DefaultClientSideAvailabilityPost';
 import Defaults from './model/Defaults';
@@ -105,9 +100,11 @@ import DependentExperimentRep from './model/DependentExperimentRep';
 import DependentFlag from './model/DependentFlag';
 import DependentFlagEnvironment from './model/DependentFlagEnvironment';
 import DependentFlagsByEnvironment from './model/DependentFlagsByEnvironment';
+import DependentMetricGroupRep from './model/DependentMetricGroupRep';
+import DependentMetricGroupRepWithMetrics from './model/DependentMetricGroupRepWithMetrics';
 import DependentMetricOrMetricGroupRep from './model/DependentMetricOrMetricGroupRep';
-import DesignExpandableProperties from './model/DesignExpandableProperties';
-import DesignRep from './model/DesignRep';
+import DeploymentCollectionRep from './model/DeploymentCollectionRep';
+import DeploymentRep from './model/DeploymentRep';
 import Destination from './model/Destination';
 import DestinationPost from './model/DestinationPost';
 import Destinations from './model/Destinations';
@@ -117,6 +114,7 @@ import EnvironmentPost from './model/EnvironmentPost';
 import EnvironmentSummary from './model/EnvironmentSummary';
 import Environments from './model/Environments';
 import EvaluationReason from './model/EvaluationReason';
+import EvaluationsSummary from './model/EvaluationsSummary';
 import ExecutionOutput from './model/ExecutionOutput';
 import ExpandableApprovalRequestResponse from './model/ExpandableApprovalRequestResponse';
 import ExpandableApprovalRequestsResponse from './model/ExpandableApprovalRequestsResponse';
@@ -127,7 +125,6 @@ import ExperimentBayesianResultsRep from './model/ExperimentBayesianResultsRep';
 import ExperimentCollectionRep from './model/ExperimentCollectionRep';
 import ExperimentEnabledPeriodRep from './model/ExperimentEnabledPeriodRep';
 import ExperimentEnvironmentSettingRep from './model/ExperimentEnvironmentSettingRep';
-import ExperimentExpandableProperties from './model/ExperimentExpandableProperties';
 import ExperimentInfoRep from './model/ExperimentInfoRep';
 import ExperimentMetadataRep from './model/ExperimentMetadataRep';
 import ExperimentPatchInput from './model/ExperimentPatchInput';
@@ -137,8 +134,6 @@ import ExperimentStatsRep from './model/ExperimentStatsRep';
 import ExperimentTimeSeriesSlice from './model/ExperimentTimeSeriesSlice';
 import ExperimentTimeSeriesVariationSlice from './model/ExperimentTimeSeriesVariationSlice';
 import ExperimentTotalsRep from './model/ExperimentTotalsRep';
-import ExperimentationSettingsPut from './model/ExperimentationSettingsPut';
-import ExperimentationSettingsRep from './model/ExperimentationSettingsRep';
 import ExpiringTarget from './model/ExpiringTarget';
 import ExpiringTargetError from './model/ExpiringTargetError';
 import ExpiringTargetGetResponse from './model/ExpiringTargetGetResponse';
@@ -149,6 +144,7 @@ import ExpiringUserTargetPatchResponse from './model/ExpiringUserTargetPatchResp
 import Export from './model/Export';
 import Extinction from './model/Extinction';
 import ExtinctionCollectionRep from './model/ExtinctionCollectionRep';
+import FailureReasonRep from './model/FailureReasonRep';
 import FeatureFlag from './model/FeatureFlag';
 import FeatureFlagBody from './model/FeatureFlagBody';
 import FeatureFlagConfig from './model/FeatureFlagConfig';
@@ -165,12 +161,16 @@ import FlagConfigEvaluation from './model/FlagConfigEvaluation';
 import FlagConfigMigrationSettingsRep from './model/FlagConfigMigrationSettingsRep';
 import FlagCopyConfigEnvironment from './model/FlagCopyConfigEnvironment';
 import FlagCopyConfigPost from './model/FlagCopyConfigPost';
-import FlagDefaults from './model/FlagDefaults';
-import FlagDefaultsApiBaseRep from './model/FlagDefaultsApiBaseRep';
 import FlagDefaultsRep from './model/FlagDefaultsRep';
+import FlagEventCollectionRep from './model/FlagEventCollectionRep';
+import FlagEventExperiment from './model/FlagEventExperiment';
+import FlagEventExperimentCollection from './model/FlagEventExperimentCollection';
+import FlagEventExperimentIteration from './model/FlagEventExperimentIteration';
+import FlagEventImpactRep from './model/FlagEventImpactRep';
+import FlagEventMemberRep from './model/FlagEventMemberRep';
+import FlagEventRep from './model/FlagEventRep';
 import FlagFollowersByProjEnvGetRep from './model/FlagFollowersByProjEnvGetRep';
 import FlagFollowersGetRep from './model/FlagFollowersGetRep';
-import FlagGlobalAttributesRep from './model/FlagGlobalAttributesRep';
 import FlagInput from './model/FlagInput';
 import FlagLinkCollectionRep from './model/FlagLinkCollectionRep';
 import FlagLinkMember from './model/FlagLinkMember';
@@ -178,6 +178,8 @@ import FlagLinkPost from './model/FlagLinkPost';
 import FlagLinkRep from './model/FlagLinkRep';
 import FlagListingRep from './model/FlagListingRep';
 import FlagMigrationSettingsRep from './model/FlagMigrationSettingsRep';
+import FlagReferenceCollectionRep from './model/FlagReferenceCollectionRep';
+import FlagReferenceRep from './model/FlagReferenceRep';
 import FlagRep from './model/FlagRep';
 import FlagScheduledChangesInput from './model/FlagScheduledChangesInput';
 import FlagSempatch from './model/FlagSempatch';
@@ -190,6 +192,30 @@ import ForbiddenErrorRep from './model/ForbiddenErrorRep';
 import HunkRep from './model/HunkRep';
 import Import from './model/Import';
 import InitiatorRep from './model/InitiatorRep';
+import InsightGroup from './model/InsightGroup';
+import InsightGroupCollection from './model/InsightGroupCollection';
+import InsightGroupCollectionMetadata from './model/InsightGroupCollectionMetadata';
+import InsightGroupCollectionScoreMetadata from './model/InsightGroupCollectionScoreMetadata';
+import InsightGroupScores from './model/InsightGroupScores';
+import InsightGroupsCountByIndicator from './model/InsightGroupsCountByIndicator';
+import InsightPeriod from './model/InsightPeriod';
+import InsightScores from './model/InsightScores';
+import InsightsChart from './model/InsightsChart';
+import InsightsChartBounds from './model/InsightsChartBounds';
+import InsightsChartMetadata from './model/InsightsChartMetadata';
+import InsightsChartMetric from './model/InsightsChartMetric';
+import InsightsChartSeries from './model/InsightsChartSeries';
+import InsightsChartSeriesDataPoint from './model/InsightsChartSeriesDataPoint';
+import InsightsChartSeriesMetadata from './model/InsightsChartSeriesMetadata';
+import InsightsChartSeriesMetadataAxis from './model/InsightsChartSeriesMetadataAxis';
+import InsightsMetricIndicatorRange from './model/InsightsMetricIndicatorRange';
+import InsightsMetricScore from './model/InsightsMetricScore';
+import InsightsMetricTierDefinition from './model/InsightsMetricTierDefinition';
+import InsightsRepository from './model/InsightsRepository';
+import InsightsRepositoryCollection from './model/InsightsRepositoryCollection';
+import InsightsRepositoryProject from './model/InsightsRepositoryProject';
+import InsightsRepositoryProjectCollection from './model/InsightsRepositoryProjectCollection';
+import InsightsRepositoryProjectMappings from './model/InsightsRepositoryProjectMappings';
 import InstructionUserRequest from './model/InstructionUserRequest';
 import Integration from './model/Integration';
 import IntegrationDeliveryConfiguration from './model/IntegrationDeliveryConfiguration';
@@ -208,15 +234,14 @@ import IpList from './model/IpList';
 import IterationInput from './model/IterationInput';
 import IterationRep from './model/IterationRep';
 import LastSeenMetadata from './model/LastSeenMetadata';
+import LeadTimeStagesRep from './model/LeadTimeStagesRep';
 import LegacyExperimentRep from './model/LegacyExperimentRep';
 import Link from './model/Link';
-import MaintainerInput from './model/MaintainerInput';
 import MaintainerRep from './model/MaintainerRep';
 import MaintainerTeam from './model/MaintainerTeam';
 import Member from './model/Member';
 import MemberDataRep from './model/MemberDataRep';
 import MemberImportItem from './model/MemberImportItem';
-import MemberInput from './model/MemberInput';
 import MemberPermissionGrantSummaryRep from './model/MemberPermissionGrantSummaryRep';
 import MemberSummary from './model/MemberSummary';
 import MemberTeamSummaryRep from './model/MemberTeamSummaryRep';
@@ -229,17 +254,14 @@ import MetricEventDefaultRep from './model/MetricEventDefaultRep';
 import MetricGroupCollectionRep from './model/MetricGroupCollectionRep';
 import MetricGroupPost from './model/MetricGroupPost';
 import MetricGroupRep from './model/MetricGroupRep';
-import MetricGroupRepExpandableProperties from './model/MetricGroupRepExpandableProperties';
 import MetricGroupResultsRep from './model/MetricGroupResultsRep';
 import MetricInGroupRep from './model/MetricInGroupRep';
 import MetricInGroupResultsRep from './model/MetricInGroupResultsRep';
 import MetricInMetricGroupInput from './model/MetricInMetricGroupInput';
 import MetricInput from './model/MetricInput';
 import MetricListingRep from './model/MetricListingRep';
-import MetricListingRepExpandableProperties from './model/MetricListingRepExpandableProperties';
 import MetricPost from './model/MetricPost';
 import MetricRep from './model/MetricRep';
-import MetricRepExpandableProperties from './model/MetricRepExpandableProperties';
 import MetricSeen from './model/MetricSeen';
 import MetricV2Rep from './model/MetricV2Rep';
 import MigrationSafetyIssueRep from './model/MigrationSafetyIssueRep';
@@ -251,7 +273,6 @@ import NewMemberForm from './model/NewMemberForm';
 import NotFoundErrorRep from './model/NotFoundErrorRep';
 import OauthClientPost from './model/OauthClientPost';
 import ParameterDefault from './model/ParameterDefault';
-import ParameterDefaultInput from './model/ParameterDefaultInput';
 import ParameterRep from './model/ParameterRep';
 import ParentResourceRep from './model/ParentResourceRep';
 import PatchFailedErrorRep from './model/PatchFailedErrorRep';
@@ -267,16 +288,22 @@ import PermissionGrantInput from './model/PermissionGrantInput';
 import Phase from './model/Phase';
 import PostApprovalRequestApplyRequest from './model/PostApprovalRequestApplyRequest';
 import PostApprovalRequestReviewRequest from './model/PostApprovalRequestReviewRequest';
+import PostDeploymentEventInput from './model/PostDeploymentEventInput';
 import PostFlagScheduledChangesInput from './model/PostFlagScheduledChangesInput';
+import PostInsightGroupParams from './model/PostInsightGroupParams';
 import Prerequisite from './model/Prerequisite';
 import Project from './model/Project';
-import ProjectListingRep from './model/ProjectListingRep';
 import ProjectPost from './model/ProjectPost';
 import ProjectRep from './model/ProjectRep';
 import ProjectSummary from './model/ProjectSummary';
+import ProjectSummaryCollection from './model/ProjectSummaryCollection';
 import Projects from './model/Projects';
-import PubNubDetailRep from './model/PubNubDetailRep';
+import PullRequestCollectionRep from './model/PullRequestCollectionRep';
+import PullRequestLeadTimeRep from './model/PullRequestLeadTimeRep';
+import PullRequestRep from './model/PullRequestRep';
 import PutBranch from './model/PutBranch';
+import RandomizationSettingsPut from './model/RandomizationSettingsPut';
+import RandomizationSettingsRep from './model/RandomizationSettingsRep';
 import RandomizationUnitInput from './model/RandomizationUnitInput';
 import RandomizationUnitRep from './model/RandomizationUnitRep';
 import RateLimitedErrorRep from './model/RateLimitedErrorRep';
@@ -293,11 +320,6 @@ import ReleasePipelineCollection from './model/ReleasePipelineCollection';
 import RepositoryCollectionRep from './model/RepositoryCollectionRep';
 import RepositoryPost from './model/RepositoryPost';
 import RepositoryRep from './model/RepositoryRep';
-import ResolvedContext from './model/ResolvedContext';
-import ResolvedImage from './model/ResolvedImage';
-import ResolvedTitle from './model/ResolvedTitle';
-import ResolvedUIBlockElement from './model/ResolvedUIBlockElement';
-import ResolvedUIBlocks from './model/ResolvedUIBlocks';
 import ResourceAccess from './model/ResourceAccess';
 import ResourceIDResponse from './model/ResourceIDResponse';
 import ResourceId from './model/ResourceId';
@@ -307,8 +329,6 @@ import Rollout from './model/Rollout';
 import RootResponse from './model/RootResponse';
 import Rule from './model/Rule';
 import RuleClause from './model/RuleClause';
-import ScheduleConditionInput from './model/ScheduleConditionInput';
-import ScheduleConditionOutput from './model/ScheduleConditionOutput';
 import SdkListRep from './model/SdkListRep';
 import SdkVersionListRep from './model/SdkVersionListRep';
 import SdkVersionRep from './model/SdkVersionRep';
@@ -327,13 +347,12 @@ import StageInput from './model/StageInput';
 import StageOutput from './model/StageOutput';
 import Statement from './model/Statement';
 import StatementPost from './model/StatementPost';
-import StatementPostData from './model/StatementPostData';
 import StatisticCollectionRep from './model/StatisticCollectionRep';
 import StatisticRep from './model/StatisticRep';
-import StatisticsRep from './model/StatisticsRep';
 import StatisticsRoot from './model/StatisticsRoot';
 import StatusConflictErrorRep from './model/StatusConflictErrorRep';
 import StatusServiceUnavailable from './model/StatusServiceUnavailable';
+import StoreIntegrationError from './model/StoreIntegrationError';
 import SubjectDataRep from './model/SubjectDataRep';
 import SubscriptionPost from './model/SubscriptionPost';
 import TagCollection from './model/TagCollection';
@@ -343,17 +362,14 @@ import Team from './model/Team';
 import TeamCustomRole from './model/TeamCustomRole';
 import TeamCustomRoles from './model/TeamCustomRoles';
 import TeamImportsRep from './model/TeamImportsRep';
-import TeamInput from './model/TeamInput';
 import TeamMaintainers from './model/TeamMaintainers';
 import TeamMembers from './model/TeamMembers';
 import TeamPatchInput from './model/TeamPatchInput';
 import TeamPostInput from './model/TeamPostInput';
 import TeamProjects from './model/TeamProjects';
-import TeamRepExpandableProperties from './model/TeamRepExpandableProperties';
 import Teams from './model/Teams';
 import TeamsPatchInput from './model/TeamsPatchInput';
 import TimestampRep from './model/TimestampRep';
-import TitleRep from './model/TitleRep';
 import Token from './model/Token';
 import TokenSummary from './model/TokenSummary';
 import Tokens from './model/Tokens';
@@ -375,15 +391,15 @@ import UserAttributeNamesRep from './model/UserAttributeNamesRep';
 import UserFlagSetting from './model/UserFlagSetting';
 import UserFlagSettings from './model/UserFlagSettings';
 import UserRecord from './model/UserRecord';
-import UserRecordRep from './model/UserRecordRep';
 import UserSegment from './model/UserSegment';
 import UserSegmentRule from './model/UserSegmentRule';
 import UserSegments from './model/UserSegments';
 import Users from './model/Users';
 import UsersRep from './model/UsersRep';
+import ValidationFailedErrorRep from './model/ValidationFailedErrorRep';
 import ValuePut from './model/ValuePut';
-import Variate from './model/Variate';
 import Variation from './model/Variation';
+import VariationEvalSummary from './model/VariationEvalSummary';
 import VariationOrRolloutRep from './model/VariationOrRolloutRep';
 import VariationSummary from './model/VariationSummary';
 import VersionsRep from './model/VersionsRep';
@@ -394,7 +410,6 @@ import WeightedVariation from './model/WeightedVariation';
 import WorkflowTemplateMetadata from './model/WorkflowTemplateMetadata';
 import WorkflowTemplateOutput from './model/WorkflowTemplateOutput';
 import WorkflowTemplateParameter from './model/WorkflowTemplateParameter';
-import WorkflowTemplateParameterInput from './model/WorkflowTemplateParameterInput';
 import WorkflowTemplatesListingOutputRep from './model/WorkflowTemplatesListingOutputRep';
 import AccessTokensApi from './api/AccessTokensApi';
 import AccountMembersApi from './api/AccountMembersApi';
@@ -415,8 +430,15 @@ import FeatureFlagsBetaApi from './api/FeatureFlagsBetaApi';
 import FlagLinksBetaApi from './api/FlagLinksBetaApi';
 import FlagTriggersApi from './api/FlagTriggersApi';
 import FollowFlagsApi from './api/FollowFlagsApi';
+import InsightsChartsBetaApi from './api/InsightsChartsBetaApi';
+import InsightsDeploymentsBetaApi from './api/InsightsDeploymentsBetaApi';
+import InsightsFlagEventsBetaApi from './api/InsightsFlagEventsBetaApi';
+import InsightsPullRequestsBetaApi from './api/InsightsPullRequestsBetaApi';
+import InsightsRepositoriesBetaApi from './api/InsightsRepositoriesBetaApi';
+import InsightsScoresBetaApi from './api/InsightsScoresBetaApi';
 import IntegrationAuditLogSubscriptionsApi from './api/IntegrationAuditLogSubscriptionsApi';
 import IntegrationDeliveryConfigurationsBetaApi from './api/IntegrationDeliveryConfigurationsBetaApi';
+import IntegrationsBetaApi from './api/IntegrationsBetaApi';
 import MetricsApi from './api/MetricsApi';
 import MetricsBetaApi from './api/MetricsBetaApi';
 import OAuth2ClientsApi from './api/OAuth2ClientsApi';
@@ -468,7 +490,7 @@ import WorkflowsApi from './api/WorkflowsApi';
 * </pre>
 * </p>
 * @module index
-* @version 14.0.0
+* @version 15.0.0
 */
 export {
     /**
@@ -532,12 +554,6 @@ export {
     ApplicationCollectionRep,
 
     /**
-     * The ApplicationExpandableFields model constructor.
-     * @property {module:model/ApplicationExpandableFields}
-     */
-    ApplicationExpandableFields,
-
-    /**
      * The ApplicationFlagCollectionRep model constructor.
      * @property {module:model/ApplicationFlagCollectionRep}
      */
@@ -560,18 +576,6 @@ export {
      * @property {module:model/ApplicationVersionsCollectionRep}
      */
     ApplicationVersionsCollectionRep,
-
-    /**
-     * The ApprovalConditionInput model constructor.
-     * @property {module:model/ApprovalConditionInput}
-     */
-    ApprovalConditionInput,
-
-    /**
-     * The ApprovalConditionOutput model constructor.
-     * @property {module:model/ApprovalConditionOutput}
-     */
-    ApprovalConditionOutput,
 
     /**
      * The ApprovalRequestResponse model constructor.
@@ -620,6 +624,36 @@ export {
      * @property {module:model/AuthorizedAppDataRep}
      */
     AuthorizedAppDataRep,
+
+    /**
+     * The BigSegmentStoreIntegration model constructor.
+     * @property {module:model/BigSegmentStoreIntegration}
+     */
+    BigSegmentStoreIntegration,
+
+    /**
+     * The BigSegmentStoreIntegrationCollection model constructor.
+     * @property {module:model/BigSegmentStoreIntegrationCollection}
+     */
+    BigSegmentStoreIntegrationCollection,
+
+    /**
+     * The BigSegmentStoreIntegrationCollectionLinks model constructor.
+     * @property {module:model/BigSegmentStoreIntegrationCollectionLinks}
+     */
+    BigSegmentStoreIntegrationCollectionLinks,
+
+    /**
+     * The BigSegmentStoreIntegrationLinks model constructor.
+     * @property {module:model/BigSegmentStoreIntegrationLinks}
+     */
+    BigSegmentStoreIntegrationLinks,
+
+    /**
+     * The BigSegmentStoreStatus model constructor.
+     * @property {module:model/BigSegmentStoreStatus}
+     */
+    BigSegmentStoreStatus,
 
     /**
      * The BigSegmentTarget model constructor.
@@ -698,12 +732,6 @@ export {
      * @property {module:model/CompletedBy}
      */
     CompletedBy,
-
-    /**
-     * The ConditionBaseOutput model constructor.
-     * @property {module:model/ConditionBaseOutput}
-     */
-    ConditionBaseOutput,
 
     /**
      * The ConditionInput model constructor.
@@ -820,12 +848,6 @@ export {
     ContextInstances,
 
     /**
-     * The ContextKind model constructor.
-     * @property {module:model/ContextKind}
-     */
-    ContextKind,
-
-    /**
      * The ContextKindRep model constructor.
      * @property {module:model/ContextKindRep}
      */
@@ -860,18 +882,6 @@ export {
      * @property {module:model/CopiedFromEnv}
      */
     CopiedFromEnv,
-
-    /**
-     * The CreateApplicationInput model constructor.
-     * @property {module:model/CreateApplicationInput}
-     */
-    CreateApplicationInput,
-
-    /**
-     * The CreateApplicationVersionInput model constructor.
-     * @property {module:model/CreateApplicationVersionInput}
-     */
-    CreateApplicationVersionInput,
 
     /**
      * The CreateApprovalRequestRequest model constructor.
@@ -934,18 +944,6 @@ export {
     CustomRolePost,
 
     /**
-     * The CustomRolePostData model constructor.
-     * @property {module:model/CustomRolePostData}
-     */
-    CustomRolePostData,
-
-    /**
-     * The CustomRoleSummary model constructor.
-     * @property {module:model/CustomRoleSummary}
-     */
-    CustomRoleSummary,
-
-    /**
      * The CustomRoles model constructor.
      * @property {module:model/CustomRoles}
      */
@@ -980,12 +978,6 @@ export {
      * @property {module:model/CustomWorkflowsListingOutput}
      */
     CustomWorkflowsListingOutput,
-
-    /**
-     * The Database model constructor.
-     * @property {module:model/Database}
-     */
-    Database,
 
     /**
      * The DefaultClientSideAvailability model constructor.
@@ -1030,22 +1022,34 @@ export {
     DependentFlagsByEnvironment,
 
     /**
+     * The DependentMetricGroupRep model constructor.
+     * @property {module:model/DependentMetricGroupRep}
+     */
+    DependentMetricGroupRep,
+
+    /**
+     * The DependentMetricGroupRepWithMetrics model constructor.
+     * @property {module:model/DependentMetricGroupRepWithMetrics}
+     */
+    DependentMetricGroupRepWithMetrics,
+
+    /**
      * The DependentMetricOrMetricGroupRep model constructor.
      * @property {module:model/DependentMetricOrMetricGroupRep}
      */
     DependentMetricOrMetricGroupRep,
 
     /**
-     * The DesignExpandableProperties model constructor.
-     * @property {module:model/DesignExpandableProperties}
+     * The DeploymentCollectionRep model constructor.
+     * @property {module:model/DeploymentCollectionRep}
      */
-    DesignExpandableProperties,
+    DeploymentCollectionRep,
 
     /**
-     * The DesignRep model constructor.
-     * @property {module:model/DesignRep}
+     * The DeploymentRep model constructor.
+     * @property {module:model/DeploymentRep}
      */
-    DesignRep,
+    DeploymentRep,
 
     /**
      * The Destination model constructor.
@@ -1100,6 +1104,12 @@ export {
      * @property {module:model/EvaluationReason}
      */
     EvaluationReason,
+
+    /**
+     * The EvaluationsSummary model constructor.
+     * @property {module:model/EvaluationsSummary}
+     */
+    EvaluationsSummary,
 
     /**
      * The ExecutionOutput model constructor.
@@ -1162,12 +1172,6 @@ export {
     ExperimentEnvironmentSettingRep,
 
     /**
-     * The ExperimentExpandableProperties model constructor.
-     * @property {module:model/ExperimentExpandableProperties}
-     */
-    ExperimentExpandableProperties,
-
-    /**
      * The ExperimentInfoRep model constructor.
      * @property {module:model/ExperimentInfoRep}
      */
@@ -1220,18 +1224,6 @@ export {
      * @property {module:model/ExperimentTotalsRep}
      */
     ExperimentTotalsRep,
-
-    /**
-     * The ExperimentationSettingsPut model constructor.
-     * @property {module:model/ExperimentationSettingsPut}
-     */
-    ExperimentationSettingsPut,
-
-    /**
-     * The ExperimentationSettingsRep model constructor.
-     * @property {module:model/ExperimentationSettingsRep}
-     */
-    ExperimentationSettingsRep,
 
     /**
      * The ExpiringTarget model constructor.
@@ -1292,6 +1284,12 @@ export {
      * @property {module:model/ExtinctionCollectionRep}
      */
     ExtinctionCollectionRep,
+
+    /**
+     * The FailureReasonRep model constructor.
+     * @property {module:model/FailureReasonRep}
+     */
+    FailureReasonRep,
 
     /**
      * The FeatureFlag model constructor.
@@ -1390,22 +1388,52 @@ export {
     FlagCopyConfigPost,
 
     /**
-     * The FlagDefaults model constructor.
-     * @property {module:model/FlagDefaults}
-     */
-    FlagDefaults,
-
-    /**
-     * The FlagDefaultsApiBaseRep model constructor.
-     * @property {module:model/FlagDefaultsApiBaseRep}
-     */
-    FlagDefaultsApiBaseRep,
-
-    /**
      * The FlagDefaultsRep model constructor.
      * @property {module:model/FlagDefaultsRep}
      */
     FlagDefaultsRep,
+
+    /**
+     * The FlagEventCollectionRep model constructor.
+     * @property {module:model/FlagEventCollectionRep}
+     */
+    FlagEventCollectionRep,
+
+    /**
+     * The FlagEventExperiment model constructor.
+     * @property {module:model/FlagEventExperiment}
+     */
+    FlagEventExperiment,
+
+    /**
+     * The FlagEventExperimentCollection model constructor.
+     * @property {module:model/FlagEventExperimentCollection}
+     */
+    FlagEventExperimentCollection,
+
+    /**
+     * The FlagEventExperimentIteration model constructor.
+     * @property {module:model/FlagEventExperimentIteration}
+     */
+    FlagEventExperimentIteration,
+
+    /**
+     * The FlagEventImpactRep model constructor.
+     * @property {module:model/FlagEventImpactRep}
+     */
+    FlagEventImpactRep,
+
+    /**
+     * The FlagEventMemberRep model constructor.
+     * @property {module:model/FlagEventMemberRep}
+     */
+    FlagEventMemberRep,
+
+    /**
+     * The FlagEventRep model constructor.
+     * @property {module:model/FlagEventRep}
+     */
+    FlagEventRep,
 
     /**
      * The FlagFollowersByProjEnvGetRep model constructor.
@@ -1418,12 +1446,6 @@ export {
      * @property {module:model/FlagFollowersGetRep}
      */
     FlagFollowersGetRep,
-
-    /**
-     * The FlagGlobalAttributesRep model constructor.
-     * @property {module:model/FlagGlobalAttributesRep}
-     */
-    FlagGlobalAttributesRep,
 
     /**
      * The FlagInput model constructor.
@@ -1466,6 +1488,18 @@ export {
      * @property {module:model/FlagMigrationSettingsRep}
      */
     FlagMigrationSettingsRep,
+
+    /**
+     * The FlagReferenceCollectionRep model constructor.
+     * @property {module:model/FlagReferenceCollectionRep}
+     */
+    FlagReferenceCollectionRep,
+
+    /**
+     * The FlagReferenceRep model constructor.
+     * @property {module:model/FlagReferenceRep}
+     */
+    FlagReferenceRep,
 
     /**
      * The FlagRep model constructor.
@@ -1538,6 +1572,150 @@ export {
      * @property {module:model/InitiatorRep}
      */
     InitiatorRep,
+
+    /**
+     * The InsightGroup model constructor.
+     * @property {module:model/InsightGroup}
+     */
+    InsightGroup,
+
+    /**
+     * The InsightGroupCollection model constructor.
+     * @property {module:model/InsightGroupCollection}
+     */
+    InsightGroupCollection,
+
+    /**
+     * The InsightGroupCollectionMetadata model constructor.
+     * @property {module:model/InsightGroupCollectionMetadata}
+     */
+    InsightGroupCollectionMetadata,
+
+    /**
+     * The InsightGroupCollectionScoreMetadata model constructor.
+     * @property {module:model/InsightGroupCollectionScoreMetadata}
+     */
+    InsightGroupCollectionScoreMetadata,
+
+    /**
+     * The InsightGroupScores model constructor.
+     * @property {module:model/InsightGroupScores}
+     */
+    InsightGroupScores,
+
+    /**
+     * The InsightGroupsCountByIndicator model constructor.
+     * @property {module:model/InsightGroupsCountByIndicator}
+     */
+    InsightGroupsCountByIndicator,
+
+    /**
+     * The InsightPeriod model constructor.
+     * @property {module:model/InsightPeriod}
+     */
+    InsightPeriod,
+
+    /**
+     * The InsightScores model constructor.
+     * @property {module:model/InsightScores}
+     */
+    InsightScores,
+
+    /**
+     * The InsightsChart model constructor.
+     * @property {module:model/InsightsChart}
+     */
+    InsightsChart,
+
+    /**
+     * The InsightsChartBounds model constructor.
+     * @property {module:model/InsightsChartBounds}
+     */
+    InsightsChartBounds,
+
+    /**
+     * The InsightsChartMetadata model constructor.
+     * @property {module:model/InsightsChartMetadata}
+     */
+    InsightsChartMetadata,
+
+    /**
+     * The InsightsChartMetric model constructor.
+     * @property {module:model/InsightsChartMetric}
+     */
+    InsightsChartMetric,
+
+    /**
+     * The InsightsChartSeries model constructor.
+     * @property {module:model/InsightsChartSeries}
+     */
+    InsightsChartSeries,
+
+    /**
+     * The InsightsChartSeriesDataPoint model constructor.
+     * @property {module:model/InsightsChartSeriesDataPoint}
+     */
+    InsightsChartSeriesDataPoint,
+
+    /**
+     * The InsightsChartSeriesMetadata model constructor.
+     * @property {module:model/InsightsChartSeriesMetadata}
+     */
+    InsightsChartSeriesMetadata,
+
+    /**
+     * The InsightsChartSeriesMetadataAxis model constructor.
+     * @property {module:model/InsightsChartSeriesMetadataAxis}
+     */
+    InsightsChartSeriesMetadataAxis,
+
+    /**
+     * The InsightsMetricIndicatorRange model constructor.
+     * @property {module:model/InsightsMetricIndicatorRange}
+     */
+    InsightsMetricIndicatorRange,
+
+    /**
+     * The InsightsMetricScore model constructor.
+     * @property {module:model/InsightsMetricScore}
+     */
+    InsightsMetricScore,
+
+    /**
+     * The InsightsMetricTierDefinition model constructor.
+     * @property {module:model/InsightsMetricTierDefinition}
+     */
+    InsightsMetricTierDefinition,
+
+    /**
+     * The InsightsRepository model constructor.
+     * @property {module:model/InsightsRepository}
+     */
+    InsightsRepository,
+
+    /**
+     * The InsightsRepositoryCollection model constructor.
+     * @property {module:model/InsightsRepositoryCollection}
+     */
+    InsightsRepositoryCollection,
+
+    /**
+     * The InsightsRepositoryProject model constructor.
+     * @property {module:model/InsightsRepositoryProject}
+     */
+    InsightsRepositoryProject,
+
+    /**
+     * The InsightsRepositoryProjectCollection model constructor.
+     * @property {module:model/InsightsRepositoryProjectCollection}
+     */
+    InsightsRepositoryProjectCollection,
+
+    /**
+     * The InsightsRepositoryProjectMappings model constructor.
+     * @property {module:model/InsightsRepositoryProjectMappings}
+     */
+    InsightsRepositoryProjectMappings,
 
     /**
      * The InstructionUserRequest model constructor.
@@ -1648,6 +1826,12 @@ export {
     LastSeenMetadata,
 
     /**
+     * The LeadTimeStagesRep model constructor.
+     * @property {module:model/LeadTimeStagesRep}
+     */
+    LeadTimeStagesRep,
+
+    /**
      * The LegacyExperimentRep model constructor.
      * @property {module:model/LegacyExperimentRep}
      */
@@ -1658,12 +1842,6 @@ export {
      * @property {module:model/Link}
      */
     Link,
-
-    /**
-     * The MaintainerInput model constructor.
-     * @property {module:model/MaintainerInput}
-     */
-    MaintainerInput,
 
     /**
      * The MaintainerRep model constructor.
@@ -1694,12 +1872,6 @@ export {
      * @property {module:model/MemberImportItem}
      */
     MemberImportItem,
-
-    /**
-     * The MemberInput model constructor.
-     * @property {module:model/MemberInput}
-     */
-    MemberInput,
 
     /**
      * The MemberPermissionGrantSummaryRep model constructor.
@@ -1774,12 +1946,6 @@ export {
     MetricGroupRep,
 
     /**
-     * The MetricGroupRepExpandableProperties model constructor.
-     * @property {module:model/MetricGroupRepExpandableProperties}
-     */
-    MetricGroupRepExpandableProperties,
-
-    /**
      * The MetricGroupResultsRep model constructor.
      * @property {module:model/MetricGroupResultsRep}
      */
@@ -1816,12 +1982,6 @@ export {
     MetricListingRep,
 
     /**
-     * The MetricListingRepExpandableProperties model constructor.
-     * @property {module:model/MetricListingRepExpandableProperties}
-     */
-    MetricListingRepExpandableProperties,
-
-    /**
      * The MetricPost model constructor.
      * @property {module:model/MetricPost}
      */
@@ -1832,12 +1992,6 @@ export {
      * @property {module:model/MetricRep}
      */
     MetricRep,
-
-    /**
-     * The MetricRepExpandableProperties model constructor.
-     * @property {module:model/MetricRepExpandableProperties}
-     */
-    MetricRepExpandableProperties,
 
     /**
      * The MetricSeen model constructor.
@@ -1904,12 +2058,6 @@ export {
      * @property {module:model/ParameterDefault}
      */
     ParameterDefault,
-
-    /**
-     * The ParameterDefaultInput model constructor.
-     * @property {module:model/ParameterDefaultInput}
-     */
-    ParameterDefaultInput,
 
     /**
      * The ParameterRep model constructor.
@@ -2002,10 +2150,22 @@ export {
     PostApprovalRequestReviewRequest,
 
     /**
+     * The PostDeploymentEventInput model constructor.
+     * @property {module:model/PostDeploymentEventInput}
+     */
+    PostDeploymentEventInput,
+
+    /**
      * The PostFlagScheduledChangesInput model constructor.
      * @property {module:model/PostFlagScheduledChangesInput}
      */
     PostFlagScheduledChangesInput,
+
+    /**
+     * The PostInsightGroupParams model constructor.
+     * @property {module:model/PostInsightGroupParams}
+     */
+    PostInsightGroupParams,
 
     /**
      * The Prerequisite model constructor.
@@ -2018,12 +2178,6 @@ export {
      * @property {module:model/Project}
      */
     Project,
-
-    /**
-     * The ProjectListingRep model constructor.
-     * @property {module:model/ProjectListingRep}
-     */
-    ProjectListingRep,
 
     /**
      * The ProjectPost model constructor.
@@ -2044,22 +2198,52 @@ export {
     ProjectSummary,
 
     /**
+     * The ProjectSummaryCollection model constructor.
+     * @property {module:model/ProjectSummaryCollection}
+     */
+    ProjectSummaryCollection,
+
+    /**
      * The Projects model constructor.
      * @property {module:model/Projects}
      */
     Projects,
 
     /**
-     * The PubNubDetailRep model constructor.
-     * @property {module:model/PubNubDetailRep}
+     * The PullRequestCollectionRep model constructor.
+     * @property {module:model/PullRequestCollectionRep}
      */
-    PubNubDetailRep,
+    PullRequestCollectionRep,
+
+    /**
+     * The PullRequestLeadTimeRep model constructor.
+     * @property {module:model/PullRequestLeadTimeRep}
+     */
+    PullRequestLeadTimeRep,
+
+    /**
+     * The PullRequestRep model constructor.
+     * @property {module:model/PullRequestRep}
+     */
+    PullRequestRep,
 
     /**
      * The PutBranch model constructor.
      * @property {module:model/PutBranch}
      */
     PutBranch,
+
+    /**
+     * The RandomizationSettingsPut model constructor.
+     * @property {module:model/RandomizationSettingsPut}
+     */
+    RandomizationSettingsPut,
+
+    /**
+     * The RandomizationSettingsRep model constructor.
+     * @property {module:model/RandomizationSettingsRep}
+     */
+    RandomizationSettingsRep,
 
     /**
      * The RandomizationUnitInput model constructor.
@@ -2158,36 +2342,6 @@ export {
     RepositoryRep,
 
     /**
-     * The ResolvedContext model constructor.
-     * @property {module:model/ResolvedContext}
-     */
-    ResolvedContext,
-
-    /**
-     * The ResolvedImage model constructor.
-     * @property {module:model/ResolvedImage}
-     */
-    ResolvedImage,
-
-    /**
-     * The ResolvedTitle model constructor.
-     * @property {module:model/ResolvedTitle}
-     */
-    ResolvedTitle,
-
-    /**
-     * The ResolvedUIBlockElement model constructor.
-     * @property {module:model/ResolvedUIBlockElement}
-     */
-    ResolvedUIBlockElement,
-
-    /**
-     * The ResolvedUIBlocks model constructor.
-     * @property {module:model/ResolvedUIBlocks}
-     */
-    ResolvedUIBlocks,
-
-    /**
      * The ResourceAccess model constructor.
      * @property {module:model/ResourceAccess}
      */
@@ -2240,18 +2394,6 @@ export {
      * @property {module:model/RuleClause}
      */
     RuleClause,
-
-    /**
-     * The ScheduleConditionInput model constructor.
-     * @property {module:model/ScheduleConditionInput}
-     */
-    ScheduleConditionInput,
-
-    /**
-     * The ScheduleConditionOutput model constructor.
-     * @property {module:model/ScheduleConditionOutput}
-     */
-    ScheduleConditionOutput,
 
     /**
      * The SdkListRep model constructor.
@@ -2362,12 +2504,6 @@ export {
     StatementPost,
 
     /**
-     * The StatementPostData model constructor.
-     * @property {module:model/StatementPostData}
-     */
-    StatementPostData,
-
-    /**
      * The StatisticCollectionRep model constructor.
      * @property {module:model/StatisticCollectionRep}
      */
@@ -2378,12 +2514,6 @@ export {
      * @property {module:model/StatisticRep}
      */
     StatisticRep,
-
-    /**
-     * The StatisticsRep model constructor.
-     * @property {module:model/StatisticsRep}
-     */
-    StatisticsRep,
 
     /**
      * The StatisticsRoot model constructor.
@@ -2402,6 +2532,12 @@ export {
      * @property {module:model/StatusServiceUnavailable}
      */
     StatusServiceUnavailable,
+
+    /**
+     * The StoreIntegrationError model constructor.
+     * @property {module:model/StoreIntegrationError}
+     */
+    StoreIntegrationError,
 
     /**
      * The SubjectDataRep model constructor.
@@ -2458,12 +2594,6 @@ export {
     TeamImportsRep,
 
     /**
-     * The TeamInput model constructor.
-     * @property {module:model/TeamInput}
-     */
-    TeamInput,
-
-    /**
      * The TeamMaintainers model constructor.
      * @property {module:model/TeamMaintainers}
      */
@@ -2494,12 +2624,6 @@ export {
     TeamProjects,
 
     /**
-     * The TeamRepExpandableProperties model constructor.
-     * @property {module:model/TeamRepExpandableProperties}
-     */
-    TeamRepExpandableProperties,
-
-    /**
      * The Teams model constructor.
      * @property {module:model/Teams}
      */
@@ -2516,12 +2640,6 @@ export {
      * @property {module:model/TimestampRep}
      */
     TimestampRep,
-
-    /**
-     * The TitleRep model constructor.
-     * @property {module:model/TitleRep}
-     */
-    TitleRep,
 
     /**
      * The Token model constructor.
@@ -2650,12 +2768,6 @@ export {
     UserRecord,
 
     /**
-     * The UserRecordRep model constructor.
-     * @property {module:model/UserRecordRep}
-     */
-    UserRecordRep,
-
-    /**
      * The UserSegment model constructor.
      * @property {module:model/UserSegment}
      */
@@ -2686,22 +2798,28 @@ export {
     UsersRep,
 
     /**
+     * The ValidationFailedErrorRep model constructor.
+     * @property {module:model/ValidationFailedErrorRep}
+     */
+    ValidationFailedErrorRep,
+
+    /**
      * The ValuePut model constructor.
      * @property {module:model/ValuePut}
      */
     ValuePut,
 
     /**
-     * The Variate model constructor.
-     * @property {module:model/Variate}
-     */
-    Variate,
-
-    /**
      * The Variation model constructor.
      * @property {module:model/Variation}
      */
     Variation,
+
+    /**
+     * The VariationEvalSummary model constructor.
+     * @property {module:model/VariationEvalSummary}
+     */
+    VariationEvalSummary,
 
     /**
      * The VariationOrRolloutRep model constructor.
@@ -2762,12 +2880,6 @@ export {
      * @property {module:model/WorkflowTemplateParameter}
      */
     WorkflowTemplateParameter,
-
-    /**
-     * The WorkflowTemplateParameterInput model constructor.
-     * @property {module:model/WorkflowTemplateParameterInput}
-     */
-    WorkflowTemplateParameterInput,
 
     /**
      * The WorkflowTemplatesListingOutputRep model constructor.
@@ -2890,6 +3002,42 @@ export {
     FollowFlagsApi,
 
     /**
+    * The InsightsChartsBetaApi service constructor.
+    * @property {module:api/InsightsChartsBetaApi}
+    */
+    InsightsChartsBetaApi,
+
+    /**
+    * The InsightsDeploymentsBetaApi service constructor.
+    * @property {module:api/InsightsDeploymentsBetaApi}
+    */
+    InsightsDeploymentsBetaApi,
+
+    /**
+    * The InsightsFlagEventsBetaApi service constructor.
+    * @property {module:api/InsightsFlagEventsBetaApi}
+    */
+    InsightsFlagEventsBetaApi,
+
+    /**
+    * The InsightsPullRequestsBetaApi service constructor.
+    * @property {module:api/InsightsPullRequestsBetaApi}
+    */
+    InsightsPullRequestsBetaApi,
+
+    /**
+    * The InsightsRepositoriesBetaApi service constructor.
+    * @property {module:api/InsightsRepositoriesBetaApi}
+    */
+    InsightsRepositoriesBetaApi,
+
+    /**
+    * The InsightsScoresBetaApi service constructor.
+    * @property {module:api/InsightsScoresBetaApi}
+    */
+    InsightsScoresBetaApi,
+
+    /**
     * The IntegrationAuditLogSubscriptionsApi service constructor.
     * @property {module:api/IntegrationAuditLogSubscriptionsApi}
     */
@@ -2900,6 +3048,12 @@ export {
     * @property {module:api/IntegrationDeliveryConfigurationsBetaApi}
     */
     IntegrationDeliveryConfigurationsBetaApi,
+
+    /**
+    * The IntegrationsBetaApi service constructor.
+    * @property {module:api/IntegrationsBetaApi}
+    */
+    IntegrationsBetaApi,
 
     /**
     * The MetricsApi service constructor.

@@ -14,7 +14,6 @@ Method | HTTP request | Description
 [**getLegacyExperimentResults**](ExperimentsBetaApi.md#getLegacyExperimentResults) | **GET** /api/v2/flags/{projectKey}/{featureFlagKey}/experiments/{environmentKey}/{metricKey} | Get legacy experiment results (deprecated)
 [**patchExperiment**](ExperimentsBetaApi.md#patchExperiment) | **PATCH** /api/v2/projects/{projectKey}/environments/{environmentKey}/experiments/{experimentKey} | Patch experiment
 [**putExperimentationSettings**](ExperimentsBetaApi.md#putExperimentationSettings) | **PUT** /api/v2/projects/{projectKey}/experimentation-settings | Update experimentation settings
-[**resetExperiment**](ExperimentsBetaApi.md#resetExperiment) | **DELETE** /api/v2/flags/{projectKey}/{featureFlagKey}/experiments/{environmentKey}/{metricKey}/results | Reset experiment results
 
 
 
@@ -195,7 +194,7 @@ Name | Type | Description  | Notes
 
 Get experiment results
 
-Get results from an experiment for a particular metric.
+Get results from an experiment for a particular metric.  LaunchDarkly supports one field for expanding the \&quot;Get experiment results\&quot; response. By default, this field is **not** included in the response.  To expand the response, append the &#x60;expand&#x60; query parameter with the following field: * &#x60;traffic&#x60; includes the total count of units for each treatment.  For example, &#x60;expand&#x3D;traffic&#x60; includes the &#x60;traffic&#x60; field for the project in the response. 
 
 ### Example
 
@@ -214,7 +213,8 @@ let environmentKey = "environmentKey_example"; // String | The environment key
 let experimentKey = "experimentKey_example"; // String | The experiment key
 let metricKey = "metricKey_example"; // String | The metric key
 let opts = {
-  'iterationId': "iterationId_example" // String | The iteration ID
+  'iterationId': "iterationId_example", // String | The iteration ID
+  'expand': "expand_example" // String | A comma-separated list of fields to expand in the response. Supported fields are explained above.
 };
 apiInstance.getExperimentResults(projectKey, environmentKey, experimentKey, metricKey, opts, (error, data, response) => {
   if (error) {
@@ -235,6 +235,7 @@ Name | Type | Description  | Notes
  **experimentKey** | **String**| The experiment key | 
  **metricKey** | **String**| The metric key | 
  **iterationId** | **String**| The iteration ID | [optional] 
+ **expand** | **String**| A comma-separated list of fields to expand in the response. Supported fields are explained above. | [optional] 
 
 ### Return type
 
@@ -313,7 +314,7 @@ Name | Type | Description  | Notes
 
 ## getExperimentationSettings
 
-> ExperimentationSettingsRep getExperimentationSettings(projectKey)
+> RandomizationSettingsRep getExperimentationSettings(projectKey)
 
 Get experimentation settings
 
@@ -350,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ExperimentationSettingsRep**](ExperimentationSettingsRep.md)
+[**RandomizationSettingsRep**](RandomizationSettingsRep.md)
 
 ### Authorization
 
@@ -549,7 +550,7 @@ Name | Type | Description  | Notes
 
 ## putExperimentationSettings
 
-> ExperimentationSettingsRep putExperimentationSettings(projectKey, experimentationSettingsPut)
+> RandomizationSettingsRep putExperimentationSettings(projectKey, randomizationSettingsPut)
 
 Update experimentation settings
 
@@ -568,8 +569,8 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.ExperimentsBetaApi();
 let projectKey = "projectKey_example"; // String | The project key
-let experimentationSettingsPut = new LaunchDarklyApi.ExperimentationSettingsPut(); // ExperimentationSettingsPut | 
-apiInstance.putExperimentationSettings(projectKey, experimentationSettingsPut, (error, data, response) => {
+let randomizationSettingsPut = new LaunchDarklyApi.RandomizationSettingsPut(); // RandomizationSettingsPut | 
+apiInstance.putExperimentationSettings(projectKey, randomizationSettingsPut, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -584,11 +585,11 @@ apiInstance.putExperimentationSettings(projectKey, experimentationSettingsPut, (
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
- **experimentationSettingsPut** | [**ExperimentationSettingsPut**](ExperimentationSettingsPut.md)|  | 
+ **randomizationSettingsPut** | [**RandomizationSettingsPut**](RandomizationSettingsPut.md)|  | 
 
 ### Return type
 
-[**ExperimentationSettingsRep**](ExperimentationSettingsRep.md)
+[**RandomizationSettingsRep**](RandomizationSettingsRep.md)
 
 ### Authorization
 
@@ -597,62 +598,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## resetExperiment
-
-> resetExperiment(projectKey, featureFlagKey, environmentKey, metricKey)
-
-Reset experiment results
-
-Reset all experiment results by deleting all existing data for an experiment.
-
-### Example
-
-```javascript
-import LaunchDarklyApi from 'launchdarkly-api';
-let defaultClient = LaunchDarklyApi.ApiClient.instance;
-// Configure API key authorization: ApiKey
-let ApiKey = defaultClient.authentications['ApiKey'];
-ApiKey.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.apiKeyPrefix = 'Token';
-
-let apiInstance = new LaunchDarklyApi.ExperimentsBetaApi();
-let projectKey = "projectKey_example"; // String | The project key
-let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
-let environmentKey = "environmentKey_example"; // String | The environment key
-let metricKey = "metricKey_example"; // String | The metric's key
-apiInstance.resetExperiment(projectKey, featureFlagKey, environmentKey, metricKey, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key | 
- **featureFlagKey** | **String**| The feature flag key | 
- **environmentKey** | **String**| The environment key | 
- **metricKey** | **String**| The metric&#39;s key | 
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 

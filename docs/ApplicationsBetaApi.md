@@ -4,7 +4,6 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createApplication**](ApplicationsBetaApi.md#createApplication) | **POST** /api/v2/applications | Post application
 [**deleteApplication**](ApplicationsBetaApi.md#deleteApplication) | **DELETE** /api/v2/applications/{applicationKey} | Delete application
 [**deleteApplicationVersion**](ApplicationsBetaApi.md#deleteApplicationVersion) | **DELETE** /api/v2/applications/{applicationKey}/versions/{versionKey} | Delete application version
 [**getApplication**](ApplicationsBetaApi.md#getApplication) | **GET** /api/v2/applications/{applicationKey} | Get application by key
@@ -12,59 +11,7 @@ Method | HTTP request | Description
 [**getApplications**](ApplicationsBetaApi.md#getApplications) | **GET** /api/v2/applications | Get applications
 [**patchApplication**](ApplicationsBetaApi.md#patchApplication) | **PATCH** /api/v2/applications/{applicationKey} | Update application
 [**patchApplicationVersion**](ApplicationsBetaApi.md#patchApplicationVersion) | **PATCH** /api/v2/applications/{applicationKey}/versions/{versionKey} | Update application version
-[**postApplicationVersion**](ApplicationsBetaApi.md#postApplicationVersion) | **POST** /api/v2/applications/{applicationKey}/versions | Post application version
 
-
-
-## createApplication
-
-> ApplicationRep createApplication(createApplicationInput)
-
-Post application
-
-Create a new application
-
-### Example
-
-```javascript
-import LaunchDarklyApi from 'launchdarkly-api';
-let defaultClient = LaunchDarklyApi.ApiClient.instance;
-// Configure API key authorization: ApiKey
-let ApiKey = defaultClient.authentications['ApiKey'];
-ApiKey.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.apiKeyPrefix = 'Token';
-
-let apiInstance = new LaunchDarklyApi.ApplicationsBetaApi();
-let createApplicationInput = new LaunchDarklyApi.CreateApplicationInput(); // CreateApplicationInput | 
-apiInstance.createApplication(createApplicationInput, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createApplicationInput** | [**CreateApplicationInput**](CreateApplicationInput.md)|  | 
-
-### Return type
-
-[**ApplicationRep**](ApplicationRep.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
 
 
 ## deleteApplication
@@ -441,59 +388,6 @@ Name | Type | Description  | Notes
  **applicationKey** | **String**| The application key | 
  **versionKey** | **String**| The application version key | 
  **patchOperation** | [**[PatchOperation]**](PatchOperation.md)|  | 
-
-### Return type
-
-[**ApplicationVersionRep**](ApplicationVersionRep.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## postApplicationVersion
-
-> ApplicationVersionRep postApplicationVersion(applicationKey, createApplicationVersionInput)
-
-Post application version
-
-Create an application version
-
-### Example
-
-```javascript
-import LaunchDarklyApi from 'launchdarkly-api';
-let defaultClient = LaunchDarklyApi.ApiClient.instance;
-// Configure API key authorization: ApiKey
-let ApiKey = defaultClient.authentications['ApiKey'];
-ApiKey.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.apiKeyPrefix = 'Token';
-
-let apiInstance = new LaunchDarklyApi.ApplicationsBetaApi();
-let applicationKey = "applicationKey_example"; // String | The application key
-let createApplicationVersionInput = new LaunchDarklyApi.CreateApplicationVersionInput(); // CreateApplicationVersionInput | 
-apiInstance.postApplicationVersion(applicationKey, createApplicationVersionInput, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationKey** | **String**| The application key | 
- **createApplicationVersionInput** | [**CreateApplicationVersionInput**](CreateApplicationVersionInput.md)|  | 
 
 ### Return type
 

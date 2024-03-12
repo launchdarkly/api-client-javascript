@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ## patchReleaseByFlagKey
 
-> patchReleaseByFlagKey(projectKey, flagKey, patchOperation)
+> Release patchReleaseByFlagKey(projectKey, flagKey, patchOperation)
 
 Patch release for flag
 
@@ -89,7 +89,7 @@ apiInstance.patchReleaseByFlagKey(projectKey, flagKey, patchOperation, (error, d
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**Release**](Release.md)
 
 ### Authorization
 
@@ -114,5 +114,5 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 

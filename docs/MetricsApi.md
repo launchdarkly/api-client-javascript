@@ -71,7 +71,7 @@ null (empty response body)
 
 Get metric
 
-Get information for a single metric from the specific project.  ### Expanding the metric response LaunchDarkly supports two fields for expanding the \&quot;Get metric\&quot; response. By default, these fields are **not** included in the response.  To expand the response, append the &#x60;expand&#x60; query parameter and add a comma-separated list with any of the following fields:  - &#x60;experiments&#x60; includes all experiments from the specific project that use the metric - &#x60;experimentCount&#x60; includes the number of experiments from the specific project that use the metric  For example, &#x60;expand&#x3D;experiments&#x60; includes the &#x60;experiments&#x60; field in the response. 
+Get information for a single metric from the specific project.  ### Expanding the metric response LaunchDarkly supports four fields for expanding the \&quot;Get metric\&quot; response. By default, these fields are **not** included in the response.  To expand the response, append the &#x60;expand&#x60; query parameter and add a comma-separated list with any of the following fields:  - &#x60;experiments&#x60; includes all experiments from the specific project that use the metric - &#x60;experimentCount&#x60; includes the number of experiments from the specific project that use the metric - &#x60;metricGroups&#x60; includes all metric groups from the specific project that use the metric - &#x60;metricGroupCount&#x60; includes the number of metric groups from the specific project that use the metric  For example, &#x60;expand&#x3D;experiments&#x60; includes the &#x60;experiments&#x60; field in the response. 
 
 ### Example
 
@@ -88,7 +88,8 @@ let apiInstance = new LaunchDarklyApi.MetricsApi();
 let projectKey = "projectKey_example"; // String | The project key
 let metricKey = "metricKey_example"; // String | The metric key
 let opts = {
-  'expand': "expand_example" // String | A comma-separated list of properties that can reveal additional information in the response.
+  'expand': "expand_example", // String | A comma-separated list of properties that can reveal additional information in the response.
+  'versionId': "versionId_example" // String | The specific version ID of the metric
 };
 apiInstance.getMetric(projectKey, metricKey, opts, (error, data, response) => {
   if (error) {
@@ -107,6 +108,7 @@ Name | Type | Description  | Notes
  **projectKey** | **String**| The project key | 
  **metricKey** | **String**| The metric key | 
  **expand** | **String**| A comma-separated list of properties that can reveal additional information in the response. | [optional] 
+ **versionId** | **String**| The specific version ID of the metric | [optional] 
 
 ### Return type
 

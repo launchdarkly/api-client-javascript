@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **version** | **Number** |  | [optional] 
 **includedCount** | **Number** |  | [optional] 
 **excludedCount** | **Number** |  | [optional] 
+**lastModified** | **Number** |  | [optional] 
 **deleted** | **Boolean** |  | [optional] 
 
 

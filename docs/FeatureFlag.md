@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **customProperties** | [**{String: CustomProperty}**](CustomProperty.md) |  | 
 **archived** | **Boolean** | Boolean indicating if the feature flag is archived | 
 **archivedDate** | **Number** |  | [optional] 
+**deprecated** | **Boolean** | Boolean indicating if the feature flag is deprecated | 
+**deprecatedDate** | **Number** |  | [optional] 
 **defaults** | [**Defaults**](Defaults.md) |  | [optional] 
 **purpose** | **String** |  | [optional] 
 **migrationSettings** | [**FlagMigrationSettingsRep**](FlagMigrationSettingsRep.md) |  | [optional] 

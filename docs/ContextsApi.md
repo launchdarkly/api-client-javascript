@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 Get context attribute names
 
-Get context attribute names.
+Get context attribute names. Returns only the first 100 attribute names per context.
 
 ### Example
 
