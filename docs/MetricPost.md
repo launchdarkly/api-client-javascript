@@ -17,7 +17,10 @@ Name | Type | Description | Notes
 **successCriteria** | **String** | Success criteria. Required for custom numeric metrics, optional for custom conversion metrics. | [optional] 
 **tags** | **[String]** | Tags for the metric | [optional] 
 **randomizationUnits** | **[String]** | An array of randomization units allowed for this metric | [optional] 
-**unitAggregationType** | **String** | The method in which multiple unit event values are aggregated | [optional] 
+**unitAggregationType** | **String** | The method by which multiple unit event values are aggregated | [optional] 
+**analysisType** | **String** | The method for analyzing metric events | [optional] 
+**percentileValue** | **Number** | The percentile for the analysis method. An integer denoting the target percentile between 0 and 100. Required when &lt;code&gt;analysisType&lt;/code&gt; is &lt;code&gt;percentile&lt;/code&gt;. | [optional] 
+**eventDefault** | [**MetricEventDefaultRep**](MetricEventDefaultRep.md) |  | [optional] 
 
 
 

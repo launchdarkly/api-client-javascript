@@ -12,13 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
-import Audience from './Audience';
 import CompletedBy from './CompletedBy';
+import ReleaseAudience from './ReleaseAudience';
 
 /**
  * The ReleasePhase model module.
  * @module model/ReleasePhase
- * @version 15.0.0
+ * @version 15.1.0
  */
 class ReleasePhase {
     /**
@@ -28,7 +28,7 @@ class ReleasePhase {
      * @param name {String} The release phase name
      * @param complete {Boolean} Whether this phase is complete
      * @param creationDate {Number} 
-     * @param audiences {Array.<module:model/Audience>} A logical grouping of one or more environments that share attributes for rolling out changes
+     * @param audiences {Array.<module:model/ReleaseAudience>} A logical grouping of one or more environments that share attributes for rolling out changes
      */
     constructor(id, name, complete, creationDate, audiences) { 
         
@@ -78,7 +78,7 @@ class ReleasePhase {
                 obj['_completedBy'] = CompletedBy.constructFromObject(data['_completedBy']);
             }
             if (data.hasOwnProperty('_audiences')) {
-                obj['_audiences'] = ApiClient.convertToType(data['_audiences'], [Audience]);
+                obj['_audiences'] = ApiClient.convertToType(data['_audiences'], [ReleaseAudience]);
             }
         }
         return obj;
@@ -122,7 +122,7 @@ ReleasePhase.prototype['_completedBy'] = undefined;
 
 /**
  * A logical grouping of one or more environments that share attributes for rolling out changes
- * @member {Array.<module:model/Audience>} _audiences
+ * @member {Array.<module:model/ReleaseAudience>} _audiences
  */
 ReleasePhase.prototype['_audiences'] = undefined;
 

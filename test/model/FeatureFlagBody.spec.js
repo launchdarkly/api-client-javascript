@@ -126,6 +126,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property maintainerId (base name: "maintainerId")', function() {
+      // uncomment below and update the code to test the property maintainerId
+      //var instance = new LaunchDarklyApi.FeatureFlagBody();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property maintainerTeamKey (base name: "maintainerTeamKey")', function() {
+      // uncomment below and update the code to test the property maintainerTeamKey
+      //var instance = new LaunchDarklyApi.FeatureFlagBody();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

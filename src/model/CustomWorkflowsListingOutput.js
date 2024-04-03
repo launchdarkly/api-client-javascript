@@ -17,7 +17,7 @@ import CustomWorkflowOutput from './CustomWorkflowOutput';
 /**
  * The CustomWorkflowsListingOutput model module.
  * @module model/CustomWorkflowsListingOutput
- * @version 15.0.0
+ * @version 15.1.0
  */
 class CustomWorkflowsListingOutput {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InsightsChartSeriesMetadataAxis model module.
  * @module model/InsightsChartSeriesMetadataAxis
- * @version 15.0.0
+ * @version 15.1.0
  */
 class InsightsChartSeriesMetadataAxis {
     /**

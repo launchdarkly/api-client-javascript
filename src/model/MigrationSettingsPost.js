@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MigrationSettingsPost model module.
  * @module model/MigrationSettingsPost
- * @version 15.0.0
+ * @version 15.1.0
  */
 class MigrationSettingsPost {
     /**

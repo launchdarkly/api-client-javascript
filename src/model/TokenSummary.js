@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The TokenSummary model module.
  * @module model/TokenSummary
- * @version 15.0.0
+ * @version 15.1.0
  */
 class TokenSummary {
     /**

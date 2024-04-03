@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The DependentFlagEnvironment model module.
  * @module model/DependentFlagEnvironment
- * @version 15.0.0
+ * @version 15.1.0
  */
 class DependentFlagEnvironment {
     /**

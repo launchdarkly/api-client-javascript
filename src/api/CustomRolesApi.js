@@ -27,7 +27,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * CustomRoles service.
 * @module api/CustomRolesApi
-* @version 15.0.0
+* @version 15.1.0
 */
 export default class CustomRolesApi {
 

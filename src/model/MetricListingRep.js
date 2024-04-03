@@ -21,7 +21,7 @@ import Modification from './Modification';
 /**
  * The MetricListingRep model module.
  * @module model/MetricListingRep
- * @version 15.0.0
+ * @version 15.1.0
  */
 class MetricListingRep {
     /**
@@ -281,19 +281,19 @@ MetricListingRep.prototype['eventKey'] = undefined;
 MetricListingRep.prototype['randomizationUnits'] = undefined;
 
 /**
- * The method in which multiple unit event values are aggregated
+ * The method by which multiple unit event values are aggregated
  * @member {module:model/MetricListingRep.UnitAggregationTypeEnum} unitAggregationType
  */
 MetricListingRep.prototype['unitAggregationType'] = undefined;
 
 /**
- * The strategy for analyzing metric events
+ * The method for analyzing metric events
  * @member {module:model/MetricListingRep.AnalysisTypeEnum} analysisType
  */
 MetricListingRep.prototype['analysisType'] = undefined;
 
 /**
- * The percentile, an integer denoting the target percentile between 0 and 100. Only present when <code>analysisType</code> is <code>percentile</code>.
+ * The percentile for the analysis method. An integer denoting the target percentile between 0 and 100. Required when <code>analysisType</code> is <code>percentile</code>.
  * @member {Number} percentileValue
  */
 MetricListingRep.prototype['percentileValue'] = undefined;

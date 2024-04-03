@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MetricSeen model module.
  * @module model/MetricSeen
- * @version 15.0.0
+ * @version 15.1.0
  */
 class MetricSeen {
     /**

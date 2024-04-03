@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AudiencePost model module.
  * @module model/AudiencePost
- * @version 15.0.0
+ * @version 15.1.0
  */
 class AudiencePost {
     /**

@@ -19,7 +19,7 @@ import Link from './Link';
 /**
  * The FlagDefaultsRep model module.
  * @module model/FlagDefaultsRep
- * @version 15.0.0
+ * @version 15.1.0
  */
 class FlagDefaultsRep {
     /**

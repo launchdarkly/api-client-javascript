@@ -26,7 +26,7 @@ import ValidationFailedErrorRep from '../model/ValidationFailedErrorRep';
 /**
 * InsightsDeploymentsBeta service.
 * @module api/InsightsDeploymentsBetaApi
-* @version 15.0.0
+* @version 15.1.0
 */
 export default class InsightsDeploymentsBetaApi {
 

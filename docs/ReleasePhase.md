@@ -10,6 +10,6 @@ Name | Type | Description | Notes
 **creationDate** | **Number** |  | 
 **completionDate** | **Number** |  | [optional] 
 **completedBy** | [**CompletedBy**](CompletedBy.md) |  | [optional] 
-**audiences** | [**[Audience]**](Audience.md) | A logical grouping of one or more environments that share attributes for rolling out changes | 
+**audiences** | [**[ReleaseAudience]**](ReleaseAudience.md) | A logical grouping of one or more environments that share attributes for rolling out changes | 
 
 

@@ -17,7 +17,7 @@ import FailureReasonRep from './FailureReasonRep';
 /**
  * The ValidationFailedErrorRep model module.
  * @module model/ValidationFailedErrorRep
- * @version 15.0.0
+ * @version 15.1.0
  */
 class ValidationFailedErrorRep {
     /**

@@ -314,6 +314,7 @@ import RelayAutoConfigCollectionRep from './model/RelayAutoConfigCollectionRep';
 import RelayAutoConfigPost from './model/RelayAutoConfigPost';
 import RelayAutoConfigRep from './model/RelayAutoConfigRep';
 import Release from './model/Release';
+import ReleaseAudience from './model/ReleaseAudience';
 import ReleasePhase from './model/ReleasePhase';
 import ReleasePipeline from './model/ReleasePipeline';
 import ReleasePipelineCollection from './model/ReleasePipelineCollection';
@@ -490,7 +491,7 @@ import WorkflowsApi from './api/WorkflowsApi';
 * </pre>
 * </p>
 * @module index
-* @version 15.0.0
+* @version 15.1.0
 */
 export {
     /**
@@ -2304,6 +2305,12 @@ export {
      * @property {module:model/Release}
      */
     Release,
+
+    /**
+     * The ReleaseAudience model constructor.
+     * @property {module:model/ReleaseAudience}
+     */
+    ReleaseAudience,
 
     /**
      * The ReleasePhase model constructor.

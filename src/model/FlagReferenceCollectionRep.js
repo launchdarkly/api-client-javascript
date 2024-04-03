@@ -17,7 +17,7 @@ import FlagReferenceRep from './FlagReferenceRep';
 /**
  * The FlagReferenceCollectionRep model module.
  * @module model/FlagReferenceCollectionRep
- * @version 15.0.0
+ * @version 15.1.0
  */
 class FlagReferenceCollectionRep {
     /**

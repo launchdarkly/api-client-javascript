@@ -21,7 +21,7 @@ import Variation from './Variation';
 /**
  * The FeatureFlagBody model module.
  * @module model/FeatureFlagBody
- * @version 15.0.0
+ * @version 15.1.0
  */
 class FeatureFlagBody {
     /**
@@ -91,6 +91,12 @@ class FeatureFlagBody {
             }
             if (data.hasOwnProperty('migrationSettings')) {
                 obj['migrationSettings'] = MigrationSettingsPost.constructFromObject(data['migrationSettings']);
+            }
+            if (data.hasOwnProperty('maintainerId')) {
+                obj['maintainerId'] = ApiClient.convertToType(data['maintainerId'], 'String');
+            }
+            if (data.hasOwnProperty('maintainerTeamKey')) {
+                obj['maintainerTeamKey'] = ApiClient.convertToType(data['maintainerTeamKey'], 'String');
             }
         }
         return obj;
@@ -166,6 +172,18 @@ FeatureFlagBody.prototype['purpose'] = undefined;
  * @member {module:model/MigrationSettingsPost} migrationSettings
  */
 FeatureFlagBody.prototype['migrationSettings'] = undefined;
+
+/**
+ * The ID of the member who maintains this feature flag
+ * @member {String} maintainerId
+ */
+FeatureFlagBody.prototype['maintainerId'] = undefined;
+
+/**
+ * The key of the team that maintains this feature flag
+ * @member {String} maintainerTeamKey
+ */
+FeatureFlagBody.prototype['maintainerTeamKey'] = undefined;
 
 
 

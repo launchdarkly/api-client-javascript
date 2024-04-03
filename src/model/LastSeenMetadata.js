@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LastSeenMetadata model module.
  * @module model/LastSeenMetadata
- * @version 15.0.0
+ * @version 15.1.0
  */
 class LastSeenMetadata {
     /**

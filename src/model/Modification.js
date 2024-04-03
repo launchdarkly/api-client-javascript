@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Modification model module.
  * @module model/Modification
- * @version 15.0.0
+ * @version 15.1.0
  */
 class Modification {
     /**

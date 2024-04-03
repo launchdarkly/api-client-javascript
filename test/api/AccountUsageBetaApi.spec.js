@@ -48,6 +48,16 @@
   }
 
   describe('AccountUsageBetaApi', function() {
+    describe('getDataExportEventsUsage', function() {
+      it('should call getDataExportEventsUsage successfully', function(done) {
+        //uncomment below and update the code to test getDataExportEventsUsage
+        //instance.getDataExportEventsUsage(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getEvaluationsUsage', function() {
       it('should call getEvaluationsUsage successfully', function(done) {
         //uncomment below and update the code to test getEvaluationsUsage
@@ -112,6 +122,16 @@
       it('should call getMauUsageByCategory successfully', function(done) {
         //uncomment below and update the code to test getMauUsageByCategory
         //instance.getMauUsageByCategory(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getServiceConnectionUsage', function() {
+      it('should call getServiceConnectionUsage successfully', function(done) {
+        //uncomment below and update the code to test getServiceConnectionUsage
+        //instance.getServiceConnectionUsage(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

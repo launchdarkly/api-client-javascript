@@ -338,6 +338,7 @@ docs/RelayAutoConfigPost.md
 docs/RelayAutoConfigRep.md
 docs/RelayProxyConfigurationsApi.md
 docs/Release.md
+docs/ReleaseAudience.md
 docs/ReleasePhase.md
 docs/ReleasePipeline.md
 docs/ReleasePipelineCollection.md
@@ -803,6 +804,7 @@ src/model/RelayAutoConfigCollectionRep.js
 src/model/RelayAutoConfigPost.js
 src/model/RelayAutoConfigRep.js
 src/model/Release.js
+src/model/ReleaseAudience.js
 src/model/ReleasePhase.js
 src/model/ReleasePipeline.js
 src/model/ReleasePipelineCollection.js
@@ -1249,6 +1251,7 @@ test/model/RelayAutoConfigCollectionRep.spec.js
 test/model/RelayAutoConfigPost.spec.js
 test/model/RelayAutoConfigRep.spec.js
 test/model/Release.spec.js
+test/model/ReleaseAudience.spec.js
 test/model/ReleasePhase.spec.js
 test/model/ReleasePipeline.spec.js
 test/model/ReleasePipelineCollection.spec.js

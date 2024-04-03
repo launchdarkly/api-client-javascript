@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ConflictOutput model module.
  * @module model/ConflictOutput
- * @version 15.0.0
+ * @version 15.1.0
  */
 class ConflictOutput {
     /**

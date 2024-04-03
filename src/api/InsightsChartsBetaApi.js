@@ -23,7 +23,7 @@ import ValidationFailedErrorRep from '../model/ValidationFailedErrorRep';
 /**
 * InsightsChartsBeta service.
 * @module api/InsightsChartsBetaApi
-* @version 15.0.0
+* @version 15.1.0
 */
 export default class InsightsChartsBetaApi {
 
@@ -219,13 +219,13 @@ export default class InsightsChartsBetaApi {
      */
 
     /**
-     * Get replease frequency chart data
+     * Get release frequency chart data
      * Get release frequency chart data. Engineering insights displays release frequency data in the [release frequency metric view](https://docs.launchdarkly.com/home/engineering-insights/metrics/release).
      * @param {String} projectKey The project key
      * @param {String} environmentKey The environment key
      * @param {Object} opts Optional parameters
      * @param {String} opts.applicationKey Comma separated list of application keys
-     * @param {Boolean} opts.hasExperiments Filter events to those associated with an experiment
+     * @param {Boolean} opts.hasExperiments Filter events to those associated with an experiment (`true`) or without an experiment (`false`)
      * @param {String} opts.global Filter to include or exclude global events. Default value is `include`. Options: `include`, `exclude`
      * @param {String} opts.groupBy Property to group results by. Options: `impact`
      * @param {Date} opts.from Unix timestamp in milliseconds. Default value is 7 days ago.

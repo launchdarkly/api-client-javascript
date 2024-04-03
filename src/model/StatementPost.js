@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StatementPost model module.
  * @module model/StatementPost
- * @version 15.0.0
+ * @version 15.1.0
  */
 class StatementPost {
     /**

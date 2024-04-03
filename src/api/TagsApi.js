@@ -22,7 +22,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * Tags service.
 * @module api/TagsApi
-* @version 15.0.0
+* @version 15.1.0
 */
 export default class TagsApi {
 

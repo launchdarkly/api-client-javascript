@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**getDeploymentFrequencyChart**](InsightsChartsBetaApi.md#getDeploymentFrequencyChart) | **GET** /api/v2/engineering-insights/charts/deployments/frequency | Get deployment frequency chart data
 [**getFlagStatusChart**](InsightsChartsBetaApi.md#getFlagStatusChart) | **GET** /api/v2/engineering-insights/charts/flags/status | Get flag status chart data
 [**getLeadTimeChart**](InsightsChartsBetaApi.md#getLeadTimeChart) | **GET** /api/v2/engineering-insights/charts/lead-time | Get lead time chart data
-[**getReleaseFrequencyChart**](InsightsChartsBetaApi.md#getReleaseFrequencyChart) | **GET** /api/v2/engineering-insights/charts/releases/frequency | Get replease frequency chart data
+[**getReleaseFrequencyChart**](InsightsChartsBetaApi.md#getReleaseFrequencyChart) | **GET** /api/v2/engineering-insights/charts/releases/frequency | Get release frequency chart data
 [**getStaleFlagsChart**](InsightsChartsBetaApi.md#getStaleFlagsChart) | **GET** /api/v2/engineering-insights/charts/flags/stale | Get stale flags chart data
 
 
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 > InsightsChart getReleaseFrequencyChart(projectKey, environmentKey, opts)
 
-Get replease frequency chart data
+Get release frequency chart data
 
 Get release frequency chart data. Engineering insights displays release frequency data in the [release frequency metric view](https://docs.launchdarkly.com/home/engineering-insights/metrics/release).
 
@@ -231,7 +231,7 @@ let projectKey = "projectKey_example"; // String | The project key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let opts = {
   'applicationKey': "applicationKey_example", // String | Comma separated list of application keys
-  'hasExperiments': true, // Boolean | Filter events to those associated with an experiment
+  'hasExperiments': true, // Boolean | Filter events to those associated with an experiment (`true`) or without an experiment (`false`)
   'global': "global_example", // String | Filter to include or exclude global events. Default value is `include`. Options: `include`, `exclude`
   'groupBy': "groupBy_example", // String | Property to group results by. Options: `impact`
   'from': new Date("2013-10-20T19:20:30+01:00"), // Date | Unix timestamp in milliseconds. Default value is 7 days ago.
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
  **projectKey** | **String**| The project key | 
  **environmentKey** | **String**| The environment key | 
  **applicationKey** | **String**| Comma separated list of application keys | [optional] 
- **hasExperiments** | **Boolean**| Filter events to those associated with an experiment | [optional] 
+ **hasExperiments** | **Boolean**| Filter events to those associated with an experiment (&#x60;true&#x60;) or without an experiment (&#x60;false&#x60;) | [optional] 
  **global** | **String**| Filter to include or exclude global events. Default value is &#x60;include&#x60;. Options: &#x60;include&#x60;, &#x60;exclude&#x60; | [optional] 
  **groupBy** | **String**| Property to group results by. Options: &#x60;impact&#x60; | [optional] 
  **from** | **Date**| Unix timestamp in milliseconds. Default value is 7 days ago. | [optional] 

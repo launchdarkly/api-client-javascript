@@ -138,6 +138,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property analysisType (base name: "analysisType")', function() {
+      // uncomment below and update the code to test the property analysisType
+      //var instance = new LaunchDarklyApi.MetricPost();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property percentileValue (base name: "percentileValue")', function() {
+      // uncomment below and update the code to test the property percentileValue
+      //var instance = new LaunchDarklyApi.MetricPost();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property eventDefault (base name: "eventDefault")', function() {
+      // uncomment below and update the code to test the property eventDefault
+      //var instance = new LaunchDarklyApi.MetricPost();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

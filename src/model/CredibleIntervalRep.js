@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CredibleIntervalRep model module.
  * @module model/CredibleIntervalRep
- * @version 15.0.0
+ * @version 15.1.0
  */
 class CredibleIntervalRep {
     /**

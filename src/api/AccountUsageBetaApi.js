@@ -27,7 +27,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * AccountUsageBeta service.
 * @module api/AccountUsageBetaApi
-* @version 15.0.0
+* @version 15.1.0
 */
 export default class AccountUsageBetaApi {
 
@@ -42,6 +42,49 @@ export default class AccountUsageBetaApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the getDataExportEventsUsage operation.
+     * @callback module:api/AccountUsageBetaApi~getDataExportEventsUsageCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SeriesIntervalsRep} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get data export events usage
+     * Get a time-series array of the number of monthly data export events from your account. The granularity is always daily, with a maximum of 31 days.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.from The series of data returned starts from this timestamp (Unix seconds). Defaults to the beginning of the current month.
+     * @param {String} opts.to The series of data returned ends at this timestamp (Unix seconds). Defaults to the current time.
+     * @param {module:api/AccountUsageBetaApi~getDataExportEventsUsageCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SeriesIntervalsRep}
+     */
+    getDataExportEventsUsage(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'from': opts['from'],
+        'to': opts['to']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = SeriesIntervalsRep;
+      return this.apiClient.callApi(
+        '/api/v2/usage/data-export-events', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the getEvaluationsUsage operation.
@@ -379,6 +422,49 @@ export default class AccountUsageBetaApi {
       let returnType = SeriesListRep;
       return this.apiClient.callApi(
         '/api/v2/usage/mau/bycategory', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getServiceConnectionUsage operation.
+     * @callback module:api/AccountUsageBetaApi~getServiceConnectionUsageCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SeriesIntervalsRep} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get service connection usage
+     * Get a time-series array of the number of monthly service connections from your account. The granularity is always daily, with a maximum of 31 days.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.from The series of data returned starts from this timestamp (Unix seconds). Defaults to the beginning of the current month.
+     * @param {String} opts.to The series of data returned ends at this timestamp (Unix seconds). Defaults to the current time.
+     * @param {module:api/AccountUsageBetaApi~getServiceConnectionUsageCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SeriesIntervalsRep}
+     */
+    getServiceConnectionUsage(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'from': opts['from'],
+        'to': opts['to']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = SeriesIntervalsRep;
+      return this.apiClient.callApi(
+        '/api/v2/usage/service-connections', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

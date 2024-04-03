@@ -25,7 +25,7 @@ import WorkflowTemplatesListingOutputRep from '../model/WorkflowTemplatesListing
 /**
 * WorkflowTemplates service.
 * @module api/WorkflowTemplatesApi
-* @version 15.0.0
+* @version 15.1.0
 */
 export default class WorkflowTemplatesApi {
 

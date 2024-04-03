@@ -32,7 +32,7 @@ import UpsertResponseRep from '../model/UpsertResponseRep';
 /**
 * Contexts service.
 * @module api/ContextsApi
-* @version 15.0.0
+* @version 15.1.0
 */
 export default class ContextsApi {
 

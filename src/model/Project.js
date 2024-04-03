@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Access from './Access';
 import ClientSideAvailability from './ClientSideAvailability';
 import Environments from './Environments';
 import Link from './Link';
@@ -19,7 +20,7 @@ import Link from './Link';
 /**
  * The Project model module.
  * @module model/Project
- * @version 15.0.0
+ * @version 15.1.0
  */
 class Project {
     /**
@@ -80,6 +81,9 @@ class Project {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('_access')) {
+                obj['_access'] = Access.constructFromObject(data['_access']);
+            }
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
@@ -130,6 +134,11 @@ Project.prototype['defaultClientSideAvailability'] = undefined;
  * @member {String} name
  */
 Project.prototype['name'] = undefined;
+
+/**
+ * @member {module:model/Access} _access
+ */
+Project.prototype['_access'] = undefined;
 
 /**
  * A list of tags for the project

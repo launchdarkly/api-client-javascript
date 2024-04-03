@@ -23,7 +23,7 @@ import ValidationFailedErrorRep from '../model/ValidationFailedErrorRep';
 /**
 * InsightsFlagEventsBeta service.
 * @module api/InsightsFlagEventsBetaApi
-* @version 15.0.0
+* @version 15.1.0
 */
 export default class InsightsFlagEventsBetaApi {
 
@@ -56,7 +56,7 @@ export default class InsightsFlagEventsBetaApi {
      * @param {String} opts.applicationKey Comma separated list of application keys
      * @param {String} opts.query Filter events by flag key
      * @param {String} opts.impactSize Filter events by impact size. A small impact created a less than 20% change in the proportion of end users receiving one or more flag variations. A medium impact created between a 20%-80% change. A large impact created a more than 80% change. Options: `none`, `small`, `medium`, `large`
-     * @param {Boolean} opts.hasExperiments Filter events to those associated with an experiment
+     * @param {Boolean} opts.hasExperiments Filter events to those associated with an experiment (`true`) or without an experiment (`false`)
      * @param {String} opts.global Filter to include or exclude global events. Default value is `include`. Options: `include`, `exclude`
      * @param {String} opts.expand Expand properties in response. Options: `experiments`
      * @param {Number} opts.limit The number of deployments to return. Default is 20. Maximum allowed is 100.

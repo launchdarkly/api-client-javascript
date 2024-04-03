@@ -12,12 +12,13 @@
  */
 
 import ApiClient from '../ApiClient';
+import MetricEventDefaultRep from './MetricEventDefaultRep';
 import UrlPost from './UrlPost';
 
 /**
  * The MetricPost model module.
  * @module model/MetricPost
- * @version 15.0.0
+ * @version 15.1.0
  */
 class MetricPost {
     /**
@@ -93,6 +94,15 @@ class MetricPost {
             }
             if (data.hasOwnProperty('unitAggregationType')) {
                 obj['unitAggregationType'] = ApiClient.convertToType(data['unitAggregationType'], 'String');
+            }
+            if (data.hasOwnProperty('analysisType')) {
+                obj['analysisType'] = ApiClient.convertToType(data['analysisType'], 'String');
+            }
+            if (data.hasOwnProperty('percentileValue')) {
+                obj['percentileValue'] = ApiClient.convertToType(data['percentileValue'], 'Number');
+            }
+            if (data.hasOwnProperty('eventDefault')) {
+                obj['eventDefault'] = MetricEventDefaultRep.constructFromObject(data['eventDefault']);
             }
         }
         return obj;
@@ -180,10 +190,27 @@ MetricPost.prototype['tags'] = undefined;
 MetricPost.prototype['randomizationUnits'] = undefined;
 
 /**
- * The method in which multiple unit event values are aggregated
+ * The method by which multiple unit event values are aggregated
  * @member {module:model/MetricPost.UnitAggregationTypeEnum} unitAggregationType
  */
 MetricPost.prototype['unitAggregationType'] = undefined;
+
+/**
+ * The method for analyzing metric events
+ * @member {String} analysisType
+ */
+MetricPost.prototype['analysisType'] = undefined;
+
+/**
+ * The percentile for the analysis method. An integer denoting the target percentile between 0 and 100. Required when <code>analysisType</code> is <code>percentile</code>.
+ * @member {Number} percentileValue
+ */
+MetricPost.prototype['percentileValue'] = undefined;
+
+/**
+ * @member {module:model/MetricEventDefaultRep} eventDefault
+ */
+MetricPost.prototype['eventDefault'] = undefined;
 
 
 

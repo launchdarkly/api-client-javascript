@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DefaultClientSideAvailability model module.
  * @module model/DefaultClientSideAvailability
- * @version 15.0.0
+ * @version 15.1.0
  */
 class DefaultClientSideAvailability {
     /**

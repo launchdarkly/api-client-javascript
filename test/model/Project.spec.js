@@ -90,6 +90,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property access (base name: "_access")', function() {
+      // uncomment below and update the code to test the property access
+      //var instance = new LaunchDarklyApi.Project();
+      //expect(instance).to.be();
+    });
+
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
       //var instance = new LaunchDarklyApi.Project();

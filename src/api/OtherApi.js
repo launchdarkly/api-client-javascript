@@ -23,7 +23,7 @@ import VersionsRep from '../model/VersionsRep';
 /**
 * Other service.
 * @module api/OtherApi
-* @version 15.0.0
+* @version 15.1.0
 */
 export default class OtherApi {
 

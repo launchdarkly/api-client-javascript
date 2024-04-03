@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchSegmentExpiringTargetInstruction model module.
  * @module model/PatchSegmentExpiringTargetInstruction
- * @version 15.0.0
+ * @version 15.1.0
  */
 class PatchSegmentExpiringTargetInstruction {
     /**

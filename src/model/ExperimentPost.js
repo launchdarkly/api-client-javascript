@@ -17,7 +17,7 @@ import IterationInput from './IterationInput';
 /**
  * The ExperimentPost model module.
  * @module model/ExperimentPost
- * @version 15.0.0
+ * @version 15.1.0
  */
 class ExperimentPost {
     /**

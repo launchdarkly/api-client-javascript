@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BooleanFlagDefaults model module.
  * @module model/BooleanFlagDefaults
- * @version 15.0.0
+ * @version 15.1.0
  */
 class BooleanFlagDefaults {
     /**

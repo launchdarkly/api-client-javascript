@@ -17,7 +17,7 @@ import WorkflowTemplateParameter from './WorkflowTemplateParameter';
 /**
  * The WorkflowTemplateMetadata model module.
  * @module model/WorkflowTemplateMetadata
- * @version 15.0.0
+ * @version 15.1.0
  */
 class WorkflowTemplateMetadata {
     /**

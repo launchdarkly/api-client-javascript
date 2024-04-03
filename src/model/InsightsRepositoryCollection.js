@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The InsightsRepositoryCollection model module.
  * @module model/InsightsRepositoryCollection
- * @version 15.0.0
+ * @version 15.1.0
  */
 class InsightsRepositoryCollection {
     /**

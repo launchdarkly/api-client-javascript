@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ExperimentPatchInput model module.
  * @module model/ExperimentPatchInput
- * @version 15.0.0
+ * @version 15.1.0
  */
 class ExperimentPatchInput {
     /**

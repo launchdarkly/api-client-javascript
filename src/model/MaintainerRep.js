@@ -18,7 +18,7 @@ import MemberTeamSummaryRep from './MemberTeamSummaryRep';
 /**
  * The MaintainerRep model module.
  * @module model/MaintainerRep
- * @version 15.0.0
+ * @version 15.1.0
  */
 class MaintainerRep {
     /**

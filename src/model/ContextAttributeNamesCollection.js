@@ -17,7 +17,7 @@ import ContextAttributeNames from './ContextAttributeNames';
 /**
  * The ContextAttributeNamesCollection model module.
  * @module model/ContextAttributeNamesCollection
- * @version 15.0.0
+ * @version 15.1.0
  */
 class ContextAttributeNamesCollection {
     /**

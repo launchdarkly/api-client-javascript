@@ -24,7 +24,7 @@ import Modification from './Modification';
 /**
  * The MetricRep model module.
  * @module model/MetricRep
- * @version 15.0.0
+ * @version 15.1.0
  */
 class MetricRep {
     /**
@@ -305,19 +305,19 @@ MetricRep.prototype['eventKey'] = undefined;
 MetricRep.prototype['randomizationUnits'] = undefined;
 
 /**
- * The method in which multiple unit event values are aggregated
+ * The method by which multiple unit event values are aggregated
  * @member {module:model/MetricRep.UnitAggregationTypeEnum} unitAggregationType
  */
 MetricRep.prototype['unitAggregationType'] = undefined;
 
 /**
- * The strategy for analyzing metric events
+ * The method for analyzing metric events
  * @member {module:model/MetricRep.AnalysisTypeEnum} analysisType
  */
 MetricRep.prototype['analysisType'] = undefined;
 
 /**
- * The percentile, an integer denoting the target percentile between 0 and 100. Only present when <code>analysisType</code> is <code>percentile</code>.
+ * The percentile for the analysis method. An integer denoting the target percentile between 0 and 100. Required when <code>analysisType</code> is <code>percentile</code>.
  * @member {Number} percentileValue
  */
 MetricRep.prototype['percentileValue'] = undefined;

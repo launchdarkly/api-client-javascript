@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Access from './Access';
 import ClientSideAvailability from './ClientSideAvailability';
 import Environment from './Environment';
 import Link from './Link';
@@ -19,7 +20,7 @@ import Link from './Link';
 /**
  * The ProjectRep model module.
  * @module model/ProjectRep
- * @version 15.0.0
+ * @version 15.1.0
  */
 class ProjectRep {
     /**
@@ -82,6 +83,9 @@ class ProjectRep {
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
+            if (data.hasOwnProperty('_access')) {
+                obj['_access'] = Access.constructFromObject(data['_access']);
+            }
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
@@ -132,6 +136,11 @@ ProjectRep.prototype['defaultClientSideAvailability'] = undefined;
  * @member {String} name
  */
 ProjectRep.prototype['name'] = undefined;
+
+/**
+ * @member {module:model/Access} _access
+ */
+ProjectRep.prototype['_access'] = undefined;
 
 /**
  * A list of tags for the project

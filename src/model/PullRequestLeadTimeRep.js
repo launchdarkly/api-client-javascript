@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PullRequestLeadTimeRep model module.
  * @module model/PullRequestLeadTimeRep
- * @version 15.0.0
+ * @version 15.1.0
  */
 class PullRequestLeadTimeRep {
     /**

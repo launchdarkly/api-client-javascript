@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The MemberTeamSummaryRep model module.
  * @module model/MemberTeamSummaryRep
- * @version 15.0.0
+ * @version 15.1.0
  */
 class MemberTeamSummaryRep {
     /**
