@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getDependentFlags**](FeatureFlagsBetaApi.md#getDependentFlags) | **GET** /api/v2/flags/{projectKey}/{featureFlagKey}/dependent-flags | List dependent feature flags
 [**getDependentFlagsByEnv**](FeatureFlagsBetaApi.md#getDependentFlagsByEnv) | **GET** /api/v2/flags/{projectKey}/{environmentKey}/{featureFlagKey}/dependent-flags | List dependent feature flags by environment
-[**postMigrationSafetyIssues**](FeatureFlagsBetaApi.md#postMigrationSafetyIssues) | **POST** /api/v2/projects/{projectKey}/flags/{flagKey}/environments/{environmentKey}/migration-safety-issues | Get migration safety issues
 
 
 
@@ -115,62 +114,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## postMigrationSafetyIssues
-
-> [MigrationSafetyIssueRep] postMigrationSafetyIssues(projectKey, flagKey, environmentKey, flagSempatch)
-
-Get migration safety issues
-
-Returns the migration safety issues that are associated with the POSTed flag patch. The patch must use the semantic patch format for updating feature flags.
-
-### Example
-
-```javascript
-import LaunchDarklyApi from 'launchdarkly-api';
-let defaultClient = LaunchDarklyApi.ApiClient.instance;
-// Configure API key authorization: ApiKey
-let ApiKey = defaultClient.authentications['ApiKey'];
-ApiKey.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.apiKeyPrefix = 'Token';
-
-let apiInstance = new LaunchDarklyApi.FeatureFlagsBetaApi();
-let projectKey = "projectKey_example"; // String | The project key
-let flagKey = "flagKey_example"; // String | The migration flag key
-let environmentKey = "environmentKey_example"; // String | The environment key
-let flagSempatch = new LaunchDarklyApi.FlagSempatch(); // FlagSempatch | 
-apiInstance.postMigrationSafetyIssues(projectKey, flagKey, environmentKey, flagSempatch, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key | 
- **flagKey** | **String**| The migration flag key | 
- **environmentKey** | **String**| The environment key | 
- **flagSempatch** | [**FlagSempatch**](FlagSempatch.md)|  | 
-
-### Return type
-
-[**[MigrationSafetyIssueRep]**](MigrationSafetyIssueRep.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
 - **Accept**: application/json
 

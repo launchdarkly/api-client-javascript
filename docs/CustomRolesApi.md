@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ## getCustomRoles
 
-> CustomRoles getCustomRoles()
+> CustomRoles getCustomRoles(opts)
 
 List custom roles
 
@@ -134,7 +134,11 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.CustomRolesApi();
-apiInstance.getCustomRoles((error, data, response) => {
+let opts = {
+  'limit': 789, // Number | The maximum number of custom roles to return. Defaults to 20.
+  'offset': 789 // Number | Where to start in the list. Defaults to 0. Use this with pagination. For example, an offset of 10 skips the first ten items and then returns the next items in the list, up to the query `limit`.
+};
+apiInstance.getCustomRoles(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -145,7 +149,11 @@ apiInstance.getCustomRoles((error, data, response) => {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Number**| The maximum number of custom roles to return. Defaults to 20. | [optional] 
+ **offset** | **Number**| Where to start in the list. Defaults to 0. Use this with pagination. For example, an offset of 10 skips the first ten items and then returns the next items in the list, up to the query &#x60;limit&#x60;. | [optional] 
 
 ### Return type
 

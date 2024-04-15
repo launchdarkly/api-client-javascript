@@ -150,7 +150,9 @@ let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let opts = {
   'status': "status_example", // String | Filter results by workflow status. Valid status filters are `active`, `completed`, and `failed`.
-  'sort': "sort_example" // String | A field to sort the items by. Prefix field by a dash ( - ) to sort in descending order. This endpoint supports sorting by `creationDate` or `stopDate`.
+  'sort': "sort_example", // String | A field to sort the items by. Prefix field by a dash ( - ) to sort in descending order. This endpoint supports sorting by `creationDate` or `stopDate`.
+  'limit': 789, // Number | The maximum number of workflows to return. Defaults to 20.
+  'offset': 789 // Number | Where to start in the list. Defaults to 0. Use this with pagination. For example, an offset of 10 skips the first ten items and then returns the next items in the list, up to the query `limit`.
 };
 apiInstance.getWorkflows(projectKey, featureFlagKey, environmentKey, opts, (error, data, response) => {
   if (error) {
@@ -171,6 +173,8 @@ Name | Type | Description  | Notes
  **environmentKey** | **String**| The environment key | 
  **status** | **String**| Filter results by workflow status. Valid status filters are &#x60;active&#x60;, &#x60;completed&#x60;, and &#x60;failed&#x60;. | [optional] 
  **sort** | **String**| A field to sort the items by. Prefix field by a dash ( - ) to sort in descending order. This endpoint supports sorting by &#x60;creationDate&#x60; or &#x60;stopDate&#x60;. | [optional] 
+ **limit** | **Number**| The maximum number of workflows to return. Defaults to 20. | [optional] 
+ **offset** | **Number**| Where to start in the list. Defaults to 0. Use this with pagination. For example, an offset of 10 skips the first ten items and then returns the next items in the list, up to the query &#x60;limit&#x60;. | [optional] 
 
 ### Return type
 
