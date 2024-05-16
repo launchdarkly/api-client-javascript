@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MethodNotAllowedErrorRep model module.
  * @module model/MethodNotAllowedErrorRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class MethodNotAllowedErrorRep {
     /**

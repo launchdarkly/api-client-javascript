@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The MaintainerTeam model module.
  * @module model/MaintainerTeam
- * @version 16.1.0
+ * @version 16.1.1
  */
 class MaintainerTeam {
     /**

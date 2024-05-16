@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FlagMigrationSettingsRep model module.
  * @module model/FlagMigrationSettingsRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class FlagMigrationSettingsRep {
     /**

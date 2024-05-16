@@ -22,7 +22,7 @@ import Variation from './Variation';
 /**
  * The ExpandedFlagRep model module.
  * @module model/ExpandedFlagRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class ExpandedFlagRep {
     /**

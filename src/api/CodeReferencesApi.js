@@ -34,7 +34,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * CodeReferences service.
 * @module api/CodeReferencesApi
-* @version 16.1.0
+* @version 16.1.1
 */
 export default class CodeReferencesApi {
 

@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The Export model module.
  * @module model/Export
- * @version 16.1.0
+ * @version 16.1.1
  */
 class Export {
     /**

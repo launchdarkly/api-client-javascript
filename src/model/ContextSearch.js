@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContextSearch model module.
  * @module model/ContextSearch
- * @version 16.1.0
+ * @version 16.1.1
  */
 class ContextSearch {
     /**

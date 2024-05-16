@@ -18,7 +18,7 @@ import TriggerWorkflowRep from './TriggerWorkflowRep';
 /**
  * The TriggerWorkflowCollectionRep model module.
  * @module model/TriggerWorkflowCollectionRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class TriggerWorkflowCollectionRep {
     /**

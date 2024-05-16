@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SourceEnv model module.
  * @module model/SourceEnv
- * @version 16.1.0
+ * @version 16.1.1
  */
 class SourceEnv {
     /**

@@ -18,7 +18,7 @@ import RandomizationUnitRep from './RandomizationUnitRep';
 /**
  * The RandomizationSettingsRep model module.
  * @module model/RandomizationSettingsRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class RandomizationSettingsRep {
     /**

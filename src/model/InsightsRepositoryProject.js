@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InsightsRepositoryProject model module.
  * @module model/InsightsRepositoryProject
- * @version 16.1.0
+ * @version 16.1.1
  */
 class InsightsRepositoryProject {
     /**

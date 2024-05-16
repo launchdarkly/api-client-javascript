@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The IntegrationStatus model module.
  * @module model/IntegrationStatus
- * @version 16.1.0
+ * @version 16.1.1
  */
 class IntegrationStatus {
     /**

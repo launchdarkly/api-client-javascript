@@ -17,7 +17,7 @@ import MemberImportItem from './MemberImportItem';
 /**
  * The TeamImportsRep model module.
  * @module model/TeamImportsRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class TeamImportsRep {
     /**

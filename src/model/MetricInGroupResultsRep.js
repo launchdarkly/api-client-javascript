@@ -18,7 +18,7 @@ import MetricInGroupRep from './MetricInGroupRep';
 /**
  * The MetricInGroupResultsRep model module.
  * @module model/MetricInGroupResultsRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class MetricInGroupResultsRep {
     /**

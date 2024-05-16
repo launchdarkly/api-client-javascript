@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TeamMembers model module.
  * @module model/TeamMembers
- * @version 16.1.0
+ * @version 16.1.1
  */
 class TeamMembers {
     /**

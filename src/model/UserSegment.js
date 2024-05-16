@@ -22,7 +22,7 @@ import UserSegmentRule from './UserSegmentRule';
 /**
  * The UserSegment model module.
  * @module model/UserSegment
- * @version 16.1.0
+ * @version 16.1.1
  */
 class UserSegment {
     /**

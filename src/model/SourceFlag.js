@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SourceFlag model module.
  * @module model/SourceFlag
- * @version 16.1.0
+ * @version 16.1.1
  */
 class SourceFlag {
     /**

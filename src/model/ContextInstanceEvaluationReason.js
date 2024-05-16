@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContextInstanceEvaluationReason model module.
  * @module model/ContextInstanceEvaluationReason
- * @version 16.1.0
+ * @version 16.1.1
  */
 class ContextInstanceEvaluationReason {
     /**

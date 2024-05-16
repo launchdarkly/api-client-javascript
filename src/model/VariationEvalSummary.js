@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The VariationEvalSummary model module.
  * @module model/VariationEvalSummary
- * @version 16.1.0
+ * @version 16.1.1
  */
 class VariationEvalSummary {
     /**

@@ -18,7 +18,7 @@ import RepositoryRep from './RepositoryRep';
 /**
  * The RepositoryCollectionRep model module.
  * @module model/RepositoryCollectionRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class RepositoryCollectionRep {
     /**

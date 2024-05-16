@@ -19,7 +19,7 @@ import RelativeDifferenceRep from './RelativeDifferenceRep';
 /**
  * The TreatmentResultRep model module.
  * @module model/TreatmentResultRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class TreatmentResultRep {
     /**

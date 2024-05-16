@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InsightGroupsCountByIndicator model module.
  * @module model/InsightGroupsCountByIndicator
- * @version 16.1.0
+ * @version 16.1.1
  */
 class InsightGroupsCountByIndicator {
     /**

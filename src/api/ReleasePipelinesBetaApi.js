@@ -24,7 +24,7 @@ import StatusConflictErrorRep from '../model/StatusConflictErrorRep';
 /**
 * ReleasePipelinesBeta service.
 * @module api/ReleasePipelinesBetaApi
-* @version 16.1.0
+* @version 16.1.1
 */
 export default class ReleasePipelinesBetaApi {
 

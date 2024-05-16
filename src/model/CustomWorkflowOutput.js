@@ -21,7 +21,7 @@ import WorkflowTemplateMetadata from './WorkflowTemplateMetadata';
 /**
  * The CustomWorkflowOutput model module.
  * @module model/CustomWorkflowOutput
- * @version 16.1.0
+ * @version 16.1.1
  */
 class CustomWorkflowOutput {
     /**

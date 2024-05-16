@@ -21,7 +21,7 @@ import MetricInGroupRep from './MetricInGroupRep';
 /**
  * The MetricGroupRep model module.
  * @module model/MetricGroupRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class MetricGroupRep {
     /**

@@ -17,7 +17,7 @@ import ReleasePipeline from './ReleasePipeline';
 /**
  * The ReleasePipelineCollection model module.
  * @module model/ReleasePipelineCollection
- * @version 16.1.0
+ * @version 16.1.1
  */
 class ReleasePipelineCollection {
     /**

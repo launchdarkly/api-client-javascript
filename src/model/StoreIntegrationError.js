@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StoreIntegrationError model module.
  * @module model/StoreIntegrationError
- * @version 16.1.0
+ * @version 16.1.1
  */
 class StoreIntegrationError {
     /**

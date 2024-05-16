@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ResourceAccess model module.
  * @module model/ResourceAccess
- * @version 16.1.0
+ * @version 16.1.1
  */
 class ResourceAccess {
     /**

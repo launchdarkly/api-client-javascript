@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InitiatorRep model module.
  * @module model/InitiatorRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class InitiatorRep {
     /**

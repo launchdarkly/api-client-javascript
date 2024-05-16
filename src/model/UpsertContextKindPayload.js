@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UpsertContextKindPayload model module.
  * @module model/UpsertContextKindPayload
- * @version 16.1.0
+ * @version 16.1.1
  */
 class UpsertContextKindPayload {
     /**

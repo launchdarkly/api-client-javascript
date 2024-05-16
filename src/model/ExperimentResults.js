@@ -22,7 +22,7 @@ import MetricSeen from './MetricSeen';
 /**
  * The ExperimentResults model module.
  * @module model/ExperimentResults
- * @version 16.1.0
+ * @version 16.1.1
  */
 class ExperimentResults {
     /**

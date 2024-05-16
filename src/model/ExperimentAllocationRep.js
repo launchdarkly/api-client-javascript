@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ExperimentAllocationRep model module.
  * @module model/ExperimentAllocationRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class ExperimentAllocationRep {
     /**

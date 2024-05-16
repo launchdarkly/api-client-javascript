@@ -20,7 +20,7 @@ import Link from './Link';
 /**
  * The Project model module.
  * @module model/Project
- * @version 16.1.0
+ * @version 16.1.1
  */
 class Project {
     /**

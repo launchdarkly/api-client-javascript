@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The ApplicationFlagCollectionRep model module.
  * @module model/ApplicationFlagCollectionRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class ApplicationFlagCollectionRep {
     /**

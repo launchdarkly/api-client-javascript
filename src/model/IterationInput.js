@@ -19,7 +19,7 @@ import TreatmentInput from './TreatmentInput';
 /**
  * The IterationInput model module.
  * @module model/IterationInput
- * @version 16.1.0
+ * @version 16.1.1
  */
 class IterationInput {
     /**

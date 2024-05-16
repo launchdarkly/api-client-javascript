@@ -17,7 +17,7 @@ import InstructionUserRequest from './InstructionUserRequest';
 /**
  * The PatchUsersRequest model module.
  * @module model/PatchUsersRequest
- * @version 16.1.0
+ * @version 16.1.1
  */
 class PatchUsersRequest {
     /**

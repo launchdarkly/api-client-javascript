@@ -18,7 +18,7 @@ import PullRequestRep from './PullRequestRep';
 /**
  * The PullRequestCollectionRep model module.
  * @module model/PullRequestCollectionRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class PullRequestCollectionRep {
     /**

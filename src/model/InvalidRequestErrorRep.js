@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InvalidRequestErrorRep model module.
  * @module model/InvalidRequestErrorRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class InvalidRequestErrorRep {
     /**

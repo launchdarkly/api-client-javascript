@@ -24,7 +24,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * SegmentsBeta service.
 * @module api/SegmentsBetaApi
-* @version 16.1.0
+* @version 16.1.1
 */
 export default class SegmentsBetaApi {
 

@@ -18,7 +18,7 @@ import AccessDenied from './AccessDenied';
 /**
  * The Access model module.
  * @module model/Access
- * @version 16.1.0
+ * @version 16.1.1
  */
 class Access {
     /**

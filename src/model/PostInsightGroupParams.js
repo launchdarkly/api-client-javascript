@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostInsightGroupParams model module.
  * @module model/PostInsightGroupParams
- * @version 16.1.0
+ * @version 16.1.1
  */
 class PostInsightGroupParams {
     /**

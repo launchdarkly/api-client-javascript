@@ -17,7 +17,7 @@ import Series from './Series';
 /**
  * The SeriesIntervalsRep model module.
  * @module model/SeriesIntervalsRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class SeriesIntervalsRep {
     /**

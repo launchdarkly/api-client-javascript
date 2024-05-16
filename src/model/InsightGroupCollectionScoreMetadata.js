@@ -17,7 +17,7 @@ import InsightPeriod from './InsightPeriod';
 /**
  * The InsightGroupCollectionScoreMetadata model module.
  * @module model/InsightGroupCollectionScoreMetadata
- * @version 16.1.0
+ * @version 16.1.1
  */
 class InsightGroupCollectionScoreMetadata {
     /**

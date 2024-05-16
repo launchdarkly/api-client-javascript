@@ -22,7 +22,7 @@ import ReviewResponse from './ReviewResponse';
 /**
  * The ApprovalRequestResponse model module.
  * @module model/ApprovalRequestResponse
- * @version 16.1.0
+ * @version 16.1.1
  */
 class ApprovalRequestResponse {
     /**

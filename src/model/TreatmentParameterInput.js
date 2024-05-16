@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TreatmentParameterInput model module.
  * @module model/TreatmentParameterInput
- * @version 16.1.0
+ * @version 16.1.1
  */
 class TreatmentParameterInput {
     /**

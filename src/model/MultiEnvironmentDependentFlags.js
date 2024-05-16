@@ -18,7 +18,7 @@ import MultiEnvironmentDependentFlag from './MultiEnvironmentDependentFlag';
 /**
  * The MultiEnvironmentDependentFlags model module.
  * @module model/MultiEnvironmentDependentFlags
- * @version 16.1.0
+ * @version 16.1.1
  */
 class MultiEnvironmentDependentFlags {
     /**

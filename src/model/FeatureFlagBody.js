@@ -21,7 +21,7 @@ import Variation from './Variation';
 /**
  * The FeatureFlagBody model module.
  * @module model/FeatureFlagBody
- * @version 16.1.0
+ * @version 16.1.1
  */
 class FeatureFlagBody {
     /**

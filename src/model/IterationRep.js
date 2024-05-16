@@ -21,7 +21,7 @@ import TreatmentRep from './TreatmentRep';
 /**
  * The IterationRep model module.
  * @module model/IterationRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class IterationRep {
     /**

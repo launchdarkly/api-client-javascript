@@ -17,7 +17,7 @@ import ProjectSummary from './ProjectSummary';
 /**
  * The TeamProjects model module.
  * @module model/TeamProjects
- * @version 16.1.0
+ * @version 16.1.1
  */
 class TeamProjects {
     /**

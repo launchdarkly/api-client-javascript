@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchSegmentInstruction model module.
  * @module model/PatchSegmentInstruction
- * @version 16.1.0
+ * @version 16.1.1
  */
 class PatchSegmentInstruction {
     /**

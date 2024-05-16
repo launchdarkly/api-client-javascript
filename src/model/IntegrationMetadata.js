@@ -17,7 +17,7 @@ import IntegrationStatus from './IntegrationStatus';
 /**
  * The IntegrationMetadata model module.
  * @module model/IntegrationMetadata
- * @version 16.1.0
+ * @version 16.1.1
  */
 class IntegrationMetadata {
     /**

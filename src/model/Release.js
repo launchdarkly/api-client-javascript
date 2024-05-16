@@ -18,7 +18,7 @@ import ReleasePhase from './ReleasePhase';
 /**
  * The Release model module.
  * @module model/Release
- * @version 16.1.0
+ * @version 16.1.1
  */
 class Release {
     /**

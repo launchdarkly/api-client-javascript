@@ -17,7 +17,7 @@ import SourceEnv from './SourceEnv';
 /**
  * The EnvironmentPost model module.
  * @module model/EnvironmentPost
- * @version 16.1.0
+ * @version 16.1.1
  */
 class EnvironmentPost {
     /**

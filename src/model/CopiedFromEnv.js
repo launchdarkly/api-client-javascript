@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CopiedFromEnv model module.
  * @module model/CopiedFromEnv
- * @version 16.1.0
+ * @version 16.1.1
  */
 class CopiedFromEnv {
     /**

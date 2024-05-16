@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The WeightedVariation model module.
  * @module model/WeightedVariation
- * @version 16.1.0
+ * @version 16.1.1
  */
 class WeightedVariation {
     /**

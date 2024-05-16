@@ -27,7 +27,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * FlagTriggers service.
 * @module api/FlagTriggersApi
-* @version 16.1.0
+* @version 16.1.1
 */
 export default class FlagTriggersApi {
 

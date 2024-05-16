@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The MemberDataRep model module.
  * @module model/MemberDataRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class MemberDataRep {
     /**

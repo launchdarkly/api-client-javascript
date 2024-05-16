@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The CustomRoles model module.
  * @module model/CustomRoles
- * @version 16.1.0
+ * @version 16.1.1
  */
 class CustomRoles {
     /**

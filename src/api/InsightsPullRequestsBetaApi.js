@@ -23,7 +23,7 @@ import ValidationFailedErrorRep from '../model/ValidationFailedErrorRep';
 /**
 * InsightsPullRequestsBeta service.
 * @module api/InsightsPullRequestsBetaApi
-* @version 16.1.0
+* @version 16.1.1
 */
 export default class InsightsPullRequestsBetaApi {
 

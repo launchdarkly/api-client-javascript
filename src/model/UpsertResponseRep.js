@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The UpsertResponseRep model module.
  * @module model/UpsertResponseRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class UpsertResponseRep {
     /**

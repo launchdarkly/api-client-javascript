@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The IpList model module.
  * @module model/IpList
- * @version 16.1.0
+ * @version 16.1.1
  */
 class IpList {
     /**

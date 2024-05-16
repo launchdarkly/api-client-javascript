@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MetricInMetricGroupInput model module.
  * @module model/MetricInMetricGroupInput
- * @version 16.1.0
+ * @version 16.1.1
  */
 class MetricInMetricGroupInput {
     /**

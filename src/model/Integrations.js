@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The Integrations model module.
  * @module model/Integrations
- * @version 16.1.0
+ * @version 16.1.1
  */
 class Integrations {
     /**

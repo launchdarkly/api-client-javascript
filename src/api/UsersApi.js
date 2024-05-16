@@ -26,7 +26,7 @@ import UsersRep from '../model/UsersRep';
 /**
 * Users service.
 * @module api/UsersApi
-* @version 16.1.0
+* @version 16.1.1
 */
 export default class UsersApi {
 

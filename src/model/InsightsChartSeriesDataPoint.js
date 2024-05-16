@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InsightsChartSeriesDataPoint model module.
  * @module model/InsightsChartSeriesDataPoint
- * @version 16.1.0
+ * @version 16.1.1
  */
 class InsightsChartSeriesDataPoint {
     /**

@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The ContextKindsCollectionRep model module.
  * @module model/ContextKindsCollectionRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class ContextKindsCollectionRep {
     /**

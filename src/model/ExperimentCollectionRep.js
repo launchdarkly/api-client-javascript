@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The ExperimentCollectionRep model module.
  * @module model/ExperimentCollectionRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class ExperimentCollectionRep {
     /**

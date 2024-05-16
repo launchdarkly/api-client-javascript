@@ -19,7 +19,7 @@ import TimestampRep from './TimestampRep';
 /**
  * The FlagLinkRep model module.
  * @module model/FlagLinkRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class FlagLinkRep {
     /**

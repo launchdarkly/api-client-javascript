@@ -17,7 +17,7 @@ import EnvironmentSummary from './EnvironmentSummary';
 /**
  * The Audience model module.
  * @module model/Audience
- * @version 16.1.0
+ * @version 16.1.1
  */
 class Audience {
     /**

@@ -17,7 +17,7 @@ import StageInput from './StageInput';
 /**
  * The CustomWorkflowInput model module.
  * @module model/CustomWorkflowInput
- * @version 16.1.0
+ * @version 16.1.1
  */
 class CustomWorkflowInput {
     /**

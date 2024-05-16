@@ -17,7 +17,7 @@ import Statement from './Statement';
 /**
  * The RelayAutoConfigPost model module.
  * @module model/RelayAutoConfigPost
- * @version 16.1.0
+ * @version 16.1.1
  */
 class RelayAutoConfigPost {
     /**

@@ -18,7 +18,7 @@ import ProjectSummary from './ProjectSummary';
 /**
  * The ProjectSummaryCollection model module.
  * @module model/ProjectSummaryCollection
- * @version 16.1.0
+ * @version 16.1.1
  */
 class ProjectSummaryCollection {
     /**

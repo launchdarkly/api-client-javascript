@@ -19,7 +19,7 @@ import Statement from './Statement';
 /**
  * The RelayAutoConfigRep model module.
  * @module model/RelayAutoConfigRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class RelayAutoConfigRep {
     /**

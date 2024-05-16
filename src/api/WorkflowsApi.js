@@ -25,7 +25,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * Workflows service.
 * @module api/WorkflowsApi
-* @version 16.1.0
+* @version 16.1.1
 */
 export default class WorkflowsApi {
 

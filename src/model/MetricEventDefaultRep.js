@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MetricEventDefaultRep model module.
  * @module model/MetricEventDefaultRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class MetricEventDefaultRep {
     /**

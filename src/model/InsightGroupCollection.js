@@ -20,7 +20,7 @@ import Link from './Link';
 /**
  * The InsightGroupCollection model module.
  * @module model/InsightGroupCollection
- * @version 16.1.0
+ * @version 16.1.1
  */
 class InsightGroupCollection {
     /**

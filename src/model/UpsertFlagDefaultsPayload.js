@@ -18,7 +18,7 @@ import DefaultClientSideAvailability from './DefaultClientSideAvailability';
 /**
  * The UpsertFlagDefaultsPayload model module.
  * @module model/UpsertFlagDefaultsPayload
- * @version 16.1.0
+ * @version 16.1.1
  */
 class UpsertFlagDefaultsPayload {
     /**

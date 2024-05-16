@@ -17,7 +17,7 @@ import TreatmentResultRep from './TreatmentResultRep';
 /**
  * The SlicedResultsRep model module.
  * @module model/SlicedResultsRep
- * @version 16.1.0
+ * @version 16.1.1
  */
 class SlicedResultsRep {
     /**
