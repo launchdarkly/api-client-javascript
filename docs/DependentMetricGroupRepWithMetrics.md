@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 
 * `funnel` (value: `"funnel"`)
 
+* `standard` (value: `"standard"`)
+
 
 
 

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **migrationSettings** | [**MigrationSettingsPost**](MigrationSettingsPost.md) |  | [optional] 
 **maintainerId** | **String** | The ID of the member who maintains this feature flag | [optional] 
 **maintainerTeamKey** | **String** | The key of the team that maintains this feature flag | [optional] 
+**initialPrerequisites** | [**[FlagPrerequisitePost]**](FlagPrerequisitePost.md) | Initial set of prerequisite flags for all environments | [optional] 
 
 
 
@@ -25,6 +26,8 @@ Name | Type | Description | Notes
 
 
 * `migration` (value: `"migration"`)
+
+* `holdout` (value: `"holdout"`)
 
 
 

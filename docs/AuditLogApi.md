@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getAuditLogEntries**](AuditLogApi.md#getAuditLogEntries) | **GET** /api/v2/auditlog | List audit log entries
 [**getAuditLogEntry**](AuditLogApi.md#getAuditLogEntry) | **GET** /api/v2/auditlog/{id} | Get audit log entry
+[**postAuditLogEntries**](AuditLogApi.md#postAuditLogEntries) | **POST** /api/v2/auditlog | Search audit log entries
 
 
 
@@ -118,5 +119,66 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## postAuditLogEntries
+
+> AuditLogEntryListingRepCollection postAuditLogEntries(opts)
+
+Search audit log entries
+
+Search your audit log entries. The query parameters let you restrict the results that return by date ranges, or a full-text search query. The request body lets you restrict the results that return by resource specifiers.  LaunchDarkly uses a resource specifier syntax to name resources or collections of resources. To learn more, read [About the resource specifier syntax](https://docs.launchdarkly.com/home/account/role-resources#about-the-resource-specifier-syntax). 
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.AuditLogApi();
+let opts = {
+  'before': 789, // Number | A timestamp filter, expressed as a Unix epoch time in milliseconds.  All entries returned occurred before the timestamp.
+  'after': 789, // Number | A timestamp filter, expressed as a Unix epoch time in milliseconds. All entries returned occurred after the timestamp.
+  'q': "q_example", // String | Text to search for. You can search for the full or partial name of the resource.
+  'limit': 789, // Number | A limit on the number of audit log entries that return. Set between 1 and 20. The default is 10.
+  'statementPost': [new LaunchDarklyApi.StatementPost()] // [StatementPost] | 
+};
+apiInstance.postAuditLogEntries(opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **before** | **Number**| A timestamp filter, expressed as a Unix epoch time in milliseconds.  All entries returned occurred before the timestamp. | [optional] 
+ **after** | **Number**| A timestamp filter, expressed as a Unix epoch time in milliseconds. All entries returned occurred after the timestamp. | [optional] 
+ **q** | **String**| Text to search for. You can search for the full or partial name of the resource. | [optional] 
+ **limit** | **Number**| A limit on the number of audit log entries that return. Set between 1 and 20. The default is 10. | [optional] 
+ **statementPost** | [**[StatementPost]**](StatementPost.md)|  | [optional] 
+
+### Return type
+
+[**AuditLogEntryListingRepCollection**](AuditLogEntryListingRepCollection.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 

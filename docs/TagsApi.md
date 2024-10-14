@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## getTags
 
-> TagCollection getTags(opts)
+> TagsCollection getTags(opts)
 
 List tags
 
@@ -29,9 +29,12 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.TagsApi();
 let opts = {
-  'kind': "kind_example", // String | Fetch tags associated with the specified resource type. Options are `flag`, `project`, `environment`, `segment`. Returns all types by default.
+  'kind': ["null"], // [String] | Fetch tags associated with the specified resource type. Options are `flag`, `project`, `environment`, `segment`. Returns all types by default.
   'pre': "pre_example", // String | Return tags with the specified prefix
-  'archived': true // Boolean | Whether or not to return archived flags
+  'archived': true, // Boolean | Whether or not to return archived flags
+  'limit': 56, // Number | The number of tags to return. Maximum is 1000.
+  'offset': 56, // Number | The index of the first tag to return. Default is 0.
+  'asOf': "asOf_example" // String | The time to retrieve tags as of. Default is the current time.
 };
 apiInstance.getTags(opts, (error, data, response) => {
   if (error) {
@@ -47,13 +50,16 @@ apiInstance.getTags(opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **kind** | **String**| Fetch tags associated with the specified resource type. Options are &#x60;flag&#x60;, &#x60;project&#x60;, &#x60;environment&#x60;, &#x60;segment&#x60;. Returns all types by default. | [optional] 
+ **kind** | [**[String]**](String.md)| Fetch tags associated with the specified resource type. Options are &#x60;flag&#x60;, &#x60;project&#x60;, &#x60;environment&#x60;, &#x60;segment&#x60;. Returns all types by default. | [optional] 
  **pre** | **String**| Return tags with the specified prefix | [optional] 
  **archived** | **Boolean**| Whether or not to return archived flags | [optional] 
+ **limit** | **Number**| The number of tags to return. Maximum is 1000. | [optional] 
+ **offset** | **Number**| The index of the first tag to return. Default is 0. | [optional] 
+ **asOf** | **String**| The time to retrieve tags as of. Default is the current time. | [optional] 
 
 ### Return type
 
-[**TagCollection**](TagCollection.md)
+[**TagsCollection**](TagsCollection.md)
 
 ### Authorization
 

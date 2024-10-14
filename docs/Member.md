@@ -23,5 +23,7 @@ Name | Type | Description | Notes
 **permissionGrants** | [**[MemberPermissionGrantSummaryRep]**](MemberPermissionGrantSummaryRep.md) | A list of permission grants. Permission grants allow a member to have access to a specific action, without having to create or update a custom role. | [optional] 
 **creationDate** | **Number** |  | 
 **oauthProviders** | **[String]** | A list of OAuth providers | [optional] 
+**version** | **Number** | Version of the current configuration | [optional] 
+**roleAttributes** | **{String: Array}** |  | [optional] 
 
 

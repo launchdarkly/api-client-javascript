@@ -4,11 +4,59 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getCallerIdentity**](OtherApi.md#getCallerIdentity) | **GET** /api/v2/caller-identity | Identify the caller
 [**getIps**](OtherApi.md#getIps) | **GET** /api/v2/public-ip-list | Gets the public IP list
 [**getOpenapiSpec**](OtherApi.md#getOpenapiSpec) | **GET** /api/v2/openapi.json | Gets the OpenAPI spec in json
 [**getRoot**](OtherApi.md#getRoot) | **GET** /api/v2 | Root resource
 [**getVersions**](OtherApi.md#getVersions) | **GET** /api/v2/versions | Get version information
 
+
+
+## getCallerIdentity
+
+> CallerIdentityRep getCallerIdentity()
+
+Identify the caller
+
+Get basic information about the identity used (session cookie, API token, SDK keys, etc.) to call the API
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.OtherApi();
+apiInstance.getCallerIdentity((error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**CallerIdentityRep**](CallerIdentityRep.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## getIps

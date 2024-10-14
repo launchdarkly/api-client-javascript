@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 
 List metric groups
 
-Get a list of all metric groups for the specified project.  ### Expanding the metric groups response LaunchDarkly supports one field for expanding the \&quot;Get metric groups\&quot; response. By default, these fields are **not** included in the response.  To expand the response, append the &#x60;expand&#x60; query parameter and add a comma-separated list with the following field:  - &#x60;experiments&#x60; includes all experiments from the specific project that use the metric group  For example, &#x60;expand&#x3D;experiments&#x60; includes the &#x60;experiments&#x60; field in the response. 
+Get a list of all metric groups for the specified project.  ### Expanding the metric groups response LaunchDarkly supports one field for expanding the \&quot;Get metric groups\&quot; response. By default, these fields are **not** included in the response.  To expand the response, append the &#x60;expand&#x60; query parameter and add a comma-separated list with the following field:  - &#x60;experiments&#x60; includes all experiments from the specific project that use the metric group  For example, &#x60;expand&#x3D;experiments&#x60; includes the &#x60;experiments&#x60; field in the response.  ### Filtering metric groups  The &#x60;filter&#x60; parameter supports the &#x60;equals&#x60; operator on the following fields: &#x60;experimentStatus&#x60;, &#x60;query&#x60;.  The &#x60;experimentStatus&#x60; field supports the following values: &#x60;not_started&#x60;, &#x60;running&#x60;, &#x60;stopped&#x60;, and &#x60;started&#x60;. The &#x60;query&#x60; field is a search query that is compared against the metric group name and key.   #### Sample query  &#x60;filter&#x3D;experimentStatus equals &#39;not_started&#39; and query equals &#39;metric name&#39;&#x60; 
 
 ### Example
 
@@ -197,7 +197,10 @@ ApiKey.apiKey = 'YOUR API KEY';
 let apiInstance = new LaunchDarklyApi.MetricsBetaApi();
 let projectKey = "projectKey_example"; // String | The project key
 let opts = {
-  'expand': "expand_example" // String | A comma-separated list of properties that can reveal additional information in the response.
+  'filter': "filter_example", // String | Accepts filter by `experimentStatus` and `query`. Example: `filter=experimentStatus equals 'running' and query equals 'test'`.
+  'expand': "expand_example", // String | A comma-separated list of properties that can reveal additional information in the response.
+  'limit': 789, // Number | The number of metric groups to return in the response. Defaults to 20. Maximum limit is 50.
+  'offset': 789 // Number | Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and returns the next `limit` items.
 };
 apiInstance.getMetricGroups(projectKey, opts, (error, data, response) => {
   if (error) {
@@ -214,7 +217,10 @@ apiInstance.getMetricGroups(projectKey, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
+ **filter** | **String**| Accepts filter by &#x60;experimentStatus&#x60; and &#x60;query&#x60;. Example: &#x60;filter&#x3D;experimentStatus equals &#39;running&#39; and query equals &#39;test&#39;&#x60;. | [optional] 
  **expand** | **String**| A comma-separated list of properties that can reveal additional information in the response. | [optional] 
+ **limit** | **Number**| The number of metric groups to return in the response. Defaults to 20. Maximum limit is 50. | [optional] 
+ **offset** | **Number**| Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and returns the next &#x60;limit&#x60; items. | [optional] 
 
 ### Return type
 

@@ -9,3 +9,18 @@ Name | Type | Description | Notes
 **_default** | **Object** | Default value seen from code | [optional] 
 
 
+
+## Enum: NameEnum
+
+
+* `new` (value: `"new"`)
+
+* `inactive` (value: `"inactive"`)
+
+* `active` (value: `"active"`)
+
+* `launched` (value: `"launched"`)
+
+
+
+

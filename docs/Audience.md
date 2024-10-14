@@ -6,5 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **environment** | [**EnvironmentSummary**](EnvironmentSummary.md) |  | 
 **name** | **String** | The release phase name | 
+**configuration** | [**AudienceConfiguration**](AudienceConfiguration.md) |  | [optional] 
+**segmentKeys** | **[String]** | A list of segment keys | [optional] 
 
 

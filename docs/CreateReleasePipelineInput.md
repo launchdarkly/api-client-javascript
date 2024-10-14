@@ -9,5 +9,7 @@ Name | Type | Description | Notes
 **name** | **String** | The name of the release pipeline | 
 **phases** | [**[CreatePhaseInput]**](CreatePhaseInput.md) | A logical grouping of one or more environments that share attributes for rolling out changes | 
 **tags** | **[String]** | A list of tags for this release pipeline | [optional] 
+**isProjectDefault** | **Boolean** | Whether or not the newly created pipeline should be set as the default pipeline for this project | [optional] 
+**isLegacy** | **Boolean** | Whether or not the pipeline is enabled for Release Automation. | [optional] 
 
 

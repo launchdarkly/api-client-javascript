@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **hunkCount** | **Number** | The number of code reference hunks in which the flag appears in this repository | 
 **fileCount** | **Number** | The number of files in which the flag appears in this repository | 
 **links** | [**{String: Link}**](Link.md) | The location and content type of related resources | 
+**latestCommitTime** | **Number** |  | [optional] 
 
 
 

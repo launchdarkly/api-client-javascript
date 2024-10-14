@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **maintainerId** | **String** | The ID of the member who maintains this experiment | [optional] 
 **key** | **String** | The experiment key | 
 **iteration** | [**IterationInput**](IterationInput.md) |  | 
+**holdoutId** | **String** | The ID of the holdout | [optional] 
 
 

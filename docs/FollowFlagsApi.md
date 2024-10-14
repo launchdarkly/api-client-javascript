@@ -4,16 +4,16 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**deleteFlagFollowers**](FollowFlagsApi.md#deleteFlagFollowers) | **DELETE** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/followers/{memberId} | Remove a member as a follower of a flag in a project and environment
+[**deleteFlagFollower**](FollowFlagsApi.md#deleteFlagFollower) | **DELETE** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/followers/{memberId} | Remove a member as a follower of a flag in a project and environment
 [**getFlagFollowers**](FollowFlagsApi.md#getFlagFollowers) | **GET** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/followers | Get followers of a flag in a project and environment
 [**getFollowersByProjEnv**](FollowFlagsApi.md#getFollowersByProjEnv) | **GET** /api/v2/projects/{projectKey}/environments/{environmentKey}/followers | Get followers of all flags in a given project and environment
-[**putFlagFollowers**](FollowFlagsApi.md#putFlagFollowers) | **PUT** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/followers/{memberId} | Add a member as a follower of a flag in a project and environment
+[**putFlagFollower**](FollowFlagsApi.md#putFlagFollower) | **PUT** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/followers/{memberId} | Add a member as a follower of a flag in a project and environment
 
 
 
-## deleteFlagFollowers
+## deleteFlagFollower
 
-> deleteFlagFollowers(projectKey, featureFlagKey, environmentKey, memberId)
+> deleteFlagFollower(projectKey, featureFlagKey, environmentKey, memberId)
 
 Remove a member as a follower of a flag in a project and environment
 
@@ -35,7 +35,7 @@ let projectKey = "projectKey_example"; // String | The project key
 let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let memberId = "memberId_example"; // String | The memberId of the member to remove as a follower of the flag. Reader roles can only remove themselves.
-apiInstance.deleteFlagFollowers(projectKey, featureFlagKey, environmentKey, memberId, (error, data, response) => {
+apiInstance.deleteFlagFollower(projectKey, featureFlagKey, environmentKey, memberId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -176,9 +176,9 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## putFlagFollowers
+## putFlagFollower
 
-> putFlagFollowers(projectKey, featureFlagKey, environmentKey, memberId)
+> putFlagFollower(projectKey, featureFlagKey, environmentKey, memberId)
 
 Add a member as a follower of a flag in a project and environment
 
@@ -200,7 +200,7 @@ let projectKey = "projectKey_example"; // String | The project key
 let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let memberId = "memberId_example"; // String | The memberId of the member to add as a follower of the flag. Reader roles can only add themselves.
-apiInstance.putFlagFollowers(projectKey, featureFlagKey, environmentKey, memberId, (error, data, response) => {
+apiInstance.putFlagFollower(projectKey, featureFlagKey, environmentKey, memberId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
