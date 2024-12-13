@@ -25,6 +25,7 @@ docs/ApprovalRequestResponse.md
 docs/ApprovalSettings.md
 docs/ApprovalsApi.md
 docs/ApprovalsBetaApi.md
+docs/ApprovalsCapabilityConfig.md
 docs/Audience.md
 docs/AudienceConfiguration.md
 docs/AudiencePost.md
@@ -32,6 +33,8 @@ docs/AuditLogApi.md
 docs/AuditLogEntryListingRep.md
 docs/AuditLogEntryListingRepCollection.md
 docs/AuditLogEntryRep.md
+docs/AuditLogEventsHookCapabilityConfigPost.md
+docs/AuditLogEventsHookCapabilityConfigRep.md
 docs/AuthorizedAppDataRep.md
 docs/BayesianBetaBinomialStatsRep.md
 docs/BayesianNormalStatsRep.md
@@ -48,6 +51,8 @@ docs/BranchRep.md
 docs/BulkEditMembersRep.md
 docs/BulkEditTeamsRep.md
 docs/CallerIdentityRep.md
+docs/CapabilityConfigPost.md
+docs/CapabilityConfigRep.md
 docs/Clause.md
 docs/Client.md
 docs/ClientCollection.md
@@ -117,6 +122,9 @@ docs/Destination.md
 docs/DestinationPost.md
 docs/Destinations.md
 docs/Distribution.md
+docs/DynamicOptions.md
+docs/DynamicOptionsParser.md
+docs/Endpoint.md
 docs/Environment.md
 docs/EnvironmentPost.md
 docs/EnvironmentSummary.md
@@ -129,6 +137,7 @@ docs/ExecutionOutput.md
 docs/ExpandableApprovalRequestResponse.md
 docs/ExpandableApprovalRequestsResponse.md
 docs/ExpandedFlagRep.md
+docs/ExpandedResourceRep.md
 docs/Experiment.md
 docs/ExperimentAllocationRep.md
 docs/ExperimentBayesianResultsRep.md
@@ -185,6 +194,7 @@ docs/FlagEventRep.md
 docs/FlagFollowersByProjEnvGetRep.md
 docs/FlagFollowersGetRep.md
 docs/FlagImportConfigurationPost.md
+docs/FlagImportConfigurationsBetaApi.md
 docs/FlagImportIntegration.md
 docs/FlagImportIntegrationCollection.md
 docs/FlagImportIntegrationCollectionLinks.md
@@ -212,6 +222,9 @@ docs/FollowFlagMember.md
 docs/FollowFlagsApi.md
 docs/FollowersPerFlag.md
 docs/ForbiddenErrorRep.md
+docs/FormVariable.md
+docs/HMACSignature.md
+docs/HeaderItems.md
 docs/HoldoutDetailRep.md
 docs/HoldoutPatchInput.md
 docs/HoldoutPostRequest.md
@@ -254,6 +267,9 @@ docs/InsightsScoresBetaApi.md
 docs/InstructionUserRequest.md
 docs/Integration.md
 docs/IntegrationAuditLogSubscriptionsApi.md
+docs/IntegrationConfigurationCollectionRep.md
+docs/IntegrationConfigurationPost.md
+docs/IntegrationConfigurationsRep.md
 docs/IntegrationDeliveryConfiguration.md
 docs/IntegrationDeliveryConfigurationCollection.md
 docs/IntegrationDeliveryConfigurationCollectionLinks.md
@@ -279,7 +295,7 @@ docs/LayerPost.md
 docs/LayerRep.md
 docs/LayerReservationRep.md
 docs/LayerSnapshotRep.md
-docs/LayersBetaApi.md
+docs/LayersApi.md
 docs/LeadTimeStagesRep.md
 docs/LegacyExperimentRep.md
 docs/Link.md
@@ -323,6 +339,7 @@ docs/NewMemberForm.md
 docs/NotFoundErrorRep.md
 docs/OAuth2ClientsApi.md
 docs/OauthClientPost.md
+docs/OptionsArray.md
 docs/OtherApi.md
 docs/ParameterDefault.md
 docs/ParameterRep.md
@@ -337,8 +354,8 @@ docs/PatchSegmentRequest.md
 docs/PatchUsersRequest.md
 docs/PatchWithComment.md
 docs/PermissionGrantInput.md
+docs/PersistentStoreIntegrationsBetaApi.md
 docs/Phase.md
-docs/PhaseConfiguration.md
 docs/PhaseInfo.md
 docs/PostApprovalRequestApplyRequest.md
 docs/PostApprovalRequestReviewRequest.md
@@ -456,6 +473,7 @@ docs/TriggerWorkflowCollectionRep.md
 docs/TriggerWorkflowRep.md
 docs/UnauthorizedErrorRep.md
 docs/UpdatePhaseStatusInput.md
+docs/UpdateReleasePipelineInput.md
 docs/UpsertContextKindPayload.md
 docs/UpsertFlagDefaultsPayload.md
 docs/UpsertPayloadRep.md
@@ -513,6 +531,7 @@ src/api/EnvironmentsApi.js
 src/api/ExperimentsApi.js
 src/api/FeatureFlagsApi.js
 src/api/FeatureFlagsBetaApi.js
+src/api/FlagImportConfigurationsBetaApi.js
 src/api/FlagLinksBetaApi.js
 src/api/FlagTriggersApi.js
 src/api/FollowFlagsApi.js
@@ -526,11 +545,12 @@ src/api/InsightsScoresBetaApi.js
 src/api/IntegrationAuditLogSubscriptionsApi.js
 src/api/IntegrationDeliveryConfigurationsBetaApi.js
 src/api/IntegrationsBetaApi.js
-src/api/LayersBetaApi.js
+src/api/LayersApi.js
 src/api/MetricsApi.js
 src/api/MetricsBetaApi.js
 src/api/OAuth2ClientsApi.js
 src/api/OtherApi.js
+src/api/PersistentStoreIntegrationsBetaApi.js
 src/api/ProjectsApi.js
 src/api/RelayProxyConfigurationsApi.js
 src/api/ReleasePipelinesBetaApi.js
@@ -563,12 +583,15 @@ src/model/ApplicationVersionRep.js
 src/model/ApplicationVersionsCollectionRep.js
 src/model/ApprovalRequestResponse.js
 src/model/ApprovalSettings.js
+src/model/ApprovalsCapabilityConfig.js
 src/model/Audience.js
 src/model/AudienceConfiguration.js
 src/model/AudiencePost.js
 src/model/AuditLogEntryListingRep.js
 src/model/AuditLogEntryListingRepCollection.js
 src/model/AuditLogEntryRep.js
+src/model/AuditLogEventsHookCapabilityConfigPost.js
+src/model/AuditLogEventsHookCapabilityConfigRep.js
 src/model/AuthorizedAppDataRep.js
 src/model/BayesianBetaBinomialStatsRep.js
 src/model/BayesianNormalStatsRep.js
@@ -585,6 +608,8 @@ src/model/BranchRep.js
 src/model/BulkEditMembersRep.js
 src/model/BulkEditTeamsRep.js
 src/model/CallerIdentityRep.js
+src/model/CapabilityConfigPost.js
+src/model/CapabilityConfigRep.js
 src/model/Clause.js
 src/model/Client.js
 src/model/ClientCollection.js
@@ -649,6 +674,9 @@ src/model/Destination.js
 src/model/DestinationPost.js
 src/model/Destinations.js
 src/model/Distribution.js
+src/model/DynamicOptions.js
+src/model/DynamicOptionsParser.js
+src/model/Endpoint.js
 src/model/Environment.js
 src/model/EnvironmentPost.js
 src/model/EnvironmentSummary.js
@@ -660,6 +688,7 @@ src/model/ExecutionOutput.js
 src/model/ExpandableApprovalRequestResponse.js
 src/model/ExpandableApprovalRequestsResponse.js
 src/model/ExpandedFlagRep.js
+src/model/ExpandedResourceRep.js
 src/model/Experiment.js
 src/model/ExperimentAllocationRep.js
 src/model/ExperimentBayesianResultsRep.js
@@ -737,6 +766,9 @@ src/model/FlagTriggerInput.js
 src/model/FollowFlagMember.js
 src/model/FollowersPerFlag.js
 src/model/ForbiddenErrorRep.js
+src/model/FormVariable.js
+src/model/HMACSignature.js
+src/model/HeaderItems.js
 src/model/HoldoutDetailRep.js
 src/model/HoldoutPatchInput.js
 src/model/HoldoutPostRequest.js
@@ -771,6 +803,9 @@ src/model/InsightsRepositoryProjectCollection.js
 src/model/InsightsRepositoryProjectMappings.js
 src/model/InstructionUserRequest.js
 src/model/Integration.js
+src/model/IntegrationConfigurationCollectionRep.js
+src/model/IntegrationConfigurationPost.js
+src/model/IntegrationConfigurationsRep.js
 src/model/IntegrationDeliveryConfiguration.js
 src/model/IntegrationDeliveryConfigurationCollection.js
 src/model/IntegrationDeliveryConfigurationCollectionLinks.js
@@ -834,6 +869,7 @@ src/model/NamingConvention.js
 src/model/NewMemberForm.js
 src/model/NotFoundErrorRep.js
 src/model/OauthClientPost.js
+src/model/OptionsArray.js
 src/model/ParameterDefault.js
 src/model/ParameterRep.js
 src/model/ParentResourceRep.js
@@ -848,7 +884,6 @@ src/model/PatchUsersRequest.js
 src/model/PatchWithComment.js
 src/model/PermissionGrantInput.js
 src/model/Phase.js
-src/model/PhaseConfiguration.js
 src/model/PhaseInfo.js
 src/model/PostApprovalRequestApplyRequest.js
 src/model/PostApprovalRequestReviewRequest.js
@@ -956,6 +991,7 @@ src/model/TriggerWorkflowCollectionRep.js
 src/model/TriggerWorkflowRep.js
 src/model/UnauthorizedErrorRep.js
 src/model/UpdatePhaseStatusInput.js
+src/model/UpdateReleasePipelineInput.js
 src/model/UpsertContextKindPayload.js
 src/model/UpsertFlagDefaultsPayload.js
 src/model/UpsertPayloadRep.js
@@ -1003,6 +1039,7 @@ test/api/EnvironmentsApi.spec.js
 test/api/ExperimentsApi.spec.js
 test/api/FeatureFlagsApi.spec.js
 test/api/FeatureFlagsBetaApi.spec.js
+test/api/FlagImportConfigurationsBetaApi.spec.js
 test/api/FlagLinksBetaApi.spec.js
 test/api/FlagTriggersApi.spec.js
 test/api/FollowFlagsApi.spec.js
@@ -1016,11 +1053,12 @@ test/api/InsightsScoresBetaApi.spec.js
 test/api/IntegrationAuditLogSubscriptionsApi.spec.js
 test/api/IntegrationDeliveryConfigurationsBetaApi.spec.js
 test/api/IntegrationsBetaApi.spec.js
-test/api/LayersBetaApi.spec.js
+test/api/LayersApi.spec.js
 test/api/MetricsApi.spec.js
 test/api/MetricsBetaApi.spec.js
 test/api/OAuth2ClientsApi.spec.js
 test/api/OtherApi.spec.js
+test/api/PersistentStoreIntegrationsBetaApi.spec.js
 test/api/ProjectsApi.spec.js
 test/api/RelayProxyConfigurationsApi.spec.js
 test/api/ReleasePipelinesBetaApi.spec.js
@@ -1052,12 +1090,15 @@ test/model/ApplicationVersionRep.spec.js
 test/model/ApplicationVersionsCollectionRep.spec.js
 test/model/ApprovalRequestResponse.spec.js
 test/model/ApprovalSettings.spec.js
+test/model/ApprovalsCapabilityConfig.spec.js
 test/model/Audience.spec.js
 test/model/AudienceConfiguration.spec.js
 test/model/AudiencePost.spec.js
 test/model/AuditLogEntryListingRep.spec.js
 test/model/AuditLogEntryListingRepCollection.spec.js
 test/model/AuditLogEntryRep.spec.js
+test/model/AuditLogEventsHookCapabilityConfigPost.spec.js
+test/model/AuditLogEventsHookCapabilityConfigRep.spec.js
 test/model/AuthorizedAppDataRep.spec.js
 test/model/BayesianBetaBinomialStatsRep.spec.js
 test/model/BayesianNormalStatsRep.spec.js
@@ -1074,6 +1115,8 @@ test/model/BranchRep.spec.js
 test/model/BulkEditMembersRep.spec.js
 test/model/BulkEditTeamsRep.spec.js
 test/model/CallerIdentityRep.spec.js
+test/model/CapabilityConfigPost.spec.js
+test/model/CapabilityConfigRep.spec.js
 test/model/Clause.spec.js
 test/model/Client.spec.js
 test/model/ClientCollection.spec.js
@@ -1138,6 +1181,9 @@ test/model/Destination.spec.js
 test/model/DestinationPost.spec.js
 test/model/Destinations.spec.js
 test/model/Distribution.spec.js
+test/model/DynamicOptions.spec.js
+test/model/DynamicOptionsParser.spec.js
+test/model/Endpoint.spec.js
 test/model/Environment.spec.js
 test/model/EnvironmentPost.spec.js
 test/model/EnvironmentSummary.spec.js
@@ -1149,6 +1195,7 @@ test/model/ExecutionOutput.spec.js
 test/model/ExpandableApprovalRequestResponse.spec.js
 test/model/ExpandableApprovalRequestsResponse.spec.js
 test/model/ExpandedFlagRep.spec.js
+test/model/ExpandedResourceRep.spec.js
 test/model/Experiment.spec.js
 test/model/ExperimentAllocationRep.spec.js
 test/model/ExperimentBayesianResultsRep.spec.js
@@ -1226,6 +1273,9 @@ test/model/FlagTriggerInput.spec.js
 test/model/FollowFlagMember.spec.js
 test/model/FollowersPerFlag.spec.js
 test/model/ForbiddenErrorRep.spec.js
+test/model/FormVariable.spec.js
+test/model/HMACSignature.spec.js
+test/model/HeaderItems.spec.js
 test/model/HoldoutDetailRep.spec.js
 test/model/HoldoutPatchInput.spec.js
 test/model/HoldoutPostRequest.spec.js
@@ -1260,6 +1310,9 @@ test/model/InsightsRepositoryProjectCollection.spec.js
 test/model/InsightsRepositoryProjectMappings.spec.js
 test/model/InstructionUserRequest.spec.js
 test/model/Integration.spec.js
+test/model/IntegrationConfigurationCollectionRep.spec.js
+test/model/IntegrationConfigurationPost.spec.js
+test/model/IntegrationConfigurationsRep.spec.js
 test/model/IntegrationDeliveryConfiguration.spec.js
 test/model/IntegrationDeliveryConfigurationCollection.spec.js
 test/model/IntegrationDeliveryConfigurationCollectionLinks.spec.js
@@ -1323,6 +1376,7 @@ test/model/NamingConvention.spec.js
 test/model/NewMemberForm.spec.js
 test/model/NotFoundErrorRep.spec.js
 test/model/OauthClientPost.spec.js
+test/model/OptionsArray.spec.js
 test/model/ParameterDefault.spec.js
 test/model/ParameterRep.spec.js
 test/model/ParentResourceRep.spec.js
@@ -1337,7 +1391,6 @@ test/model/PatchUsersRequest.spec.js
 test/model/PatchWithComment.spec.js
 test/model/PermissionGrantInput.spec.js
 test/model/Phase.spec.js
-test/model/PhaseConfiguration.spec.js
 test/model/PhaseInfo.spec.js
 test/model/PostApprovalRequestApplyRequest.spec.js
 test/model/PostApprovalRequestReviewRequest.spec.js
@@ -1445,6 +1498,7 @@ test/model/TriggerWorkflowCollectionRep.spec.js
 test/model/TriggerWorkflowRep.spec.js
 test/model/UnauthorizedErrorRep.spec.js
 test/model/UpdatePhaseStatusInput.spec.js
+test/model/UpdateReleasePipelineInput.spec.js
 test/model/UpsertContextKindPayload.spec.js
 test/model/UpsertFlagDefaultsPayload.spec.js
 test/model/UpsertPayloadRep.spec.js

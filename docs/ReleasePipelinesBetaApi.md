@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**getAllReleasePipelines**](ReleasePipelinesBetaApi.md#getAllReleasePipelines) | **GET** /api/v2/projects/{projectKey}/release-pipelines | Get all release pipelines
 [**getAllReleaseProgressionsForReleasePipeline**](ReleasePipelinesBetaApi.md#getAllReleaseProgressionsForReleasePipeline) | **GET** /api/v2/projects/{projectKey}/release-pipelines/{pipelineKey}/releases | Get release progressions for release pipeline
 [**getReleasePipelineByKey**](ReleasePipelinesBetaApi.md#getReleasePipelineByKey) | **GET** /api/v2/projects/{projectKey}/release-pipelines/{pipelineKey} | Get release pipeline by key
-[**patchReleasePipeline**](ReleasePipelinesBetaApi.md#patchReleasePipeline) | **PATCH** /api/v2/projects/{projectKey}/release-pipelines/{pipelineKey} | Update a release pipeline
 [**postReleasePipeline**](ReleasePipelinesBetaApi.md#postReleasePipeline) | **POST** /api/v2/projects/{projectKey}/release-pipelines | Create a release pipeline
+[**putReleasePipeline**](ReleasePipelinesBetaApi.md#putReleasePipeline) | **PUT** /api/v2/projects/{projectKey}/release-pipelines/{pipelineKey} | Update a release pipeline
 
 
 
@@ -239,59 +239,6 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
-## patchReleasePipeline
-
-> ReleasePipeline patchReleasePipeline(projectKey, pipelineKey)
-
-Update a release pipeline
-
-Updates a release pipeline. Updating a release pipeline uses a [JSON patch](https://datatracker.ietf.org/doc/html/rfc6902) representation of the desired changes. To learn more, read [Updates](/#section/Overview/Updates).
-
-### Example
-
-```javascript
-import LaunchDarklyApi from 'launchdarkly-api';
-let defaultClient = LaunchDarklyApi.ApiClient.instance;
-// Configure API key authorization: ApiKey
-let ApiKey = defaultClient.authentications['ApiKey'];
-ApiKey.apiKey = 'YOUR API KEY';
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.apiKeyPrefix = 'Token';
-
-let apiInstance = new LaunchDarklyApi.ReleasePipelinesBetaApi();
-let projectKey = "projectKey_example"; // String | The project key
-let pipelineKey = "pipelineKey_example"; // String | The release pipeline key
-apiInstance.patchReleasePipeline(projectKey, pipelineKey, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **projectKey** | **String**| The project key | 
- **pipelineKey** | **String**| The release pipeline key | 
-
-### Return type
-
-[**ReleasePipeline**](ReleasePipeline.md)
-
-### Authorization
-
-[ApiKey](../README.md#ApiKey)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
 ## postReleasePipeline
 
 > ReleasePipeline postReleasePipeline(projectKey, createReleasePipelineInput)
@@ -330,6 +277,61 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
  **createReleasePipelineInput** | [**CreateReleasePipelineInput**](CreateReleasePipelineInput.md)|  | 
+
+### Return type
+
+[**ReleasePipeline**](ReleasePipeline.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## putReleasePipeline
+
+> ReleasePipeline putReleasePipeline(projectKey, pipelineKey, updateReleasePipelineInput)
+
+Update a release pipeline
+
+Updates a release pipeline.
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.ReleasePipelinesBetaApi();
+let projectKey = "projectKey_example"; // String | The project key
+let pipelineKey = "pipelineKey_example"; // String | The release pipeline key
+let updateReleasePipelineInput = new LaunchDarklyApi.UpdateReleasePipelineInput(); // UpdateReleasePipelineInput | 
+apiInstance.putReleasePipeline(projectKey, pipelineKey, updateReleasePipelineInput, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **projectKey** | **String**| The project key | 
+ **pipelineKey** | **String**| The release pipeline key | 
+ **updateReleasePipelineInput** | [**UpdateReleasePipelineInput**](UpdateReleasePipelineInput.md)|  | 
 
 ### Return type
 

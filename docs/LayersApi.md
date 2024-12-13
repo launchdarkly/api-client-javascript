@@ -1,12 +1,12 @@
-# LaunchDarklyApi.LayersBetaApi
+# LaunchDarklyApi.LayersApi
 
 All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createLayer**](LayersBetaApi.md#createLayer) | **POST** /api/v2/projects/{projectKey}/layers | Create layer
-[**getLayers**](LayersBetaApi.md#getLayers) | **GET** /api/v2/projects/{projectKey}/layers | Get layers
-[**updateLayer**](LayersBetaApi.md#updateLayer) | **PATCH** /api/v2/projects/{projectKey}/layers/{layerKey} | Update layer
+[**createLayer**](LayersApi.md#createLayer) | **POST** /api/v2/projects/{projectKey}/layers | Create layer
+[**getLayers**](LayersApi.md#getLayers) | **GET** /api/v2/projects/{projectKey}/layers | Get layers
+[**updateLayer**](LayersApi.md#updateLayer) | **PATCH** /api/v2/projects/{projectKey}/layers/{layerKey} | Update layer
 
 
 
@@ -29,7 +29,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 
-let apiInstance = new LaunchDarklyApi.LayersBetaApi();
+let apiInstance = new LaunchDarklyApi.LayersApi();
 let projectKey = "projectKey_example"; // String | The project key
 let layerPost = new LaunchDarklyApi.LayerPost(); // LayerPost | 
 apiInstance.createLayer(projectKey, layerPost, (error, data, response) => {
@@ -82,7 +82,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 
-let apiInstance = new LaunchDarklyApi.LayersBetaApi();
+let apiInstance = new LaunchDarklyApi.LayersApi();
 let projectKey = "projectKey_example"; // String | The project key
 let opts = {
   'filter': "filter_example" // String | A comma-separated list of filters. This endpoint only accepts filtering by `experimentKey`. The filter returns layers which include that experiment for the selected environment(s). For example: `filter=reservations.experimentKey contains expKey`.
@@ -137,7 +137,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 
-let apiInstance = new LaunchDarklyApi.LayersBetaApi();
+let apiInstance = new LaunchDarklyApi.LayersApi();
 let projectKey = "projectKey_example"; // String | The project key
 let layerKey = "layerKey_example"; // String | The layer key
 let layerPatchInput = {"comment":"Example comment describing the update","environmentKey":"production","instructions":[{"experimentKey":"checkout-button-color","kind":"updateExperimentReservation","reservationPercent":25}]}; // LayerPatchInput | 

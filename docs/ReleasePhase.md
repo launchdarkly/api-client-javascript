@@ -14,6 +14,6 @@ Name | Type | Description | Notes
 **status** | **String** |  | [optional] 
 **started** | **Boolean** | Whether or not this phase has started | [optional] 
 **startedDate** | **Number** |  | [optional] 
-**configuration** | [**PhaseConfiguration**](PhaseConfiguration.md) |  | [optional] 
+**configuration** | **Object** |  | [optional] 
 
 

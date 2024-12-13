@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **lastModified** | **Number** |  | [optional] 
 **version** | **Number** | The team version | [optional] 
 **idpSynced** | **Boolean** | Whether the team has been synced with an external identity provider (IdP). Team sync is available to customers on an Enterprise plan. | [optional] 
+**roleAttributes** | **{String: Array}** |  | [optional] 
 **roles** | [**TeamCustomRoles**](TeamCustomRoles.md) |  | [optional] 
 **members** | [**TeamMembers**](TeamMembers.md) |  | [optional] 
 **projects** | [**TeamProjects**](TeamProjects.md) |  | [optional] 

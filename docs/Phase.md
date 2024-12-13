@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **id** | **String** | The phase ID | 
 **audiences** | [**[Audience]**](Audience.md) |  | 
 **name** | **String** | The release phase name | 
-**configuration** | [**PhaseConfiguration**](PhaseConfiguration.md) |  | [optional] 
+**configuration** | **Object** |  | [optional] 
 
 

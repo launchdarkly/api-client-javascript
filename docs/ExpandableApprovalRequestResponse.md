@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **project** | [**Project**](Project.md) |  | [optional] 
 **environments** | [**[Environment]**](Environment.md) | List of environments the approval impacts | [optional] 
 **flag** | [**ExpandedFlagRep**](ExpandedFlagRep.md) |  | [optional] 
+**resource** | [**ExpandedResourceRep**](ExpandedResourceRep.md) |  | [optional] 
 
 
 
