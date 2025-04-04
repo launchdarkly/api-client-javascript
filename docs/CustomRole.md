@@ -12,5 +12,9 @@ Name | Type | Description | Notes
 **name** | **String** | The name of the custom role | 
 **policy** | [**[Statement]**](Statement.md) | An array of the policies that comprise this custom role | 
 **basePermissions** | **String** |  | [optional] 
+**resourceCategory** | **String** |  | [optional] 
+**assignedTo** | [**AssignedToRep**](AssignedToRep.md) |  | [optional] 
+**presetBundleVersion** | **Number** | If created from a preset, the preset bundle version | [optional] 
+**presetStatements** | [**[Statement]**](Statement.md) | If created from a preset, the read-only statements copied from the preset | [optional] 
 
 

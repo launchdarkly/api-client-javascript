@@ -28,6 +28,8 @@ Name | Type | Description | Notes
 
 * `azure-event-hubs` (value: `"azure-event-hubs"`)
 
+* `snowflake-v2` (value: `"snowflake-v2"`)
+
 
 
 

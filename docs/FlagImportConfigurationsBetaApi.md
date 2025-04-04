@@ -231,7 +231,7 @@ This endpoint does not need any parameter.
 
 Update a flag import configuration
 
-Updating a flag import configuration uses a [JSON patch](https://datatracker.ietf.org/doc/html/rfc6902) representation of the desired changes. To learn more, read [Updates](/#section/Overview/Updates).&lt;br/&gt;&lt;br/&gt;To add an element to the import configuration fields that are arrays, set the &#x60;path&#x60; to the name of the field and then append &#x60;/&lt;array index&gt;&#x60;. Use &#x60;/0&#x60; to add to the beginning of the array. Use &#x60;/-&#x60; to add to the end of the array.&lt;br/&gt;&lt;br/&gt;You can update the &#x60;config&#x60;, &#x60;tags&#x60;, and &#x60;name&#x60; of the flag import configuration.
+Updating a flag import configuration uses a [JSON patch](https://datatracker.ietf.org/doc/html/rfc6902) representation of the desired changes. To learn more, read [Updates](https://launchdarkly.com/docs/api#updates).&lt;br/&gt;&lt;br/&gt;To add an element to the import configuration fields that are arrays, set the &#x60;path&#x60; to the name of the field and then append &#x60;/&lt;array index&gt;&#x60;. Use &#x60;/0&#x60; to add to the beginning of the array. Use &#x60;/-&#x60; to add to the end of the array.&lt;br/&gt;&lt;br/&gt;You can update the &#x60;config&#x60;, &#x60;tags&#x60;, and &#x60;name&#x60; of the flag import configuration.
 
 ### Example
 
@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 ## triggerFlagImportJob
 
-> Object triggerFlagImportJob(projectKey, integrationKey, integrationId)
+> triggerFlagImportJob(projectKey, integrationKey, integrationId)
 
 Trigger a single flag import run
 
@@ -309,7 +309,7 @@ apiInstance.triggerFlagImportJob(projectKey, integrationKey, integrationId, (err
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+null (empty response body)
 
 ### Authorization
 

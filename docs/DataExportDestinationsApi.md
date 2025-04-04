@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**getDestinations**](DataExportDestinationsApi.md#getDestinations) | **GET** /api/v2/destinations | List destinations
 [**patchDestination**](DataExportDestinationsApi.md#patchDestination) | **PATCH** /api/v2/destinations/{projectKey}/{environmentKey}/{id} | Update Data Export destination
 [**postDestination**](DataExportDestinationsApi.md#postDestination) | **POST** /api/v2/destinations/{projectKey}/{environmentKey} | Create Data Export destination
+[**postGenerateWarehouseDestinationKeyPair**](DataExportDestinationsApi.md#postGenerateWarehouseDestinationKeyPair) | **POST** /api/v2/destinations/generate-warehouse-destination-key-pair | Generate Snowflake destination key pair
 
 
 
@@ -175,7 +176,7 @@ This endpoint does not need any parameter.
 
 Update Data Export destination
 
-Update a Data Export destination. Updating a destination uses a [JSON patch](https://datatracker.ietf.org/doc/html/rfc6902) or [JSON merge patch](https://datatracker.ietf.org/doc/html/rfc7386) representation of the desired changes. To learn more, read [Updates](/#section/Overview/Updates).
+Update a Data Export destination. Updating a destination uses a [JSON patch](https://datatracker.ietf.org/doc/html/rfc6902) or [JSON merge patch](https://datatracker.ietf.org/doc/html/rfc7386) representation of the desired changes. To learn more, read [Updates](https://launchdarkly.com/docs/api#updates).
 
 ### Example
 
@@ -232,7 +233,7 @@ Name | Type | Description  | Notes
 
 Create Data Export destination
 
- Create a new Data Export destination.  In the &#x60;config&#x60; request body parameter, the fields required depend on the type of Data Export destination.  &lt;details&gt; &lt;summary&gt;Click to expand &lt;code&gt;config&lt;/code&gt; parameter details&lt;/summary&gt;  #### Azure Event Hubs  To create a Data Export destination with a &#x60;kind&#x60; of &#x60;azure-event-hubs&#x60;, the &#x60;config&#x60; object requires the following fields:  * &#x60;namespace&#x60;: The Event Hub Namespace name * &#x60;name&#x60;: The Event Hub name * &#x60;policyName&#x60;: The shared access signature policy name. You can find your policy name in the settings of your Azure Event Hubs Namespace. * &#x60;policyKey&#x60;: The shared access signature key. You can find your policy key in the settings of your Azure Event Hubs Namespace.  #### Google Cloud Pub/Sub  To create a Data Export destination with a &#x60;kind&#x60; of &#x60;google-pubsub&#x60;, the &#x60;config&#x60; object requires the following fields:  * &#x60;project&#x60;: The Google PubSub project ID for the project to publish to * &#x60;topic&#x60;: The Google PubSub topic ID for the topic to publish to  #### Amazon Kinesis  To create a Data Export destination with a &#x60;kind&#x60; of &#x60;kinesis&#x60;, the &#x60;config&#x60; object requires the following fields:  * &#x60;region&#x60;: The Kinesis stream&#39;s AWS region key * &#x60;roleArn&#x60;: The Amazon Resource Name (ARN) of the AWS role that will be writing to Kinesis * &#x60;streamName&#x60;: The name of the Kinesis stream that LaunchDarkly is sending events to. This is not the ARN of the stream.  #### mParticle  To create a Data Export destination with a &#x60;kind&#x60; of &#x60;mparticle&#x60;, the &#x60;config&#x60; object requires the following fields:  * &#x60;apiKey&#x60;: The mParticle API key * &#x60;secret&#x60;: The mParticle API secret * &#x60;userIdentity&#x60;: The type of identifier you use to identify your end users in mParticle * &#x60;anonymousUserIdentity&#x60;: The type of identifier you use to identify your anonymous end users in mParticle  #### Segment  To create a Data Export destination with a &#x60;kind&#x60; of &#x60;segment&#x60;, the &#x60;config&#x60; object requires the following fields:  * &#x60;writeKey&#x60;: The Segment write key. This is used to authenticate LaunchDarkly&#39;s calls to Segment.  &lt;/details&gt; 
+ Create a new Data Export destination.  In the &#x60;config&#x60; request body parameter, the fields required depend on the type of Data Export destination.  &lt;details&gt; &lt;summary&gt;Click to expand &lt;code&gt;config&lt;/code&gt; parameter details&lt;/summary&gt;  #### Azure Event Hubs  To create a Data Export destination with a &#x60;kind&#x60; of &#x60;azure-event-hubs&#x60;, the &#x60;config&#x60; object requires the following fields:  * &#x60;namespace&#x60;: The Event Hub Namespace name * &#x60;name&#x60;: The Event Hub name * &#x60;policyName&#x60;: The shared access signature policy name. You can find your policy name in the settings of your Azure Event Hubs Namespace. * &#x60;policyKey&#x60;: The shared access signature key. You can find your policy key in the settings of your Azure Event Hubs Namespace.  #### Google Cloud Pub/Sub  To create a Data Export destination with a &#x60;kind&#x60; of &#x60;google-pubsub&#x60;, the &#x60;config&#x60; object requires the following fields:  * &#x60;project&#x60;: The Google PubSub project ID for the project to publish to * &#x60;topic&#x60;: The Google PubSub topic ID for the topic to publish to  #### Amazon Kinesis  To create a Data Export destination with a &#x60;kind&#x60; of &#x60;kinesis&#x60;, the &#x60;config&#x60; object requires the following fields:  * &#x60;region&#x60;: The Kinesis stream&#39;s AWS region key * &#x60;roleArn&#x60;: The Amazon Resource Name (ARN) of the AWS role that will be writing to Kinesis * &#x60;streamName&#x60;: The name of the Kinesis stream that LaunchDarkly is sending events to. This is not the ARN of the stream.  #### mParticle  To create a Data Export destination with a &#x60;kind&#x60; of &#x60;mparticle&#x60;, the &#x60;config&#x60; object requires the following fields:  * &#x60;apiKey&#x60;: The mParticle API key * &#x60;secret&#x60;: The mParticle API secret * &#x60;userIdentity&#x60;: The type of identifier you use to identify your end users in mParticle * &#x60;anonymousUserIdentity&#x60;: The type of identifier you use to identify your anonymous end users in mParticle  #### Segment  To create a Data Export destination with a &#x60;kind&#x60; of &#x60;segment&#x60;, the &#x60;config&#x60; object requires the following fields:  * &#x60;writeKey&#x60;: The Segment write key. This is used to authenticate LaunchDarkly&#39;s calls to Segment.  #### Snowflake  To create a Data Export destination with a &#x60;kind&#x60; of &#x60;snowflake-v2&#x60;, the &#x60;config&#x60; object requires the following fields:  * &#x60;publicKey&#x60;: The &#x60;publicKey&#x60; is returned as part of the [Generate Snowflake destination key pair](https://launchdarkly.com/docs/api/data-export-destinations/post-generate-warehouse-destination-key-pair) response. It is the &#x60;public_key&#x60; field. * &#x60;snowflakeHostAddress&#x60;: Your Snowflake account URL.  &lt;/details&gt; 
 
 ### Example
 
@@ -278,5 +279,52 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postGenerateWarehouseDestinationKeyPair
+
+> GenerateWarehouseDestinationKeyPairPostRep postGenerateWarehouseDestinationKeyPair()
+
+Generate Snowflake destination key pair
+
+Generate key pair to allow Data Export to authenticate into a Snowflake warehouse destination
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.DataExportDestinationsApi();
+apiInstance.postGenerateWarehouseDestinationKeyPair((error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**GenerateWarehouseDestinationKeyPairPostRep**](GenerateWarehouseDestinationKeyPairPostRep.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 

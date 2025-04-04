@@ -13,3 +13,22 @@ Name | Type | Description | Notes
 **links** | [**{String: Link}**](Link.md) | The location and content type of related resources | 
 
 
+
+## Enum: StatusEnum
+
+
+* `preparing` (value: `"preparing"`)
+
+* `pending_approval` (value: `"pending_approval"`)
+
+* `ready` (value: `"ready"`)
+
+* `in_progress` (value: `"in_progress"`)
+
+* `complete` (value: `"complete"`)
+
+* `stopped` (value: `"stopped"`)
+
+
+
+
