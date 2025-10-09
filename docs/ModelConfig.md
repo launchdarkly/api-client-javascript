@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **version** | **Number** |  | 
 **costPerInputToken** | **Number** | Cost per input token in USD | [optional] 
 **costPerOutputToken** | **Number** | Cost per output token in USD | [optional] 
+**isRestricted** | **Boolean** | Whether the model is restricted | 
 
 

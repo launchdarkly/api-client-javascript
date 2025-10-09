@@ -29,6 +29,8 @@ Name | Type | Description | Notes
 
 * `standard` (value: `"standard"`)
 
+* `guardrail` (value: `"guardrail"`)
+
 
 
 

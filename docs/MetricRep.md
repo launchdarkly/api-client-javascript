@@ -6,8 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **experimentCount** | **Number** | The number of experiments using this metric | [optional] 
 **metricGroupCount** | **Number** | The number of metric groups using this metric | [optional] 
+**activeExperimentCount** | **Number** | The number of active experiments using this metric | [optional] 
+**activeGuardedRolloutCount** | **Number** | The number of active guarded rollouts using this metric | [optional] 
 **id** | **String** | The ID of this metric | 
 **versionId** | **String** | The version ID of the metric | 
+**version** | **Number** | Version of the metric | [optional] 
 **key** | **String** | A unique key to reference the metric | 
 **name** | **String** | A human-friendly name for the metric | 
 **kind** | **String** | The kind of event the metric tracks | 
@@ -27,17 +30,22 @@ Name | Type | Description | Notes
 **unit** | **String** | For numeric custom metrics, the unit of measure | [optional] 
 **eventKey** | **String** | For custom metrics, the event key to use in your code | [optional] 
 **randomizationUnits** | **[String]** | An array of randomization units allowed for this metric | [optional] 
+**filters** | [**Filter**](Filter.md) |  | [optional] 
 **unitAggregationType** | **String** | The method by which multiple unit event values are aggregated | [optional] 
 **analysisType** | **String** | The method for analyzing metric events | [optional] 
 **percentileValue** | **Number** | The percentile for the analysis method. An integer denoting the target percentile between 0 and 100. Required when &lt;code&gt;analysisType&lt;/code&gt; is &lt;code&gt;percentile&lt;/code&gt;. | [optional] 
 **eventDefault** | [**MetricEventDefaultRep**](MetricEventDefaultRep.md) |  | [optional] 
-**experiments** | [**[DependentExperimentRep]**](DependentExperimentRep.md) |  | [optional] 
-**metricGroups** | [**[DependentMetricGroupRep]**](DependentMetricGroupRep.md) | Metric groups that use this metric | [optional] 
-**isActive** | **Boolean** | Whether the metric is active | [optional] 
-**attachedFeatures** | [**[FlagListingRep]**](FlagListingRep.md) | Details on the flags attached to this metric | [optional] 
-**version** | **Number** | Version of the metric | [optional] 
+**dataSource** | [**MetricDataSourceRefRep**](MetricDataSourceRefRep.md) |  | [optional] 
+**archived** | **Boolean** | Whether the metric version is archived | [optional] 
+**archivedAt** | **Number** |  | [optional] 
 **selector** | **String** | For click metrics, the CSS selectors | [optional] 
 **urls** | **[Object]** |  | [optional] 
+**experiments** | [**[DependentExperimentRep]**](DependentExperimentRep.md) |  | [optional] 
+**metricGroups** | [**[DependentMetricGroupRep]**](DependentMetricGroupRep.md) | Metric groups that use this metric | [optional] 
+**lastUsedInExperiment** | [**DependentExperimentRep**](DependentExperimentRep.md) |  | [optional] 
+**lastUsedInGuardedRollout** | [**DependentMeasuredRolloutRep**](DependentMeasuredRolloutRep.md) |  | [optional] 
+**isActive** | **Boolean** | Whether the metric is active | [optional] 
+**attachedFeatures** | [**[FlagListingRep]**](FlagListingRep.md) | Details on the flags attached to this metric | [optional] 
 
 
 

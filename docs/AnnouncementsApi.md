@@ -82,7 +82,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.AnnouncementsApi();
-let announcementId = 1234567890; // String | 
+let announcementId = "1234567890"; // String | 
 apiInstance.deleteAnnouncementPublic(announcementId, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -134,7 +134,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new LaunchDarklyApi.AnnouncementsApi();
 let opts = {
-  'status': active, // String | Filter announcements by status.
+  'status': "active", // String | Filter announcements by status.
   'limit': 56, // Number | The number of announcements to return.
   'offset': 56 // Number | Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and then returns the next items in the list, up to the query `limit`.
 };
@@ -190,7 +190,7 @@ ApiKey.apiKey = 'YOUR API KEY';
 //ApiKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new LaunchDarklyApi.AnnouncementsApi();
-let announcementId = 1234567890; // String | 
+let announcementId = "1234567890"; // String | 
 let announcementPatchOperation = [new LaunchDarklyApi.AnnouncementPatchOperation()]; // [AnnouncementPatchOperation] | Update announcement request body
 apiInstance.updateAnnouncementPublic(announcementId, announcementPatchOperation, (error, data, response) => {
   if (error) {

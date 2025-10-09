@@ -30,6 +30,10 @@ Name | Type | Description | Notes
 
 * `snowflake-v2` (value: `"snowflake-v2"`)
 
+* `databricks` (value: `"databricks"`)
+
+* `bigquery` (value: `"bigquery"`)
+
 
 
 

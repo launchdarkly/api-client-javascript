@@ -16,5 +16,6 @@ Name | Type | Description | Notes
 **allReviews** | [**[ReviewOutput]**](ReviewOutput.md) |  | 
 **reviewStatus** | **String** |  | 
 **appliedDate** | **Number** |  | [optional] 
+**creationConfig** | **{String: Object}** |  | [optional] 
 
 

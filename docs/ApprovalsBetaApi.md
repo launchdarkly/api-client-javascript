@@ -4,9 +4,72 @@ All URIs are relative to *https://app.launchdarkly.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getApprovalRequestSettings**](ApprovalsBetaApi.md#getApprovalRequestSettings) | **GET** /api/v2/approval-requests/projects/{projectKey}/settings | Get approval request settings
 [**patchApprovalRequest**](ApprovalsBetaApi.md#patchApprovalRequest) | **PATCH** /api/v2/approval-requests/{id} | Update approval request
+[**patchApprovalRequestSettings**](ApprovalsBetaApi.md#patchApprovalRequestSettings) | **PATCH** /api/v2/approval-requests/projects/{projectKey}/settings | Update approval request settings
 [**patchFlagConfigApprovalRequest**](ApprovalsBetaApi.md#patchFlagConfigApprovalRequest) | **PATCH** /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id} | Update flag approval request
 
+
+
+## getApprovalRequestSettings
+
+> {String: ApprovalRequestSettingWithEnvs} getApprovalRequestSettings(lDAPIVersion, projectKey, opts)
+
+Get approval request settings
+
+Get the approval request settings for the given project, optionally filtered by environment and resource kind.
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.ApprovalsBetaApi();
+let lDAPIVersion = "lDAPIVersion_example"; // String | Version of the endpoint.
+let projectKey = "default"; // String | 
+let opts = {
+  'environmentKey': "environmentKey_example", // String | An environment key filter to apply to the approval request settings.
+  'resourceKind': "resourceKind_example", // String | A resource kind filter to apply to the approval request settings.
+  'expand': "default,strict" // String | A comma-separated list of fields to expand in the response. Options include 'default' and 'strict'.
+};
+apiInstance.getApprovalRequestSettings(lDAPIVersion, projectKey, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lDAPIVersion** | **String**| Version of the endpoint. | 
+ **projectKey** | **String**|  | 
+ **environmentKey** | **String**| An environment key filter to apply to the approval request settings. | [optional] 
+ **resourceKind** | **String**| A resource kind filter to apply to the approval request settings. | [optional] 
+ **expand** | **String**| A comma-separated list of fields to expand in the response. Options include &#39;default&#39; and &#39;strict&#39;. | [optional] 
+
+### Return type
+
+[**{String: ApprovalRequestSettingWithEnvs}**](ApprovalRequestSettingWithEnvs.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## patchApprovalRequest
@@ -15,7 +78,7 @@ Method | HTTP request | Description
 
 Update approval request
 
-Perform a partial update to an approval request. Updating an approval request uses the semantic patch format. This endpoint works with approval requests for either flag or segment changes.  To make a semantic patch request, you must append &#x60;domain-model&#x3D;launchdarkly.semanticpatch&#x60; to your &#x60;Content-Type&#x60; header. To learn more, read [Updates using semantic patch](https://launchdarkly.com/docs/api#updates-using-semantic-patch).  ### Instructions  Semantic patch requests support the following &#x60;kind&#x60; instruction for updating an approval request.  #### addReviewers  Adds the specified members and teams to the existing list of reviewers. You must include at least one of &#x60;notifyMemberIds&#x60; and &#x60;notifyTeamKeys&#x60;.  ##### Parameters  - &#x60;notifyMemberIds&#x60;: (Optional) List of member IDs. - &#x60;notifyTeamKeys&#x60;: (Optional) List of team keys.  Here&#39;s an example:  &#x60;&#x60;&#x60;json {   \&quot;instructions\&quot;: [{     \&quot;kind\&quot;: \&quot;addReviewers\&quot;,     \&quot;notifyMemberIds\&quot;: [ \&quot;user-key-123abc\&quot;, \&quot;user-key-456def\&quot; ],     \&quot;notifyTeamKeys\&quot;: [ \&quot;team-key-789abc\&quot;]   }] } &#x60;&#x60;&#x60; 
+Perform a partial update to an approval request. Updating an approval request uses the semantic patch format. This endpoint works with any approval requests.  To make a semantic patch request, you must append &#x60;domain-model&#x3D;launchdarkly.semanticpatch&#x60; to your &#x60;Content-Type&#x60; header. To learn more, read [Updates using semantic patch](https://launchdarkly.com/docs/api#updates-using-semantic-patch).  ### Instructions  Semantic patch requests support the following &#x60;kind&#x60; instruction for updating an approval request.  #### addReviewers  Adds the specified members and teams to the existing list of reviewers. You must include at least one of &#x60;notifyMemberIds&#x60; and &#x60;notifyTeamKeys&#x60;.  ##### Parameters  - &#x60;notifyMemberIds&#x60;: (Optional) List of member IDs. - &#x60;notifyTeamKeys&#x60;: (Optional) List of team keys.  Here&#39;s an example:  &#x60;&#x60;&#x60;json {   \&quot;instructions\&quot;: [{     \&quot;kind\&quot;: \&quot;addReviewers\&quot;,     \&quot;notifyMemberIds\&quot;: [ \&quot;user-key-123abc\&quot;, \&quot;user-key-456def\&quot; ],     \&quot;notifyTeamKeys\&quot;: [ \&quot;team-key-789abc\&quot;]   }] } &#x60;&#x60;&#x60; 
 
 ### Example
 
@@ -57,6 +120,63 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## patchApprovalRequestSettings
+
+> {String: ApprovalRequestSettingWithEnvs} patchApprovalRequestSettings(lDAPIVersion, projectKey, opts)
+
+Update approval request settings
+
+Perform a partial update to approval request settings
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.ApprovalsBetaApi();
+let lDAPIVersion = "lDAPIVersion_example"; // String | Version of the endpoint.
+let projectKey = "default"; // String | 
+let opts = {
+  'approvalRequestSettingsPatch': new LaunchDarklyApi.ApprovalRequestSettingsPatch() // ApprovalRequestSettingsPatch | Approval request settings to update
+};
+apiInstance.patchApprovalRequestSettings(lDAPIVersion, projectKey, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lDAPIVersion** | **String**| Version of the endpoint. | 
+ **projectKey** | **String**|  | 
+ **approvalRequestSettingsPatch** | [**ApprovalRequestSettingsPatch**](ApprovalRequestSettingsPatch.md)| Approval request settings to update | [optional] 
+
+### Return type
+
+[**{String: ApprovalRequestSettingWithEnvs}**](ApprovalRequestSettingWithEnvs.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

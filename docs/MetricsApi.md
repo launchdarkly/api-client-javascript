@@ -88,7 +88,7 @@ let apiInstance = new LaunchDarklyApi.MetricsApi();
 let projectKey = "projectKey_example"; // String | The project key
 let metricKey = "metricKey_example"; // String | The metric key
 let opts = {
-  'expand': "expand_example", // String | A comma-separated list of properties that can reveal additional information in the response.
+  'expand': "expand_example", // String | A comma-separated list of properties that can reveal additional information in the response. Supported fields are `experiments`, `experimentCount`, `metricGroups`, `metricGroupCount`, `eventSources`, `guardedRollouts`, `guardedRolloutCount`, and `lastUsedInEntity`.
   'versionId': "versionId_example" // String | The specific version ID of the metric
 };
 apiInstance.getMetric(projectKey, metricKey, opts, (error, data, response) => {
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **projectKey** | **String**| The project key | 
  **metricKey** | **String**| The metric key | 
- **expand** | **String**| A comma-separated list of properties that can reveal additional information in the response. | [optional] 
+ **expand** | **String**| A comma-separated list of properties that can reveal additional information in the response. Supported fields are &#x60;experiments&#x60;, &#x60;experimentCount&#x60;, &#x60;metricGroups&#x60;, &#x60;metricGroupCount&#x60;, &#x60;eventSources&#x60;, &#x60;guardedRollouts&#x60;, &#x60;guardedRolloutCount&#x60;, and &#x60;lastUsedInEntity&#x60;. | [optional] 
  **versionId** | **String**| The specific version ID of the metric | [optional] 
 
 ### Return type
@@ -150,7 +150,7 @@ let opts = {
   'limit': 789, // Number | The number of metrics to return in the response. Defaults to 20. Maximum limit is 50.
   'offset': 789, // Number | Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and returns the next `limit` items.
   'sort': "sort_example", // String | A field to sort the items by. Prefix field by a dash ( - ) to sort in descending order. This endpoint supports sorting by `createdAt` or `name`.
-  'filter': "filter_example" // String | A comma-separated list of filters. This endpoint accepts filtering by `query`, `tags`, 'eventKind', 'isNumeric', 'unitAggregationType`, `hasConnections`, `maintainerIds`, and `maintainerTeamKey`. To learn more about the filter syntax, read the 'Filtering metrics' section above.
+  'filter': "filter_example" // String | A comma-separated list of filters. This endpoint accepts filtering by `query`, `tags`, 'eventKind', 'isNumeric', 'unitAggregationType`, `hasConnections`, `maintainerIds`, `maintainerTeamKey` and `view`. To learn more about the filter syntax, read the 'Filtering metrics' section above.
 };
 apiInstance.getMetrics(projectKey, opts, (error, data, response) => {
   if (error) {
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
  **limit** | **Number**| The number of metrics to return in the response. Defaults to 20. Maximum limit is 50. | [optional] 
  **offset** | **Number**| Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and returns the next &#x60;limit&#x60; items. | [optional] 
  **sort** | **String**| A field to sort the items by. Prefix field by a dash ( - ) to sort in descending order. This endpoint supports sorting by &#x60;createdAt&#x60; or &#x60;name&#x60;. | [optional] 
- **filter** | **String**| A comma-separated list of filters. This endpoint accepts filtering by &#x60;query&#x60;, &#x60;tags&#x60;, &#39;eventKind&#39;, &#39;isNumeric&#39;, &#39;unitAggregationType&#x60;, &#x60;hasConnections&#x60;, &#x60;maintainerIds&#x60;, and &#x60;maintainerTeamKey&#x60;. To learn more about the filter syntax, read the &#39;Filtering metrics&#39; section above. | [optional] 
+ **filter** | **String**| A comma-separated list of filters. This endpoint accepts filtering by &#x60;query&#x60;, &#x60;tags&#x60;, &#39;eventKind&#39;, &#39;isNumeric&#39;, &#39;unitAggregationType&#x60;, &#x60;hasConnections&#x60;, &#x60;maintainerIds&#x60;, &#x60;maintainerTeamKey&#x60; and &#x60;view&#x60;. To learn more about the filter syntax, read the &#39;Filtering metrics&#39; section above. | [optional] 
 
 ### Return type
 

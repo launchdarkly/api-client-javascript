@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Update flag settings for context
 
- Enable or disable a feature flag for a context based on its context kind and key.  Omitting the &#x60;setting&#x60; attribute from the request body, or including a &#x60;setting&#x60; of &#x60;null&#x60;, erases the current setting for a context.  If you previously patched the flag, and the patch included the context&#39;s data, LaunchDarkly continues to use that data. If LaunchDarkly has never encountered the combination of the context&#39;s key and kind before, it calculates the flag values based on the context kind and key. 
+ Enable or disable a feature flag for a context based on its context kind and key.  In the request body, the &#x60;setting&#x60; should be the variation value to set for the context. It must match the flag&#39;s variation type. For example, for a boolean flag you can use &#x60;\&quot;setting\&quot;: true&#x60; or &#x60;\&quot;setting\&quot;: false&#x60; in the request body. For a string flag, you can use &#x60;\&quot;setting\&quot;: \&quot;existing_variation_value_to_use\&quot;&#x60;.  Omitting the &#x60;setting&#x60; attribute from the request body, or including a &#x60;setting&#x60; of &#x60;null&#x60;, erases the current setting for a context.  If you previously patched the flag, and the patch included the context&#39;s data, LaunchDarkly continues to use that data. If LaunchDarkly has never encountered the combination of the context&#39;s key and kind before, it calculates the flag values based on the context kind and key. 
 
 ### Example
 

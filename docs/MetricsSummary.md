@@ -1,0 +1,9 @@
+# LaunchDarklyApi.MetricsSummary
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**count** | **Number** |  | 
+
+

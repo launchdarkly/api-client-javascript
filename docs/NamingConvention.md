@@ -12,8 +12,6 @@ Name | Type | Description | Notes
 ## Enum: CaseEnum
 
 
-* `none` (value: `"none"`)
-
 * `camelCase` (value: `"camelCase"`)
 
 * `upperCamelCase` (value: `"upperCamelCase"`)
