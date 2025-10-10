@@ -38,6 +38,8 @@ class ViewPost {
     static initialize(obj, key, name) { 
         obj['key'] = key;
         obj['name'] = name;
+        obj['description'] = '';
+        obj['generateSdkKeys'] = false;
     }
 
     /**

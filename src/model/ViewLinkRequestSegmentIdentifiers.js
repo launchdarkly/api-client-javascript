@@ -37,6 +37,7 @@ class ViewLinkRequestSegmentIdentifiers {
      */
     static initialize(obj, segmentIdentifiers) { 
         obj['segmentIdentifiers'] = segmentIdentifiers;
+        obj['comment'] = '';
     }
 
     /**

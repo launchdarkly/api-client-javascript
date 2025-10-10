@@ -48,6 +48,7 @@ class AIConfig {
     static initialize(obj, description, key, name, tags, version, variations, createdAt, updatedAt) { 
         obj['description'] = description;
         obj['key'] = key;
+        obj['mode'] = 'completion';
         obj['name'] = name;
         obj['tags'] = tags;
         obj['version'] = version;

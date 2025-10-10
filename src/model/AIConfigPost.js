@@ -36,7 +36,9 @@ class AIConfigPost {
      * Only for internal use.
      */
     static initialize(obj, key, name) { 
+        obj['description'] = '';
         obj['key'] = key;
+        obj['mode'] = 'completion';
         obj['name'] = name;
     }
 

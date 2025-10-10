@@ -36,6 +36,7 @@ class ViewLinkRequestKeys {
      */
     static initialize(obj, keys) { 
         obj['keys'] = keys;
+        obj['comment'] = '';
     }
 
     /**
