@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StatusResponse model module.
  * @module model/StatusResponse
- * @version 18.0.0
+ * @version 18.0.1
  */
 class StatusResponse {
     /**

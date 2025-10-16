@@ -17,7 +17,7 @@ import AiConfigsLegacyExperimentRep from './AiConfigsLegacyExperimentRep';
 /**
  * The AiConfigsExperimentInfoRep model module.
  * @module model/AiConfigsExperimentInfoRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AiConfigsExperimentInfoRep {
     /**

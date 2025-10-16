@@ -17,7 +17,7 @@ import RelayAutoConfigRep from './RelayAutoConfigRep';
 /**
  * The RelayAutoConfigCollectionRep model module.
  * @module model/RelayAutoConfigCollectionRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class RelayAutoConfigCollectionRep {
     /**

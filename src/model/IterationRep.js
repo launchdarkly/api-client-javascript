@@ -22,7 +22,7 @@ import TreatmentRep from './TreatmentRep';
 /**
  * The IterationRep model module.
  * @module model/IterationRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class IterationRep {
     /**

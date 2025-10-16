@@ -18,7 +18,7 @@ import Team from './Team';
 /**
  * The Teams model module.
  * @module model/Teams
- * @version 18.0.0
+ * @version 18.0.1
  */
 class Teams {
     /**

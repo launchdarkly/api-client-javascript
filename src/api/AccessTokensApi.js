@@ -28,7 +28,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * AccessTokens service.
 * @module api/AccessTokensApi
-* @version 18.0.0
+* @version 18.0.1
 */
 export default class AccessTokensApi {
 

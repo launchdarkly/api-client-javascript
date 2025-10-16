@@ -18,7 +18,7 @@ import PaginatedLinks from './PaginatedLinks';
 /**
  * The AITools model module.
  * @module model/AITools
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AITools {
     /**

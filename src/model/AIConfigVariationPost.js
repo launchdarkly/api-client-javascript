@@ -19,7 +19,7 @@ import VariationToolPost from './VariationToolPost';
 /**
  * The AIConfigVariationPost model module.
  * @module model/AIConfigVariationPost
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AIConfigVariationPost {
     /**

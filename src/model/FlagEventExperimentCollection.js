@@ -17,7 +17,7 @@ import FlagEventExperiment from './FlagEventExperiment';
 /**
  * The FlagEventExperimentCollection model module.
  * @module model/FlagEventExperimentCollection
- * @version 18.0.0
+ * @version 18.0.1
  */
 class FlagEventExperimentCollection {
     /**

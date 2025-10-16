@@ -144,6 +144,30 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property activeExperimentCount (base name: "activeExperimentCount")', function() {
+      // uncomment below and update the code to test the property activeExperimentCount
+      //var instance = new LaunchDarklyApi.MetricGroupRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property activeGuardedRolloutCount (base name: "activeGuardedRolloutCount")', function() {
+      // uncomment below and update the code to test the property activeGuardedRolloutCount
+      //var instance = new LaunchDarklyApi.MetricGroupRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property totalConnectionsCount (base name: "totalConnectionsCount")', function() {
+      // uncomment below and update the code to test the property totalConnectionsCount
+      //var instance = new LaunchDarklyApi.MetricGroupRep();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property totalActiveConnectionsCount (base name: "totalActiveConnectionsCount")', function() {
+      // uncomment below and update the code to test the property totalActiveConnectionsCount
+      //var instance = new LaunchDarklyApi.MetricGroupRep();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

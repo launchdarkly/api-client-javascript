@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The Client model module.
  * @module model/Client
- * @version 18.0.0
+ * @version 18.0.1
  */
 class Client {
     /**

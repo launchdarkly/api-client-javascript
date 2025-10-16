@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MigrationSafetyIssueRep model module.
  * @module model/MigrationSafetyIssueRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class MigrationSafetyIssueRep {
     /**

@@ -19,7 +19,7 @@ import Statement from './Statement';
 /**
  * The Token model module.
  * @module model/Token
- * @version 18.0.0
+ * @version 18.0.1
  */
 class Token {
     /**

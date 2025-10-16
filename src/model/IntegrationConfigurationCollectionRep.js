@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The IntegrationConfigurationCollectionRep model module.
  * @module model/IntegrationConfigurationCollectionRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class IntegrationConfigurationCollectionRep {
     /**

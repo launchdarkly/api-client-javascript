@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The ContextInstanceRecord model module.
  * @module model/ContextInstanceRecord
- * @version 18.0.0
+ * @version 18.0.1
  */
 class ContextInstanceRecord {
     /**

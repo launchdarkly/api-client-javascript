@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ApprovalRequestSettingsPatch model module.
  * @module model/ApprovalRequestSettingsPatch
- * @version 18.0.0
+ * @version 18.0.1
  */
 class ApprovalRequestSettingsPatch {
     /**

@@ -18,7 +18,7 @@ import ConditionInput from './ConditionInput';
 /**
  * The StageInput model module.
  * @module model/StageInput
- * @version 18.0.0
+ * @version 18.0.1
  */
 class StageInput {
     /**

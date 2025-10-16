@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The LayerCollectionRep model module.
  * @module model/LayerCollectionRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class LayerCollectionRep {
     /**

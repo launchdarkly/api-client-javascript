@@ -23,7 +23,7 @@ import AiConfigsModification from './AiConfigsModification';
 /**
  * The AiConfigsMetricListingRep model module.
  * @module model/AiConfigsMetricListingRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AiConfigsMetricListingRep {
     /**

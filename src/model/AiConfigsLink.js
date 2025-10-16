@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AiConfigsLink model module.
  * @module model/AiConfigsLink
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AiConfigsLink {
     /**

@@ -17,7 +17,7 @@ import AiConfigsLink from './AiConfigsLink';
 /**
  * The AiConfigsMemberSummary model module.
  * @module model/AiConfigsMemberSummary
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AiConfigsMemberSummary {
     /**

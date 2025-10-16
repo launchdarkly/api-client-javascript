@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AIConfigRep model module.
  * @module model/AIConfigRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AIConfigRep {
     /**

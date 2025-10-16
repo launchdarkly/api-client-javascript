@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ReleasePolicyScope model module.
  * @module model/ReleasePolicyScope
- * @version 18.0.0
+ * @version 18.0.1
  */
 class ReleasePolicyScope {
     /**

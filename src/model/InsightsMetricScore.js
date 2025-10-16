@@ -17,7 +17,7 @@ import InsightsMetricIndicatorRange from './InsightsMetricIndicatorRange';
 /**
  * The InsightsMetricScore model module.
  * @module model/InsightsMetricScore
- * @version 18.0.0
+ * @version 18.0.1
  */
 class InsightsMetricScore {
     /**

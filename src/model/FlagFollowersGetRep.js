@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The FlagFollowersGetRep model module.
  * @module model/FlagFollowersGetRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class FlagFollowersGetRep {
     /**

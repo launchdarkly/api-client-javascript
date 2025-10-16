@@ -25,7 +25,7 @@ import VariationOrRolloutRep from './VariationOrRolloutRep';
 /**
  * The FeatureFlagConfig model module.
  * @module model/FeatureFlagConfig
- * @version 18.0.0
+ * @version 18.0.1
  */
 class FeatureFlagConfig {
     /**

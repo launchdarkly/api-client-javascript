@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AnnouncementLink model module.
  * @module model/AnnouncementLink
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AnnouncementLink {
     /**

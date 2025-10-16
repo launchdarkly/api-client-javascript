@@ -18,7 +18,7 @@ import Rollout from './Rollout';
 /**
  * The Rule model module.
  * @module model/Rule
- * @version 18.0.0
+ * @version 18.0.1
  */
 class Rule {
     /**

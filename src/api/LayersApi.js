@@ -25,7 +25,7 @@ import RateLimitedErrorRep from '../model/RateLimitedErrorRep';
 /**
 * Layers service.
 * @module api/LayersApi
-* @version 18.0.0
+* @version 18.0.1
 */
 export default class LayersApi {
 

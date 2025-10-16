@@ -18,7 +18,7 @@ import AiConfigsMetricListingRep from './AiConfigsMetricListingRep';
 /**
  * The AiConfigsLegacyExperimentRep model module.
  * @module model/AiConfigsLegacyExperimentRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AiConfigsLegacyExperimentRep {
     /**

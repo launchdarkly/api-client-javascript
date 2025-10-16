@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The Experiment model module.
  * @module model/Experiment
- * @version 18.0.0
+ * @version 18.0.1
  */
 class Experiment {
     /**

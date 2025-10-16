@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ContextAttributeName model module.
  * @module model/ContextAttributeName
- * @version 18.0.0
+ * @version 18.0.1
  */
 class ContextAttributeName {
     /**

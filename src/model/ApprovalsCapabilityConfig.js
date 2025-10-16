@@ -17,7 +17,7 @@ import FormVariable from './FormVariable';
 /**
  * The ApprovalsCapabilityConfig model module.
  * @module model/ApprovalsCapabilityConfig
- * @version 18.0.0
+ * @version 18.0.1
  */
 class ApprovalsCapabilityConfig {
     /**

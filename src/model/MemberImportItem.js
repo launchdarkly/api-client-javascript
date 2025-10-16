@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MemberImportItem model module.
  * @module model/MemberImportItem
- * @version 18.0.0
+ * @version 18.0.1
  */
 class MemberImportItem {
     /**

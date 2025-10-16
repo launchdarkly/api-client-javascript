@@ -18,7 +18,7 @@ import Endpoint from './Endpoint';
 /**
  * The DynamicOptions model module.
  * @module model/DynamicOptions
- * @version 18.0.0
+ * @version 18.0.1
  */
 class DynamicOptions {
     /**

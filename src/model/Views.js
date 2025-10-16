@@ -18,7 +18,7 @@ import ViewsPaginatedLinks from './ViewsPaginatedLinks';
 /**
  * The Views model module.
  * @module model/Views
- * @version 18.0.0
+ * @version 18.0.1
  */
 class Views {
     /**

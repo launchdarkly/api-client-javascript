@@ -27,7 +27,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * Metrics service.
 * @module api/MetricsApi
-* @version 18.0.0
+* @version 18.0.1
 */
 export default class MetricsApi {
 
@@ -105,7 +105,7 @@ export default class MetricsApi {
      * @param {String} projectKey The project key
      * @param {String} metricKey The metric key
      * @param {Object} opts Optional parameters
-     * @param {String} [expand] A comma-separated list of properties that can reveal additional information in the response. Supported fields are `experiments`, `experimentCount`, `metricGroups`, `metricGroupCount`, `eventSources`, `guardedRollouts`, `guardedRolloutCount`, and `lastUsedInEntity`.
+     * @param {String} [expand] A comma-separated list of properties that can reveal additional information in the response. Supported fields are `experiments`, `experimentCount`, `metricGroups`, `metricGroupCount`, `eventSources`, `guardedRollouts`, `guardedRolloutCount`, `lastUsedInExperiment`, and `lastUsedInGuardedRollout`.
      * @param {String} [versionId] The specific version ID of the metric
      * @param {module:api/MetricsApi~getMetricCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MetricRep}

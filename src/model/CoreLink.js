@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CoreLink model module.
  * @module model/CoreLink
- * @version 18.0.0
+ * @version 18.0.1
  */
 class CoreLink {
     /**

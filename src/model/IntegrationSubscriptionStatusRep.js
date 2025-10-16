@@ -17,7 +17,7 @@ import IntegrationStatusRep from './IntegrationStatusRep';
 /**
  * The IntegrationSubscriptionStatusRep model module.
  * @module model/IntegrationSubscriptionStatusRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class IntegrationSubscriptionStatusRep {
     /**

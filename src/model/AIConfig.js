@@ -20,7 +20,7 @@ import ParentAndSelfLinks from './ParentAndSelfLinks';
 /**
  * The AIConfig model module.
  * @module model/AIConfig
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AIConfig {
     /**

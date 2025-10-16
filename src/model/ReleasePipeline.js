@@ -18,7 +18,7 @@ import Phase from './Phase';
 /**
  * The ReleasePipeline model module.
  * @module model/ReleasePipeline
- * @version 18.0.0
+ * @version 18.0.1
  */
 class ReleasePipeline {
     /**

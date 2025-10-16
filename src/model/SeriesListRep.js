@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SeriesListRep model module.
  * @module model/SeriesListRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class SeriesListRep {
     /**

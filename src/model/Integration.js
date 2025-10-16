@@ -20,7 +20,7 @@ import Statement from './Statement';
 /**
  * The Integration model module.
  * @module model/Integration
- * @version 18.0.0
+ * @version 18.0.1
  */
 class Integration {
     /**

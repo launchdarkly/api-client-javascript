@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FailureReasonRep model module.
  * @module model/FailureReasonRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class FailureReasonRep {
     /**

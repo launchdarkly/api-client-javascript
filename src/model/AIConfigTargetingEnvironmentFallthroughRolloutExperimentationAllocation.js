@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AIConfigTargetingEnvironmentFallthroughRolloutExperimentationAllocation model module.
  * @module model/AIConfigTargetingEnvironmentFallthroughRolloutExperimentationAllocation
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AIConfigTargetingEnvironmentFallthroughRolloutExperimentationAllocation {
     /**

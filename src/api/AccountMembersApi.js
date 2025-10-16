@@ -28,7 +28,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * AccountMembers service.
 * @module api/AccountMembersApi
-* @version 18.0.0
+* @version 18.0.1
 */
 export default class AccountMembersApi {
 

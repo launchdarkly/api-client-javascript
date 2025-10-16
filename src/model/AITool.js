@@ -19,7 +19,7 @@ import ParentAndSelfLinks from './ParentAndSelfLinks';
 /**
  * The AITool model module.
  * @module model/AITool
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AITool {
     /**

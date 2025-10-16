@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BulkEditTeamsRep model module.
  * @module model/BulkEditTeamsRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class BulkEditTeamsRep {
     /**

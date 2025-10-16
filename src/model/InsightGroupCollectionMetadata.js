@@ -17,7 +17,7 @@ import InsightGroupsCountByIndicator from './InsightGroupsCountByIndicator';
 /**
  * The InsightGroupCollectionMetadata model module.
  * @module model/InsightGroupCollectionMetadata
- * @version 18.0.0
+ * @version 18.0.1
  */
 class InsightGroupCollectionMetadata {
     /**

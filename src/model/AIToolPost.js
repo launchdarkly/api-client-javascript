@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AIToolPost model module.
  * @module model/AIToolPost
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AIToolPost {
     /**

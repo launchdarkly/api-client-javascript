@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PermissionGrantInput model module.
  * @module model/PermissionGrantInput
- * @version 18.0.0
+ * @version 18.0.1
  */
 class PermissionGrantInput {
     /**

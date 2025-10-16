@@ -17,7 +17,7 @@ import Statement from './Statement';
 /**
  * The AuditLogEventsHookCapabilityConfigRep model module.
  * @module model/AuditLogEventsHookCapabilityConfigRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AuditLogEventsHookCapabilityConfigRep {
     /**

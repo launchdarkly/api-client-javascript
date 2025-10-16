@@ -21,7 +21,7 @@ import MetricInGroupRep from './MetricInGroupRep';
 /**
  * The MetricGroupRep model module.
  * @module model/MetricGroupRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class MetricGroupRep {
     /**
@@ -118,6 +118,18 @@ class MetricGroupRep {
             }
             if (data.hasOwnProperty('experimentCount')) {
                 obj['experimentCount'] = ApiClient.convertToType(data['experimentCount'], 'Number');
+            }
+            if (data.hasOwnProperty('activeExperimentCount')) {
+                obj['activeExperimentCount'] = ApiClient.convertToType(data['activeExperimentCount'], 'Number');
+            }
+            if (data.hasOwnProperty('activeGuardedRolloutCount')) {
+                obj['activeGuardedRolloutCount'] = ApiClient.convertToType(data['activeGuardedRolloutCount'], 'Number');
+            }
+            if (data.hasOwnProperty('totalConnectionsCount')) {
+                obj['totalConnectionsCount'] = ApiClient.convertToType(data['totalConnectionsCount'], 'Number');
+            }
+            if (data.hasOwnProperty('totalActiveConnectionsCount')) {
+                obj['totalActiveConnectionsCount'] = ApiClient.convertToType(data['totalActiveConnectionsCount'], 'Number');
             }
         }
         return obj;
@@ -280,6 +292,30 @@ MetricGroupRep.prototype['experiments'] = undefined;
  * @member {Number} experimentCount
  */
 MetricGroupRep.prototype['experimentCount'] = undefined;
+
+/**
+ * The number of active experiments using this metric group
+ * @member {Number} activeExperimentCount
+ */
+MetricGroupRep.prototype['activeExperimentCount'] = undefined;
+
+/**
+ * The number of active guarded rollouts using this metric group
+ * @member {Number} activeGuardedRolloutCount
+ */
+MetricGroupRep.prototype['activeGuardedRolloutCount'] = undefined;
+
+/**
+ * The total number of connections using this metric group
+ * @member {Number} totalConnectionsCount
+ */
+MetricGroupRep.prototype['totalConnectionsCount'] = undefined;
+
+/**
+ * The total number of active connections using this metric group
+ * @member {Number} totalActiveConnectionsCount
+ */
+MetricGroupRep.prototype['totalActiveConnectionsCount'] = undefined;
 
 
 

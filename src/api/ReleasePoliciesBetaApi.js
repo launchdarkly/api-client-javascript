@@ -22,7 +22,7 @@ import ReleasePolicy from '../model/ReleasePolicy';
 /**
 * ReleasePoliciesBeta service.
 * @module api/ReleasePoliciesBetaApi
-* @version 18.0.0
+* @version 18.0.1
 */
 export default class ReleasePoliciesBetaApi {
 

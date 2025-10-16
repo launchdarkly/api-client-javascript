@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The VariationTool model module.
  * @module model/VariationTool
- * @version 18.0.0
+ * @version 18.0.1
  */
 class VariationTool {
     /**

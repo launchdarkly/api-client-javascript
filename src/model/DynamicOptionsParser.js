@@ -17,7 +17,7 @@ import OptionsArray from './OptionsArray';
 /**
  * The DynamicOptionsParser model module.
  * @module model/DynamicOptionsParser
- * @version 18.0.0
+ * @version 18.0.1
  */
 class DynamicOptionsParser {
     /**

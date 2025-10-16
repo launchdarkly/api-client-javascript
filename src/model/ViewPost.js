@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ViewPost model module.
  * @module model/ViewPost
- * @version 18.0.0
+ * @version 18.0.1
  */
 class ViewPost {
     /**

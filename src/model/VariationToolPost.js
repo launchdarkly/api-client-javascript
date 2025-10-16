@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The VariationToolPost model module.
  * @module model/VariationToolPost
- * @version 18.0.0
+ * @version 18.0.1
  */
 class VariationToolPost {
     /**

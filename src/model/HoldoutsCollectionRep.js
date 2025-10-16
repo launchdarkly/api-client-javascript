@@ -18,7 +18,7 @@ import SimpleHoldoutRep from './SimpleHoldoutRep';
 /**
  * The HoldoutsCollectionRep model module.
  * @module model/HoldoutsCollectionRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class HoldoutsCollectionRep {
     /**

@@ -17,7 +17,7 @@ import AnnouncementLink from './AnnouncementLink';
 /**
  * The AnnouncementPaginatedLinks model module.
  * @module model/AnnouncementPaginatedLinks
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AnnouncementPaginatedLinks {
     /**

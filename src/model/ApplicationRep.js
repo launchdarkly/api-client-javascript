@@ -20,7 +20,7 @@ import MaintainerRep from './MaintainerRep';
 /**
  * The ApplicationRep model module.
  * @module model/ApplicationRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class ApplicationRep {
     /**

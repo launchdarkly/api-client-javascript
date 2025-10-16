@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LayerPost model module.
  * @module model/LayerPost
- * @version 18.0.0
+ * @version 18.0.1
  */
 class LayerPost {
     /**

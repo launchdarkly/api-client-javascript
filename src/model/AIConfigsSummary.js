@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AIConfigsSummary model module.
  * @module model/AIConfigsSummary
- * @version 18.0.0
+ * @version 18.0.1
  */
 class AIConfigsSummary {
     /**

@@ -18,7 +18,7 @@ import StatisticRep from './StatisticRep';
 /**
  * The StatisticCollectionRep model module.
  * @module model/StatisticCollectionRep
- * @version 18.0.0
+ * @version 18.0.1
  */
 class StatisticCollectionRep {
     /**
