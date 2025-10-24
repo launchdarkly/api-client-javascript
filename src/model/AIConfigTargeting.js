@@ -20,7 +20,7 @@ import AiConfigsExperimentInfoRep from './AiConfigsExperimentInfoRep';
 /**
  * The AIConfigTargeting model module.
  * @module model/AIConfigTargeting
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AIConfigTargeting {
     /**

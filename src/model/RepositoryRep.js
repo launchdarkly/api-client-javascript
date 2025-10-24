@@ -18,7 +18,7 @@ import BranchRep from './BranchRep';
 /**
  * The RepositoryRep model module.
  * @module model/RepositoryRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class RepositoryRep {
     /**

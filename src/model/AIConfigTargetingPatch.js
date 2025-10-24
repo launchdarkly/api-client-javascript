@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AIConfigTargetingPatch model module.
  * @module model/AIConfigTargetingPatch
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AIConfigTargetingPatch {
     /**

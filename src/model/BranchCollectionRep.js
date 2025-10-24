@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The BranchCollectionRep model module.
  * @module model/BranchCollectionRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class BranchCollectionRep {
     /**

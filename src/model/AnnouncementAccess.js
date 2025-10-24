@@ -18,7 +18,7 @@ import AnnouncementAccessDenied from './AnnouncementAccessDenied';
 /**
  * The AnnouncementAccess model module.
  * @module model/AnnouncementAccess
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AnnouncementAccess {
     /**

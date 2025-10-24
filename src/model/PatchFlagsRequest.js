@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchFlagsRequest model module.
  * @module model/PatchFlagsRequest
- * @version 18.0.1
+ * @version 18.0.2
  */
 class PatchFlagsRequest {
     /**

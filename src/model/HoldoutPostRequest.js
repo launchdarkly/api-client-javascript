@@ -17,7 +17,7 @@ import MetricInput from './MetricInput';
 /**
  * The HoldoutPostRequest model module.
  * @module model/HoldoutPostRequest
- * @version 18.0.1
+ * @version 18.0.2
  */
 class HoldoutPostRequest {
     /**

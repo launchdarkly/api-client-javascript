@@ -18,7 +18,7 @@ import MetricListingRep from './MetricListingRep';
 /**
  * The LegacyExperimentRep model module.
  * @module model/LegacyExperimentRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class LegacyExperimentRep {
     /**

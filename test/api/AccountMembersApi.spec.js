@@ -88,6 +88,16 @@
         done();
       });
     });
+    describe('patchMembers', function() {
+      it('should call patchMembers successfully', function(done) {
+        //uncomment below and update the code to test patchMembers
+        //instance.patchMembers(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('postMemberTeams', function() {
       it('should call postMemberTeams successfully', function(done) {
         //uncomment below and update the code to test postMemberTeams

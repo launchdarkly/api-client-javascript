@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateReleaseInput model module.
  * @module model/CreateReleaseInput
- * @version 18.0.1
+ * @version 18.0.2
  */
 class CreateReleaseInput {
     /**

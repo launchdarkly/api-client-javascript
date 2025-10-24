@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The IntegrationDeliveryConfigurationResponse model module.
  * @module model/IntegrationDeliveryConfigurationResponse
- * @version 18.0.1
+ * @version 18.0.2
  */
 class IntegrationDeliveryConfigurationResponse {
     /**

@@ -17,7 +17,7 @@ import StatementPost from './StatementPost';
 /**
  * The CustomRolePost model module.
  * @module model/CustomRolePost
- * @version 18.0.1
+ * @version 18.0.2
  */
 class CustomRolePost {
     /**

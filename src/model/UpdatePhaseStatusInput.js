@@ -17,7 +17,7 @@ import ReleaserAudienceConfigInput from './ReleaserAudienceConfigInput';
 /**
  * The UpdatePhaseStatusInput model module.
  * @module model/UpdatePhaseStatusInput
- * @version 18.0.1
+ * @version 18.0.2
  */
 class UpdatePhaseStatusInput {
     /**

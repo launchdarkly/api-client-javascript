@@ -17,7 +17,7 @@ import WorkflowTemplateOutput from './WorkflowTemplateOutput';
 /**
  * The WorkflowTemplatesListingOutputRep model module.
  * @module model/WorkflowTemplatesListingOutputRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class WorkflowTemplatesListingOutputRep {
     /**

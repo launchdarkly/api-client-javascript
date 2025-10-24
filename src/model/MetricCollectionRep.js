@@ -18,7 +18,7 @@ import MetricListingRep from './MetricListingRep';
 /**
  * The MetricCollectionRep model module.
  * @module model/MetricCollectionRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class MetricCollectionRep {
     /**

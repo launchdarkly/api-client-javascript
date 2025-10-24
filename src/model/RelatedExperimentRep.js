@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RelatedExperimentRep model module.
  * @module model/RelatedExperimentRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class RelatedExperimentRep {
     /**

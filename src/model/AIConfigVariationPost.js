@@ -19,19 +19,18 @@ import VariationToolPost from './VariationToolPost';
 /**
  * The AIConfigVariationPost model module.
  * @module model/AIConfigVariationPost
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AIConfigVariationPost {
     /**
      * Constructs a new <code>AIConfigVariationPost</code>.
      * @alias module:model/AIConfigVariationPost
      * @param key {String} 
-     * @param messages {Array.<module:model/Message>} 
      * @param name {String} 
      */
-    constructor(key, messages, name) { 
+    constructor(key, name) { 
         
-        AIConfigVariationPost.initialize(this, key, messages, name);
+        AIConfigVariationPost.initialize(this, key, name);
     }
 
     /**
@@ -39,9 +38,8 @@ class AIConfigVariationPost {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, key, messages, name) { 
+    static initialize(obj, key, name) { 
         obj['key'] = key;
-        obj['messages'] = messages;
         obj['name'] = name;
     }
 
@@ -164,7 +162,7 @@ class AIConfigVariationPost {
 
 }
 
-AIConfigVariationPost.RequiredProperties = ["key", "messages", "name"];
+AIConfigVariationPost.RequiredProperties = ["key", "name"];
 
 /**
  * Human-readable description of this variation

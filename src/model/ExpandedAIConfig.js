@@ -17,7 +17,7 @@ import ParentAndSelfLinks from './ParentAndSelfLinks';
 /**
  * The ExpandedAIConfig model module.
  * @module model/ExpandedAIConfig
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ExpandedAIConfig {
     /**

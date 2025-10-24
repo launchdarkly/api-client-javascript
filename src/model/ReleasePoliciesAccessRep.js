@@ -19,7 +19,7 @@ import ReleasePoliciesAccessDenied from './ReleasePoliciesAccessDenied';
 /**
  * The ReleasePoliciesAccessRep model module.
  * @module model/ReleasePoliciesAccessRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ReleasePoliciesAccessRep {
     /**

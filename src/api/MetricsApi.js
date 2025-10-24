@@ -27,7 +27,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * Metrics service.
 * @module api/MetricsApi
-* @version 18.0.1
+* @version 18.0.2
 */
 export default class MetricsApi {
 
@@ -163,7 +163,7 @@ export default class MetricsApi {
      * @param {Number} [limit] The number of metrics to return in the response. Defaults to 20. Maximum limit is 50.
      * @param {Number} [offset] Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and returns the next `limit` items.
      * @param {String} [sort] A field to sort the items by. Prefix field by a dash ( - ) to sort in descending order. This endpoint supports sorting by `createdAt` or `name`.
-     * @param {String} [filter] A comma-separated list of filters. This endpoint accepts filtering by `query`, `tags`, 'eventKind', 'isNumeric', 'unitAggregationType`, `hasConnections`, `maintainerIds`, `maintainerTeamKey` and `view`. To learn more about the filter syntax, read the 'Filtering metrics' section above.
+     * @param {String} [filter] A comma-separated list of filters. This endpoint accepts filtering by `query`, `tags`, 'eventKind', 'isNumeric', 'unitAggregationType`, `hasConnections`, `maintainerIds`, `maintainerTeamKey`, `view`, and `dataSourceKeys`. To learn more about the filter syntax, read the 'Filtering metrics' section above.
      * @param {module:api/MetricsApi~getMetricsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/MetricCollectionRep}
      */

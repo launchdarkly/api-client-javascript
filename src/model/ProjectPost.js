@@ -19,7 +19,7 @@ import NamingConvention from './NamingConvention';
 /**
  * The ProjectPost model module.
  * @module model/ProjectPost
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ProjectPost {
     /**

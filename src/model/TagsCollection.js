@@ -17,7 +17,7 @@ import TagsLink from './TagsLink';
 /**
  * The TagsCollection model module.
  * @module model/TagsCollection
- * @version 18.0.1
+ * @version 18.0.2
  */
 class TagsCollection {
     /**

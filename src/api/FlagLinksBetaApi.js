@@ -27,7 +27,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * FlagLinksBeta service.
 * @module api/FlagLinksBetaApi
-* @version 18.0.1
+* @version 18.0.2
 */
 export default class FlagLinksBetaApi {
 

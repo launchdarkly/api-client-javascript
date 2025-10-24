@@ -17,7 +17,7 @@ import AnnouncementAccessDeniedReason from './AnnouncementAccessDeniedReason';
 /**
  * The AnnouncementAccessDenied model module.
  * @module model/AnnouncementAccessDenied
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AnnouncementAccessDenied {
     /**

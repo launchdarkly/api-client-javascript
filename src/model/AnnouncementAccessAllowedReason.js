@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AnnouncementAccessAllowedReason model module.
  * @module model/AnnouncementAccessAllowedReason
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AnnouncementAccessAllowedReason {
     /**

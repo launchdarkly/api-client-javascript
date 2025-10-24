@@ -17,7 +17,7 @@ import ViewsAccessAllowedReason from './ViewsAccessAllowedReason';
 /**
  * The ViewsAccessAllowedRep model module.
  * @module model/ViewsAccessAllowedRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ViewsAccessAllowedRep {
     /**

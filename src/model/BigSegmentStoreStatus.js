@@ -17,7 +17,7 @@ import StoreIntegrationError from './StoreIntegrationError';
 /**
  * The BigSegmentStoreStatus model module.
  * @module model/BigSegmentStoreStatus
- * @version 18.0.1
+ * @version 18.0.2
  */
 class BigSegmentStoreStatus {
     /**

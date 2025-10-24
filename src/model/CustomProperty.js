@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CustomProperty model module.
  * @module model/CustomProperty
- * @version 18.0.1
+ * @version 18.0.2
  */
 class CustomProperty {
     /**

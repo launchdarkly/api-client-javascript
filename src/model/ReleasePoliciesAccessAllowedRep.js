@@ -17,7 +17,7 @@ import ReleasePoliciesAccessAllowedReason from './ReleasePoliciesAccessAllowedRe
 /**
  * The ReleasePoliciesAccessAllowedRep model module.
  * @module model/ReleasePoliciesAccessAllowedRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ReleasePoliciesAccessAllowedRep {
     /**

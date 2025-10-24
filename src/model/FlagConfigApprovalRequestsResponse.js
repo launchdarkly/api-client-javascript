@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The FlagConfigApprovalRequestsResponse model module.
  * @module model/FlagConfigApprovalRequestsResponse
- * @version 18.0.1
+ * @version 18.0.2
  */
 class FlagConfigApprovalRequestsResponse {
     /**

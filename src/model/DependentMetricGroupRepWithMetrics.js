@@ -18,7 +18,7 @@ import MetricInGroupRep from './MetricInGroupRep';
 /**
  * The DependentMetricGroupRepWithMetrics model module.
  * @module model/DependentMetricGroupRepWithMetrics
- * @version 18.0.1
+ * @version 18.0.2
  */
 class DependentMetricGroupRepWithMetrics {
     /**

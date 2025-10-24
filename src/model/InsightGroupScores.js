@@ -17,7 +17,7 @@ import InsightsMetricScore from './InsightsMetricScore';
 /**
  * The InsightGroupScores model module.
  * @module model/InsightGroupScores
- * @version 18.0.1
+ * @version 18.0.2
  */
 class InsightGroupScores {
     /**

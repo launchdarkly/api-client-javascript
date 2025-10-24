@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AiConfigsMetricDataSourceRefRep model module.
  * @module model/AiConfigsMetricDataSourceRefRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AiConfigsMetricDataSourceRefRep {
     /**

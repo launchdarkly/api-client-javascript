@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The OptionsArray model module.
  * @module model/OptionsArray
- * @version 18.0.1
+ * @version 18.0.2
  */
 class OptionsArray {
     /**

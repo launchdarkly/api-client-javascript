@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PatchOperation model module.
  * @module model/PatchOperation
- * @version 18.0.1
+ * @version 18.0.2
  */
 class PatchOperation {
     /**

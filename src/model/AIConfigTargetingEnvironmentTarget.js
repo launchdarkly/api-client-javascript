@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AIConfigTargetingEnvironmentTarget model module.
  * @module model/AIConfigTargetingEnvironmentTarget
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AIConfigTargetingEnvironmentTarget {
     /**

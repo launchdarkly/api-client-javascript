@@ -180,6 +180,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property covarianceInfo (base name: "covarianceInfo")', function() {
+      // uncomment below and update the code to test the property covarianceInfo
+      //var instance = new LaunchDarklyApi.IterationRep();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

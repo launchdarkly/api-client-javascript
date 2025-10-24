@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MembersPatchInput model module.
  * @module model/MembersPatchInput
- * @version 18.0.1
+ * @version 18.0.2
  */
 class MembersPatchInput {
     /**

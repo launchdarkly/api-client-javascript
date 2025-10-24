@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MetricDataSourceRefRep model module.
  * @module model/MetricDataSourceRefRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class MetricDataSourceRefRep {
     /**

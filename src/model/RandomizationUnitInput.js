@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RandomizationUnitInput model module.
  * @module model/RandomizationUnitInput
- * @version 18.0.1
+ * @version 18.0.2
  */
 class RandomizationUnitInput {
     /**

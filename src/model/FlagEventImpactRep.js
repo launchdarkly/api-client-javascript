@@ -17,7 +17,7 @@ import EvaluationsSummary from './EvaluationsSummary';
 /**
  * The FlagEventImpactRep model module.
  * @module model/FlagEventImpactRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class FlagEventImpactRep {
     /**

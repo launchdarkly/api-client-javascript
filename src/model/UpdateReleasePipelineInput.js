@@ -17,7 +17,7 @@ import CreatePhaseInput from './CreatePhaseInput';
 /**
  * The UpdateReleasePipelineInput model module.
  * @module model/UpdateReleasePipelineInput
- * @version 18.0.1
+ * @version 18.0.2
  */
 class UpdateReleasePipelineInput {
     /**

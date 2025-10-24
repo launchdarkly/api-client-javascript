@@ -17,7 +17,7 @@ import PatchSegmentExpiringTargetInstruction from './PatchSegmentExpiringTargetI
 /**
  * The PatchSegmentExpiringTargetInputRep model module.
  * @module model/PatchSegmentExpiringTargetInputRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class PatchSegmentExpiringTargetInputRep {
     /**

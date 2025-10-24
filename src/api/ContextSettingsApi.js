@@ -24,7 +24,7 @@ import ValuePut from '../model/ValuePut';
 /**
 * ContextSettings service.
 * @module api/ContextSettingsApi
-* @version 18.0.1
+* @version 18.0.2
 */
 export default class ContextSettingsApi {
 

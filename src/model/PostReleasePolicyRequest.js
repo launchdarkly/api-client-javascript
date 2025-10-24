@@ -19,7 +19,7 @@ import ReleasePolicyScope from './ReleasePolicyScope';
 /**
  * The PostReleasePolicyRequest model module.
  * @module model/PostReleasePolicyRequest
- * @version 18.0.1
+ * @version 18.0.2
  */
 class PostReleasePolicyRequest {
     /**

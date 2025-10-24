@@ -19,7 +19,7 @@ import PullRequestLeadTimeRep from './PullRequestLeadTimeRep';
 /**
  * The PullRequestRep model module.
  * @module model/PullRequestRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class PullRequestRep {
     /**

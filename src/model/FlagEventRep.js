@@ -19,7 +19,7 @@ import FlagEventMemberRep from './FlagEventMemberRep';
 /**
  * The FlagEventRep model module.
  * @module model/FlagEventRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class FlagEventRep {
     /**

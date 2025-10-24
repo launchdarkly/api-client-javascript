@@ -19,7 +19,7 @@ import BigSegmentStoreStatus from './BigSegmentStoreStatus';
 /**
  * The BigSegmentStoreIntegration model module.
  * @module model/BigSegmentStoreIntegration
- * @version 18.0.1
+ * @version 18.0.2
  */
 class BigSegmentStoreIntegration {
     /**

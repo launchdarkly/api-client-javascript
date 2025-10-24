@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FlagConfigEvaluation model module.
  * @module model/FlagConfigEvaluation
- * @version 18.0.1
+ * @version 18.0.2
  */
 class FlagConfigEvaluation {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ReviewResponse model module.
  * @module model/ReviewResponse
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ReviewResponse {
     /**

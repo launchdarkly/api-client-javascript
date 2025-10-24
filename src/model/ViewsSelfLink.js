@@ -17,7 +17,7 @@ import CoreLink from './CoreLink';
 /**
  * The ViewsSelfLink model module.
  * @module model/ViewsSelfLink
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ViewsSelfLink {
     /**

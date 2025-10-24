@@ -17,7 +17,7 @@ import InsightsMetricTierDefinition from './InsightsMetricTierDefinition';
 /**
  * The InsightsChartMetric model module.
  * @module model/InsightsChartMetric
- * @version 18.0.1
+ * @version 18.0.2
  */
 class InsightsChartMetric {
     /**

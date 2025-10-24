@@ -11,53 +11,111 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', process.cwd()+'/src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require(process.cwd()+'/src/index'));
-  } else {
-    // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyApi);
-  }
-}(this, function(expect, LaunchDarklyApi) {
-  'use strict';
+import ApiClient from '../ApiClient';
 
-  var instance;
+/**
+ * The CovarianceInfoRep model module.
+ * @module model/CovarianceInfoRep
+ * @version 18.0.2
+ */
+class CovarianceInfoRep {
+    /**
+     * Constructs a new <code>CovarianceInfoRep</code>.
+     * @alias module:model/CovarianceInfoRep
+     * @param id {String} The ID of the covariance matrix
+     * @param fileName {String} The file name of the uploaded covariance matrix
+     * @param createdAt {Number} 
+     */
+    constructor(id, fileName, createdAt) { 
+        
+        CovarianceInfoRep.initialize(this, id, fileName, createdAt);
+    }
 
-  beforeEach(function() {
-    instance = new LaunchDarklyApi.AccountMembersBetaApi();
-  });
+    /**
+     * Initializes the fields of this object.
+     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+     * Only for internal use.
+     */
+    static initialize(obj, id, fileName, createdAt) { 
+        obj['id'] = id;
+        obj['fileName'] = fileName;
+        obj['createdAt'] = createdAt;
+    }
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
-  }
+    /**
+     * Constructs a <code>CovarianceInfoRep</code> from a plain JavaScript object, optionally creating a new instance.
+     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @param {module:model/CovarianceInfoRep} obj Optional instance to populate.
+     * @return {module:model/CovarianceInfoRep} The populated <code>CovarianceInfoRep</code> instance.
+     */
+    static constructFromObject(data, obj) {
+        if (data) {
+            obj = obj || new CovarianceInfoRep();
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+            if (data.hasOwnProperty('id')) {
+                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            }
+            if (data.hasOwnProperty('fileName')) {
+                obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
+            }
+            if (data.hasOwnProperty('createdAt')) {
+                obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Number');
+            }
+        }
+        return obj;
+    }
 
-  describe('AccountMembersBetaApi', function() {
-    describe('patchMembers', function() {
-      it('should call patchMembers successfully', function(done) {
-        //uncomment below and update the code to test patchMembers
-        //instance.patchMembers(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-  });
+    /**
+     * Validates the JSON data with respect to <code>CovarianceInfoRep</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CovarianceInfoRep</code>.
+     */
+    static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of CovarianceInfoRep.RequiredProperties) {
+            if (!data.hasOwnProperty(property)) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
+        // ensure the json data is a string
+        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
+            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        }
+        // ensure the json data is a string
+        if (data['fileName'] && !(typeof data['fileName'] === 'string' || data['fileName'] instanceof String)) {
+            throw new Error("Expected the field `fileName` to be a primitive type in the JSON string but got " + data['fileName']);
+        }
 
-}));
+        return true;
+    }
+
+
+}
+
+CovarianceInfoRep.RequiredProperties = ["id", "fileName", "createdAt"];
+
+/**
+ * The ID of the covariance matrix
+ * @member {String} id
+ */
+CovarianceInfoRep.prototype['id'] = undefined;
+
+/**
+ * The file name of the uploaded covariance matrix
+ * @member {String} fileName
+ */
+CovarianceInfoRep.prototype['fileName'] = undefined;
+
+/**
+ * @member {Number} createdAt
+ */
+CovarianceInfoRep.prototype['createdAt'] = undefined;
+
+
+
+
+
+
+export default CovarianceInfoRep;
+

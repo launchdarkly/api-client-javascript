@@ -17,7 +17,7 @@ import PermissionGrantInput from './PermissionGrantInput';
 /**
  * The TeamPostInput model module.
  * @module model/TeamPostInput
- * @version 18.0.1
+ * @version 18.0.2
  */
 class TeamPostInput {
     /**

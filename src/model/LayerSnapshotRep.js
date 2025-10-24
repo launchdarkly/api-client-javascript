@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LayerSnapshotRep model module.
  * @module model/LayerSnapshotRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class LayerSnapshotRep {
     /**

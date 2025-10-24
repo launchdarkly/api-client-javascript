@@ -17,7 +17,7 @@ import AIConfigTargetingEnvironmentRuleClause from './AIConfigTargetingEnvironme
 /**
  * The AIConfigTargetingEnvironmentRule model module.
  * @module model/AIConfigTargetingEnvironmentRule
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AIConfigTargetingEnvironmentRule {
     /**

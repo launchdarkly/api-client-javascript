@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ReviewOutput model module.
  * @module model/ReviewOutput
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ReviewOutput {
     /**

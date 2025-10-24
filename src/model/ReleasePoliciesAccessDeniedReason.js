@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ReleasePoliciesAccessDeniedReason model module.
  * @module model/ReleasePoliciesAccessDeniedReason
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ReleasePoliciesAccessDeniedReason {
     /**

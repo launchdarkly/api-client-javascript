@@ -38,7 +38,7 @@ import UserSegments from '../model/UserSegments';
 /**
 * Segments service.
 * @module api/SegmentsApi
-* @version 18.0.1
+* @version 18.0.2
 */
 export default class SegmentsApi {
 

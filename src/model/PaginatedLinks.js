@@ -17,7 +17,7 @@ import AiConfigsLink from './AiConfigsLink';
 /**
  * The PaginatedLinks model module.
  * @module model/PaginatedLinks
- * @version 18.0.1
+ * @version 18.0.2
  */
 class PaginatedLinks {
     /**

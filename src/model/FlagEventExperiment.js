@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The FlagEventExperiment model module.
  * @module model/FlagEventExperiment
- * @version 18.0.1
+ * @version 18.0.2
  */
 class FlagEventExperiment {
     /**

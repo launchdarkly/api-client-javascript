@@ -19,7 +19,7 @@ import Link from './Link';
 /**
  * The ReleaseAudience model module.
  * @module model/ReleaseAudience
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ReleaseAudience {
     /**

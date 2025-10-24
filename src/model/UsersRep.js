@@ -18,7 +18,7 @@ import UserRecord from './UserRecord';
 /**
  * The UsersRep model module.
  * @module model/UsersRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class UsersRep {
     /**

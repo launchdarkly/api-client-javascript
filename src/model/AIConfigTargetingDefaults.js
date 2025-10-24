@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AIConfigTargetingDefaults model module.
  * @module model/AIConfigTargetingDefaults
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AIConfigTargetingDefaults {
     /**

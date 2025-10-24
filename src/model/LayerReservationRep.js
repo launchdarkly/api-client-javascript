@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LayerReservationRep model module.
  * @module model/LayerReservationRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class LayerReservationRep {
     /**

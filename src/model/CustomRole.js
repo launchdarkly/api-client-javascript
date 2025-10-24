@@ -20,7 +20,7 @@ import Statement from './Statement';
 /**
  * The CustomRole model module.
  * @module model/CustomRole
- * @version 18.0.1
+ * @version 18.0.2
  */
 class CustomRole {
     /**

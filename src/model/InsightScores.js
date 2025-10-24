@@ -19,7 +19,7 @@ import Link from './Link';
 /**
  * The InsightScores model module.
  * @module model/InsightScores
- * @version 18.0.1
+ * @version 18.0.2
  */
 class InsightScores {
     /**

@@ -17,7 +17,7 @@ import ReferenceRep from './ReferenceRep';
 /**
  * The PutBranch model module.
  * @module model/PutBranch
- * @version 18.0.1
+ * @version 18.0.2
  */
 class PutBranch {
     /**

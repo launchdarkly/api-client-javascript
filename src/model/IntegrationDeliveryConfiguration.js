@@ -18,7 +18,7 @@ import IntegrationDeliveryConfigurationLinks from './IntegrationDeliveryConfigur
 /**
  * The IntegrationDeliveryConfiguration model module.
  * @module model/IntegrationDeliveryConfiguration
- * @version 18.0.1
+ * @version 18.0.2
  */
 class IntegrationDeliveryConfiguration {
     /**

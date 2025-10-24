@@ -19,7 +19,7 @@ import Statement from './Statement';
 /**
  * The Webhook model module.
  * @module model/Webhook
- * @version 18.0.1
+ * @version 18.0.2
  */
 class Webhook {
     /**

@@ -40,7 +40,6 @@ docs/AccessDeniedReason.md
 docs/AccessTokenPost.md
 docs/AccessTokensApi.md
 docs/AccountMembersApi.md
-docs/AccountMembersBetaApi.md
 docs/AccountUsageBetaApi.md
 docs/ActionInput.md
 docs/ActionOutput.md
@@ -147,6 +146,7 @@ docs/Contexts.md
 docs/ContextsApi.md
 docs/CopiedFromEnv.md
 docs/CoreLink.md
+docs/CovarianceInfoRep.md
 docs/CreateAnnouncementBody.md
 docs/CreateApprovalRequestRequest.md
 docs/CreateCopyFlagConfigApprovalRequestRequest.md
@@ -645,7 +645,6 @@ src/ApiClient.js
 src/api/AIConfigsBetaApi.js
 src/api/AccessTokensApi.js
 src/api/AccountMembersApi.js
-src/api/AccountMembersBetaApi.js
 src/api/AccountUsageBetaApi.js
 src/api/AnnouncementsApi.js
 src/api/ApplicationsBetaApi.js
@@ -830,6 +829,7 @@ src/model/ContextSearch.js
 src/model/Contexts.js
 src/model/CopiedFromEnv.js
 src/model/CoreLink.js
+src/model/CovarianceInfoRep.js
 src/model/CreateAnnouncementBody.js
 src/model/CreateApprovalRequestRequest.js
 src/model/CreateCopyFlagConfigApprovalRequestRequest.js
@@ -1281,7 +1281,6 @@ src/model/WorkflowTemplatesListingOutputRep.js
 test/api/AIConfigsBetaApi.spec.js
 test/api/AccessTokensApi.spec.js
 test/api/AccountMembersApi.spec.js
-test/api/AccountMembersBetaApi.spec.js
 test/api/AccountUsageBetaApi.spec.js
 test/api/AnnouncementsApi.spec.js
 test/api/ApplicationsBetaApi.spec.js
@@ -1465,6 +1464,7 @@ test/model/ContextSearch.spec.js
 test/model/Contexts.spec.js
 test/model/CopiedFromEnv.spec.js
 test/model/CoreLink.spec.js
+test/model/CovarianceInfoRep.spec.js
 test/model/CreateAnnouncementBody.spec.js
 test/model/CreateApprovalRequestRequest.spec.js
 test/model/CreateCopyFlagConfigApprovalRequestRequest.spec.js

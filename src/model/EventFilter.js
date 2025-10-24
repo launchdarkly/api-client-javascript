@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The EventFilter model module.
  * @module model/EventFilter
- * @version 18.0.1
+ * @version 18.0.2
  */
 class EventFilter {
     /**

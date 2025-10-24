@@ -17,7 +17,7 @@ import FailedResourceLink from './FailedResourceLink';
 /**
  * The UnlinkResourceSuccessResponse model module.
  * @module model/UnlinkResourceSuccessResponse
- * @version 18.0.1
+ * @version 18.0.2
  */
 class UnlinkResourceSuccessResponse {
     /**

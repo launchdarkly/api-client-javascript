@@ -22,7 +22,7 @@ import TeamProjects from './TeamProjects';
 /**
  * The Team model module.
  * @module model/Team
- * @version 18.0.1
+ * @version 18.0.2
  */
 class Team {
     /**

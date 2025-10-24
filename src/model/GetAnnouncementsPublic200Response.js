@@ -18,7 +18,7 @@ import AnnouncementResponse from './AnnouncementResponse';
 /**
  * The GetAnnouncementsPublic200Response model module.
  * @module model/GetAnnouncementsPublic200Response
- * @version 18.0.1
+ * @version 18.0.2
  */
 class GetAnnouncementsPublic200Response {
     /**

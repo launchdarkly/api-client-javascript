@@ -17,7 +17,7 @@ import CapabilityConfigPost from './CapabilityConfigPost';
 /**
  * The IntegrationConfigurationPost model module.
  * @module model/IntegrationConfigurationPost
- * @version 18.0.1
+ * @version 18.0.2
  */
 class IntegrationConfigurationPost {
     /**

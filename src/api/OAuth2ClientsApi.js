@@ -25,7 +25,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * OAuth2Clients service.
 * @module api/OAuth2ClientsApi
-* @version 18.0.1
+* @version 18.0.2
 */
 export default class OAuth2ClientsApi {
 

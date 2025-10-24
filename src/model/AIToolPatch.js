@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AIToolPatch model module.
  * @module model/AIToolPatch
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AIToolPatch {
     /**

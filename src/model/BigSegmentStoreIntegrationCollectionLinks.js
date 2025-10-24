@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The BigSegmentStoreIntegrationCollectionLinks model module.
  * @module model/BigSegmentStoreIntegrationCollectionLinks
- * @version 18.0.1
+ * @version 18.0.2
  */
 class BigSegmentStoreIntegrationCollectionLinks {
     /**

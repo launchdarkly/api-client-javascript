@@ -17,7 +17,7 @@ import VariationEvalSummary from './VariationEvalSummary';
 /**
  * The EvaluationsSummary model module.
  * @module model/EvaluationsSummary
- * @version 18.0.1
+ * @version 18.0.2
  */
 class EvaluationsSummary {
     /**

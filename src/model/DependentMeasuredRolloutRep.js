@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The DependentMeasuredRolloutRep model module.
  * @module model/DependentMeasuredRolloutRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class DependentMeasuredRolloutRep {
     /**

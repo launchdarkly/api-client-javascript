@@ -28,7 +28,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * IntegrationDeliveryConfigurationsBeta service.
 * @module api/IntegrationDeliveryConfigurationsBetaApi
-* @version 18.0.1
+* @version 18.0.2
 */
 export default class IntegrationDeliveryConfigurationsBetaApi {
 

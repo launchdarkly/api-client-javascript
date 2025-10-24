@@ -17,7 +17,7 @@ import ExpandedDirectlyLinkedSegment from './ExpandedDirectlyLinkedSegment';
 /**
  * The ExpandedDirectlyLinkedSegments model module.
  * @module model/ExpandedDirectlyLinkedSegments
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ExpandedDirectlyLinkedSegments {
     /**

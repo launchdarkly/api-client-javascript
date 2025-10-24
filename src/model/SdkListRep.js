@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SdkListRep model module.
  * @module model/SdkListRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class SdkListRep {
     /**

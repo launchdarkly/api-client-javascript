@@ -18,7 +18,7 @@ import AnnouncementResponseLinks from './AnnouncementResponseLinks';
 /**
  * The AnnouncementResponse model module.
  * @module model/AnnouncementResponse
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AnnouncementResponse {
     /**

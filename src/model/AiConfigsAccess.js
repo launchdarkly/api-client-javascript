@@ -18,7 +18,7 @@ import AiConfigsAccessDenied from './AiConfigsAccessDenied';
 /**
  * The AiConfigsAccess model module.
  * @module model/AiConfigsAccess
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AiConfigsAccess {
     /**

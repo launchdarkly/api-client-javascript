@@ -23,7 +23,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * FeatureFlagsBeta service.
 * @module api/FeatureFlagsBetaApi
-* @version 18.0.1
+* @version 18.0.2
 */
 export default class FeatureFlagsBetaApi {
 

@@ -144,6 +144,7 @@ import ContextSearch from './model/ContextSearch';
 import Contexts from './model/Contexts';
 import CopiedFromEnv from './model/CopiedFromEnv';
 import CoreLink from './model/CoreLink';
+import CovarianceInfoRep from './model/CovarianceInfoRep';
 import CreateAnnouncementBody from './model/CreateAnnouncementBody';
 import CreateApprovalRequestRequest from './model/CreateApprovalRequestRequest';
 import CreateCopyFlagConfigApprovalRequestRequest from './model/CreateCopyFlagConfigApprovalRequestRequest';
@@ -595,7 +596,6 @@ import WorkflowTemplatesListingOutputRep from './model/WorkflowTemplatesListingO
 import AIConfigsBetaApi from './api/AIConfigsBetaApi';
 import AccessTokensApi from './api/AccessTokensApi';
 import AccountMembersApi from './api/AccountMembersApi';
-import AccountMembersBetaApi from './api/AccountMembersBetaApi';
 import AccountUsageBetaApi from './api/AccountUsageBetaApi';
 import AnnouncementsApi from './api/AnnouncementsApi';
 import ApplicationsBetaApi from './api/ApplicationsBetaApi';
@@ -679,7 +679,7 @@ import WorkflowsApi from './api/WorkflowsApi';
 * </pre>
 * </p>
 * @module index
-* @version 18.0.1
+* @version 18.0.2
 */
 export {
     /**
@@ -1473,6 +1473,12 @@ export {
      * @property {module:model/CoreLink}
      */
     CoreLink,
+
+    /**
+     * The CovarianceInfoRep model constructor.
+     * @property {module:model/CovarianceInfoRep}
+     */
+    CovarianceInfoRep,
 
     /**
      * The CreateAnnouncementBody model constructor.
@@ -4179,12 +4185,6 @@ export {
     * @property {module:api/AccountMembersApi}
     */
     AccountMembersApi,
-
-    /**
-    * The AccountMembersBetaApi service constructor.
-    * @property {module:api/AccountMembersBetaApi}
-    */
-    AccountMembersBetaApi,
 
     /**
     * The AccountUsageBetaApi service constructor.

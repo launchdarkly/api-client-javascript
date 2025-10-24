@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ViewsLink model module.
  * @module model/ViewsLink
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ViewsLink {
     /**

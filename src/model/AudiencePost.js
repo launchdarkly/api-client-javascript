@@ -17,7 +17,7 @@ import AudienceConfiguration from './AudienceConfiguration';
 /**
  * The AudiencePost model module.
  * @module model/AudiencePost
- * @version 18.0.1
+ * @version 18.0.2
  */
 class AudiencePost {
     /**

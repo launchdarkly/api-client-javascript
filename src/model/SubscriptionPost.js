@@ -17,7 +17,7 @@ import StatementPost from './StatementPost';
 /**
  * The SubscriptionPost model module.
  * @module model/SubscriptionPost
- * @version 18.0.1
+ * @version 18.0.2
  */
 class SubscriptionPost {
     /**

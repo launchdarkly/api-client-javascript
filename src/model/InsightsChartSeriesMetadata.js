@@ -17,7 +17,7 @@ import InsightsChartBounds from './InsightsChartBounds';
 /**
  * The InsightsChartSeriesMetadata model module.
  * @module model/InsightsChartSeriesMetadata
- * @version 18.0.1
+ * @version 18.0.2
  */
 class InsightsChartSeriesMetadata {
     /**

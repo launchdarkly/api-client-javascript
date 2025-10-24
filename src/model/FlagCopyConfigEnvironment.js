@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FlagCopyConfigEnvironment model module.
  * @module model/FlagCopyConfigEnvironment
- * @version 18.0.1
+ * @version 18.0.2
  */
 class FlagCopyConfigEnvironment {
     /**

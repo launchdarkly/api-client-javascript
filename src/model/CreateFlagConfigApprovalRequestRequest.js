@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateFlagConfigApprovalRequestRequest model module.
  * @module model/CreateFlagConfigApprovalRequestRequest
- * @version 18.0.1
+ * @version 18.0.2
  */
 class CreateFlagConfigApprovalRequestRequest {
     /**

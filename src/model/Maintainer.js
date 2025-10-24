@@ -18,7 +18,7 @@ import ViewsMaintainerTeam from './ViewsMaintainerTeam';
 /**
  * The Maintainer model module.
  * @module model/Maintainer
- * @version 18.0.1
+ * @version 18.0.2
  */
 class Maintainer {
     /**

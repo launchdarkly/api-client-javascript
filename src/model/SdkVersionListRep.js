@@ -17,7 +17,7 @@ import SdkVersionRep from './SdkVersionRep';
 /**
  * The SdkVersionListRep model module.
  * @module model/SdkVersionListRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class SdkVersionListRep {
     /**

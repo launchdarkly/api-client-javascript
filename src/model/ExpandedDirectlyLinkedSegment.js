@@ -17,7 +17,7 @@ import ViewsSelfLink from './ViewsSelfLink';
 /**
  * The ExpandedDirectlyLinkedSegment model module.
  * @module model/ExpandedDirectlyLinkedSegment
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ExpandedDirectlyLinkedSegment {
     /**

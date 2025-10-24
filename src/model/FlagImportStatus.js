@@ -17,7 +17,7 @@ import StatusResponse from './StatusResponse';
 /**
  * The FlagImportStatus model module.
  * @module model/FlagImportStatus
- * @version 18.0.1
+ * @version 18.0.2
  */
 class FlagImportStatus {
     /**

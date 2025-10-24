@@ -23,7 +23,7 @@ import Modification from './Modification';
 /**
  * The MetricListingRep model module.
  * @module model/MetricListingRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class MetricListingRep {
     /**

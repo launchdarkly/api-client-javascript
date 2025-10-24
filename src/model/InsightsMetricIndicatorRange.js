@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InsightsMetricIndicatorRange model module.
  * @module model/InsightsMetricIndicatorRange
- * @version 18.0.1
+ * @version 18.0.2
  */
 class InsightsMetricIndicatorRange {
     /**

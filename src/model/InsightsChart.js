@@ -18,7 +18,7 @@ import InsightsChartSeries from './InsightsChartSeries';
 /**
  * The InsightsChart model module.
  * @module model/InsightsChart
- * @version 18.0.1
+ * @version 18.0.2
  */
 class InsightsChart {
     /**

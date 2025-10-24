@@ -17,7 +17,7 @@ import HunkRep from './HunkRep';
 /**
  * The ReferenceRep model module.
  * @module model/ReferenceRep
- * @version 18.0.1
+ * @version 18.0.2
  */
 class ReferenceRep {
     /**
