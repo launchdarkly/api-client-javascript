@@ -17,7 +17,7 @@ import ReleasePolicy from './ReleasePolicy';
 /**
  * The ReleasePoliciesResponse model module.
  * @module model/ReleasePoliciesResponse
- * @version 18.0.2
+ * @version 18.1.0
  */
 class ReleasePoliciesResponse {
     /**

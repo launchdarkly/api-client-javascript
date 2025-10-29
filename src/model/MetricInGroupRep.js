@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The MetricInGroupRep model module.
  * @module model/MetricInGroupRep
- * @version 18.0.2
+ * @version 18.1.0
  */
 class MetricInGroupRep {
     /**

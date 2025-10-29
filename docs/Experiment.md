@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **creationDate** | **Number** |  | 
 **environmentKey** | **String** |  | 
 **archivedDate** | **Number** |  | [optional] 
+**tags** | **[String]** | Tags for the experiment | [optional] 
 **links** | [**{String: Link}**](Link.md) | The location and content type of related resources | 
 **holdoutId** | **String** | The holdout ID | [optional] 
 **currentIteration** | [**IterationRep**](IterationRep.md) |  | [optional] 

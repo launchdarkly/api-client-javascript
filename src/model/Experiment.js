@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The Experiment model module.
  * @module model/Experiment
- * @version 18.0.2
+ * @version 18.1.0
  */
 class Experiment {
     /**
@@ -85,6 +85,9 @@ class Experiment {
             if (data.hasOwnProperty('archivedDate')) {
                 obj['archivedDate'] = ApiClient.convertToType(data['archivedDate'], 'Number');
             }
+            if (data.hasOwnProperty('tags')) {
+                obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
+            }
             if (data.hasOwnProperty('_links')) {
                 obj['_links'] = ApiClient.convertToType(data['_links'], {'String': Link});
             }
@@ -139,6 +142,10 @@ class Experiment {
         // ensure the json data is a string
         if (data['environmentKey'] && !(typeof data['environmentKey'] === 'string' || data['environmentKey'] instanceof String)) {
             throw new Error("Expected the field `environmentKey` to be a primitive type in the JSON string but got " + data['environmentKey']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['tags'])) {
+            throw new Error("Expected the field `tags` to be an array in the JSON data but got " + data['tags']);
         }
         // ensure the json data is a string
         if (data['holdoutId'] && !(typeof data['holdoutId'] === 'string' || data['holdoutId'] instanceof String)) {
@@ -215,6 +222,12 @@ Experiment.prototype['environmentKey'] = undefined;
  * @member {Number} archivedDate
  */
 Experiment.prototype['archivedDate'] = undefined;
+
+/**
+ * Tags for the experiment
+ * @member {Array.<String>} tags
+ */
+Experiment.prototype['tags'] = undefined;
 
 /**
  * The location and content type of related resources

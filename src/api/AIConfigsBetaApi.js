@@ -38,7 +38,7 @@ import RestrictedModelsResponse from '../model/RestrictedModelsResponse';
 /**
 * AIConfigsBeta service.
 * @module api/AIConfigsBetaApi
-* @version 18.0.2
+* @version 18.1.0
 */
 export default class AIConfigsBetaApi {
 

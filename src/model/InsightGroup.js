@@ -19,7 +19,7 @@ import InsightGroupScores from './InsightGroupScores';
 /**
  * The InsightGroup model module.
  * @module model/InsightGroup
- * @version 18.0.2
+ * @version 18.1.0
  */
 class InsightGroup {
     /**

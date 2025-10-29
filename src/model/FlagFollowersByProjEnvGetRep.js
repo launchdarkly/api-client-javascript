@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The FlagFollowersByProjEnvGetRep model module.
  * @module model/FlagFollowersByProjEnvGetRep
- * @version 18.0.2
+ * @version 18.1.0
  */
 class FlagFollowersByProjEnvGetRep {
     /**

@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The DependentFlag model module.
  * @module model/DependentFlag
- * @version 18.0.2
+ * @version 18.1.0
  */
 class DependentFlag {
     /**

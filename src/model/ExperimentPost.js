@@ -17,7 +17,7 @@ import IterationInput from './IterationInput';
 /**
  * The ExperimentPost model module.
  * @module model/ExperimentPost
- * @version 18.0.2
+ * @version 18.1.0
  */
 class ExperimentPost {
     /**
@@ -72,6 +72,9 @@ class ExperimentPost {
             if (data.hasOwnProperty('holdoutId')) {
                 obj['holdoutId'] = ApiClient.convertToType(data['holdoutId'], 'String');
             }
+            if (data.hasOwnProperty('tags')) {
+                obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
+            }
         }
         return obj;
     }
@@ -111,6 +114,10 @@ class ExperimentPost {
         // ensure the json data is a string
         if (data['holdoutId'] && !(typeof data['holdoutId'] === 'string' || data['holdoutId'] instanceof String)) {
             throw new Error("Expected the field `holdoutId` to be a primitive type in the JSON string but got " + data['holdoutId']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['tags'])) {
+            throw new Error("Expected the field `tags` to be an array in the JSON data but got " + data['tags']);
         }
 
         return true;
@@ -155,6 +162,12 @@ ExperimentPost.prototype['iteration'] = undefined;
  * @member {String} holdoutId
  */
 ExperimentPost.prototype['holdoutId'] = undefined;
+
+/**
+ * Tags for the experiment
+ * @member {Array.<String>} tags
+ */
+ExperimentPost.prototype['tags'] = undefined;
 
 
 

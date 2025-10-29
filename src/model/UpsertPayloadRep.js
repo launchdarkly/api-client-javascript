@@ -19,7 +19,7 @@ import Link from './Link';
 /**
  * The UpsertPayloadRep model module.
  * @module model/UpsertPayloadRep
- * @version 18.0.2
+ * @version 18.1.0
  */
 class UpsertPayloadRep {
     /**

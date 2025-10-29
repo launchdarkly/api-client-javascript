@@ -19,7 +19,7 @@ import RecentTriggerBody from './RecentTriggerBody';
 /**
  * The TriggerWorkflowRep model module.
  * @module model/TriggerWorkflowRep
- * @version 18.0.2
+ * @version 18.1.0
  */
 class TriggerWorkflowRep {
     /**

@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The RootResponse model module.
  * @module model/RootResponse
- * @version 18.0.2
+ * @version 18.1.0
  */
 class RootResponse {
     /**

@@ -27,7 +27,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * PersistentStoreIntegrationsBeta service.
 * @module api/PersistentStoreIntegrationsBetaApi
-* @version 18.0.2
+* @version 18.1.0
 */
 export default class PersistentStoreIntegrationsBetaApi {
 

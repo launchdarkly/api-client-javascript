@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LeadTimeStagesRep model module.
  * @module model/LeadTimeStagesRep
- * @version 18.0.2
+ * @version 18.1.0
  */
 class LeadTimeStagesRep {
     /**

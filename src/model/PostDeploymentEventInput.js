@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostDeploymentEventInput model module.
  * @module model/PostDeploymentEventInput
- * @version 18.0.2
+ * @version 18.1.0
  */
 class PostDeploymentEventInput {
     /**

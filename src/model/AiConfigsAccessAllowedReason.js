@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AiConfigsAccessAllowedReason model module.
  * @module model/AiConfigsAccessAllowedReason
- * @version 18.0.2
+ * @version 18.1.0
  */
 class AiConfigsAccessAllowedReason {
     /**

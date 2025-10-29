@@ -19,7 +19,7 @@ import ExecutionOutput from './ExecutionOutput';
 /**
  * The StageOutput model module.
  * @module model/StageOutput
- * @version 18.0.2
+ * @version 18.1.0
  */
 class StageOutput {
     /**

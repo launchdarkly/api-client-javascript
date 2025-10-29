@@ -19,7 +19,7 @@ import FlagImportStatus from './FlagImportStatus';
 /**
  * The FlagImportIntegration model module.
  * @module model/FlagImportIntegration
- * @version 18.0.2
+ * @version 18.1.0
  */
 class FlagImportIntegration {
     /**

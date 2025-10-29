@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The ContextInstanceEvaluation model module.
  * @module model/ContextInstanceEvaluation
- * @version 18.0.2
+ * @version 18.1.0
  */
 class ContextInstanceEvaluation {
     /**

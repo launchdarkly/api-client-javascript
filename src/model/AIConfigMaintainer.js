@@ -18,7 +18,7 @@ import MaintainerMember from './MaintainerMember';
 /**
  * The AIConfigMaintainer model module.
  * @module model/AIConfigMaintainer
- * @version 18.0.2
+ * @version 18.1.0
  */
 class AIConfigMaintainer {
     /**

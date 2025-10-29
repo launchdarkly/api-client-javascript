@@ -17,7 +17,7 @@ import StatementPost from './StatementPost';
 /**
  * The AuditLogEventsHookCapabilityConfigPost model module.
  * @module model/AuditLogEventsHookCapabilityConfigPost
- * @version 18.0.2
+ * @version 18.1.0
  */
 class AuditLogEventsHookCapabilityConfigPost {
     /**

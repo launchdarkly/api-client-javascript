@@ -17,7 +17,7 @@ import RestrictedModelError from './RestrictedModelError';
 /**
  * The RestrictedModelsResponse model module.
  * @module model/RestrictedModelsResponse
- * @version 18.0.2
+ * @version 18.1.0
  */
 class RestrictedModelsResponse {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ExperimentEnabledPeriodRep model module.
  * @module model/ExperimentEnabledPeriodRep
- * @version 18.0.2
+ * @version 18.1.0
  */
 class ExperimentEnabledPeriodRep {
     /**

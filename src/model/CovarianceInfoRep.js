@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CovarianceInfoRep model module.
  * @module model/CovarianceInfoRep
- * @version 18.0.2
+ * @version 18.1.0
  */
 class CovarianceInfoRep {
     /**

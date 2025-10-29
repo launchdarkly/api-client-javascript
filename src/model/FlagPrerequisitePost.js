@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FlagPrerequisitePost model module.
  * @module model/FlagPrerequisitePost
- * @version 18.0.2
+ * @version 18.1.0
  */
 class FlagPrerequisitePost {
     /**

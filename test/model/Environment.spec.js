@@ -108,6 +108,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property access (base name: "_access")', function() {
+      // uncomment below and update the code to test the property access
+      //var instance = new LaunchDarklyApi.Environment();
+      //expect(instance).to.be();
+    });
+
     it('should have the property defaultTrackEvents (base name: "defaultTrackEvents")', function() {
       // uncomment below and update the code to test the property defaultTrackEvents
       //var instance = new LaunchDarklyApi.Environment();

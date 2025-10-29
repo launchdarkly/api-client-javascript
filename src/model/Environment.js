@@ -12,13 +12,14 @@
  */
 
 import ApiClient from '../ApiClient';
+import Access from './Access';
 import ApprovalSettings from './ApprovalSettings';
 import Link from './Link';
 
 /**
  * The Environment model module.
  * @module model/Environment
- * @version 18.0.2
+ * @version 18.1.0
  */
 class Environment {
     /**
@@ -104,6 +105,9 @@ class Environment {
             if (data.hasOwnProperty('secureMode')) {
                 obj['secureMode'] = ApiClient.convertToType(data['secureMode'], 'Boolean');
             }
+            if (data.hasOwnProperty('_access')) {
+                obj['_access'] = Access.constructFromObject(data['_access']);
+            }
             if (data.hasOwnProperty('defaultTrackEvents')) {
                 obj['defaultTrackEvents'] = ApiClient.convertToType(data['defaultTrackEvents'], 'Boolean');
             }
@@ -164,6 +168,10 @@ class Environment {
         // ensure the json data is a string
         if (data['color'] && !(typeof data['color'] === 'string' || data['color'] instanceof String)) {
             throw new Error("Expected the field `color` to be a primitive type in the JSON string but got " + data['color']);
+        }
+        // validate the optional field `_access`
+        if (data['_access']) { // data not null
+          Access.validateJSON(data['_access']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['tags'])) {
@@ -235,6 +243,11 @@ Environment.prototype['defaultTtl'] = undefined;
  * @member {Boolean} secureMode
  */
 Environment.prototype['secureMode'] = undefined;
+
+/**
+ * @member {module:model/Access} _access
+ */
+Environment.prototype['_access'] = undefined;
 
 /**
  * Enables tracking detailed information for new flags by default

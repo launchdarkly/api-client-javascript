@@ -29,7 +29,7 @@ import ViewsAccessRep from './ViewsAccessRep';
 /**
  * The View model module.
  * @module model/View
- * @version 18.0.2
+ * @version 18.1.0
  */
 class View {
     /**

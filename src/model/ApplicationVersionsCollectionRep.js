@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The ApplicationVersionsCollectionRep model module.
  * @module model/ApplicationVersionsCollectionRep
- * @version 18.0.2
+ * @version 18.1.0
  */
 class ApplicationVersionsCollectionRep {
     /**

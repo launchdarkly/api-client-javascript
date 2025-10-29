@@ -17,7 +17,7 @@ import VariationSummary from './VariationSummary';
 /**
  * The FlagSummary model module.
  * @module model/FlagSummary
- * @version 18.0.2
+ * @version 18.1.0
  */
 class FlagSummary {
     /**

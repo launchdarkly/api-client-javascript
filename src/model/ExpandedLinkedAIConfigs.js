@@ -17,7 +17,7 @@ import ExpandedAIConfig from './ExpandedAIConfig';
 /**
  * The ExpandedLinkedAIConfigs model module.
  * @module model/ExpandedLinkedAIConfigs
- * @version 18.0.2
+ * @version 18.1.0
  */
 class ExpandedLinkedAIConfigs {
     /**

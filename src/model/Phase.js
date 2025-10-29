@@ -17,7 +17,7 @@ import Audience from './Audience';
 /**
  * The Phase model module.
  * @module model/Phase
- * @version 18.0.2
+ * @version 18.1.0
  */
 class Phase {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BooleanDefaults model module.
  * @module model/BooleanDefaults
- * @version 18.0.2
+ * @version 18.1.0
  */
 class BooleanDefaults {
     /**

@@ -18,7 +18,7 @@ import AuditLogEventsHookCapabilityConfigPost from './AuditLogEventsHookCapabili
 /**
  * The CapabilityConfigPost model module.
  * @module model/CapabilityConfigPost
- * @version 18.0.2
+ * @version 18.1.0
  */
 class CapabilityConfigPost {
     /**

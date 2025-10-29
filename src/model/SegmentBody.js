@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SegmentBody model module.
  * @module model/SegmentBody
- * @version 18.0.2
+ * @version 18.1.0
  */
 class SegmentBody {
     /**

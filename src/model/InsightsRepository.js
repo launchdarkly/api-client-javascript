@@ -17,7 +17,7 @@ import ProjectSummaryCollection from './ProjectSummaryCollection';
 /**
  * The InsightsRepository model module.
  * @module model/InsightsRepository
- * @version 18.0.2
+ * @version 18.1.0
  */
 class InsightsRepository {
     /**

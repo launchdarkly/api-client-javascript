@@ -19,7 +19,7 @@ import ViewsAccessDenied from './ViewsAccessDenied';
 /**
  * The ViewsAccessRep model module.
  * @module model/ViewsAccessRep
- * @version 18.0.2
+ * @version 18.1.0
  */
 class ViewsAccessRep {
     /**

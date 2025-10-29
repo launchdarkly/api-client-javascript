@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The CustomWorkflowsListingOutput model module.
  * @module model/CustomWorkflowsListingOutput
- * @version 18.0.2
+ * @version 18.1.0
  */
 class CustomWorkflowsListingOutput {
     /**

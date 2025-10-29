@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Defaults model module.
  * @module model/Defaults
- * @version 18.0.2
+ * @version 18.1.0
  */
 class Defaults {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AnnouncementPatchOperation model module.
  * @module model/AnnouncementPatchOperation
- * @version 18.0.2
+ * @version 18.1.0
  */
 class AnnouncementPatchOperation {
     /**

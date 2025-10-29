@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Extinction model module.
  * @module model/Extinction
- * @version 18.0.2
+ * @version 18.1.0
  */
 class Extinction {
     /**
