@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RecentTriggerBody model module.
  * @module model/RecentTriggerBody
- * @version 18.1.0
+ * @version 19.0.0
  */
 class RecentTriggerBody {
     /**

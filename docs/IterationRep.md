@@ -28,3 +28,16 @@ Name | Type | Description | Notes
 **covarianceInfo** | [**CovarianceInfoRep**](CovarianceInfoRep.md) |  | [optional] 
 
 
+
+## Enum: StatusEnum
+
+
+* `not_started` (value: `"not_started"`)
+
+* `running` (value: `"running"`)
+
+* `stopped` (value: `"stopped"`)
+
+
+
+

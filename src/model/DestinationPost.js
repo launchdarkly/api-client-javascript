@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DestinationPost model module.
  * @module model/DestinationPost
- * @version 18.1.0
+ * @version 19.0.0
  */
 class DestinationPost {
     /**
@@ -167,7 +167,13 @@ DestinationPost['KindEnum'] = {
      * value: "bigquery"
      * @const
      */
-    "bigquery": "bigquery"
+    "bigquery": "bigquery",
+
+    /**
+     * value: "redshift"
+     * @const
+     */
+    "redshift": "redshift"
 };
 
 

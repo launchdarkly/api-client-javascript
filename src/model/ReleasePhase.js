@@ -18,7 +18,7 @@ import ReleaseAudience from './ReleaseAudience';
 /**
  * The ReleasePhase model module.
  * @module model/ReleasePhase
- * @version 18.1.0
+ * @version 19.0.0
  */
 class ReleasePhase {
     /**

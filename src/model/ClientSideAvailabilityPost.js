@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ClientSideAvailabilityPost model module.
  * @module model/ClientSideAvailabilityPost
- * @version 18.1.0
+ * @version 19.0.0
  */
 class ClientSideAvailabilityPost {
     /**

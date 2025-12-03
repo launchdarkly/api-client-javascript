@@ -17,7 +17,7 @@ import Experiment from './Experiment';
 /**
  * The HoldoutDetailRep model module.
  * @module model/HoldoutDetailRep
- * @version 18.1.0
+ * @version 19.0.0
  */
 class HoldoutDetailRep {
     /**

@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The Destinations model module.
  * @module model/Destinations
- * @version 18.1.0
+ * @version 19.0.0
  */
 class Destinations {
     /**

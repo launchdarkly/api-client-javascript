@@ -17,7 +17,7 @@ import ReleaseGuardianConfigurationInput from './ReleaseGuardianConfigurationInp
 /**
  * The ReleaserAudienceConfigInput model module.
  * @module model/ReleaserAudienceConfigInput
- * @version 18.1.0
+ * @version 19.0.0
  */
 class ReleaserAudienceConfigInput {
     /**

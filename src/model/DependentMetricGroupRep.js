@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The DependentMetricGroupRep model module.
  * @module model/DependentMetricGroupRep
- * @version 18.1.0
+ * @version 19.0.0
  */
 class DependentMetricGroupRep {
     /**

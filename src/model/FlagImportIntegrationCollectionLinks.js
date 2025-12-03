@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The FlagImportIntegrationCollectionLinks model module.
  * @module model/FlagImportIntegrationCollectionLinks
- * @version 18.1.0
+ * @version 19.0.0
  */
 class FlagImportIntegrationCollectionLinks {
     /**

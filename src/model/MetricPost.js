@@ -20,7 +20,7 @@ import UrlPost from './UrlPost';
 /**
  * The MetricPost model module.
  * @module model/MetricPost
- * @version 18.1.0
+ * @version 19.0.0
  */
 class MetricPost {
     /**

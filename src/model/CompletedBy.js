@@ -18,7 +18,7 @@ import TokenSummary from './TokenSummary';
 /**
  * The CompletedBy model module.
  * @module model/CompletedBy
- * @version 18.1.0
+ * @version 19.0.0
  */
 class CompletedBy {
     /**

@@ -17,7 +17,7 @@ import ExpandedDirectlyLinkedSegments from './ExpandedDirectlyLinkedSegments';
 /**
  * The SegmentsSummary model module.
  * @module model/SegmentsSummary
- * @version 18.1.0
+ * @version 19.0.0
  */
 class SegmentsSummary {
     /**

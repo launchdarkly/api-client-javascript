@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ReleaseGuardianConfiguration model module.
  * @module model/ReleaseGuardianConfiguration
- * @version 18.1.0
+ * @version 19.0.0
  */
 class ReleaseGuardianConfiguration {
     /**

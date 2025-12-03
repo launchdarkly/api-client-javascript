@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PostApprovalRequestReviewRequest model module.
  * @module model/PostApprovalRequestReviewRequest
- * @version 18.1.0
+ * @version 19.0.0
  */
 class PostApprovalRequestReviewRequest {
     /**

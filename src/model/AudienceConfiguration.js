@@ -17,7 +17,7 @@ import ReleaseGuardianConfiguration from './ReleaseGuardianConfiguration';
 /**
  * The AudienceConfiguration model module.
  * @module model/AudienceConfiguration
- * @version 18.1.0
+ * @version 19.0.0
  */
 class AudienceConfiguration {
     /**

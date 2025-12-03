@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ModelConfigPost model module.
  * @module model/ModelConfigPost
- * @version 18.1.0
+ * @version 19.0.0
  */
 class ModelConfigPost {
     /**

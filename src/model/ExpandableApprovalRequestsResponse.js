@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The ExpandableApprovalRequestsResponse model module.
  * @module model/ExpandableApprovalRequestsResponse
- * @version 18.1.0
+ * @version 19.0.0
  */
 class ExpandableApprovalRequestsResponse {
     /**

@@ -17,7 +17,7 @@ import InsightsRepositoryProject from './InsightsRepositoryProject';
 /**
  * The InsightsRepositoryProjectMappings model module.
  * @module model/InsightsRepositoryProjectMappings
- * @version 18.1.0
+ * @version 19.0.0
  */
 class InsightsRepositoryProjectMappings {
     /**

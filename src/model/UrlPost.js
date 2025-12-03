@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UrlPost model module.
  * @module model/UrlPost
- * @version 18.1.0
+ * @version 19.0.0
  */
 class UrlPost {
     /**

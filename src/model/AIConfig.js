@@ -20,7 +20,7 @@ import ParentAndSelfLinks from './ParentAndSelfLinks';
 /**
  * The AIConfig model module.
  * @module model/AIConfig
- * @version 18.1.0
+ * @version 19.0.0
  */
 class AIConfig {
     /**
@@ -104,6 +104,9 @@ class AIConfig {
             if (data.hasOwnProperty('updatedAt')) {
                 obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Number');
             }
+            if (data.hasOwnProperty('evaluationMetricKeys')) {
+                obj['evaluationMetricKeys'] = ApiClient.convertToType(data['evaluationMetricKeys'], ['String']);
+            }
         }
         return obj;
     }
@@ -161,6 +164,10 @@ class AIConfig {
             for (const item of data['variations']) {
                 AIConfigVariation.validateJSON(item);
             };
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['evaluationMetricKeys'])) {
+            throw new Error("Expected the field `evaluationMetricKeys` to be an array in the JSON data but got " + data['evaluationMetricKeys']);
         }
 
         return true;
@@ -231,6 +238,12 @@ AIConfig.prototype['createdAt'] = undefined;
  * @member {Number} updatedAt
  */
 AIConfig.prototype['updatedAt'] = undefined;
+
+/**
+ * List of evaluation metric keys for this AI config
+ * @member {Array.<String>} evaluationMetricKeys
+ */
+AIConfig.prototype['evaluationMetricKeys'] = undefined;
 
 
 

@@ -156,18 +156,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property totalConnectionsCount (base name: "totalConnectionsCount")', function() {
-      // uncomment below and update the code to test the property totalConnectionsCount
-      //var instance = new LaunchDarklyApi.MetricGroupRep();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property totalActiveConnectionsCount (base name: "totalActiveConnectionsCount")', function() {
-      // uncomment below and update the code to test the property totalActiveConnectionsCount
-      //var instance = new LaunchDarklyApi.MetricGroupRep();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

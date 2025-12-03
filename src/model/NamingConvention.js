@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NamingConvention model module.
  * @module model/NamingConvention
- * @version 18.1.0
+ * @version 19.0.0
  */
 class NamingConvention {
     /**
@@ -125,7 +125,13 @@ NamingConvention['CaseEnum'] = {
      * value: "kebabCase"
      * @const
      */
-    "kebabCase": "kebabCase"
+    "kebabCase": "kebabCase",
+
+    /**
+     * value: "constantCase"
+     * @const
+     */
+    "constantCase": "constantCase"
 };
 
 

@@ -40,7 +40,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * FeatureFlags service.
 * @module api/FeatureFlagsApi
-* @version 18.1.0
+* @version 19.0.0
 */
 export default class FeatureFlagsApi {
 
@@ -498,7 +498,7 @@ export default class FeatureFlagsApi {
      * @param {Number} [limit] The number of feature flags to return. Defaults to 20.
      * @param {Number} [offset] Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and then returns the next items in the list, up to the query `limit`.
      * @param {Boolean} [archived] Deprecated, use `filter=archived:true` instead. A boolean to filter the list to archived flags. When this is absent, only unarchived flags will be returned
-     * @param {Boolean} [summary] By default, flags do _not_ include their lists of prerequisites, targets, or rules for each environment. Set `summary=0` to include these fields for each flag returned.
+     * @param {Boolean} [summary] By default, flags do _not_ include their lists of prerequisites, targets, or rules for each environment. Set `summary=0` and include the `env` query parameter to include these fields for each flag returned.
      * @param {String} [filter] A comma-separated list of filters. Each filter is of the form field:value. Read the endpoint description for a full list of available filter fields.
      * @param {String} [sort] A comma-separated list of fields to sort by. Fields prefixed by a dash ( - ) sort in descending order. Read the endpoint description for a full list of available sort fields.
      * @param {Boolean} [compare] Deprecated, unavailable in API version `20240415`. A boolean to filter results by only flags that have differences between environments.

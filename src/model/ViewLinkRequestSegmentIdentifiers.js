@@ -17,7 +17,7 @@ import ViewLinkRequestSegmentIdentifier from './ViewLinkRequestSegmentIdentifier
 /**
  * The ViewLinkRequestSegmentIdentifiers model module.
  * @module model/ViewLinkRequestSegmentIdentifiers
- * @version 18.1.0
+ * @version 19.0.0
  */
 class ViewLinkRequestSegmentIdentifiers {
     /**

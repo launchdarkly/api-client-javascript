@@ -17,7 +17,7 @@ import RelatedExperimentRep from './RelatedExperimentRep';
 /**
  * The SimpleHoldoutRep model module.
  * @module model/SimpleHoldoutRep
- * @version 18.1.0
+ * @version 19.0.0
  */
 class SimpleHoldoutRep {
     /**

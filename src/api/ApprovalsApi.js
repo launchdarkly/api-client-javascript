@@ -34,7 +34,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * Approvals service.
 * @module api/ApprovalsApi
-* @version 18.1.0
+* @version 19.0.0
 */
 export default class ApprovalsApi {
 

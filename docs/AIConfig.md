@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **variations** | [**[AIConfigVariation]**](AIConfigVariation.md) |  | 
 **createdAt** | **Number** |  | 
 **updatedAt** | **Number** |  | 
+**evaluationMetricKeys** | **[String]** | List of evaluation metric keys for this AI config | [optional] 
 
 
 

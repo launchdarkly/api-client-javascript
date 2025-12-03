@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ResourceId model module.
  * @module model/ResourceId
- * @version 18.1.0
+ * @version 19.0.0
  */
 class ResourceId {
     /**

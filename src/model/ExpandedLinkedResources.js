@@ -17,7 +17,7 @@ import ExpandedLinkedResourcesItems from './ExpandedLinkedResourcesItems';
 /**
  * The ExpandedLinkedResources model module.
  * @module model/ExpandedLinkedResources
- * @version 18.1.0
+ * @version 19.0.0
  */
 class ExpandedLinkedResources {
     /**

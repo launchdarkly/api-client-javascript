@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CustomWorkflowStageMeta model module.
  * @module model/CustomWorkflowStageMeta
- * @version 18.1.0
+ * @version 19.0.0
  */
 class CustomWorkflowStageMeta {
     /**

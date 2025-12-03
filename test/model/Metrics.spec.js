@@ -132,6 +132,24 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property judgeAccuracy (base name: "judgeAccuracy")', function() {
+      // uncomment below and update the code to test the property judgeAccuracy
+      //var instance = new LaunchDarklyApi.Metrics();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property judgeRelevance (base name: "judgeRelevance")', function() {
+      // uncomment below and update the code to test the property judgeRelevance
+      //var instance = new LaunchDarklyApi.Metrics();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property judgeToxicity (base name: "judgeToxicity")', function() {
+      // uncomment below and update the code to test the property judgeToxicity
+      //var instance = new LaunchDarklyApi.Metrics();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

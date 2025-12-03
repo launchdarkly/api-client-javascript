@@ -20,6 +20,8 @@ Name | Type | Description | Notes
 
 * `kebabCase` (value: `"kebabCase"`)
 
+* `constantCase` (value: `"constantCase"`)
+
 
 
 

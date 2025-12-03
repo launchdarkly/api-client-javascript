@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FlagReferenceRep model module.
  * @module model/FlagReferenceRep
- * @version 18.1.0
+ * @version 19.0.0
  */
 class FlagReferenceRep {
     /**

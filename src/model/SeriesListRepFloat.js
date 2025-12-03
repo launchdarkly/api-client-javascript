@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SeriesListRepFloat model module.
  * @module model/SeriesListRepFloat
- * @version 18.1.0
+ * @version 19.0.0
  */
 class SeriesListRepFloat {
     /**

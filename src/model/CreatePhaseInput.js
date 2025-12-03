@@ -17,7 +17,7 @@ import AudiencePost from './AudiencePost';
 /**
  * The CreatePhaseInput model module.
  * @module model/CreatePhaseInput
- * @version 18.1.0
+ * @version 19.0.0
  */
 class CreatePhaseInput {
     /**

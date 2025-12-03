@@ -17,7 +17,7 @@ import ExpandedMetric from './ExpandedMetric';
 /**
  * The ExpandedLinkedMetrics model module.
  * @module model/ExpandedLinkedMetrics
- * @version 18.1.0
+ * @version 19.0.0
  */
 class ExpandedLinkedMetrics {
     /**

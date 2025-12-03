@@ -17,7 +17,7 @@ import TeamProjects from './TeamProjects';
 /**
  * The TeamCustomRole model module.
  * @module model/TeamCustomRole
- * @version 18.1.0
+ * @version 19.0.0
  */
 class TeamCustomRole {
     /**

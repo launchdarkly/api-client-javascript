@@ -17,5 +17,8 @@ Name | Type | Description | Notes
 **satisfactionRating** | **Number** | A value between 0 and 1 representing satisfaction rating | [optional] 
 **inputCost** | **Number** | Cost of input tokens in USD | [optional] 
 **outputCost** | **Number** | Cost of output tokens in USD | [optional] 
+**judgeAccuracy** | **Number** | Average accuracy judge score (0.0-1.0) | [optional] 
+**judgeRelevance** | **Number** | Average relevance judge score (0.0-1.0) | [optional] 
+**judgeToxicity** | **Number** | Average toxicity judge score (0.0-1.0) | [optional] 
 
 

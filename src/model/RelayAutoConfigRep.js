@@ -19,7 +19,7 @@ import Statement from './Statement';
 /**
  * The RelayAutoConfigRep model module.
  * @module model/RelayAutoConfigRep
- * @version 18.1.0
+ * @version 19.0.0
  */
 class RelayAutoConfigRep {
     /**
@@ -28,14 +28,13 @@ class RelayAutoConfigRep {
      * @param id {String} 
      * @param name {String} A human-friendly name for the Relay Proxy configuration
      * @param policy {Array.<module:model/Statement>} A description of what environments and projects the Relay Proxy should include or exclude
-     * @param fullKey {String} The Relay Proxy configuration key
      * @param displayKey {String} The last few characters of the Relay Proxy configuration key, displayed in the LaunchDarkly UI
      * @param creationDate {Number} 
      * @param lastModified {Number} 
      */
-    constructor(id, name, policy, fullKey, displayKey, creationDate, lastModified) { 
+    constructor(id, name, policy, displayKey, creationDate, lastModified) { 
         
-        RelayAutoConfigRep.initialize(this, id, name, policy, fullKey, displayKey, creationDate, lastModified);
+        RelayAutoConfigRep.initialize(this, id, name, policy, displayKey, creationDate, lastModified);
     }
 
     /**
@@ -43,11 +42,10 @@ class RelayAutoConfigRep {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, name, policy, fullKey, displayKey, creationDate, lastModified) { 
+    static initialize(obj, id, name, policy, displayKey, creationDate, lastModified) { 
         obj['_id'] = id;
         obj['name'] = name;
         obj['policy'] = policy;
-        obj['fullKey'] = fullKey;
         obj['displayKey'] = displayKey;
         obj['creationDate'] = creationDate;
         obj['lastModified'] = lastModified;
@@ -148,7 +146,7 @@ class RelayAutoConfigRep {
 
 }
 
-RelayAutoConfigRep.RequiredProperties = ["_id", "name", "policy", "fullKey", "displayKey", "creationDate", "lastModified"];
+RelayAutoConfigRep.RequiredProperties = ["_id", "name", "policy", "displayKey", "creationDate", "lastModified"];
 
 /**
  * @member {String} _id

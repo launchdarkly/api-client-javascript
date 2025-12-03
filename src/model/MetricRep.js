@@ -27,7 +27,7 @@ import Modification from './Modification';
 /**
  * The MetricRep model module.
  * @module model/MetricRep
- * @version 18.1.0
+ * @version 19.0.0
  */
 class MetricRep {
     /**
@@ -41,10 +41,11 @@ class MetricRep {
      * @param links {Object.<String, module:model/Link>} The location and content type of related resources
      * @param tags {Array.<String>} Tags for the metric
      * @param creationDate {Number} 
+     * @param dataSource {module:model/MetricDataSourceRefRep} 
      */
-    constructor(id, versionId, key, name, kind, links, tags, creationDate) { 
+    constructor(id, versionId, key, name, kind, links, tags, creationDate, dataSource) { 
         
-        MetricRep.initialize(this, id, versionId, key, name, kind, links, tags, creationDate);
+        MetricRep.initialize(this, id, versionId, key, name, kind, links, tags, creationDate, dataSource);
     }
 
     /**
@@ -52,7 +53,7 @@ class MetricRep {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, versionId, key, name, kind, links, tags, creationDate) { 
+    static initialize(obj, id, versionId, key, name, kind, links, tags, creationDate, dataSource) { 
         obj['_id'] = id;
         obj['_versionId'] = versionId;
         obj['key'] = key;
@@ -61,6 +62,7 @@ class MetricRep {
         obj['_links'] = links;
         obj['tags'] = tags;
         obj['_creationDate'] = creationDate;
+        obj['dataSource'] = dataSource;
     }
 
     /**
@@ -357,7 +359,7 @@ class MetricRep {
 
 }
 
-MetricRep.RequiredProperties = ["_id", "_versionId", "key", "name", "kind", "_links", "tags", "_creationDate"];
+MetricRep.RequiredProperties = ["_id", "_versionId", "key", "name", "kind", "_links", "tags", "_creationDate", "dataSource"];
 
 /**
  * The number of experiments using this metric

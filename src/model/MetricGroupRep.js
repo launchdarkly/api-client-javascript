@@ -21,7 +21,7 @@ import MetricInGroupRep from './MetricInGroupRep';
 /**
  * The MetricGroupRep model module.
  * @module model/MetricGroupRep
- * @version 18.1.0
+ * @version 19.0.0
  */
 class MetricGroupRep {
     /**
@@ -124,12 +124,6 @@ class MetricGroupRep {
             }
             if (data.hasOwnProperty('activeGuardedRolloutCount')) {
                 obj['activeGuardedRolloutCount'] = ApiClient.convertToType(data['activeGuardedRolloutCount'], 'Number');
-            }
-            if (data.hasOwnProperty('totalConnectionsCount')) {
-                obj['totalConnectionsCount'] = ApiClient.convertToType(data['totalConnectionsCount'], 'Number');
-            }
-            if (data.hasOwnProperty('totalActiveConnectionsCount')) {
-                obj['totalActiveConnectionsCount'] = ApiClient.convertToType(data['totalActiveConnectionsCount'], 'Number');
             }
         }
         return obj;
@@ -304,18 +298,6 @@ MetricGroupRep.prototype['activeExperimentCount'] = undefined;
  * @member {Number} activeGuardedRolloutCount
  */
 MetricGroupRep.prototype['activeGuardedRolloutCount'] = undefined;
-
-/**
- * The total number of connections using this metric group
- * @member {Number} totalConnectionsCount
- */
-MetricGroupRep.prototype['totalConnectionsCount'] = undefined;
-
-/**
- * The total number of active connections using this metric group
- * @member {Number} totalActiveConnectionsCount
- */
-MetricGroupRep.prototype['totalActiveConnectionsCount'] = undefined;
 
 
 

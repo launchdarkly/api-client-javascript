@@ -30,6 +30,8 @@ Name | Type | Description | Notes
 
 * `bigquery` (value: `"bigquery"`)
 
+* `redshift` (value: `"redshift"`)
+
 
 
 

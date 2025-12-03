@@ -21,8 +21,6 @@ Name | Type | Description | Notes
 **experimentCount** | **Number** | The number of experiments using this metric group | [optional] 
 **activeExperimentCount** | **Number** | The number of active experiments using this metric group | [optional] 
 **activeGuardedRolloutCount** | **Number** | The number of active guarded rollouts using this metric group | [optional] 
-**totalConnectionsCount** | **Number** | The total number of connections using this metric group | [optional] 
-**totalActiveConnectionsCount** | **Number** | The total number of active connections using this metric group | [optional] 
 
 
 

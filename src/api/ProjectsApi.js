@@ -31,7 +31,7 @@ import UpsertPayloadRep from '../model/UpsertPayloadRep';
 /**
 * Projects service.
 * @module api/ProjectsApi
-* @version 18.1.0
+* @version 19.0.0
 */
 export default class ProjectsApi {
 

@@ -16,16 +16,17 @@ import ApiClient from '../ApiClient';
 /**
  * The MetricDataSourceRefRep model module.
  * @module model/MetricDataSourceRefRep
- * @version 18.1.0
+ * @version 19.0.0
  */
 class MetricDataSourceRefRep {
     /**
      * Constructs a new <code>MetricDataSourceRefRep</code>.
      * @alias module:model/MetricDataSourceRefRep
+     * @param key {String} 
      */
-    constructor() { 
+    constructor(key) { 
         
-        MetricDataSourceRefRep.initialize(this);
+        MetricDataSourceRefRep.initialize(this, key);
     }
 
     /**
@@ -33,7 +34,8 @@ class MetricDataSourceRefRep {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, key) { 
+        obj['key'] = key;
     }
 
     /**
@@ -69,6 +71,12 @@ class MetricDataSourceRefRep {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>MetricDataSourceRefRep</code>.
      */
     static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of MetricDataSourceRefRep.RequiredProperties) {
+            if (!data.hasOwnProperty(property)) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
         // ensure the json data is a string
         if (data['key'] && !(typeof data['key'] === 'string' || data['key'] instanceof String)) {
             throw new Error("Expected the field `key` to be a primitive type in the JSON string but got " + data['key']);
@@ -92,7 +100,7 @@ class MetricDataSourceRefRep {
 
 }
 
-
+MetricDataSourceRefRep.RequiredProperties = ["key"];
 
 /**
  * @member {String} key

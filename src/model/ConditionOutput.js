@@ -18,7 +18,7 @@ import ReviewOutput from './ReviewOutput';
 /**
  * The ConditionOutput model module.
  * @module model/ConditionOutput
- * @version 18.1.0
+ * @version 19.0.0
  */
 class ConditionOutput {
     /**

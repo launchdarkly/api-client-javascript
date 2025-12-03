@@ -23,14 +23,14 @@ import TreatmentRep from './TreatmentRep';
 /**
  * The IterationRep model module.
  * @module model/IterationRep
- * @version 18.1.0
+ * @version 19.0.0
  */
 class IterationRep {
     /**
      * Constructs a new <code>IterationRep</code>.
      * @alias module:model/IterationRep
      * @param hypothesis {String} The expected outcome of this experiment
-     * @param status {String} The status of the iteration: <code>not_started</code>, <code>running</code>, <code>stopped</code>
+     * @param status {module:model/IterationRep.StatusEnum} The status of the iteration: <code>not_started</code>, <code>running</code>, <code>stopped</code>
      * @param createdAt {Number} 
      */
     constructor(hypothesis, status, createdAt) { 
@@ -243,7 +243,7 @@ IterationRep.prototype['hypothesis'] = undefined;
 
 /**
  * The status of the iteration: <code>not_started</code>, <code>running</code>, <code>stopped</code>
- * @member {String} status
+ * @member {module:model/IterationRep.StatusEnum} status
  */
 IterationRep.prototype['status'] = undefined;
 
@@ -355,6 +355,33 @@ IterationRep.prototype['covarianceInfo'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>status</code> property.
+ * @enum {String}
+ * @readonly
+ */
+IterationRep['StatusEnum'] = {
+
+    /**
+     * value: "not_started"
+     * @const
+     */
+    "not_started": "not_started",
+
+    /**
+     * value: "running"
+     * @const
+     */
+    "running": "running",
+
+    /**
+     * value: "stopped"
+     * @const
+     */
+    "stopped": "stopped"
+};
 
 
 

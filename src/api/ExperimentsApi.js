@@ -32,7 +32,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * Experiments service.
 * @module api/ExperimentsApi
-* @version 18.1.0
+* @version 19.0.0
 */
 export default class ExperimentsApi {
 

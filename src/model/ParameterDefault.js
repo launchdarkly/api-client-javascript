@@ -17,7 +17,7 @@ import RuleClause from './RuleClause';
 /**
  * The ParameterDefault model module.
  * @module model/ParameterDefault
- * @version 18.1.0
+ * @version 19.0.0
  */
 class ParameterDefault {
     /**

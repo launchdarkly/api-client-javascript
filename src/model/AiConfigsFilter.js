@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AiConfigsFilter model module.
  * @module model/AiConfigsFilter
- * @version 18.1.0
+ * @version 19.0.0
  */
 class AiConfigsFilter {
     /**

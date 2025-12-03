@@ -18,7 +18,7 @@ import MetricGroupRep from './MetricGroupRep';
 /**
  * The MetricGroupCollectionRep model module.
  * @module model/MetricGroupCollectionRep
- * @version 18.1.0
+ * @version 19.0.0
  */
 class MetricGroupCollectionRep {
     /**

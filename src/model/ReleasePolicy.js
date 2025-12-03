@@ -20,7 +20,7 @@ import ReleasePolicyScope from './ReleasePolicyScope';
 /**
  * The ReleasePolicy model module.
  * @module model/ReleasePolicy
- * @version 18.1.0
+ * @version 19.0.0
  */
 class ReleasePolicy {
     /**

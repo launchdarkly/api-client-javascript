@@ -298,6 +298,7 @@ docs/FollowFlagsApi.md
 docs/FollowersPerFlag.md
 docs/ForbiddenErrorRep.md
 docs/FormVariable.md
+docs/GenerateTrustPolicyPostRep.md
 docs/GenerateWarehouseDestinationKeyPairPostRep.md
 docs/GetAnnouncementsPublic200Response.md
 docs/GuardedReleaseConfig.md
@@ -573,6 +574,8 @@ docs/TreatmentRep.md
 docs/TriggerPost.md
 docs/TriggerWorkflowCollectionRep.md
 docs/TriggerWorkflowRep.md
+docs/TrustPolicyDetails.md
+docs/TrustPolicyStatement.md
 docs/UnauthorizedErrorRep.md
 docs/UnlinkResourceSuccessResponse.md
 docs/UpdatePhaseStatusInput.md
@@ -971,6 +974,7 @@ src/model/FollowFlagMember.js
 src/model/FollowersPerFlag.js
 src/model/ForbiddenErrorRep.js
 src/model/FormVariable.js
+src/model/GenerateTrustPolicyPostRep.js
 src/model/GenerateWarehouseDestinationKeyPairPostRep.js
 src/model/GetAnnouncementsPublic200Response.js
 src/model/GuardedReleaseConfig.js
@@ -1220,6 +1224,8 @@ src/model/TreatmentRep.js
 src/model/TriggerPost.js
 src/model/TriggerWorkflowCollectionRep.js
 src/model/TriggerWorkflowRep.js
+src/model/TrustPolicyDetails.js
+src/model/TrustPolicyStatement.js
 src/model/UnauthorizedErrorRep.js
 src/model/UnlinkResourceSuccessResponse.js
 src/model/UpdatePhaseStatusInput.js
@@ -1606,6 +1612,7 @@ test/model/FollowFlagMember.spec.js
 test/model/FollowersPerFlag.spec.js
 test/model/ForbiddenErrorRep.spec.js
 test/model/FormVariable.spec.js
+test/model/GenerateTrustPolicyPostRep.spec.js
 test/model/GenerateWarehouseDestinationKeyPairPostRep.spec.js
 test/model/GetAnnouncementsPublic200Response.spec.js
 test/model/GuardedReleaseConfig.spec.js
@@ -1855,6 +1862,8 @@ test/model/TreatmentRep.spec.js
 test/model/TriggerPost.spec.js
 test/model/TriggerWorkflowCollectionRep.spec.js
 test/model/TriggerWorkflowRep.spec.js
+test/model/TrustPolicyDetails.spec.js
+test/model/TrustPolicyStatement.spec.js
 test/model/UnauthorizedErrorRep.spec.js
 test/model/UnlinkResourceSuccessResponse.spec.js
 test/model/UpdatePhaseStatusInput.spec.js

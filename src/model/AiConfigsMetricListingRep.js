@@ -23,7 +23,7 @@ import AiConfigsModification from './AiConfigsModification';
 /**
  * The AiConfigsMetricListingRep model module.
  * @module model/AiConfigsMetricListingRep
- * @version 18.1.0
+ * @version 19.0.0
  */
 class AiConfigsMetricListingRep {
     /**
@@ -37,10 +37,11 @@ class AiConfigsMetricListingRep {
      * @param links {Object.<String, module:model/AiConfigsLink>} The location and content type of related resources
      * @param tags {Array.<String>} Tags for the metric
      * @param creationDate {Number} 
+     * @param dataSource {module:model/AiConfigsMetricDataSourceRefRep} 
      */
-    constructor(id, versionId, key, name, kind, links, tags, creationDate) { 
+    constructor(id, versionId, key, name, kind, links, tags, creationDate, dataSource) { 
         
-        AiConfigsMetricListingRep.initialize(this, id, versionId, key, name, kind, links, tags, creationDate);
+        AiConfigsMetricListingRep.initialize(this, id, versionId, key, name, kind, links, tags, creationDate, dataSource);
     }
 
     /**
@@ -48,7 +49,7 @@ class AiConfigsMetricListingRep {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, versionId, key, name, kind, links, tags, creationDate) { 
+    static initialize(obj, id, versionId, key, name, kind, links, tags, creationDate, dataSource) { 
         obj['_id'] = id;
         obj['_versionId'] = versionId;
         obj['key'] = key;
@@ -57,6 +58,7 @@ class AiConfigsMetricListingRep {
         obj['_links'] = links;
         obj['tags'] = tags;
         obj['_creationDate'] = creationDate;
+        obj['dataSource'] = dataSource;
     }
 
     /**
@@ -300,7 +302,7 @@ class AiConfigsMetricListingRep {
 
 }
 
-AiConfigsMetricListingRep.RequiredProperties = ["_id", "_versionId", "key", "name", "kind", "_links", "tags", "_creationDate"];
+AiConfigsMetricListingRep.RequiredProperties = ["_id", "_versionId", "key", "name", "kind", "_links", "tags", "_creationDate", "dataSource"];
 
 /**
  * The number of experiments using this metric

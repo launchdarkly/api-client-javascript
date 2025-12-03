@@ -98,6 +98,16 @@
         done();
       });
     });
+    describe('postGenerateTrustPolicy', function() {
+      it('should call postGenerateTrustPolicy successfully', function(done) {
+        //uncomment below and update the code to test postGenerateTrustPolicy
+        //instance.postGenerateTrustPolicy(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('postGenerateWarehouseDestinationKeyPair', function() {
       it('should call postGenerateWarehouseDestinationKeyPair successfully', function(done) {
         //uncomment below and update the code to test postGenerateWarehouseDestinationKeyPair

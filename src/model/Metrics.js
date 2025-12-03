@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Metrics model module.
  * @module model/Metrics
- * @version 18.1.0
+ * @version 19.0.0
  */
 class Metrics {
     /**
@@ -85,6 +85,15 @@ class Metrics {
             }
             if (data.hasOwnProperty('outputCost')) {
                 obj['outputCost'] = ApiClient.convertToType(data['outputCost'], 'Number');
+            }
+            if (data.hasOwnProperty('judgeAccuracy')) {
+                obj['judgeAccuracy'] = ApiClient.convertToType(data['judgeAccuracy'], 'Number');
+            }
+            if (data.hasOwnProperty('judgeRelevance')) {
+                obj['judgeRelevance'] = ApiClient.convertToType(data['judgeRelevance'], 'Number');
+            }
+            if (data.hasOwnProperty('judgeToxicity')) {
+                obj['judgeToxicity'] = ApiClient.convertToType(data['judgeToxicity'], 'Number');
             }
         }
         return obj;
@@ -175,6 +184,24 @@ Metrics.prototype['inputCost'] = undefined;
  * @member {Number} outputCost
  */
 Metrics.prototype['outputCost'] = undefined;
+
+/**
+ * Average accuracy judge score (0.0-1.0)
+ * @member {Number} judgeAccuracy
+ */
+Metrics.prototype['judgeAccuracy'] = undefined;
+
+/**
+ * Average relevance judge score (0.0-1.0)
+ * @member {Number} judgeRelevance
+ */
+Metrics.prototype['judgeRelevance'] = undefined;
+
+/**
+ * Average toxicity judge score (0.0-1.0)
+ * @member {Number} judgeToxicity
+ */
+Metrics.prototype['judgeToxicity'] = undefined;
 
 
 

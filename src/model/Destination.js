@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The Destination model module.
  * @module model/Destination
- * @version 18.1.0
+ * @version 19.0.0
  */
 class Destination {
     /**
@@ -211,7 +211,13 @@ Destination['KindEnum'] = {
      * value: "bigquery"
      * @const
      */
-    "bigquery": "bigquery"
+    "bigquery": "bigquery",
+
+    /**
+     * value: "redshift"
+     * @const
+     */
+    "redshift": "redshift"
 };
 
 

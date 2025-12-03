@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The AuditLogEntryListingRepCollection model module.
  * @module model/AuditLogEntryListingRepCollection
- * @version 18.1.0
+ * @version 19.0.0
  */
 class AuditLogEntryListingRepCollection {
     /**

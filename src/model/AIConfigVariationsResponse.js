@@ -17,7 +17,7 @@ import AIConfigVariation from './AIConfigVariation';
 /**
  * The AIConfigVariationsResponse model module.
  * @module model/AIConfigVariationsResponse
- * @version 18.1.0
+ * @version 19.0.0
  */
 class AIConfigVariationsResponse {
     /**

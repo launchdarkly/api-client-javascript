@@ -17,7 +17,7 @@ import DynamicOptions from './DynamicOptions';
 /**
  * The FormVariable model module.
  * @module model/FormVariable
- * @version 18.1.0
+ * @version 19.0.0
  */
 class FormVariable {
     /**

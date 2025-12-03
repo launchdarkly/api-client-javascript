@@ -126,6 +126,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property evaluationMetricKeys (base name: "evaluationMetricKeys")', function() {
+      // uncomment below and update the code to test the property evaluationMetricKeys
+      //var instance = new LaunchDarklyApi.AIConfig();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

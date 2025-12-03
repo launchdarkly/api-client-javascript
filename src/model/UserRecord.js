@@ -19,7 +19,7 @@ import User from './User';
 /**
  * The UserRecord model module.
  * @module model/UserRecord
- * @version 18.1.0
+ * @version 19.0.0
  */
 class UserRecord {
     /**

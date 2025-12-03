@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The FollowFlagMember model module.
  * @module model/FollowFlagMember
- * @version 18.1.0
+ * @version 19.0.0
  */
 class FollowFlagMember {
     /**

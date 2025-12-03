@@ -17,6 +17,7 @@ import Destination from '../model/Destination';
 import DestinationPost from '../model/DestinationPost';
 import Destinations from '../model/Destinations';
 import ForbiddenErrorRep from '../model/ForbiddenErrorRep';
+import GenerateTrustPolicyPostRep from '../model/GenerateTrustPolicyPostRep';
 import GenerateWarehouseDestinationKeyPairPostRep from '../model/GenerateWarehouseDestinationKeyPairPostRep';
 import InvalidRequestErrorRep from '../model/InvalidRequestErrorRep';
 import NotFoundErrorRep from '../model/NotFoundErrorRep';
@@ -28,7 +29,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * DataExportDestinations service.
 * @module api/DataExportDestinationsApi
-* @version 18.1.0
+* @version 19.0.0
 */
 export default class DataExportDestinationsApi {
 
@@ -299,6 +300,55 @@ export default class DataExportDestinationsApi {
       let returnType = Destination;
       return this.apiClient.callApi(
         '/api/v2/destinations/{projectKey}/{environmentKey}', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postGenerateTrustPolicy operation.
+     * @callback module:api/DataExportDestinationsApi~postGenerateTrustPolicyCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GenerateTrustPolicyPostRep} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Generate trust policy
+     * Trust policy to allow Data Export to assume the role and perform operations on AWS resources
+     * @param {String} projKey The project key
+     * @param {String} envKey The environment key
+     * @param {module:api/DataExportDestinationsApi~postGenerateTrustPolicyCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GenerateTrustPolicyPostRep}
+     */
+    postGenerateTrustPolicy(projKey, envKey, callback) {
+      let postBody = null;
+      // verify the required parameter 'projKey' is set
+      if (projKey === undefined || projKey === null) {
+        throw new Error("Missing the required parameter 'projKey' when calling postGenerateTrustPolicy");
+      }
+      // verify the required parameter 'envKey' is set
+      if (envKey === undefined || envKey === null) {
+        throw new Error("Missing the required parameter 'envKey' when calling postGenerateTrustPolicy");
+      }
+
+      let pathParams = {
+        'projKey': projKey,
+        'envKey': envKey
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = GenerateTrustPolicyPostRep;
+      return this.apiClient.callApi(
+        '/api/v2/destinations/projects/{projKey}/environments/{envKey}/generate-trust-policy', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

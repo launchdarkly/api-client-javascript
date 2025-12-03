@@ -29,7 +29,7 @@ import ValidationFailedErrorRep from '../model/ValidationFailedErrorRep';
 /**
 * InsightsScoresBeta service.
 * @module api/InsightsScoresBetaApi
-* @version 18.1.0
+* @version 19.0.0
 */
 export default class InsightsScoresBetaApi {
 

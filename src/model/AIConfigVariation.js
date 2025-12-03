@@ -20,7 +20,7 @@ import VariationTool from './VariationTool';
 /**
  * The AIConfigVariation model module.
  * @module model/AIConfigVariation
- * @version 18.1.0
+ * @version 19.0.0
  */
 class AIConfigVariation {
     /**

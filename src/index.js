@@ -286,6 +286,7 @@ import FollowFlagMember from './model/FollowFlagMember';
 import FollowersPerFlag from './model/FollowersPerFlag';
 import ForbiddenErrorRep from './model/ForbiddenErrorRep';
 import FormVariable from './model/FormVariable';
+import GenerateTrustPolicyPostRep from './model/GenerateTrustPolicyPostRep';
 import GenerateWarehouseDestinationKeyPairPostRep from './model/GenerateWarehouseDestinationKeyPairPostRep';
 import GetAnnouncementsPublic200Response from './model/GetAnnouncementsPublic200Response';
 import GuardedReleaseConfig from './model/GuardedReleaseConfig';
@@ -535,6 +536,8 @@ import TreatmentRep from './model/TreatmentRep';
 import TriggerPost from './model/TriggerPost';
 import TriggerWorkflowCollectionRep from './model/TriggerWorkflowCollectionRep';
 import TriggerWorkflowRep from './model/TriggerWorkflowRep';
+import TrustPolicyDetails from './model/TrustPolicyDetails';
+import TrustPolicyStatement from './model/TrustPolicyStatement';
 import UnauthorizedErrorRep from './model/UnauthorizedErrorRep';
 import UnlinkResourceSuccessResponse from './model/UnlinkResourceSuccessResponse';
 import UpdatePhaseStatusInput from './model/UpdatePhaseStatusInput';
@@ -679,7 +682,7 @@ import WorkflowsApi from './api/WorkflowsApi';
 * </pre>
 * </p>
 * @module index
-* @version 18.1.0
+* @version 19.0.0
 */
 export {
     /**
@@ -2327,6 +2330,12 @@ export {
     FormVariable,
 
     /**
+     * The GenerateTrustPolicyPostRep model constructor.
+     * @property {module:model/GenerateTrustPolicyPostRep}
+     */
+    GenerateTrustPolicyPostRep,
+
+    /**
      * The GenerateWarehouseDestinationKeyPairPostRep model constructor.
      * @property {module:model/GenerateWarehouseDestinationKeyPairPostRep}
      */
@@ -3819,6 +3828,18 @@ export {
      * @property {module:model/TriggerWorkflowRep}
      */
     TriggerWorkflowRep,
+
+    /**
+     * The TrustPolicyDetails model constructor.
+     * @property {module:model/TrustPolicyDetails}
+     */
+    TrustPolicyDetails,
+
+    /**
+     * The TrustPolicyStatement model constructor.
+     * @property {module:model/TrustPolicyStatement}
+     */
+    TrustPolicyStatement,
 
     /**
      * The UnauthorizedErrorRep model constructor.

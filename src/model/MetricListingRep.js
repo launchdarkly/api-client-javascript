@@ -23,7 +23,7 @@ import Modification from './Modification';
 /**
  * The MetricListingRep model module.
  * @module model/MetricListingRep
- * @version 18.1.0
+ * @version 19.0.0
  */
 class MetricListingRep {
     /**
@@ -37,10 +37,11 @@ class MetricListingRep {
      * @param links {Object.<String, module:model/Link>} The location and content type of related resources
      * @param tags {Array.<String>} Tags for the metric
      * @param creationDate {Number} 
+     * @param dataSource {module:model/MetricDataSourceRefRep} 
      */
-    constructor(id, versionId, key, name, kind, links, tags, creationDate) { 
+    constructor(id, versionId, key, name, kind, links, tags, creationDate, dataSource) { 
         
-        MetricListingRep.initialize(this, id, versionId, key, name, kind, links, tags, creationDate);
+        MetricListingRep.initialize(this, id, versionId, key, name, kind, links, tags, creationDate, dataSource);
     }
 
     /**
@@ -48,7 +49,7 @@ class MetricListingRep {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, versionId, key, name, kind, links, tags, creationDate) { 
+    static initialize(obj, id, versionId, key, name, kind, links, tags, creationDate, dataSource) { 
         obj['_id'] = id;
         obj['_versionId'] = versionId;
         obj['key'] = key;
@@ -57,6 +58,7 @@ class MetricListingRep {
         obj['_links'] = links;
         obj['tags'] = tags;
         obj['_creationDate'] = creationDate;
+        obj['dataSource'] = dataSource;
     }
 
     /**
@@ -297,7 +299,7 @@ class MetricListingRep {
 
 }
 
-MetricListingRep.RequiredProperties = ["_id", "_versionId", "key", "name", "kind", "_links", "tags", "_creationDate"];
+MetricListingRep.RequiredProperties = ["_id", "_versionId", "key", "name", "kind", "_links", "tags", "_creationDate", "dataSource"];
 
 /**
  * The number of experiments using this metric

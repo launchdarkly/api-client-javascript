@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The PhaseInfo model module.
  * @module model/PhaseInfo
- * @version 18.1.0
+ * @version 19.0.0
  */
 class PhaseInfo {
     /**

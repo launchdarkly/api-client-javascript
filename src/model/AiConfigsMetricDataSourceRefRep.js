@@ -16,16 +16,17 @@ import ApiClient from '../ApiClient';
 /**
  * The AiConfigsMetricDataSourceRefRep model module.
  * @module model/AiConfigsMetricDataSourceRefRep
- * @version 18.1.0
+ * @version 19.0.0
  */
 class AiConfigsMetricDataSourceRefRep {
     /**
      * Constructs a new <code>AiConfigsMetricDataSourceRefRep</code>.
      * @alias module:model/AiConfigsMetricDataSourceRefRep
+     * @param key {String} 
      */
-    constructor() { 
+    constructor(key) { 
         
-        AiConfigsMetricDataSourceRefRep.initialize(this);
+        AiConfigsMetricDataSourceRefRep.initialize(this, key);
     }
 
     /**
@@ -33,7 +34,8 @@ class AiConfigsMetricDataSourceRefRep {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, key) { 
+        obj['key'] = key;
     }
 
     /**
@@ -69,6 +71,12 @@ class AiConfigsMetricDataSourceRefRep {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>AiConfigsMetricDataSourceRefRep</code>.
      */
     static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of AiConfigsMetricDataSourceRefRep.RequiredProperties) {
+            if (!data.hasOwnProperty(property)) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
         // ensure the json data is a string
         if (data['key'] && !(typeof data['key'] === 'string' || data['key'] instanceof String)) {
             throw new Error("Expected the field `key` to be a primitive type in the JSON string but got " + data['key']);
@@ -92,7 +100,7 @@ class AiConfigsMetricDataSourceRefRep {
 
 }
 
-
+AiConfigsMetricDataSourceRefRep.RequiredProperties = ["key"];
 
 /**
  * @member {String} key
