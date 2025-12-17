@@ -28,6 +28,7 @@ import AIToolPatch from '../model/AIToolPatch';
 import AIToolPost from '../model/AIToolPost';
 import AITools from '../model/AITools';
 import AgentGraph from '../model/AgentGraph';
+import AgentGraphPatch from '../model/AgentGraphPatch';
 import AgentGraphPost from '../model/AgentGraphPost';
 import AgentGraphs from '../model/AgentGraphs';
 import Error from '../model/Error';
@@ -220,6 +221,60 @@ export default class AIConfigsBetaApi {
       let returnType = null;
       return this.apiClient.callApi(
         '/api/v2/projects/{projectKey}/ai-tools/{toolKey}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the deleteAgentGraph operation.
+     * @callback module:api/AIConfigsBetaApi~deleteAgentGraphCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Delete agent graph
+     * Delete an existing agent graph and all of its edges.
+     * @param {module:model/String} lDAPIVersion Version of the endpoint.
+     * @param {String} projectKey 
+     * @param {String} graphKey 
+     * @param {module:api/AIConfigsBetaApi~deleteAgentGraphCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    deleteAgentGraph(lDAPIVersion, projectKey, graphKey, callback) {
+      let postBody = null;
+      // verify the required parameter 'lDAPIVersion' is set
+      if (lDAPIVersion === undefined || lDAPIVersion === null) {
+        throw new Error("Missing the required parameter 'lDAPIVersion' when calling deleteAgentGraph");
+      }
+      // verify the required parameter 'projectKey' is set
+      if (projectKey === undefined || projectKey === null) {
+        throw new Error("Missing the required parameter 'projectKey' when calling deleteAgentGraph");
+      }
+      // verify the required parameter 'graphKey' is set
+      if (graphKey === undefined || graphKey === null) {
+        throw new Error("Missing the required parameter 'graphKey' when calling deleteAgentGraph");
+      }
+
+      let pathParams = {
+        'projectKey': projectKey,
+        'graphKey': graphKey
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+        'LD-API-Version': lDAPIVersion
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/api/v2/projects/{projectKey}/agent-graphs/{graphKey}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -764,6 +819,61 @@ export default class AIConfigsBetaApi {
     }
 
     /**
+     * Callback function to receive the result of the getAgentGraph operation.
+     * @callback module:api/AIConfigsBetaApi~getAgentGraphCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AgentGraph} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get agent graph
+     * Retrieve a specific agent graph by its key, including its edges.
+     * @param {module:model/String} lDAPIVersion Version of the endpoint.
+     * @param {String} projectKey 
+     * @param {String} graphKey 
+     * @param {module:api/AIConfigsBetaApi~getAgentGraphCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AgentGraph}
+     */
+    getAgentGraph(lDAPIVersion, projectKey, graphKey, callback) {
+      let postBody = null;
+      // verify the required parameter 'lDAPIVersion' is set
+      if (lDAPIVersion === undefined || lDAPIVersion === null) {
+        throw new Error("Missing the required parameter 'lDAPIVersion' when calling getAgentGraph");
+      }
+      // verify the required parameter 'projectKey' is set
+      if (projectKey === undefined || projectKey === null) {
+        throw new Error("Missing the required parameter 'projectKey' when calling getAgentGraph");
+      }
+      // verify the required parameter 'graphKey' is set
+      if (graphKey === undefined || graphKey === null) {
+        throw new Error("Missing the required parameter 'graphKey' when calling getAgentGraph");
+      }
+
+      let pathParams = {
+        'projectKey': projectKey,
+        'graphKey': graphKey
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+        'LD-API-Version': lDAPIVersion
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AgentGraph;
+      return this.apiClient.callApi(
+        '/api/v2/projects/{projectKey}/agent-graphs/{graphKey}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getModelConfig operation.
      * @callback module:api/AIConfigsBetaApi~getModelConfigCallback
      * @param {String} error Error message, if any.
@@ -1281,6 +1391,64 @@ export default class AIConfigsBetaApi {
       let returnType = AITool;
       return this.apiClient.callApi(
         '/api/v2/projects/{projectKey}/ai-tools/{toolKey}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the patchAgentGraph operation.
+     * @callback module:api/AIConfigsBetaApi~patchAgentGraphCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AgentGraph} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Update agent graph
+     * Edit an existing agent graph.  The request body must be a JSON object of the fields to update. The values you include replace the existing values for the fields.  If the update includes `rootConfigKey` or `edges`, both must be present and will be treated as full replacements. 
+     * @param {module:model/String} lDAPIVersion Version of the endpoint.
+     * @param {String} projectKey 
+     * @param {String} graphKey 
+     * @param {Object} opts Optional parameters
+     * @param {module:model/AgentGraphPatch} [agentGraphPatch] Agent graph object to update
+     * @param {module:api/AIConfigsBetaApi~patchAgentGraphCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AgentGraph}
+     */
+    patchAgentGraph(lDAPIVersion, projectKey, graphKey, opts, callback) {
+      opts = opts || {};
+      let postBody = opts['agentGraphPatch'];
+      // verify the required parameter 'lDAPIVersion' is set
+      if (lDAPIVersion === undefined || lDAPIVersion === null) {
+        throw new Error("Missing the required parameter 'lDAPIVersion' when calling patchAgentGraph");
+      }
+      // verify the required parameter 'projectKey' is set
+      if (projectKey === undefined || projectKey === null) {
+        throw new Error("Missing the required parameter 'projectKey' when calling patchAgentGraph");
+      }
+      // verify the required parameter 'graphKey' is set
+      if (graphKey === undefined || graphKey === null) {
+        throw new Error("Missing the required parameter 'graphKey' when calling patchAgentGraph");
+      }
+
+      let pathParams = {
+        'projectKey': projectKey,
+        'graphKey': graphKey
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+        'LD-API-Version': lDAPIVersion
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = AgentGraph;
+      return this.apiClient.callApi(
+        '/api/v2/projects/{projectKey}/agent-graphs/{graphKey}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

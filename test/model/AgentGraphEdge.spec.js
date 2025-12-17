@@ -54,6 +54,12 @@
       //expect(instance).to.be.a(LaunchDarklyApi.AgentGraphEdge);
     });
 
+    it('should have the property key (base name: "key")', function() {
+      // uncomment below and update the code to test the property key
+      //var instance = new LaunchDarklyApi.AgentGraphEdge();
+      //expect(instance).to.be();
+    });
+
     it('should have the property sourceConfig (base name: "sourceConfig")', function() {
       // uncomment below and update the code to test the property sourceConfig
       //var instance = new LaunchDarklyApi.AgentGraphEdge();

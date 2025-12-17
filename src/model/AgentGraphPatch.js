@@ -11,73 +11,125 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD.
-    define(['expect.js', process.cwd()+'/src/index'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    factory(require('expect.js'), require(process.cwd()+'/src/index'));
-  } else {
-    // Browser globals (root is window)
-    factory(root.expect, root.LaunchDarklyApi);
-  }
-}(this, function(expect, LaunchDarklyApi) {
-  'use strict';
+import ApiClient from '../ApiClient';
+import AgentGraphEdge from './AgentGraphEdge';
 
-  var instance;
+/**
+ * The AgentGraphPatch model module.
+ * @module model/AgentGraphPatch
+ * @version 20.0.0
+ */
+class AgentGraphPatch {
+    /**
+     * Constructs a new <code>AgentGraphPatch</code>.
+     * Request body for updating an agent graph. If rootConfigKey or edges are present, both must be present.
+     * @alias module:model/AgentGraphPatch
+     */
+    constructor() { 
+        
+        AgentGraphPatch.initialize(this);
+    }
 
-  beforeEach(function() {
-    instance = new LaunchDarklyApi.AgentGraphEdgePost();
-  });
+    /**
+     * Initializes the fields of this object.
+     * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
+     * Only for internal use.
+     */
+    static initialize(obj) { 
+    }
 
-  var getProperty = function(object, getter, property) {
-    // Use getter method if present; otherwise, get the property directly.
-    if (typeof object[getter] === 'function')
-      return object[getter]();
-    else
-      return object[property];
-  }
+    /**
+     * Constructs a <code>AgentGraphPatch</code> from a plain JavaScript object, optionally creating a new instance.
+     * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @param {module:model/AgentGraphPatch} obj Optional instance to populate.
+     * @return {module:model/AgentGraphPatch} The populated <code>AgentGraphPatch</code> instance.
+     */
+    static constructFromObject(data, obj) {
+        if (data) {
+            obj = obj || new AgentGraphPatch();
 
-  var setProperty = function(object, setter, property, value) {
-    // Use setter method if present; otherwise, set the property directly.
-    if (typeof object[setter] === 'function')
-      object[setter](value);
-    else
-      object[property] = value;
-  }
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
+            if (data.hasOwnProperty('rootConfigKey')) {
+                obj['rootConfigKey'] = ApiClient.convertToType(data['rootConfigKey'], 'String');
+            }
+            if (data.hasOwnProperty('edges')) {
+                obj['edges'] = ApiClient.convertToType(data['edges'], [AgentGraphEdge]);
+            }
+        }
+        return obj;
+    }
 
-  describe('AgentGraphEdgePost', function() {
-    it('should create an instance of AgentGraphEdgePost', function() {
-      // uncomment below and update the code to test AgentGraphEdgePost
-      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
-      //expect(instance).to.be.a(LaunchDarklyApi.AgentGraphEdgePost);
-    });
+    /**
+     * Validates the JSON data with respect to <code>AgentGraphPatch</code>.
+     * @param {Object} data The plain JavaScript object bearing properties of interest.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>AgentGraphPatch</code>.
+     */
+    static validateJSON(data) {
+        // ensure the json data is a string
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
+        // ensure the json data is a string
+        if (data['rootConfigKey'] && !(typeof data['rootConfigKey'] === 'string' || data['rootConfigKey'] instanceof String)) {
+            throw new Error("Expected the field `rootConfigKey` to be a primitive type in the JSON string but got " + data['rootConfigKey']);
+        }
+        if (data['edges']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['edges'])) {
+                throw new Error("Expected the field `edges` to be an array in the JSON data but got " + data['edges']);
+            }
+            // validate the optional field `edges` (array)
+            for (const item of data['edges']) {
+                AgentGraphEdge.validateJSON(item);
+            };
+        }
 
-    it('should have the property key (base name: "key")', function() {
-      // uncomment below and update the code to test the property key
-      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
-      //expect(instance).to.be();
-    });
+        return true;
+    }
 
-    it('should have the property sourceConfig (base name: "sourceConfig")', function() {
-      // uncomment below and update the code to test the property sourceConfig
-      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
-      //expect(instance).to.be();
-    });
 
-    it('should have the property targetConfig (base name: "targetConfig")', function() {
-      // uncomment below and update the code to test the property targetConfig
-      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
-      //expect(instance).to.be();
-    });
+}
 
-    it('should have the property handoff (base name: "handoff")', function() {
-      // uncomment below and update the code to test the property handoff
-      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
-      //expect(instance).to.be();
-    });
 
-  });
 
-}));
+/**
+ * A human-readable name for the agent graph
+ * @member {String} name
+ */
+AgentGraphPatch.prototype['name'] = undefined;
+
+/**
+ * A description of the agent graph
+ * @member {String} description
+ */
+AgentGraphPatch.prototype['description'] = undefined;
+
+/**
+ * The AI Config key of the root node. If present, edges must also be present.
+ * @member {String} rootConfigKey
+ */
+AgentGraphPatch.prototype['rootConfigKey'] = undefined;
+
+/**
+ * The edges in the graph. If present, rootConfigKey must also be present. Replaces all existing edges.
+ * @member {Array.<module:model/AgentGraphEdge>} edges
+ */
+AgentGraphPatch.prototype['edges'] = undefined;
+
+
+
+
+
+
+export default AgentGraphPatch;
+

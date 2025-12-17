@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**deleteAIConfig**](AIConfigsBetaApi.md#deleteAIConfig) | **DELETE** /api/v2/projects/{projectKey}/ai-configs/{configKey} | Delete AI Config
 [**deleteAIConfigVariation**](AIConfigsBetaApi.md#deleteAIConfigVariation) | **DELETE** /api/v2/projects/{projectKey}/ai-configs/{configKey}/variations/{variationKey} | Delete AI Config variation
 [**deleteAITool**](AIConfigsBetaApi.md#deleteAITool) | **DELETE** /api/v2/projects/{projectKey}/ai-tools/{toolKey} | Delete AI tool
+[**deleteAgentGraph**](AIConfigsBetaApi.md#deleteAgentGraph) | **DELETE** /api/v2/projects/{projectKey}/agent-graphs/{graphKey} | Delete agent graph
 [**deleteModelConfig**](AIConfigsBetaApi.md#deleteModelConfig) | **DELETE** /api/v2/projects/{projectKey}/ai-configs/model-configs/{modelConfigKey} | Delete an AI model config
 [**deleteRestrictedModels**](AIConfigsBetaApi.md#deleteRestrictedModels) | **DELETE** /api/v2/projects/{projectKey}/ai-configs/model-configs/restricted | Remove AI models from the restricted list
 [**getAIConfig**](AIConfigsBetaApi.md#getAIConfig) | **GET** /api/v2/projects/{projectKey}/ai-configs/{configKey} | Get AI Config
@@ -16,6 +17,7 @@ Method | HTTP request | Description
 [**getAIConfigVariation**](AIConfigsBetaApi.md#getAIConfigVariation) | **GET** /api/v2/projects/{projectKey}/ai-configs/{configKey}/variations/{variationKey} | Get AI Config variation
 [**getAIConfigs**](AIConfigsBetaApi.md#getAIConfigs) | **GET** /api/v2/projects/{projectKey}/ai-configs | List AI Configs
 [**getAITool**](AIConfigsBetaApi.md#getAITool) | **GET** /api/v2/projects/{projectKey}/ai-tools/{toolKey} | Get AI tool
+[**getAgentGraph**](AIConfigsBetaApi.md#getAgentGraph) | **GET** /api/v2/projects/{projectKey}/agent-graphs/{graphKey} | Get agent graph
 [**getModelConfig**](AIConfigsBetaApi.md#getModelConfig) | **GET** /api/v2/projects/{projectKey}/ai-configs/model-configs/{modelConfigKey} | Get AI model config
 [**listAIToolVersions**](AIConfigsBetaApi.md#listAIToolVersions) | **GET** /api/v2/projects/{projectKey}/ai-tools/{toolKey}/versions | List AI tool versions
 [**listAITools**](AIConfigsBetaApi.md#listAITools) | **GET** /api/v2/projects/{projectKey}/ai-tools | List AI tools
@@ -25,6 +27,7 @@ Method | HTTP request | Description
 [**patchAIConfigTargeting**](AIConfigsBetaApi.md#patchAIConfigTargeting) | **PATCH** /api/v2/projects/{projectKey}/ai-configs/{configKey}/targeting | Update AI Config targeting
 [**patchAIConfigVariation**](AIConfigsBetaApi.md#patchAIConfigVariation) | **PATCH** /api/v2/projects/{projectKey}/ai-configs/{configKey}/variations/{variationKey} | Update AI Config variation
 [**patchAITool**](AIConfigsBetaApi.md#patchAITool) | **PATCH** /api/v2/projects/{projectKey}/ai-tools/{toolKey} | Update AI tool
+[**patchAgentGraph**](AIConfigsBetaApi.md#patchAgentGraph) | **PATCH** /api/v2/projects/{projectKey}/agent-graphs/{graphKey} | Update agent graph
 [**postAIConfig**](AIConfigsBetaApi.md#postAIConfig) | **POST** /api/v2/projects/{projectKey}/ai-configs | Create new AI Config
 [**postAIConfigVariation**](AIConfigsBetaApi.md#postAIConfigVariation) | **POST** /api/v2/projects/{projectKey}/ai-configs/{configKey}/variations | Create AI Config variation
 [**postAITool**](AIConfigsBetaApi.md#postAITool) | **POST** /api/v2/projects/{projectKey}/ai-tools | Create an AI tool
@@ -186,6 +189,61 @@ Name | Type | Description  | Notes
  **lDAPIVersion** | **String**| Version of the endpoint. | 
  **projectKey** | **String**|  | 
  **toolKey** | **String**|  | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## deleteAgentGraph
+
+> deleteAgentGraph(lDAPIVersion, projectKey, graphKey)
+
+Delete agent graph
+
+Delete an existing agent graph and all of its edges.
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.AIConfigsBetaApi();
+let lDAPIVersion = "lDAPIVersion_example"; // String | Version of the endpoint.
+let projectKey = "projectKey_example"; // String | 
+let graphKey = "graphKey_example"; // String | 
+apiInstance.deleteAgentGraph(lDAPIVersion, projectKey, graphKey, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lDAPIVersion** | **String**| Version of the endpoint. | 
+ **projectKey** | **String**|  | 
+ **graphKey** | **String**|  | 
 
 ### Return type
 
@@ -707,6 +765,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AITool**](AITool.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getAgentGraph
+
+> AgentGraph getAgentGraph(lDAPIVersion, projectKey, graphKey)
+
+Get agent graph
+
+Retrieve a specific agent graph by its key, including its edges.
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.AIConfigsBetaApi();
+let lDAPIVersion = "lDAPIVersion_example"; // String | Version of the endpoint.
+let projectKey = "projectKey_example"; // String | 
+let graphKey = "graphKey_example"; // String | 
+apiInstance.getAgentGraph(lDAPIVersion, projectKey, graphKey, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lDAPIVersion** | **String**| Version of the endpoint. | 
+ **projectKey** | **String**|  | 
+ **graphKey** | **String**|  | 
+
+### Return type
+
+[**AgentGraph**](AgentGraph.md)
 
 ### Authorization
 
@@ -1242,6 +1355,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AITool**](AITool.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## patchAgentGraph
+
+> AgentGraph patchAgentGraph(lDAPIVersion, projectKey, graphKey, opts)
+
+Update agent graph
+
+Edit an existing agent graph.  The request body must be a JSON object of the fields to update. The values you include replace the existing values for the fields.  If the update includes &#x60;rootConfigKey&#x60; or &#x60;edges&#x60;, both must be present and will be treated as full replacements. 
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.AIConfigsBetaApi();
+let lDAPIVersion = "lDAPIVersion_example"; // String | Version of the endpoint.
+let projectKey = "projectKey_example"; // String | 
+let graphKey = "graphKey_example"; // String | 
+let opts = {
+  'agentGraphPatch': new LaunchDarklyApi.AgentGraphPatch() // AgentGraphPatch | Agent graph object to update
+};
+apiInstance.patchAgentGraph(lDAPIVersion, projectKey, graphKey, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lDAPIVersion** | **String**| Version of the endpoint. | 
+ **projectKey** | **String**|  | 
+ **graphKey** | **String**|  | 
+ **agentGraphPatch** | [**AgentGraphPatch**](AgentGraphPatch.md)| Agent graph object to update | [optional] 
+
+### Return type
+
+[**AgentGraph**](AgentGraph.md)
 
 ### Authorization
 

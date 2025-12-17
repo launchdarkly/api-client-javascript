@@ -23,12 +23,13 @@ class AgentGraphEdgePost {
      * Constructs a new <code>AgentGraphEdgePost</code>.
      * An edge in an agent graph connecting two AI Configs
      * @alias module:model/AgentGraphEdgePost
+     * @param key {String} A unique key for this edge within the graph
      * @param sourceConfig {String} The AI Config key that is the source of this edge
      * @param targetConfig {String} The AI Config key that is the target of this edge
      */
-    constructor(sourceConfig, targetConfig) { 
+    constructor(key, sourceConfig, targetConfig) { 
         
-        AgentGraphEdgePost.initialize(this, sourceConfig, targetConfig);
+        AgentGraphEdgePost.initialize(this, key, sourceConfig, targetConfig);
     }
 
     /**
@@ -36,7 +37,8 @@ class AgentGraphEdgePost {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, sourceConfig, targetConfig) { 
+    static initialize(obj, key, sourceConfig, targetConfig) { 
+        obj['key'] = key;
         obj['sourceConfig'] = sourceConfig;
         obj['targetConfig'] = targetConfig;
     }
@@ -52,6 +54,9 @@ class AgentGraphEdgePost {
         if (data) {
             obj = obj || new AgentGraphEdgePost();
 
+            if (data.hasOwnProperty('key')) {
+                obj['key'] = ApiClient.convertToType(data['key'], 'String');
+            }
             if (data.hasOwnProperty('sourceConfig')) {
                 obj['sourceConfig'] = ApiClient.convertToType(data['sourceConfig'], 'String');
             }
@@ -78,6 +83,10 @@ class AgentGraphEdgePost {
             }
         }
         // ensure the json data is a string
+        if (data['key'] && !(typeof data['key'] === 'string' || data['key'] instanceof String)) {
+            throw new Error("Expected the field `key` to be a primitive type in the JSON string but got " + data['key']);
+        }
+        // ensure the json data is a string
         if (data['sourceConfig'] && !(typeof data['sourceConfig'] === 'string' || data['sourceConfig'] instanceof String)) {
             throw new Error("Expected the field `sourceConfig` to be a primitive type in the JSON string but got " + data['sourceConfig']);
         }
@@ -92,7 +101,13 @@ class AgentGraphEdgePost {
 
 }
 
-AgentGraphEdgePost.RequiredProperties = ["sourceConfig", "targetConfig"];
+AgentGraphEdgePost.RequiredProperties = ["key", "sourceConfig", "targetConfig"];
+
+/**
+ * A unique key for this edge within the graph
+ * @member {String} key
+ */
+AgentGraphEdgePost.prototype['key'] = undefined;
 
 /**
  * The AI Config key that is the source of this edge

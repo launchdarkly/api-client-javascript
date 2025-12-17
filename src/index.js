@@ -52,6 +52,7 @@ import ActionOutput from './model/ActionOutput';
 import AgentGraph from './model/AgentGraph';
 import AgentGraphEdge from './model/AgentGraphEdge';
 import AgentGraphEdgePost from './model/AgentGraphEdgePost';
+import AgentGraphPatch from './model/AgentGraphPatch';
 import AgentGraphPost from './model/AgentGraphPost';
 import AgentGraphs from './model/AgentGraphs';
 import AiConfigsAccess from './model/AiConfigsAccess';
@@ -930,6 +931,12 @@ export {
      * @property {module:model/AgentGraphEdgePost}
      */
     AgentGraphEdgePost,
+
+    /**
+     * The AgentGraphPatch model constructor.
+     * @property {module:model/AgentGraphPatch}
+     */
+    AgentGraphPatch,
 
     /**
      * The AgentGraphPost model constructor.

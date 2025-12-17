@@ -78,6 +78,16 @@
         done();
       });
     });
+    describe('deleteAgentGraph', function() {
+      it('should call deleteAgentGraph successfully', function(done) {
+        //uncomment below and update the code to test deleteAgentGraph
+        //instance.deleteAgentGraph(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('deleteModelConfig', function() {
       it('should call deleteModelConfig successfully', function(done) {
         //uncomment below and update the code to test deleteModelConfig
@@ -168,6 +178,16 @@
         done();
       });
     });
+    describe('getAgentGraph', function() {
+      it('should call getAgentGraph successfully', function(done) {
+        //uncomment below and update the code to test getAgentGraph
+        //instance.getAgentGraph(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getModelConfig', function() {
       it('should call getModelConfig successfully', function(done) {
         //uncomment below and update the code to test getModelConfig
@@ -252,6 +272,16 @@
       it('should call patchAITool successfully', function(done) {
         //uncomment below and update the code to test patchAITool
         //instance.patchAITool(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('patchAgentGraph', function() {
+      it('should call patchAgentGraph successfully', function(done) {
+        //uncomment below and update the code to test patchAgentGraph
+        //instance.patchAgentGraph(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

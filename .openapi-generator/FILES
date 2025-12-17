@@ -46,6 +46,7 @@ docs/ActionOutput.md
 docs/AgentGraph.md
 docs/AgentGraphEdge.md
 docs/AgentGraphEdgePost.md
+docs/AgentGraphPatch.md
 docs/AgentGraphPost.md
 docs/AgentGraphs.md
 docs/AiConfigsAccess.md
@@ -746,6 +747,7 @@ src/model/ActionOutput.js
 src/model/AgentGraph.js
 src/model/AgentGraphEdge.js
 src/model/AgentGraphEdgePost.js
+src/model/AgentGraphPatch.js
 src/model/AgentGraphPost.js
 src/model/AgentGraphs.js
 src/model/AiConfigsAccess.js
@@ -1390,6 +1392,7 @@ test/model/ActionOutput.spec.js
 test/model/AgentGraph.spec.js
 test/model/AgentGraphEdge.spec.js
 test/model/AgentGraphEdgePost.spec.js
+test/model/AgentGraphPatch.spec.js
 test/model/AgentGraphPost.spec.js
 test/model/AgentGraphs.spec.js
 test/model/AiConfigsAccess.spec.js

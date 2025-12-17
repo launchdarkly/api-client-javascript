@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyApi.AgentGraphEdgePost();
+    instance = new LaunchDarklyApi.AgentGraphPatch();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,34 +47,34 @@
       object[property] = value;
   }
 
-  describe('AgentGraphEdgePost', function() {
-    it('should create an instance of AgentGraphEdgePost', function() {
-      // uncomment below and update the code to test AgentGraphEdgePost
-      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
-      //expect(instance).to.be.a(LaunchDarklyApi.AgentGraphEdgePost);
+  describe('AgentGraphPatch', function() {
+    it('should create an instance of AgentGraphPatch', function() {
+      // uncomment below and update the code to test AgentGraphPatch
+      //var instance = new LaunchDarklyApi.AgentGraphPatch();
+      //expect(instance).to.be.a(LaunchDarklyApi.AgentGraphPatch);
     });
 
-    it('should have the property key (base name: "key")', function() {
-      // uncomment below and update the code to test the property key
-      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
+    it('should have the property name (base name: "name")', function() {
+      // uncomment below and update the code to test the property name
+      //var instance = new LaunchDarklyApi.AgentGraphPatch();
       //expect(instance).to.be();
     });
 
-    it('should have the property sourceConfig (base name: "sourceConfig")', function() {
-      // uncomment below and update the code to test the property sourceConfig
-      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
+    it('should have the property description (base name: "description")', function() {
+      // uncomment below and update the code to test the property description
+      //var instance = new LaunchDarklyApi.AgentGraphPatch();
       //expect(instance).to.be();
     });
 
-    it('should have the property targetConfig (base name: "targetConfig")', function() {
-      // uncomment below and update the code to test the property targetConfig
-      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
+    it('should have the property rootConfigKey (base name: "rootConfigKey")', function() {
+      // uncomment below and update the code to test the property rootConfigKey
+      //var instance = new LaunchDarklyApi.AgentGraphPatch();
       //expect(instance).to.be();
     });
 
-    it('should have the property handoff (base name: "handoff")', function() {
-      // uncomment below and update the code to test the property handoff
-      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
+    it('should have the property edges (base name: "edges")', function() {
+      // uncomment below and update the code to test the property edges
+      //var instance = new LaunchDarklyApi.AgentGraphPatch();
       //expect(instance).to.be();
     });
 
