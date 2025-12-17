@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The HeaderItems model module.
  * @module model/HeaderItems
- * @version 19.0.0
+ * @version 20.0.0
  */
 class HeaderItems {
     /**

@@ -17,7 +17,7 @@ import AIConfigTargetingVariationValue from './AIConfigTargetingVariationValue';
 /**
  * The AIConfigTargetingVariation model module.
  * @module model/AIConfigTargetingVariation
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AIConfigTargetingVariation {
     /**

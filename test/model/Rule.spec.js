@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property disabled (base name: "disabled")', function() {
+      // uncomment below and update the code to test the property disabled
+      //var instance = new LaunchDarklyApi.Rule();
+      //expect(instance).to.be();
+    });
+
     it('should have the property variation (base name: "variation")', function() {
       // uncomment below and update the code to test the property variation
       //var instance = new LaunchDarklyApi.Rule();

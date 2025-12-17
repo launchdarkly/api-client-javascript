@@ -17,7 +17,7 @@ import ParameterDefault from './ParameterDefault';
 /**
  * The WorkflowTemplateParameter model module.
  * @module model/WorkflowTemplateParameter
- * @version 19.0.0
+ * @version 20.0.0
  */
 class WorkflowTemplateParameter {
     /**

@@ -17,7 +17,7 @@ import ViewsSelfLink from './ViewsSelfLink';
 /**
  * The ExpandedDirectlyLinkedFlag model module.
  * @module model/ExpandedDirectlyLinkedFlag
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ExpandedDirectlyLinkedFlag {
     /**

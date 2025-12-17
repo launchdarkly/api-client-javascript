@@ -20,7 +20,7 @@ import ExpandedLinkedResourcesSegments from './ExpandedLinkedResourcesSegments';
 /**
  * The ExpandedLinkedResourcesItems model module.
  * @module model/ExpandedLinkedResourcesItems
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ExpandedLinkedResourcesItems {
     /**

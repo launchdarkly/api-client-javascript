@@ -60,6 +60,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property flagTagKeys (base name: "flagTagKeys")', function() {
+      // uncomment below and update the code to test the property flagTagKeys
+      //var instance = new LaunchDarklyApi.ReleasePolicyScope();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

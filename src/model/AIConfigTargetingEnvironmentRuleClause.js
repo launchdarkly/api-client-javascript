@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AIConfigTargetingEnvironmentRuleClause model module.
  * @module model/AIConfigTargetingEnvironmentRuleClause
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AIConfigTargetingEnvironmentRuleClause {
     /**

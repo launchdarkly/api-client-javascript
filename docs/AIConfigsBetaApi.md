@@ -19,6 +19,7 @@ Method | HTTP request | Description
 [**getModelConfig**](AIConfigsBetaApi.md#getModelConfig) | **GET** /api/v2/projects/{projectKey}/ai-configs/model-configs/{modelConfigKey} | Get AI model config
 [**listAIToolVersions**](AIConfigsBetaApi.md#listAIToolVersions) | **GET** /api/v2/projects/{projectKey}/ai-tools/{toolKey}/versions | List AI tool versions
 [**listAITools**](AIConfigsBetaApi.md#listAITools) | **GET** /api/v2/projects/{projectKey}/ai-tools | List AI tools
+[**listAgentGraphs**](AIConfigsBetaApi.md#listAgentGraphs) | **GET** /api/v2/projects/{projectKey}/agent-graphs | List agent graphs
 [**listModelConfigs**](AIConfigsBetaApi.md#listModelConfigs) | **GET** /api/v2/projects/{projectKey}/ai-configs/model-configs | List AI model configs
 [**patchAIConfig**](AIConfigsBetaApi.md#patchAIConfig) | **PATCH** /api/v2/projects/{projectKey}/ai-configs/{configKey} | Update AI Config
 [**patchAIConfigTargeting**](AIConfigsBetaApi.md#patchAIConfigTargeting) | **PATCH** /api/v2/projects/{projectKey}/ai-configs/{configKey}/targeting | Update AI Config targeting
@@ -27,6 +28,7 @@ Method | HTTP request | Description
 [**postAIConfig**](AIConfigsBetaApi.md#postAIConfig) | **POST** /api/v2/projects/{projectKey}/ai-configs | Create new AI Config
 [**postAIConfigVariation**](AIConfigsBetaApi.md#postAIConfigVariation) | **POST** /api/v2/projects/{projectKey}/ai-configs/{configKey}/variations | Create AI Config variation
 [**postAITool**](AIConfigsBetaApi.md#postAITool) | **POST** /api/v2/projects/{projectKey}/ai-tools | Create an AI tool
+[**postAgentGraph**](AIConfigsBetaApi.md#postAgentGraph) | **POST** /api/v2/projects/{projectKey}/agent-graphs | Create new agent graph
 [**postModelConfig**](AIConfigsBetaApi.md#postModelConfig) | **POST** /api/v2/projects/{projectKey}/ai-configs/model-configs | Create an AI model config
 [**postRestrictedModels**](AIConfigsBetaApi.md#postRestrictedModels) | **POST** /api/v2/projects/{projectKey}/ai-configs/model-configs/restricted | Add AI models to the restricted list
 
@@ -897,6 +899,65 @@ Name | Type | Description  | Notes
 - **Accept**: application/json
 
 
+## listAgentGraphs
+
+> AgentGraphs listAgentGraphs(lDAPIVersion, projectKey, opts)
+
+List agent graphs
+
+Get a list of all agent graphs in the given project. Returns metadata only, without edge data.
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.AIConfigsBetaApi();
+let lDAPIVersion = "lDAPIVersion_example"; // String | Version of the endpoint.
+let projectKey = "projectKey_example"; // String | 
+let opts = {
+  'limit': 56, // Number | The number of AI Configs to return.
+  'offset': 56 // Number | Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and then returns the next items in the list, up to the query `limit`.
+};
+apiInstance.listAgentGraphs(lDAPIVersion, projectKey, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lDAPIVersion** | **String**| Version of the endpoint. | 
+ **projectKey** | **String**|  | 
+ **limit** | **Number**| The number of AI Configs to return. | [optional] 
+ **offset** | **Number**| Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and then returns the next items in the list, up to the query &#x60;limit&#x60;. | [optional] 
+
+### Return type
+
+[**AgentGraphs**](AgentGraphs.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## listModelConfigs
 
 > [ModelConfig] listModelConfigs(lDAPIVersion, projectKey, opts)
@@ -1348,6 +1409,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AITool**](AITool.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## postAgentGraph
+
+> AgentGraph postAgentGraph(lDAPIVersion, projectKey, agentGraphPost)
+
+Create new agent graph
+
+Create a new agent graph within the given project.
+
+### Example
+
+```javascript
+import LaunchDarklyApi from 'launchdarkly-api';
+let defaultClient = LaunchDarklyApi.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new LaunchDarklyApi.AIConfigsBetaApi();
+let lDAPIVersion = "lDAPIVersion_example"; // String | Version of the endpoint.
+let projectKey = "projectKey_example"; // String | 
+let agentGraphPost = new LaunchDarklyApi.AgentGraphPost(); // AgentGraphPost | Agent graph object to create
+apiInstance.postAgentGraph(lDAPIVersion, projectKey, agentGraphPost, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lDAPIVersion** | **String**| Version of the endpoint. | 
+ **projectKey** | **String**|  | 
+ **agentGraphPost** | [**AgentGraphPost**](AgentGraphPost.md)| Agent graph object to create | 
+
+### Return type
+
+[**AgentGraph**](AgentGraph.md)
 
 ### Authorization
 

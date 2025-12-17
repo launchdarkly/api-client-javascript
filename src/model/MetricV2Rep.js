@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The MetricV2Rep model module.
  * @module model/MetricV2Rep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class MetricV2Rep {
     /**

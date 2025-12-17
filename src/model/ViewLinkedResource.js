@@ -18,7 +18,7 @@ import ViewLinkedResourceDetails from './ViewLinkedResourceDetails';
 /**
  * The ViewLinkedResource model module.
  * @module model/ViewLinkedResource
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ViewLinkedResource {
     /**

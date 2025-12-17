@@ -18,7 +18,7 @@ import Token from './Token';
 /**
  * The Tokens model module.
  * @module model/Tokens
- * @version 19.0.0
+ * @version 20.0.0
  */
 class Tokens {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The CreateAnnouncementBody model module.
  * @module model/CreateAnnouncementBody
- * @version 19.0.0
+ * @version 20.0.0
  */
 class CreateAnnouncementBody {
     /**

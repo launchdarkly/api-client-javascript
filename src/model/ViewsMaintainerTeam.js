@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ViewsMaintainerTeam model module.
  * @module model/ViewsMaintainerTeam
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ViewsMaintainerTeam {
     /**

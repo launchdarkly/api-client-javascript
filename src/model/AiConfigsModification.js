@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AiConfigsModification model module.
  * @module model/AiConfigsModification
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AiConfigsModification {
     /**

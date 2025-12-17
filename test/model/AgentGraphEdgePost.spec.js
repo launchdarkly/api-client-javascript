@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new LaunchDarklyApi.CovarianceInfoRep();
+    instance = new LaunchDarklyApi.AgentGraphEdgePost();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,28 +47,28 @@
       object[property] = value;
   }
 
-  describe('CovarianceInfoRep', function() {
-    it('should create an instance of CovarianceInfoRep', function() {
-      // uncomment below and update the code to test CovarianceInfoRep
-      //var instance = new LaunchDarklyApi.CovarianceInfoRep();
-      //expect(instance).to.be.a(LaunchDarklyApi.CovarianceInfoRep);
+  describe('AgentGraphEdgePost', function() {
+    it('should create an instance of AgentGraphEdgePost', function() {
+      // uncomment below and update the code to test AgentGraphEdgePost
+      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
+      //expect(instance).to.be.a(LaunchDarklyApi.AgentGraphEdgePost);
     });
 
-    it('should have the property id (base name: "id")', function() {
-      // uncomment below and update the code to test the property id
-      //var instance = new LaunchDarklyApi.CovarianceInfoRep();
+    it('should have the property sourceConfig (base name: "sourceConfig")', function() {
+      // uncomment below and update the code to test the property sourceConfig
+      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
       //expect(instance).to.be();
     });
 
-    it('should have the property fileName (base name: "fileName")', function() {
-      // uncomment below and update the code to test the property fileName
-      //var instance = new LaunchDarklyApi.CovarianceInfoRep();
+    it('should have the property targetConfig (base name: "targetConfig")', function() {
+      // uncomment below and update the code to test the property targetConfig
+      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
       //expect(instance).to.be();
     });
 
-    it('should have the property createdAt (base name: "createdAt")', function() {
-      // uncomment below and update the code to test the property createdAt
-      //var instance = new LaunchDarklyApi.CovarianceInfoRep();
+    it('should have the property handoff (base name: "handoff")', function() {
+      // uncomment below and update the code to test the property handoff
+      //var instance = new LaunchDarklyApi.AgentGraphEdgePost();
       //expect(instance).to.be();
     });
 

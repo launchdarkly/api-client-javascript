@@ -28,7 +28,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * ScheduledChanges service.
 * @module api/ScheduledChangesApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class ScheduledChangesApi {
 

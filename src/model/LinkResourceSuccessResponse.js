@@ -18,7 +18,7 @@ import ViewLinkedResources from './ViewLinkedResources';
 /**
  * The LinkResourceSuccessResponse model module.
  * @module model/LinkResourceSuccessResponse
- * @version 19.0.0
+ * @version 20.0.0
  */
 class LinkResourceSuccessResponse {
     /**

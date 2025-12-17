@@ -19,7 +19,7 @@ import TagsCollection from '../model/TagsCollection';
 /**
 * Tags service.
 * @module api/TagsApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class TagsApi {
 
@@ -47,7 +47,7 @@ export default class TagsApi {
      * List tags
      * Get a list of tags.
      * @param {Object} opts Optional parameters
-     * @param {Array.<String>} [kind] Fetch tags associated with the specified resource type. Options are `flag`, `project`, `environment`, `segment`, `metric`, `aiconfig`, and `view`. Returns all types by default.
+     * @param {Array.<String>} [kind] Fetch tags associated with the specified resource type. Options are `flag`, `project`, `environment`, `segment`, `metric`, `metric-data-source`, `aiconfig`, and `view`. Returns all types by default.
      * @param {String} [pre] Return tags with the specified prefix
      * @param {Boolean} [archived] Whether or not to return archived flags
      * @param {Number} [limit] The number of tags to return. Maximum is 1000.

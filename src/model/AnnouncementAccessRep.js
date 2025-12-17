@@ -19,7 +19,7 @@ import AnnouncementAccessDenied from './AnnouncementAccessDenied';
 /**
  * The AnnouncementAccessRep model module.
  * @module model/AnnouncementAccessRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AnnouncementAccessRep {
     /**

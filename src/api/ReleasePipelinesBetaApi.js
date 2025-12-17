@@ -26,7 +26,7 @@ import UpdateReleasePipelineInput from '../model/UpdateReleasePipelineInput';
 /**
 * ReleasePipelinesBeta service.
 * @module api/ReleasePipelinesBetaApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class ReleasePipelinesBetaApi {
 

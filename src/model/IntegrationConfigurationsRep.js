@@ -19,7 +19,7 @@ import Link from './Link';
 /**
  * The IntegrationConfigurationsRep model module.
  * @module model/IntegrationConfigurationsRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class IntegrationConfigurationsRep {
     /**

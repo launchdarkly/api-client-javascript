@@ -17,7 +17,7 @@ import Metrics from './Metrics';
 /**
  * The MetricByVariation model module.
  * @module model/MetricByVariation
- * @version 19.0.0
+ * @version 20.0.0
  */
 class MetricByVariation {
     /**

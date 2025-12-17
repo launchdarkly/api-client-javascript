@@ -26,7 +26,7 @@ import UpdatePhaseStatusInput from '../model/UpdatePhaseStatusInput';
 /**
 * ReleasesBeta service.
 * @module api/ReleasesBetaApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class ReleasesBetaApi {
 

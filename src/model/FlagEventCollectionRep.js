@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The FlagEventCollectionRep model module.
  * @module model/FlagEventCollectionRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class FlagEventCollectionRep {
     /**

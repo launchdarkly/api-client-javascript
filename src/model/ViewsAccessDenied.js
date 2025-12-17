@@ -17,7 +17,7 @@ import ViewsAccessDeniedReason from './ViewsAccessDeniedReason';
 /**
  * The ViewsAccessDenied model module.
  * @module model/ViewsAccessDenied
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ViewsAccessDenied {
     /**

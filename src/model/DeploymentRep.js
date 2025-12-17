@@ -19,7 +19,7 @@ import PullRequestCollectionRep from './PullRequestCollectionRep';
 /**
  * The DeploymentRep model module.
  * @module model/DeploymentRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class DeploymentRep {
     /**

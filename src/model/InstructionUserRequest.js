@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InstructionUserRequest model module.
  * @module model/InstructionUserRequest
- * @version 19.0.0
+ * @version 20.0.0
  */
 class InstructionUserRequest {
     /**

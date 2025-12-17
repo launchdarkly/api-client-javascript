@@ -17,7 +17,7 @@ import LayerReservationRep from './LayerReservationRep';
 /**
  * The LayerConfigurationRep model module.
  * @module model/LayerConfigurationRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class LayerConfigurationRep {
     /**

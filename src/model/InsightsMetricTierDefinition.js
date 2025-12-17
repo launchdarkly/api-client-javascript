@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InsightsMetricTierDefinition model module.
  * @module model/InsightsMetricTierDefinition
- * @version 19.0.0
+ * @version 20.0.0
  */
 class InsightsMetricTierDefinition {
     /**

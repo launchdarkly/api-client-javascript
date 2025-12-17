@@ -17,7 +17,7 @@ import AiConfigsAccessAllowedReason from './AiConfigsAccessAllowedReason';
 /**
  * The AiConfigsAccessAllowedRep model module.
  * @module model/AiConfigsAccessAllowedRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AiConfigsAccessAllowedRep {
     /**

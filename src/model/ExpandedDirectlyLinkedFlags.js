@@ -17,7 +17,7 @@ import ExpandedDirectlyLinkedFlag from './ExpandedDirectlyLinkedFlag';
 /**
  * The ExpandedDirectlyLinkedFlags model module.
  * @module model/ExpandedDirectlyLinkedFlags
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ExpandedDirectlyLinkedFlags {
     /**

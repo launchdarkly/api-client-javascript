@@ -38,7 +38,7 @@ import UserSegments from '../model/UserSegments';
 /**
 * Segments service.
 * @module api/SegmentsApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class SegmentsApi {
 
@@ -881,10 +881,13 @@ export default class SegmentsApi {
      * @param {String} environmentKey The environment key
      * @param {String} segmentKey The segment key
      * @param {module:model/PatchWithComment} patchWithComment 
+     * @param {Object} opts Optional parameters
+     * @param {Boolean} [dryRun] If true, the patch will be validated but not persisted. Returns a preview of the segment after the patch is applied.
      * @param {module:api/SegmentsApi~patchSegmentCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserSegment}
      */
-    patchSegment(projectKey, environmentKey, segmentKey, patchWithComment, callback) {
+    patchSegment(projectKey, environmentKey, segmentKey, patchWithComment, opts, callback) {
+      opts = opts || {};
       let postBody = patchWithComment;
       // verify the required parameter 'projectKey' is set
       if (projectKey === undefined || projectKey === null) {
@@ -909,6 +912,7 @@ export default class SegmentsApi {
         'segmentKey': segmentKey
       };
       let queryParams = {
+        'dryRun': opts['dryRun']
       };
       let headerParams = {
       };

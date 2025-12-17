@@ -198,6 +198,16 @@
         done();
       });
     });
+    describe('listAgentGraphs', function() {
+      it('should call listAgentGraphs successfully', function(done) {
+        //uncomment below and update the code to test listAgentGraphs
+        //instance.listAgentGraphs(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listModelConfigs', function() {
       it('should call listModelConfigs successfully', function(done) {
         //uncomment below and update the code to test listModelConfigs
@@ -272,6 +282,16 @@
       it('should call postAITool successfully', function(done) {
         //uncomment below and update the code to test postAITool
         //instance.postAITool(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('postAgentGraph', function() {
+      it('should call postAgentGraph successfully', function(done) {
+        //uncomment below and update the code to test postAgentGraph
+        //instance.postAgentGraph(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

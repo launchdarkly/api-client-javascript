@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MemberTeamsPostInput model module.
  * @module model/MemberTeamsPostInput
- * @version 19.0.0
+ * @version 20.0.0
  */
 class MemberTeamsPostInput {
     /**

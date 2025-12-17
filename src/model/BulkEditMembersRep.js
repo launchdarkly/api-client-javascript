@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The BulkEditMembersRep model module.
  * @module model/BulkEditMembersRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class BulkEditMembersRep {
     /**

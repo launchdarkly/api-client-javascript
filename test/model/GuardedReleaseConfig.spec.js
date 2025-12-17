@@ -54,6 +54,12 @@
       //expect(instance).to.be.a(LaunchDarklyApi.GuardedReleaseConfig);
     });
 
+    it('should have the property rolloutContextKindKey (base name: "rolloutContextKindKey")', function() {
+      // uncomment below and update the code to test the property rolloutContextKindKey
+      //var instance = new LaunchDarklyApi.GuardedReleaseConfig();
+      //expect(instance).to.be();
+    });
+
     it('should have the property minSampleSize (base name: "minSampleSize")', function() {
       // uncomment below and update the code to test the property minSampleSize
       //var instance = new LaunchDarklyApi.GuardedReleaseConfig();
@@ -62,6 +68,24 @@
 
     it('should have the property rollbackOnRegression (base name: "rollbackOnRegression")', function() {
       // uncomment below and update the code to test the property rollbackOnRegression
+      //var instance = new LaunchDarklyApi.GuardedReleaseConfig();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property metricKeys (base name: "metricKeys")', function() {
+      // uncomment below and update the code to test the property metricKeys
+      //var instance = new LaunchDarklyApi.GuardedReleaseConfig();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property metricGroupKeys (base name: "metricGroupKeys")', function() {
+      // uncomment below and update the code to test the property metricGroupKeys
+      //var instance = new LaunchDarklyApi.GuardedReleaseConfig();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property stages (base name: "stages")', function() {
+      // uncomment below and update the code to test the property stages
       //var instance = new LaunchDarklyApi.GuardedReleaseConfig();
       //expect(instance).to.be();
     });

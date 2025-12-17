@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The ExpiringTargetGetResponse model module.
  * @module model/ExpiringTargetGetResponse
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ExpiringTargetGetResponse {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TrustPolicyStatement model module.
  * @module model/TrustPolicyStatement
- * @version 19.0.0
+ * @version 20.0.0
  */
 class TrustPolicyStatement {
     /**

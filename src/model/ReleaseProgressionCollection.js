@@ -19,7 +19,7 @@ import ReleaseProgression from './ReleaseProgression';
 /**
  * The ReleaseProgressionCollection model module.
  * @module model/ReleaseProgressionCollection
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ReleaseProgressionCollection {
     /**

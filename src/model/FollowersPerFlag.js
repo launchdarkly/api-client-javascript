@@ -17,7 +17,7 @@ import FollowFlagMember from './FollowFlagMember';
 /**
  * The FollowersPerFlag model module.
  * @module model/FollowersPerFlag
- * @version 19.0.0
+ * @version 20.0.0
  */
 class FollowersPerFlag {
     /**

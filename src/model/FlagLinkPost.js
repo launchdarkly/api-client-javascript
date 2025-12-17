@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FlagLinkPost model module.
  * @module model/FlagLinkPost
- * @version 19.0.0
+ * @version 20.0.0
  */
 class FlagLinkPost {
     /**

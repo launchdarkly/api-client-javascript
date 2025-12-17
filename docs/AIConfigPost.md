@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **mode** | **String** |  | [optional] [default to &#39;completion&#39;]
 **name** | **String** |  | 
 **tags** | **[String]** |  | [optional] 
+**defaultVariation** | [**AIConfigVariationPost**](AIConfigVariationPost.md) |  | [optional] 
 
 
 

@@ -29,7 +29,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * DataExportDestinations service.
 * @module api/DataExportDestinationsApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class DataExportDestinationsApi {
 

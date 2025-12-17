@@ -13,13 +13,14 @@
 
 import ApiClient from '../ApiClient';
 import GuardedReleaseConfig from './GuardedReleaseConfig';
+import ProgressiveReleaseConfig from './ProgressiveReleaseConfig';
 import ReleaseMethod from './ReleaseMethod';
 import ReleasePolicyScope from './ReleasePolicyScope';
 
 /**
  * The PutReleasePolicyRequest model module.
  * @module model/PutReleasePolicyRequest
- * @version 19.0.0
+ * @version 20.0.0
  */
 class PutReleasePolicyRequest {
     /**
@@ -64,7 +65,7 @@ class PutReleasePolicyRequest {
                 obj['guardedReleaseConfig'] = GuardedReleaseConfig.constructFromObject(data['guardedReleaseConfig']);
             }
             if (data.hasOwnProperty('progressiveReleaseConfig')) {
-                obj['progressiveReleaseConfig'] = ApiClient.convertToType(data['progressiveReleaseConfig'], Object);
+                obj['progressiveReleaseConfig'] = ProgressiveReleaseConfig.constructFromObject(data['progressiveReleaseConfig']);
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -92,6 +93,10 @@ class PutReleasePolicyRequest {
         // validate the optional field `guardedReleaseConfig`
         if (data['guardedReleaseConfig']) { // data not null
           GuardedReleaseConfig.validateJSON(data['guardedReleaseConfig']);
+        }
+        // validate the optional field `progressiveReleaseConfig`
+        if (data['progressiveReleaseConfig']) { // data not null
+          ProgressiveReleaseConfig.validateJSON(data['progressiveReleaseConfig']);
         }
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
@@ -122,8 +127,7 @@ PutReleasePolicyRequest.prototype['releaseMethod'] = undefined;
 PutReleasePolicyRequest.prototype['guardedReleaseConfig'] = undefined;
 
 /**
- * Configuration for progressive releases
- * @member {Object} progressiveReleaseConfig
+ * @member {module:model/ProgressiveReleaseConfig} progressiveReleaseConfig
  */
 PutReleasePolicyRequest.prototype['progressiveReleaseConfig'] = undefined;
 

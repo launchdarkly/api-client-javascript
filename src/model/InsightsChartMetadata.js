@@ -18,7 +18,7 @@ import InsightsChartSeriesMetadataAxis from './InsightsChartSeriesMetadataAxis';
 /**
  * The InsightsChartMetadata model module.
  * @module model/InsightsChartMetadata
- * @version 19.0.0
+ * @version 20.0.0
  */
 class InsightsChartMetadata {
     /**

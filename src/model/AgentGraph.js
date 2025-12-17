@@ -12,23 +12,26 @@
  */
 
 import ApiClient from '../ApiClient';
+import AgentGraphEdge from './AgentGraphEdge';
 
 /**
- * The CovarianceInfoRep model module.
- * @module model/CovarianceInfoRep
- * @version 19.0.0
+ * The AgentGraph model module.
+ * @module model/AgentGraph
+ * @version 20.0.0
  */
-class CovarianceInfoRep {
+class AgentGraph {
     /**
-     * Constructs a new <code>CovarianceInfoRep</code>.
-     * @alias module:model/CovarianceInfoRep
-     * @param id {String} The ID of the covariance matrix
-     * @param fileName {String} The file name of the uploaded covariance matrix
+     * Constructs a new <code>AgentGraph</code>.
+     * An agent graph representing a directed graph of AI Configs
+     * @alias module:model/AgentGraph
+     * @param key {String} A unique key for the agent graph
+     * @param name {String} A human-readable name for the agent graph
      * @param createdAt {Number} 
+     * @param updatedAt {Number} 
      */
-    constructor(id, fileName, createdAt) { 
+    constructor(key, name, createdAt, updatedAt) { 
         
-        CovarianceInfoRep.initialize(this, id, fileName, createdAt);
+        AgentGraph.initialize(this, key, name, createdAt, updatedAt);
     }
 
     /**
@@ -36,55 +39,86 @@ class CovarianceInfoRep {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, fileName, createdAt) { 
-        obj['id'] = id;
-        obj['fileName'] = fileName;
+    static initialize(obj, key, name, createdAt, updatedAt) { 
+        obj['key'] = key;
+        obj['name'] = name;
         obj['createdAt'] = createdAt;
+        obj['updatedAt'] = updatedAt;
     }
 
     /**
-     * Constructs a <code>CovarianceInfoRep</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>AgentGraph</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/CovarianceInfoRep} obj Optional instance to populate.
-     * @return {module:model/CovarianceInfoRep} The populated <code>CovarianceInfoRep</code> instance.
+     * @param {module:model/AgentGraph} obj Optional instance to populate.
+     * @return {module:model/AgentGraph} The populated <code>AgentGraph</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new CovarianceInfoRep();
+            obj = obj || new AgentGraph();
 
-            if (data.hasOwnProperty('id')) {
-                obj['id'] = ApiClient.convertToType(data['id'], 'String');
+            if (data.hasOwnProperty('key')) {
+                obj['key'] = ApiClient.convertToType(data['key'], 'String');
             }
-            if (data.hasOwnProperty('fileName')) {
-                obj['fileName'] = ApiClient.convertToType(data['fileName'], 'String');
+            if (data.hasOwnProperty('name')) {
+                obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('description')) {
+                obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
+            if (data.hasOwnProperty('rootConfigKey')) {
+                obj['rootConfigKey'] = ApiClient.convertToType(data['rootConfigKey'], 'String');
+            }
+            if (data.hasOwnProperty('edges')) {
+                obj['edges'] = ApiClient.convertToType(data['edges'], [AgentGraphEdge]);
             }
             if (data.hasOwnProperty('createdAt')) {
                 obj['createdAt'] = ApiClient.convertToType(data['createdAt'], 'Number');
+            }
+            if (data.hasOwnProperty('updatedAt')) {
+                obj['updatedAt'] = ApiClient.convertToType(data['updatedAt'], 'Number');
             }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>CovarianceInfoRep</code>.
+     * Validates the JSON data with respect to <code>AgentGraph</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>CovarianceInfoRep</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>AgentGraph</code>.
      */
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
-        for (const property of CovarianceInfoRep.RequiredProperties) {
+        for (const property of AgentGraph.RequiredProperties) {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
         // ensure the json data is a string
-        if (data['id'] && !(typeof data['id'] === 'string' || data['id'] instanceof String)) {
-            throw new Error("Expected the field `id` to be a primitive type in the JSON string but got " + data['id']);
+        if (data['key'] && !(typeof data['key'] === 'string' || data['key'] instanceof String)) {
+            throw new Error("Expected the field `key` to be a primitive type in the JSON string but got " + data['key']);
         }
         // ensure the json data is a string
-        if (data['fileName'] && !(typeof data['fileName'] === 'string' || data['fileName'] instanceof String)) {
-            throw new Error("Expected the field `fileName` to be a primitive type in the JSON string but got " + data['fileName']);
+        if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
+            throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
+            throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
+        // ensure the json data is a string
+        if (data['rootConfigKey'] && !(typeof data['rootConfigKey'] === 'string' || data['rootConfigKey'] instanceof String)) {
+            throw new Error("Expected the field `rootConfigKey` to be a primitive type in the JSON string but got " + data['rootConfigKey']);
+        }
+        if (data['edges']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['edges'])) {
+                throw new Error("Expected the field `edges` to be an array in the JSON data but got " + data['edges']);
+            }
+            // validate the optional field `edges` (array)
+            for (const item of data['edges']) {
+                AgentGraphEdge.validateJSON(item);
+            };
         }
 
         return true;
@@ -93,29 +127,52 @@ class CovarianceInfoRep {
 
 }
 
-CovarianceInfoRep.RequiredProperties = ["id", "fileName", "createdAt"];
+AgentGraph.RequiredProperties = ["key", "name", "createdAt", "updatedAt"];
 
 /**
- * The ID of the covariance matrix
- * @member {String} id
+ * A unique key for the agent graph
+ * @member {String} key
  */
-CovarianceInfoRep.prototype['id'] = undefined;
+AgentGraph.prototype['key'] = undefined;
 
 /**
- * The file name of the uploaded covariance matrix
- * @member {String} fileName
+ * A human-readable name for the agent graph
+ * @member {String} name
  */
-CovarianceInfoRep.prototype['fileName'] = undefined;
+AgentGraph.prototype['name'] = undefined;
+
+/**
+ * A description of the agent graph
+ * @member {String} description
+ */
+AgentGraph.prototype['description'] = undefined;
+
+/**
+ * The AI Config key of the root node
+ * @member {String} rootConfigKey
+ */
+AgentGraph.prototype['rootConfigKey'] = undefined;
+
+/**
+ * The edges in the graph
+ * @member {Array.<module:model/AgentGraphEdge>} edges
+ */
+AgentGraph.prototype['edges'] = undefined;
 
 /**
  * @member {Number} createdAt
  */
-CovarianceInfoRep.prototype['createdAt'] = undefined;
+AgentGraph.prototype['createdAt'] = undefined;
+
+/**
+ * @member {Number} updatedAt
+ */
+AgentGraph.prototype['updatedAt'] = undefined;
 
 
 
 
 
 
-export default CovarianceInfoRep;
+export default AgentGraph;
 

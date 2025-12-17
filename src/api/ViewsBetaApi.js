@@ -26,7 +26,7 @@ import Views from '../model/Views';
 /**
 * ViewsBeta service.
 * @module api/ViewsBetaApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class ViewsBetaApi {
 

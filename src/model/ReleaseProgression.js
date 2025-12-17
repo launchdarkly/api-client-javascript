@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The ReleaseProgression model module.
  * @module model/ReleaseProgression
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ReleaseProgression {
     /**

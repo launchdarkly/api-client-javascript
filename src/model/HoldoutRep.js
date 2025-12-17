@@ -18,7 +18,7 @@ import RelatedExperimentRep from './RelatedExperimentRep';
 /**
  * The HoldoutRep model module.
  * @module model/HoldoutRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class HoldoutRep {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ViewLinkRequestSegmentIdentifier model module.
  * @module model/ViewLinkRequestSegmentIdentifier
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ViewLinkRequestSegmentIdentifier {
     /**

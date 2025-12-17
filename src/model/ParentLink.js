@@ -17,7 +17,7 @@ import CoreLink from './CoreLink';
 /**
  * The ParentLink model module.
  * @module model/ParentLink
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ParentLink {
     /**

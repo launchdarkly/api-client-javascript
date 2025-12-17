@@ -19,7 +19,7 @@ import TreatmentInput from './TreatmentInput';
 /**
  * The IterationInput model module.
  * @module model/IterationInput
- * @version 19.0.0
+ * @version 20.0.0
  */
 class IterationInput {
     /**
@@ -82,9 +82,6 @@ class IterationInput {
             if (data.hasOwnProperty('randomizationUnit')) {
                 obj['randomizationUnit'] = ApiClient.convertToType(data['randomizationUnit'], 'String');
             }
-            if (data.hasOwnProperty('covarianceId')) {
-                obj['covarianceId'] = ApiClient.convertToType(data['covarianceId'], 'String');
-            }
             if (data.hasOwnProperty('attributes')) {
                 obj['attributes'] = ApiClient.convertToType(data['attributes'], ['String']);
             }
@@ -139,10 +136,6 @@ class IterationInput {
         // ensure the json data is a string
         if (data['randomizationUnit'] && !(typeof data['randomizationUnit'] === 'string' || data['randomizationUnit'] instanceof String)) {
             throw new Error("Expected the field `randomizationUnit` to be a primitive type in the JSON string but got " + data['randomizationUnit']);
-        }
-        // ensure the json data is a string
-        if (data['covarianceId'] && !(typeof data['covarianceId'] === 'string' || data['covarianceId'] instanceof String)) {
-            throw new Error("Expected the field `covarianceId` to be a primitive type in the JSON string but got " + data['covarianceId']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['attributes'])) {
@@ -201,12 +194,6 @@ IterationInput.prototype['flags'] = undefined;
  * @member {String} randomizationUnit
  */
 IterationInput.prototype['randomizationUnit'] = undefined;
-
-/**
- * The ID of the covariance CSV
- * @member {String} covarianceId
- */
-IterationInput.prototype['covarianceId'] = undefined;
 
 /**
  * The attributes that this iteration's results can be sliced by

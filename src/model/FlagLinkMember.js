@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The FlagLinkMember model module.
  * @module model/FlagLinkMember
- * @version 19.0.0
+ * @version 20.0.0
  */
 class FlagLinkMember {
     /**

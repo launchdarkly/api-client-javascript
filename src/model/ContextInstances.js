@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The ContextInstances model module.
  * @module model/ContextInstances
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ContextInstances {
     /**

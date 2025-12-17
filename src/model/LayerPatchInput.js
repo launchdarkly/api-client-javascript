@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The LayerPatchInput model module.
  * @module model/LayerPatchInput
- * @version 19.0.0
+ * @version 20.0.0
  */
 class LayerPatchInput {
     /**

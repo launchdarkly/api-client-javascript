@@ -825,7 +825,7 @@ Name | Type | Description  | Notes
 
 ## patchSegment
 
-> UserSegment patchSegment(projectKey, environmentKey, segmentKey, patchWithComment)
+> UserSegment patchSegment(projectKey, environmentKey, segmentKey, patchWithComment, opts)
 
 Patch segment
 
@@ -847,7 +847,10 @@ let projectKey = "projectKey_example"; // String | The project key
 let environmentKey = "environmentKey_example"; // String | The environment key
 let segmentKey = "segmentKey_example"; // String | The segment key
 let patchWithComment = {"patch":[{"op":"replace","path":"/description","value":"New description for this segment"},{"op":"add","path":"/tags/0","value":"example"}]}; // PatchWithComment | 
-apiInstance.patchSegment(projectKey, environmentKey, segmentKey, patchWithComment, (error, data, response) => {
+let opts = {
+  'dryRun': true // Boolean | If true, the patch will be validated but not persisted. Returns a preview of the segment after the patch is applied.
+};
+apiInstance.patchSegment(projectKey, environmentKey, segmentKey, patchWithComment, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -865,6 +868,7 @@ Name | Type | Description  | Notes
  **environmentKey** | **String**| The environment key | 
  **segmentKey** | **String**| The segment key | 
  **patchWithComment** | [**PatchWithComment**](PatchWithComment.md)|  | 
+ **dryRun** | **Boolean**| If true, the patch will be validated but not persisted. Returns a preview of the segment after the patch is applied. | [optional] 
 
 ### Return type
 

@@ -17,7 +17,7 @@ import ParentAndSelfLinks from './ParentAndSelfLinks';
 /**
  * The ExpandedFlag model module.
  * @module model/ExpandedFlag
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ExpandedFlag {
     /**

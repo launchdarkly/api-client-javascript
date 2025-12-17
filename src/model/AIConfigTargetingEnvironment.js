@@ -19,7 +19,7 @@ import AIConfigTargetingEnvironmentTarget from './AIConfigTargetingEnvironmentTa
 /**
  * The AIConfigTargetingEnvironment model module.
  * @module model/AIConfigTargetingEnvironment
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AIConfigTargetingEnvironment {
     /**

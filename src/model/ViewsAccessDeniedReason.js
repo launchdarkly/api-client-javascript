@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ViewsAccessDeniedReason model module.
  * @module model/ViewsAccessDeniedReason
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ViewsAccessDeniedReason {
     /**

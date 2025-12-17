@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MemberPermissionGrantSummaryRep model module.
  * @module model/MemberPermissionGrantSummaryRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class MemberPermissionGrantSummaryRep {
     /**

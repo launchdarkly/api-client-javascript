@@ -19,7 +19,7 @@ import UserSegment from './UserSegment';
 /**
  * The ExpandedResourceRep model module.
  * @module model/ExpandedResourceRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ExpandedResourceRep {
     /**

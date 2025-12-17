@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FlagInput model module.
  * @module model/FlagInput
- * @version 19.0.0
+ * @version 20.0.0
  */
 class FlagInput {
     /**

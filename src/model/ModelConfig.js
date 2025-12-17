@@ -17,7 +17,7 @@ import AiConfigsAccess from './AiConfigsAccess';
 /**
  * The ModelConfig model module.
  * @module model/ModelConfig
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ModelConfig {
     /**

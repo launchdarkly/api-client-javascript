@@ -21,7 +21,7 @@ import ReviewResponse from './ReviewResponse';
 /**
  * The FlagConfigApprovalRequestResponse model module.
  * @module model/FlagConfigApprovalRequestResponse
- * @version 19.0.0
+ * @version 20.0.0
  */
 class FlagConfigApprovalRequestResponse {
     /**

@@ -28,7 +28,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * Environments service.
 * @module api/EnvironmentsApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class EnvironmentsApi {
 

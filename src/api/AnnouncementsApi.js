@@ -22,7 +22,7 @@ import GetAnnouncementsPublic200Response from '../model/GetAnnouncementsPublic20
 /**
 * Announcements service.
 * @module api/AnnouncementsApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class AnnouncementsApi {
 

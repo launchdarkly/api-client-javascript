@@ -18,7 +18,7 @@ import ViewsPaginatedLinks from './ViewsPaginatedLinks';
 /**
  * The ViewLinkedResources model module.
  * @module model/ViewLinkedResources
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ViewLinkedResources {
     /**

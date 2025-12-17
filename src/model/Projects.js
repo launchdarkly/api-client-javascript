@@ -18,7 +18,7 @@ import Project from './Project';
 /**
  * The Projects model module.
  * @module model/Projects
- * @version 19.0.0
+ * @version 20.0.0
  */
 class Projects {
     /**

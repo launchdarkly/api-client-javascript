@@ -12,11 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import AIConfigVariationPost from './AIConfigVariationPost';
 
 /**
  * The AIConfigPost model module.
  * @module model/AIConfigPost
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AIConfigPost {
     /**
@@ -74,6 +75,9 @@ class AIConfigPost {
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
+            if (data.hasOwnProperty('defaultVariation')) {
+                obj['defaultVariation'] = AIConfigVariationPost.constructFromObject(data['defaultVariation']);
+            }
         }
         return obj;
     }
@@ -117,6 +121,10 @@ class AIConfigPost {
         // ensure the json data is an array
         if (!Array.isArray(data['tags'])) {
             throw new Error("Expected the field `tags` to be an array in the JSON data but got " + data['tags']);
+        }
+        // validate the optional field `defaultVariation`
+        if (data['defaultVariation']) { // data not null
+          AIConfigVariationPost.validateJSON(data['defaultVariation']);
         }
 
         return true;
@@ -163,6 +171,11 @@ AIConfigPost.prototype['name'] = undefined;
  * @member {Array.<String>} tags
  */
 AIConfigPost.prototype['tags'] = undefined;
+
+/**
+ * @member {module:model/AIConfigVariationPost} defaultVariation
+ */
+AIConfigPost.prototype['defaultVariation'] = undefined;
 
 
 

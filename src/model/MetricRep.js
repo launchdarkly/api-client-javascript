@@ -27,7 +27,7 @@ import Modification from './Modification';
 /**
  * The MetricRep model module.
  * @module model/MetricRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class MetricRep {
     /**

@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The MemberSummary model module.
  * @module model/MemberSummary
- * @version 19.0.0
+ * @version 20.0.0
  */
 class MemberSummary {
     /**

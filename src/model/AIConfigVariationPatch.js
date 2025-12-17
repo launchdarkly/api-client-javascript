@@ -19,7 +19,7 @@ import VariationToolPost from './VariationToolPost';
 /**
  * The AIConfigVariationPatch model module.
  * @module model/AIConfigVariationPatch
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AIConfigVariationPatch {
     /**

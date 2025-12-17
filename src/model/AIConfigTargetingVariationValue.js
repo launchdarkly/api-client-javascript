@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AIConfigTargetingVariationValue model module.
  * @module model/AIConfigTargetingVariationValue
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AIConfigTargetingVariationValue {
     /**

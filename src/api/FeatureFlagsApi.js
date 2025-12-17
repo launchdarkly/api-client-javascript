@@ -40,7 +40,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * FeatureFlags service.
 * @module api/FeatureFlagsApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class FeatureFlagsApi {
 
@@ -681,6 +681,7 @@ export default class FeatureFlagsApi {
      * @param {module:model/PatchWithComment} patchWithComment 
      * @param {Object} opts Optional parameters
      * @param {Boolean} [ignoreConflicts] If true, the patch will be applied even if it causes a pending scheduled change or approval request to fail.
+     * @param {Boolean} [dryRun] If true, the patch will be validated but not persisted. Returns a preview of the flag after the patch is applied.
      * @param {module:api/FeatureFlagsApi~patchFeatureFlagCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/FeatureFlag}
      */
@@ -705,7 +706,8 @@ export default class FeatureFlagsApi {
         'featureFlagKey': featureFlagKey
       };
       let queryParams = {
-        'ignoreConflicts': opts['ignoreConflicts']
+        'ignoreConflicts': opts['ignoreConflicts'],
+        'dryRun': opts['dryRun']
       };
       let headerParams = {
       };

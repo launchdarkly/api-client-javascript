@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The InsightPeriod model module.
  * @module model/InsightPeriod
- * @version 19.0.0
+ * @version 20.0.0
  */
 class InsightPeriod {
     /**

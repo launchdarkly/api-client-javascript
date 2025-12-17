@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The MaintainerMember model module.
  * @module model/MaintainerMember
- * @version 19.0.0
+ * @version 20.0.0
  */
 class MaintainerMember {
     /**

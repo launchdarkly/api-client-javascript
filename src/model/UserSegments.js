@@ -18,7 +18,7 @@ import UserSegment from './UserSegment';
 /**
  * The UserSegments model module.
  * @module model/UserSegments
- * @version 19.0.0
+ * @version 20.0.0
  */
 class UserSegments {
     /**

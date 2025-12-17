@@ -18,7 +18,7 @@ import Rollout from './Rollout';
 /**
  * The Rule model module.
  * @module model/Rule
- * @version 19.0.0
+ * @version 20.0.0
  */
 class Rule {
     /**
@@ -55,6 +55,9 @@ class Rule {
 
             if (data.hasOwnProperty('_id')) {
                 obj['_id'] = ApiClient.convertToType(data['_id'], 'String');
+            }
+            if (data.hasOwnProperty('disabled')) {
+                obj['disabled'] = ApiClient.convertToType(data['disabled'], 'Boolean');
             }
             if (data.hasOwnProperty('variation')) {
                 obj['variation'] = ApiClient.convertToType(data['variation'], 'Number');
@@ -130,6 +133,12 @@ Rule.RequiredProperties = ["clauses", "trackEvents"];
  * @member {String} _id
  */
 Rule.prototype['_id'] = undefined;
+
+/**
+ * Whether the rule is disabled
+ * @member {Boolean} disabled
+ */
+Rule.prototype['disabled'] = undefined;
 
 /**
  * The index of the variation, from the array of variations for this flag

@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The UserFlagSetting model module.
  * @module model/UserFlagSetting
- * @version 19.0.0
+ * @version 20.0.0
  */
 class UserFlagSetting {
     /**

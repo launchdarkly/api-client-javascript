@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RestrictedModelsRequest model module.
  * @module model/RestrictedModelsRequest
- * @version 19.0.0
+ * @version 20.0.0
  */
 class RestrictedModelsRequest {
     /**

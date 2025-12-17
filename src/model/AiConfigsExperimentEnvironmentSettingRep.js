@@ -17,7 +17,7 @@ import AiConfigsExperimentEnabledPeriodRep from './AiConfigsExperimentEnabledPer
 /**
  * The AiConfigsExperimentEnvironmentSettingRep model module.
  * @module model/AiConfigsExperimentEnvironmentSettingRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AiConfigsExperimentEnvironmentSettingRep {
     /**

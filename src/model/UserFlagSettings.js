@@ -18,7 +18,7 @@ import UserFlagSetting from './UserFlagSetting';
 /**
  * The UserFlagSettings model module.
  * @module model/UserFlagSettings
- * @version 19.0.0
+ * @version 20.0.0
  */
 class UserFlagSettings {
     /**

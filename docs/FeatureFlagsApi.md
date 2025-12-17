@@ -674,7 +674,8 @@ let projectKey = "projectKey_example"; // String | The project key
 let featureFlagKey = "featureFlagKey_example"; // String | The feature flag key. The key identifies the flag in your code.
 let patchWithComment = {"patch":[{"op":"replace","path":"/description","value":"New description for this flag"}]}; // PatchWithComment | 
 let opts = {
-  'ignoreConflicts': true // Boolean | If true, the patch will be applied even if it causes a pending scheduled change or approval request to fail.
+  'ignoreConflicts': true, // Boolean | If true, the patch will be applied even if it causes a pending scheduled change or approval request to fail.
+  'dryRun': true // Boolean | If true, the patch will be validated but not persisted. Returns a preview of the flag after the patch is applied.
 };
 apiInstance.patchFeatureFlag(projectKey, featureFlagKey, patchWithComment, opts, (error, data, response) => {
   if (error) {
@@ -694,6 +695,7 @@ Name | Type | Description  | Notes
  **featureFlagKey** | **String**| The feature flag key. The key identifies the flag in your code. | 
  **patchWithComment** | [**PatchWithComment**](PatchWithComment.md)|  | 
  **ignoreConflicts** | **Boolean**| If true, the patch will be applied even if it causes a pending scheduled change or approval request to fail. | [optional] 
+ **dryRun** | **Boolean**| If true, the patch will be validated but not persisted. Returns a preview of the flag after the patch is applied. | [optional] 
 
 ### Return type
 

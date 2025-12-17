@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The SubjectDataRep model module.
  * @module model/SubjectDataRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class SubjectDataRep {
     /**

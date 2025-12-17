@@ -17,7 +17,7 @@ import ExpandedSegment from './ExpandedSegment';
 /**
  * The ExpandedLinkedResourcesSegments model module.
  * @module model/ExpandedLinkedResourcesSegments
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ExpandedLinkedResourcesSegments {
     /**

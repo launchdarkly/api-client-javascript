@@ -28,7 +28,7 @@ import ValuePut from '../model/ValuePut';
 /**
 * UserSettings service.
 * @module api/UserSettingsApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class UserSettingsApi {
 

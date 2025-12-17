@@ -18,7 +18,7 @@ import MemberSummary from './MemberSummary';
 /**
  * The TeamMaintainers model module.
  * @module model/TeamMaintainers
- * @version 19.0.0
+ * @version 20.0.0
  */
 class TeamMaintainers {
     /**

@@ -17,7 +17,7 @@ import ParentAndSelfLinks from './ParentAndSelfLinks';
 /**
  * The ExpandedMetric model module.
  * @module model/ExpandedMetric
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ExpandedMetric {
     /**

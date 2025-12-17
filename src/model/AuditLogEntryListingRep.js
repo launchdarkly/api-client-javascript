@@ -24,7 +24,7 @@ import TokenSummary from './TokenSummary';
 /**
  * The AuditLogEntryListingRep model module.
  * @module model/AuditLogEntryListingRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AuditLogEntryListingRep {
     /**

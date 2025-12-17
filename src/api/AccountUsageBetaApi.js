@@ -27,7 +27,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * AccountUsageBeta service.
 * @module api/AccountUsageBetaApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class AccountUsageBetaApi {
 
@@ -496,6 +496,122 @@ export default class AccountUsageBetaApi {
       let returnType = SeriesListRep;
       return this.apiClient.callApi(
         '/api/v2/usage/experimentation-keys', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMAUClientsideUsage operation.
+     * @callback module:api/AccountUsageBetaApi~getMAUClientsideUsageCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SeriesListRep} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get MAU clientside usage
+     * Get a time series of the number of context key usages observed by LaunchDarkly in your account, for the primary context kind only. The counts reflect data reported from client-side SDKs.<br/><br/>For past months, the primary context kind is fixed and reflects the last known primary kind for that month. For the current month, it may vary as new primary context kinds are observed.<br/><br/>The supported granularity varies by aggregation type. The maximum time range is 365 days.
+     * @param {Object} opts Optional parameters
+     * @param {String} [from] The series of data returned starts from this timestamp (Unix milliseconds). Defaults to the beginning of the current month.
+     * @param {String} [to] The series of data returned ends at this timestamp (Unix milliseconds). Defaults to the current time.
+     * @param {String} [projectKey] A project key to filter results by. Can be specified multiple times, one query parameter per project key.
+     * @param {String} [environmentKey] An environment key to filter results by. If specified, exactly one `projectKey` must be provided. Can be specified multiple times, one query parameter per environment key.
+     * @param {String} [sdkName] An SDK name to filter results by. Can be specified multiple times, one query parameter per SDK name.
+     * @param {String} [anonymous] An anonymous value to filter results by. Can be specified multiple times, one query parameter per anonymous value.<br/>Valid values: `true`, `false`.
+     * @param {String} [groupBy] If specified, returns data for each distinct value of the given field. Can be specified multiple times to group data by multiple dimensions, one query parameter per dimension.<br/>Valid values: `projectId`, `environmentId`, `sdkName`, `sdkAppId`, `anonymousV2`.
+     * @param {String} [aggregationType] Specifies the aggregation method. Defaults to `month_to_date`.<br/>Valid values: `month_to_date`, `incremental`, `rolling_30d`.
+     * @param {String} [granularity] Specifies the data granularity. Defaults to `daily`. Valid values depend on `aggregationType`: **month_to_date** supports `daily` and `monthly`; **incremental** and **rolling_30d** support `daily` only.
+     * @param {module:api/AccountUsageBetaApi~getMAUClientsideUsageCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SeriesListRep}
+     */
+    getMAUClientsideUsage(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'from': opts['from'],
+        'to': opts['to'],
+        'projectKey': opts['projectKey'],
+        'environmentKey': opts['environmentKey'],
+        'sdkName': opts['sdkName'],
+        'anonymous': opts['anonymous'],
+        'groupBy': opts['groupBy'],
+        'aggregationType': opts['aggregationType'],
+        'granularity': opts['granularity']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = SeriesListRep;
+      return this.apiClient.callApi(
+        '/api/v2/usage/clientside-mau', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMAUTotalUsage operation.
+     * @callback module:api/AccountUsageBetaApi~getMAUTotalUsageCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SeriesListRep} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get MAU total usage
+     * Get a time series of the number of context key usages observed by LaunchDarkly in your account, for the primary context kind only.<br/><br/>For past months, this reflects the context kind that was most recently marked as primary for that month. For the current month, the context kind may vary as new primary kinds are observed.<br/><br/>The supported granularity varies by aggregation type. The maximum time range is 365 days.
+     * @param {Object} opts Optional parameters
+     * @param {String} [from] The series of data returned starts from this timestamp (Unix milliseconds). Defaults to the beginning of the current month.
+     * @param {String} [to] The series of data returned ends at this timestamp (Unix milliseconds). Defaults to the current time.
+     * @param {String} [projectKey] A project key to filter results by. Can be specified multiple times, one query parameter per project key.
+     * @param {String} [environmentKey] An environment key to filter results by. If specified, exactly one `projectKey` must be provided. Can be specified multiple times, one query parameter per environment key.
+     * @param {String} [sdkName] An SDK name to filter results by. Can be specified multiple times, one query parameter per SDK name.
+     * @param {String} [sdkType] An SDK type to filter results by. Can be specified multiple times, one query parameter per SDK type.
+     * @param {String} [anonymous] An anonymous value to filter results by. Can be specified multiple times, one query parameter per anonymous value.<br/>Valid values: `true`, `false`.
+     * @param {String} [groupBy] If specified, returns data for each distinct value of the given field. Can be specified multiple times to group data by multiple dimensions, one query parameter per dimension.<br/>Valid values: `projectId`, `environmentId`, `sdkName`, `sdkType`, `sdkAppId`, `anonymousV2`.
+     * @param {String} [aggregationType] Specifies the aggregation method. Defaults to `month_to_date`.<br/>Valid values: `month_to_date`, `incremental`, `rolling_30d`.
+     * @param {String} [granularity] Specifies the data granularity. Defaults to `daily`. Valid values depend on `aggregationType`: **month_to_date** supports `daily` and `monthly`; **incremental** and **rolling_30d** support `daily` only.
+     * @param {module:api/AccountUsageBetaApi~getMAUTotalUsageCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SeriesListRep}
+     */
+    getMAUTotalUsage(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+
+      let pathParams = {
+      };
+      let queryParams = {
+        'from': opts['from'],
+        'to': opts['to'],
+        'projectKey': opts['projectKey'],
+        'environmentKey': opts['environmentKey'],
+        'sdkName': opts['sdkName'],
+        'sdkType': opts['sdkType'],
+        'anonymous': opts['anonymous'],
+        'groupBy': opts['groupBy'],
+        'aggregationType': opts['aggregationType'],
+        'granularity': opts['granularity']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = SeriesListRep;
+      return this.apiClient.callApi(
+        '/api/v2/usage/total-mau', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

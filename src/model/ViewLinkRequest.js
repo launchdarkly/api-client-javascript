@@ -19,7 +19,7 @@ import ViewLinkRequestSegmentIdentifiers from './ViewLinkRequestSegmentIdentifie
 /**
  * The ViewLinkRequest model module.
  * @module model/ViewLinkRequest
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ViewLinkRequest {
     /**

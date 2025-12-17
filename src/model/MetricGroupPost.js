@@ -17,7 +17,7 @@ import MetricInMetricGroupInput from './MetricInMetricGroupInput';
 /**
  * The MetricGroupPost model module.
  * @module model/MetricGroupPost
- * @version 19.0.0
+ * @version 20.0.0
  */
 class MetricGroupPost {
     /**

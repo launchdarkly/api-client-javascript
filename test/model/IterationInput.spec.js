@@ -102,12 +102,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property covarianceId (base name: "covarianceId")', function() {
-      // uncomment below and update the code to test the property covarianceId
-      //var instance = new LaunchDarklyApi.IterationInput();
-      //expect(instance).to.be();
-    });
-
     it('should have the property attributes (base name: "attributes")', function() {
       // uncomment below and update the code to test the property attributes
       //var instance = new LaunchDarklyApi.IterationInput();

@@ -43,6 +43,11 @@ docs/AccountMembersApi.md
 docs/AccountUsageBetaApi.md
 docs/ActionInput.md
 docs/ActionOutput.md
+docs/AgentGraph.md
+docs/AgentGraphEdge.md
+docs/AgentGraphEdgePost.md
+docs/AgentGraphPost.md
+docs/AgentGraphs.md
 docs/AiConfigsAccess.md
 docs/AiConfigsAccessAllowedReason.md
 docs/AiConfigsAccessAllowedRep.md
@@ -146,7 +151,6 @@ docs/Contexts.md
 docs/ContextsApi.md
 docs/CopiedFromEnv.md
 docs/CoreLink.md
-docs/CovarianceInfoRep.md
 docs/CreateAnnouncementBody.md
 docs/CreateApprovalRequestRequest.md
 docs/CreateCopyFlagConfigApprovalRequestRequest.md
@@ -454,6 +458,7 @@ docs/PostFlagScheduledChangesInput.md
 docs/PostInsightGroupParams.md
 docs/PostReleasePolicyRequest.md
 docs/Prerequisite.md
+docs/ProgressiveReleaseConfig.md
 docs/Project.md
 docs/ProjectPost.md
 docs/ProjectRep.md
@@ -497,6 +502,7 @@ docs/ReleasePoliciesBetaApi.md
 docs/ReleasePoliciesResponse.md
 docs/ReleasePolicy.md
 docs/ReleasePolicyScope.md
+docs/ReleasePolicyStage.md
 docs/ReleaseProgression.md
 docs/ReleaseProgressionCollection.md
 docs/ReleaserAudienceConfigInput.md
@@ -737,6 +743,11 @@ src/model/AccessDeniedReason.js
 src/model/AccessTokenPost.js
 src/model/ActionInput.js
 src/model/ActionOutput.js
+src/model/AgentGraph.js
+src/model/AgentGraphEdge.js
+src/model/AgentGraphEdgePost.js
+src/model/AgentGraphPost.js
+src/model/AgentGraphs.js
 src/model/AiConfigsAccess.js
 src/model/AiConfigsAccessAllowedReason.js
 src/model/AiConfigsAccessAllowedRep.js
@@ -832,7 +843,6 @@ src/model/ContextSearch.js
 src/model/Contexts.js
 src/model/CopiedFromEnv.js
 src/model/CoreLink.js
-src/model/CovarianceInfoRep.js
 src/model/CreateAnnouncementBody.js
 src/model/CreateApprovalRequestRequest.js
 src/model/CreateCopyFlagConfigApprovalRequestRequest.js
@@ -1114,6 +1124,7 @@ src/model/PostFlagScheduledChangesInput.js
 src/model/PostInsightGroupParams.js
 src/model/PostReleasePolicyRequest.js
 src/model/Prerequisite.js
+src/model/ProgressiveReleaseConfig.js
 src/model/Project.js
 src/model/ProjectPost.js
 src/model/ProjectRep.js
@@ -1153,6 +1164,7 @@ src/model/ReleasePoliciesAccessRep.js
 src/model/ReleasePoliciesResponse.js
 src/model/ReleasePolicy.js
 src/model/ReleasePolicyScope.js
+src/model/ReleasePolicyStage.js
 src/model/ReleaseProgression.js
 src/model/ReleaseProgressionCollection.js
 src/model/ReleaserAudienceConfigInput.js
@@ -1375,6 +1387,11 @@ test/model/AccessDeniedReason.spec.js
 test/model/AccessTokenPost.spec.js
 test/model/ActionInput.spec.js
 test/model/ActionOutput.spec.js
+test/model/AgentGraph.spec.js
+test/model/AgentGraphEdge.spec.js
+test/model/AgentGraphEdgePost.spec.js
+test/model/AgentGraphPost.spec.js
+test/model/AgentGraphs.spec.js
 test/model/AiConfigsAccess.spec.js
 test/model/AiConfigsAccessAllowedReason.spec.js
 test/model/AiConfigsAccessAllowedRep.spec.js
@@ -1470,7 +1487,6 @@ test/model/ContextSearch.spec.js
 test/model/Contexts.spec.js
 test/model/CopiedFromEnv.spec.js
 test/model/CoreLink.spec.js
-test/model/CovarianceInfoRep.spec.js
 test/model/CreateAnnouncementBody.spec.js
 test/model/CreateApprovalRequestRequest.spec.js
 test/model/CreateCopyFlagConfigApprovalRequestRequest.spec.js
@@ -1752,6 +1768,7 @@ test/model/PostFlagScheduledChangesInput.spec.js
 test/model/PostInsightGroupParams.spec.js
 test/model/PostReleasePolicyRequest.spec.js
 test/model/Prerequisite.spec.js
+test/model/ProgressiveReleaseConfig.spec.js
 test/model/Project.spec.js
 test/model/ProjectPost.spec.js
 test/model/ProjectRep.spec.js
@@ -1791,6 +1808,7 @@ test/model/ReleasePoliciesAccessRep.spec.js
 test/model/ReleasePoliciesResponse.spec.js
 test/model/ReleasePolicy.spec.js
 test/model/ReleasePolicyScope.spec.js
+test/model/ReleasePolicyStage.spec.js
 test/model/ReleaseProgression.spec.js
 test/model/ReleaseProgressionCollection.spec.js
 test/model/ReleaserAudienceConfigInput.spec.js

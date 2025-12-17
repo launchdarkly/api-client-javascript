@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ViewPatch model module.
  * @module model/ViewPatch
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ViewPatch {
     /**

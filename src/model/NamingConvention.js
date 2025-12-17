@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The NamingConvention model module.
  * @module model/NamingConvention
- * @version 19.0.0
+ * @version 20.0.0
  */
 class NamingConvention {
     /**

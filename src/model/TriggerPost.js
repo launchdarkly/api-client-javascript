@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The TriggerPost model module.
  * @module model/TriggerPost
- * @version 19.0.0
+ * @version 20.0.0
  */
 class TriggerPost {
     /**

@@ -17,7 +17,7 @@ import JudgeAttachment from './JudgeAttachment';
 /**
  * The JudgeConfiguration model module.
  * @module model/JudgeConfiguration
- * @version 19.0.0
+ * @version 20.0.0
  */
 class JudgeConfiguration {
     /**

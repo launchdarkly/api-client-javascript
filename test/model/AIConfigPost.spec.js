@@ -96,6 +96,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property defaultVariation (base name: "defaultVariation")', function() {
+      // uncomment below and update the code to test the property defaultVariation
+      //var instance = new LaunchDarklyApi.AIConfigPost();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

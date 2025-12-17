@@ -128,6 +128,26 @@
         done();
       });
     });
+    describe('getMAUClientsideUsage', function() {
+      it('should call getMAUClientsideUsage successfully', function(done) {
+        //uncomment below and update the code to test getMAUClientsideUsage
+        //instance.getMAUClientsideUsage(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('getMAUTotalUsage', function() {
+      it('should call getMAUTotalUsage successfully', function(done) {
+        //uncomment below and update the code to test getMAUTotalUsage
+        //instance.getMAUTotalUsage(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('getMauSdksByType', function() {
       it('should call getMauSdksByType successfully', function(done) {
         //uncomment below and update the code to test getMauSdksByType

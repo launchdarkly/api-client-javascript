@@ -31,7 +31,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * Teams service.
 * @module api/TeamsApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class TeamsApi {
 

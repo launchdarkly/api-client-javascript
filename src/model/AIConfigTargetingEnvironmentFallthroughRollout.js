@@ -18,7 +18,7 @@ import AIConfigTargetingEnvironmentFallthroughRolloutVariation from './AIConfigT
 /**
  * The AIConfigTargetingEnvironmentFallthroughRollout model module.
  * @module model/AIConfigTargetingEnvironmentFallthroughRollout
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AIConfigTargetingEnvironmentFallthroughRollout {
     /**

@@ -49,6 +49,11 @@ import AccessDeniedReason from './model/AccessDeniedReason';
 import AccessTokenPost from './model/AccessTokenPost';
 import ActionInput from './model/ActionInput';
 import ActionOutput from './model/ActionOutput';
+import AgentGraph from './model/AgentGraph';
+import AgentGraphEdge from './model/AgentGraphEdge';
+import AgentGraphEdgePost from './model/AgentGraphEdgePost';
+import AgentGraphPost from './model/AgentGraphPost';
+import AgentGraphs from './model/AgentGraphs';
 import AiConfigsAccess from './model/AiConfigsAccess';
 import AiConfigsAccessAllowedReason from './model/AiConfigsAccessAllowedReason';
 import AiConfigsAccessAllowedRep from './model/AiConfigsAccessAllowedRep';
@@ -144,7 +149,6 @@ import ContextSearch from './model/ContextSearch';
 import Contexts from './model/Contexts';
 import CopiedFromEnv from './model/CopiedFromEnv';
 import CoreLink from './model/CoreLink';
-import CovarianceInfoRep from './model/CovarianceInfoRep';
 import CreateAnnouncementBody from './model/CreateAnnouncementBody';
 import CreateApprovalRequestRequest from './model/CreateApprovalRequestRequest';
 import CreateCopyFlagConfigApprovalRequestRequest from './model/CreateCopyFlagConfigApprovalRequestRequest';
@@ -426,6 +430,7 @@ import PostFlagScheduledChangesInput from './model/PostFlagScheduledChangesInput
 import PostInsightGroupParams from './model/PostInsightGroupParams';
 import PostReleasePolicyRequest from './model/PostReleasePolicyRequest';
 import Prerequisite from './model/Prerequisite';
+import ProgressiveReleaseConfig from './model/ProgressiveReleaseConfig';
 import Project from './model/Project';
 import ProjectPost from './model/ProjectPost';
 import ProjectRep from './model/ProjectRep';
@@ -465,6 +470,7 @@ import ReleasePoliciesAccessRep from './model/ReleasePoliciesAccessRep';
 import ReleasePoliciesResponse from './model/ReleasePoliciesResponse';
 import ReleasePolicy from './model/ReleasePolicy';
 import ReleasePolicyScope from './model/ReleasePolicyScope';
+import ReleasePolicyStage from './model/ReleasePolicyStage';
 import ReleaseProgression from './model/ReleaseProgression';
 import ReleaseProgressionCollection from './model/ReleaseProgressionCollection';
 import ReleaserAudienceConfigInput from './model/ReleaserAudienceConfigInput';
@@ -682,7 +688,7 @@ import WorkflowsApi from './api/WorkflowsApi';
 * </pre>
 * </p>
 * @module index
-* @version 19.0.0
+* @version 20.0.0
 */
 export {
     /**
@@ -906,6 +912,36 @@ export {
      * @property {module:model/ActionOutput}
      */
     ActionOutput,
+
+    /**
+     * The AgentGraph model constructor.
+     * @property {module:model/AgentGraph}
+     */
+    AgentGraph,
+
+    /**
+     * The AgentGraphEdge model constructor.
+     * @property {module:model/AgentGraphEdge}
+     */
+    AgentGraphEdge,
+
+    /**
+     * The AgentGraphEdgePost model constructor.
+     * @property {module:model/AgentGraphEdgePost}
+     */
+    AgentGraphEdgePost,
+
+    /**
+     * The AgentGraphPost model constructor.
+     * @property {module:model/AgentGraphPost}
+     */
+    AgentGraphPost,
+
+    /**
+     * The AgentGraphs model constructor.
+     * @property {module:model/AgentGraphs}
+     */
+    AgentGraphs,
 
     /**
      * The AiConfigsAccess model constructor.
@@ -1476,12 +1512,6 @@ export {
      * @property {module:model/CoreLink}
      */
     CoreLink,
-
-    /**
-     * The CovarianceInfoRep model constructor.
-     * @property {module:model/CovarianceInfoRep}
-     */
-    CovarianceInfoRep,
 
     /**
      * The CreateAnnouncementBody model constructor.
@@ -3170,6 +3200,12 @@ export {
     Prerequisite,
 
     /**
+     * The ProgressiveReleaseConfig model constructor.
+     * @property {module:model/ProgressiveReleaseConfig}
+     */
+    ProgressiveReleaseConfig,
+
+    /**
      * The Project model constructor.
      * @property {module:model/Project}
      */
@@ -3402,6 +3438,12 @@ export {
      * @property {module:model/ReleasePolicyScope}
      */
     ReleasePolicyScope,
+
+    /**
+     * The ReleasePolicyStage model constructor.
+     * @property {module:model/ReleasePolicyStage}
+     */
+    ReleasePolicyStage,
 
     /**
      * The ReleaseProgression model constructor.

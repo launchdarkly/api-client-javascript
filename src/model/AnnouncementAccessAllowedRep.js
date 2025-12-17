@@ -17,7 +17,7 @@ import AnnouncementAccessAllowedReason from './AnnouncementAccessAllowedReason';
 /**
  * The AnnouncementAccessAllowedRep model module.
  * @module model/AnnouncementAccessAllowedRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AnnouncementAccessAllowedRep {
     /**

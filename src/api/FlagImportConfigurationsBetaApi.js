@@ -27,7 +27,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * FlagImportConfigurationsBeta service.
 * @module api/FlagImportConfigurationsBetaApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class FlagImportConfigurationsBetaApi {
 

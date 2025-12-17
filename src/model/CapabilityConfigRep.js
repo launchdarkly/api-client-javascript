@@ -18,7 +18,7 @@ import AuditLogEventsHookCapabilityConfigRep from './AuditLogEventsHookCapabilit
 /**
  * The CapabilityConfigRep model module.
  * @module model/CapabilityConfigRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class CapabilityConfigRep {
     /**

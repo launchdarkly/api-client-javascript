@@ -23,7 +23,7 @@ import UnauthorizedErrorRep from '../model/UnauthorizedErrorRep';
 /**
 * FollowFlags service.
 * @module api/FollowFlagsApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class FollowFlagsApi {
 

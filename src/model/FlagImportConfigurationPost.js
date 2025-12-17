@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The FlagImportConfigurationPost model module.
  * @module model/FlagImportConfigurationPost
- * @version 19.0.0
+ * @version 20.0.0
  */
 class FlagImportConfigurationPost {
     /**

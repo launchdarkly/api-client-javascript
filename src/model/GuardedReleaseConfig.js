@@ -12,22 +12,22 @@
  */
 
 import ApiClient from '../ApiClient';
+import ReleasePolicyStage from './ReleasePolicyStage';
 
 /**
  * The GuardedReleaseConfig model module.
  * @module model/GuardedReleaseConfig
- * @version 19.0.0
+ * @version 20.0.0
  */
 class GuardedReleaseConfig {
     /**
      * Constructs a new <code>GuardedReleaseConfig</code>.
      * Configuration for guarded releases
      * @alias module:model/GuardedReleaseConfig
-     * @param rollbackOnRegression {Boolean} Whether to roll back on regression
      */
-    constructor(rollbackOnRegression) { 
+    constructor() { 
         
-        GuardedReleaseConfig.initialize(this, rollbackOnRegression);
+        GuardedReleaseConfig.initialize(this);
     }
 
     /**
@@ -35,8 +35,7 @@ class GuardedReleaseConfig {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, rollbackOnRegression) { 
-        obj['rollbackOnRegression'] = rollbackOnRegression;
+    static initialize(obj) { 
     }
 
     /**
@@ -50,11 +49,23 @@ class GuardedReleaseConfig {
         if (data) {
             obj = obj || new GuardedReleaseConfig();
 
+            if (data.hasOwnProperty('rolloutContextKindKey')) {
+                obj['rolloutContextKindKey'] = ApiClient.convertToType(data['rolloutContextKindKey'], 'String');
+            }
             if (data.hasOwnProperty('minSampleSize')) {
                 obj['minSampleSize'] = ApiClient.convertToType(data['minSampleSize'], 'Number');
             }
             if (data.hasOwnProperty('rollbackOnRegression')) {
                 obj['rollbackOnRegression'] = ApiClient.convertToType(data['rollbackOnRegression'], 'Boolean');
+            }
+            if (data.hasOwnProperty('metricKeys')) {
+                obj['metricKeys'] = ApiClient.convertToType(data['metricKeys'], ['String']);
+            }
+            if (data.hasOwnProperty('metricGroupKeys')) {
+                obj['metricGroupKeys'] = ApiClient.convertToType(data['metricGroupKeys'], ['String']);
+            }
+            if (data.hasOwnProperty('stages')) {
+                obj['stages'] = ApiClient.convertToType(data['stages'], [ReleasePolicyStage]);
             }
         }
         return obj;
@@ -66,11 +77,27 @@ class GuardedReleaseConfig {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>GuardedReleaseConfig</code>.
      */
     static validateJSON(data) {
-        // check to make sure all required properties are present in the JSON string
-        for (const property of GuardedReleaseConfig.RequiredProperties) {
-            if (!data.hasOwnProperty(property)) {
-                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+        // ensure the json data is a string
+        if (data['rolloutContextKindKey'] && !(typeof data['rolloutContextKindKey'] === 'string' || data['rolloutContextKindKey'] instanceof String)) {
+            throw new Error("Expected the field `rolloutContextKindKey` to be a primitive type in the JSON string but got " + data['rolloutContextKindKey']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['metricKeys'])) {
+            throw new Error("Expected the field `metricKeys` to be an array in the JSON data but got " + data['metricKeys']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['metricGroupKeys'])) {
+            throw new Error("Expected the field `metricGroupKeys` to be an array in the JSON data but got " + data['metricGroupKeys']);
+        }
+        if (data['stages']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['stages'])) {
+                throw new Error("Expected the field `stages` to be an array in the JSON data but got " + data['stages']);
             }
+            // validate the optional field `stages` (array)
+            for (const item of data['stages']) {
+                ReleasePolicyStage.validateJSON(item);
+            };
         }
 
         return true;
@@ -79,7 +106,13 @@ class GuardedReleaseConfig {
 
 }
 
-GuardedReleaseConfig.RequiredProperties = ["rollbackOnRegression"];
+
+
+/**
+ * Context kind key to use as the randomization unit for the rollout
+ * @member {String} rolloutContextKindKey
+ */
+GuardedReleaseConfig.prototype['rolloutContextKindKey'] = undefined;
 
 /**
  * The minimum number of samples required to make a decision
@@ -92,6 +125,24 @@ GuardedReleaseConfig.prototype['minSampleSize'] = undefined;
  * @member {Boolean} rollbackOnRegression
  */
 GuardedReleaseConfig.prototype['rollbackOnRegression'] = undefined;
+
+/**
+ * List of metric keys
+ * @member {Array.<String>} metricKeys
+ */
+GuardedReleaseConfig.prototype['metricKeys'] = undefined;
+
+/**
+ * List of metric group keys
+ * @member {Array.<String>} metricGroupKeys
+ */
+GuardedReleaseConfig.prototype['metricGroupKeys'] = undefined;
+
+/**
+ * List of stages
+ * @member {Array.<module:model/ReleasePolicyStage>} stages
+ */
+GuardedReleaseConfig.prototype['stages'] = undefined;
 
 
 

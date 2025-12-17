@@ -17,7 +17,7 @@ import ParentAndSelfLinks from './ParentAndSelfLinks';
 /**
  * The ExpandedSegment model module.
  * @module model/ExpandedSegment
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ExpandedSegment {
     /**

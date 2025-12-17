@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import CovarianceInfoRep from './CovarianceInfoRep';
 import DependentMetricGroupRepWithMetrics from './DependentMetricGroupRepWithMetrics';
 import DependentMetricOrMetricGroupRep from './DependentMetricOrMetricGroupRep';
 import FlagRep from './FlagRep';
@@ -23,7 +22,7 @@ import TreatmentRep from './TreatmentRep';
 /**
  * The IterationRep model module.
  * @module model/IterationRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class IterationRep {
     /**
@@ -123,9 +122,6 @@ class IterationRep {
             if (data.hasOwnProperty('layerSnapshot')) {
                 obj['layerSnapshot'] = LayerSnapshotRep.constructFromObject(data['layerSnapshot']);
             }
-            if (data.hasOwnProperty('covarianceInfo')) {
-                obj['covarianceInfo'] = CovarianceInfoRep.constructFromObject(data['covarianceInfo']);
-            }
         }
         return obj;
     }
@@ -215,10 +211,6 @@ class IterationRep {
         // validate the optional field `layerSnapshot`
         if (data['layerSnapshot']) { // data not null
           LayerSnapshotRep.validateJSON(data['layerSnapshot']);
-        }
-        // validate the optional field `covarianceInfo`
-        if (data['covarianceInfo']) { // data not null
-          CovarianceInfoRep.validateJSON(data['covarianceInfo']);
         }
 
         return true;
@@ -347,11 +339,6 @@ IterationRep.prototype['metrics'] = undefined;
  * @member {module:model/LayerSnapshotRep} layerSnapshot
  */
 IterationRep.prototype['layerSnapshot'] = undefined;
-
-/**
- * @member {module:model/CovarianceInfoRep} covarianceInfo
- */
-IterationRep.prototype['covarianceInfo'] = undefined;
 
 
 

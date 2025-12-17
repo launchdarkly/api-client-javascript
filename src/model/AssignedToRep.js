@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AssignedToRep model module.
  * @module model/AssignedToRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class AssignedToRep {
     /**

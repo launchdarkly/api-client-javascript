@@ -18,7 +18,7 @@ import HeaderItems from './HeaderItems';
 /**
  * The Endpoint model module.
  * @module model/Endpoint
- * @version 19.0.0
+ * @version 20.0.0
  */
 class Endpoint {
     /**

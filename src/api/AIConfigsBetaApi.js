@@ -27,6 +27,9 @@ import AITool from '../model/AITool';
 import AIToolPatch from '../model/AIToolPatch';
 import AIToolPost from '../model/AIToolPost';
 import AITools from '../model/AITools';
+import AgentGraph from '../model/AgentGraph';
+import AgentGraphPost from '../model/AgentGraphPost';
+import AgentGraphs from '../model/AgentGraphs';
 import Error from '../model/Error';
 import MetricByVariation from '../model/MetricByVariation';
 import Metrics from '../model/Metrics';
@@ -38,7 +41,7 @@ import RestrictedModelsResponse from '../model/RestrictedModelsResponse';
 /**
 * AIConfigsBeta service.
 * @module api/AIConfigsBetaApi
-* @version 19.0.0
+* @version 20.0.0
 */
 export default class AIConfigsBetaApi {
 
@@ -938,6 +941,61 @@ export default class AIConfigsBetaApi {
     }
 
     /**
+     * Callback function to receive the result of the listAgentGraphs operation.
+     * @callback module:api/AIConfigsBetaApi~listAgentGraphsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AgentGraphs} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * List agent graphs
+     * Get a list of all agent graphs in the given project. Returns metadata only, without edge data.
+     * @param {module:model/String} lDAPIVersion Version of the endpoint.
+     * @param {String} projectKey 
+     * @param {Object} opts Optional parameters
+     * @param {Number} [limit] The number of AI Configs to return.
+     * @param {Number} [offset] Where to start in the list. Use this with pagination. For example, an offset of 10 skips the first ten items and then returns the next items in the list, up to the query `limit`.
+     * @param {module:api/AIConfigsBetaApi~listAgentGraphsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AgentGraphs}
+     */
+    listAgentGraphs(lDAPIVersion, projectKey, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'lDAPIVersion' is set
+      if (lDAPIVersion === undefined || lDAPIVersion === null) {
+        throw new Error("Missing the required parameter 'lDAPIVersion' when calling listAgentGraphs");
+      }
+      // verify the required parameter 'projectKey' is set
+      if (projectKey === undefined || projectKey === null) {
+        throw new Error("Missing the required parameter 'projectKey' when calling listAgentGraphs");
+      }
+
+      let pathParams = {
+        'projectKey': projectKey
+      };
+      let queryParams = {
+        'limit': opts['limit'],
+        'offset': opts['offset']
+      };
+      let headerParams = {
+        'LD-API-Version': lDAPIVersion
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = AgentGraphs;
+      return this.apiClient.callApi(
+        '/api/v2/projects/{projectKey}/agent-graphs', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the listModelConfigs operation.
      * @callback module:api/AIConfigsBetaApi~listModelConfigsCallback
      * @param {String} error Error message, if any.
@@ -1391,6 +1449,60 @@ export default class AIConfigsBetaApi {
       let returnType = AITool;
       return this.apiClient.callApi(
         '/api/v2/projects/{projectKey}/ai-tools', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the postAgentGraph operation.
+     * @callback module:api/AIConfigsBetaApi~postAgentGraphCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/AgentGraph} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Create new agent graph
+     * Create a new agent graph within the given project.
+     * @param {module:model/String} lDAPIVersion Version of the endpoint.
+     * @param {String} projectKey 
+     * @param {module:model/AgentGraphPost} agentGraphPost Agent graph object to create
+     * @param {module:api/AIConfigsBetaApi~postAgentGraphCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AgentGraph}
+     */
+    postAgentGraph(lDAPIVersion, projectKey, agentGraphPost, callback) {
+      let postBody = agentGraphPost;
+      // verify the required parameter 'lDAPIVersion' is set
+      if (lDAPIVersion === undefined || lDAPIVersion === null) {
+        throw new Error("Missing the required parameter 'lDAPIVersion' when calling postAgentGraph");
+      }
+      // verify the required parameter 'projectKey' is set
+      if (projectKey === undefined || projectKey === null) {
+        throw new Error("Missing the required parameter 'projectKey' when calling postAgentGraph");
+      }
+      // verify the required parameter 'agentGraphPost' is set
+      if (agentGraphPost === undefined || agentGraphPost === null) {
+        throw new Error("Missing the required parameter 'agentGraphPost' when calling postAgentGraph");
+      }
+
+      let pathParams = {
+        'projectKey': projectKey
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+        'LD-API-Version': lDAPIVersion
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = AgentGraph;
+      return this.apiClient.callApi(
+        '/api/v2/projects/{projectKey}/agent-graphs', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

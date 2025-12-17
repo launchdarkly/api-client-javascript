@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **treatments** | [**[TreatmentInput]**](TreatmentInput.md) |  | 
 **flags** | [**{String: FlagInput}**](FlagInput.md) |  | 
 **randomizationUnit** | **String** | The unit of randomization for this iteration. Defaults to user. | [optional] 
-**covarianceId** | **String** | The ID of the covariance CSV | [optional] 
 **attributes** | **[String]** | The attributes that this iteration&#39;s results can be sliced by | [optional] 
 
 

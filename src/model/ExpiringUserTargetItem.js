@@ -17,7 +17,7 @@ import ResourceIDResponse from './ResourceIDResponse';
 /**
  * The ExpiringUserTargetItem model module.
  * @module model/ExpiringUserTargetItem
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ExpiringUserTargetItem {
     /**

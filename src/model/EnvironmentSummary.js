@@ -17,7 +17,7 @@ import Link from './Link';
 /**
  * The EnvironmentSummary model module.
  * @module model/EnvironmentSummary
- * @version 19.0.0
+ * @version 20.0.0
  */
 class EnvironmentSummary {
     /**

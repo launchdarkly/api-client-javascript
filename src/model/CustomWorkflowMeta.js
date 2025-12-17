@@ -17,7 +17,7 @@ import CustomWorkflowStageMeta from './CustomWorkflowStageMeta';
 /**
  * The CustomWorkflowMeta model module.
  * @module model/CustomWorkflowMeta
- * @version 19.0.0
+ * @version 20.0.0
  */
 class CustomWorkflowMeta {
     /**

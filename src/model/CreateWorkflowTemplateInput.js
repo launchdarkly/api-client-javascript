@@ -17,7 +17,7 @@ import StageInput from './StageInput';
 /**
  * The CreateWorkflowTemplateInput model module.
  * @module model/CreateWorkflowTemplateInput
- * @version 19.0.0
+ * @version 20.0.0
  */
 class CreateWorkflowTemplateInput {
     /**

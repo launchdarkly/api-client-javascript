@@ -19,7 +19,7 @@ import Link from './Link';
 /**
  * The ExpiringTargetPatchResponse model module.
  * @module model/ExpiringTargetPatchResponse
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ExpiringTargetPatchResponse {
     /**

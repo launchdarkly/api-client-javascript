@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ReleasePolicyScope model module.
  * @module model/ReleasePolicyScope
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ReleasePolicyScope {
     /**
@@ -50,6 +50,9 @@ class ReleasePolicyScope {
             if (data.hasOwnProperty('environmentKeys')) {
                 obj['environmentKeys'] = ApiClient.convertToType(data['environmentKeys'], ['String']);
             }
+            if (data.hasOwnProperty('flagTagKeys')) {
+                obj['flagTagKeys'] = ApiClient.convertToType(data['flagTagKeys'], ['String']);
+            }
         }
         return obj;
     }
@@ -63,6 +66,10 @@ class ReleasePolicyScope {
         // ensure the json data is an array
         if (!Array.isArray(data['environmentKeys'])) {
             throw new Error("Expected the field `environmentKeys` to be an array in the JSON data but got " + data['environmentKeys']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['flagTagKeys'])) {
+            throw new Error("Expected the field `flagTagKeys` to be an array in the JSON data but got " + data['flagTagKeys']);
         }
 
         return true;
@@ -78,6 +85,12 @@ class ReleasePolicyScope {
  * @member {Array.<String>} environmentKeys
  */
 ReleasePolicyScope.prototype['environmentKeys'] = undefined;
+
+/**
+ * List of flag tag keys this policy applies to
+ * @member {Array.<String>} flagTagKeys
+ */
+ReleasePolicyScope.prototype['flagTagKeys'] = undefined;
 
 
 

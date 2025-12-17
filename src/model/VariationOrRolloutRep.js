@@ -17,7 +17,7 @@ import Rollout from './Rollout';
 /**
  * The VariationOrRolloutRep model module.
  * @module model/VariationOrRolloutRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class VariationOrRolloutRep {
     /**

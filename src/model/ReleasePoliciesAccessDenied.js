@@ -17,7 +17,7 @@ import ReleasePoliciesAccessDeniedReason from './ReleasePoliciesAccessDeniedReas
 /**
  * The ReleasePoliciesAccessDenied model module.
  * @module model/ReleasePoliciesAccessDenied
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ReleasePoliciesAccessDenied {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The ForbiddenErrorRep model module.
  * @module model/ForbiddenErrorRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class ForbiddenErrorRep {
     /**

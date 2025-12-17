@@ -18,7 +18,7 @@ import Link from './Link';
 /**
  * The FeatureFlagStatusAcrossEnvironments model module.
  * @module model/FeatureFlagStatusAcrossEnvironments
- * @version 19.0.0
+ * @version 20.0.0
  */
 class FeatureFlagStatusAcrossEnvironments {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SegmentUserList model module.
  * @module model/SegmentUserList
- * @version 19.0.0
+ * @version 20.0.0
  */
 class SegmentUserList {
     /**

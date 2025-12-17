@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The GenerateWarehouseDestinationKeyPairPostRep model module.
  * @module model/GenerateWarehouseDestinationKeyPairPostRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class GenerateWarehouseDestinationKeyPairPostRep {
     /**

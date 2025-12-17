@@ -17,7 +17,7 @@ import TrustPolicyDetails from './TrustPolicyDetails';
 /**
  * The GenerateTrustPolicyPostRep model module.
  * @module model/GenerateTrustPolicyPostRep
- * @version 19.0.0
+ * @version 20.0.0
  */
 class GenerateTrustPolicyPostRep {
     /**
