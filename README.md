@@ -1,3 +1,7 @@
+# [DEPRECATED]
+
+This package is no longer maintained. Check out [our docs](https://launchdarkly.com/docs/api#openapi-swagger-and-client-libraries) to see maintained client libraries.
+
 This repository contains a client library for LaunchDarkly's REST API. This client was automatically
 generated from our [OpenAPI specification](https://app.launchdarkly.com/api/v2/openapi.json) using a [code generation library](https://github.com/launchdarkly/ld-openapi).
 
